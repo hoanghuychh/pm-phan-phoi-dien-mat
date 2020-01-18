@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3703f66548064ac6ba1739f6705b44c9" Name="Diagram1" ZoomLevel="85">
+        <EntityTypeShape EntityType="SMMgModel.DienMat" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SMMgModel.NguoiDuyet" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SMMgModel.NguoiKy" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="SMMgModel.NoiGui" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SMMgModel.NoiNhan" Width="1.5" PointX="4.75" PointY="3.75" />
+        <EntityTypeShape EntityType="SMMgModel.PemisionDetail" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SMMgModel.Permision" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="SMMgModel.sysdiagram" Width="1.5" PointX="2.75" PointY="6.75" />
+        <EntityTypeShape EntityType="SMMgModel.USER" Width="1.5" PointX="6.75" PointY="3.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
