@@ -14,10 +14,10 @@ namespace ProjectBNG.Models
     
     public partial class USER
     {
-        public int id { get; set; }
         public string NameUser { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public string PerUser { get; set; }
+        public int ID { get; set; }
     }
 }

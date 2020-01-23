@@ -28,6 +28,8 @@
     <EntitySetMapping Name="DienMats">
       <EntityTypeMapping TypeName="SMMgModel.DienMat">
         <MappingFragment StoreEntitySet="DienMat">
+          <ScalarProperty Name="BanIn" ColumnName="BanIn" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="DoMat" ColumnName="DoMat" />
           <ScalarProperty Name="Ngay" ColumnName="Ngay" />
           <ScalarProperty Name="TrichYeu" ColumnName="TrichYeu" />
@@ -39,7 +41,6 @@
           <ScalarProperty Name="Loai" ColumnName="Loai" />
           <ScalarProperty Name="TenNoiNhan" ColumnName="TenNoiNhan" />
           <ScalarProperty Name="MaNoiNhan" ColumnName="MaNoiNhan" />
-          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -117,11 +118,11 @@
     <EntitySetMapping Name="USERs">
       <EntityTypeMapping TypeName="SMMgModel.USER">
         <MappingFragment StoreEntitySet="USER">
+          <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="PerUser" ColumnName="PerUser" />
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="NameUser" ColumnName="NameUser" />
-          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

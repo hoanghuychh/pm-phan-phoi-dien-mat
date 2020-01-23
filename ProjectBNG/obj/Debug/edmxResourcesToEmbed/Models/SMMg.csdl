@@ -54,9 +54,8 @@
   </ComplexType>
   <EntityType Name="DienMat">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" />
     <Property Name="MaNoiNhan" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="TenNoiNhan" Type="String" Nullable="false" MaxLength="265" FixedLength="false" Unicode="true" />
     <Property Name="Loai" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
@@ -68,6 +67,8 @@
     <Property Name="TrichYeu" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
     <Property Name="Ngay" Type="DateTime" Precision="3" />
     <Property Name="DoMat" Type="Int32" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BanIn" Type="Int32" />
   </EntityType>
   <EntityType Name="NguoiDuyet">
     <Key>
@@ -82,7 +83,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TenNguoiKy" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
     <Property Name="ChucDanh" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
     <Property Name="MacDinh" Type="Boolean" />
@@ -92,7 +93,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Ma" Type="String" MaxLength="265" FixedLength="false" Unicode="false" />
     <Property Name="Ten" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
   </EntityType>
@@ -100,7 +101,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="MaNoiNhan" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="TenNoiNhan" Type="String" Nullable="false" MaxLength="265" FixedLength="false" Unicode="true" />
     <Property Name="Loai" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
@@ -110,7 +111,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="PerDetail" Type="Int32" Nullable="false" />
     <Property Name="Per_Action" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="Per" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
@@ -119,7 +120,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="NamePer" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="DescriptionPer" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
   </EntityType>
@@ -135,12 +136,12 @@
   </EntityType>
   <EntityType Name="USER">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" />
     <Property Name="NameUser" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="PerUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PerUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
   </EntityType>
 </Schema>

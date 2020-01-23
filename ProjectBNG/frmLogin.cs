@@ -32,7 +32,7 @@ namespace ProjectBNG
                 {
                     if (username == data.Username && password == data.Password)
                     {
-                        userID = data.id.ToString();
+                        userID = data.ID.ToString();
                         success = true;
                         break;
                     }
@@ -67,8 +67,7 @@ namespace ProjectBNG
         {
 #if DEBUG 
             this.txtUsername.Text = "user1";
-            this.txtPassword.Text = "user1";
-            
+            this.txtPassword.Text = "user1"; 
 #endif
         }
     }

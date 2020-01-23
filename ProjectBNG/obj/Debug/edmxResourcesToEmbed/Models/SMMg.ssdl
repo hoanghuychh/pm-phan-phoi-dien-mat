@@ -2,9 +2,8 @@
 <Schema Namespace="SMMgModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="DienMat">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="id" Type="int" Nullable="false" />
     <Property Name="MaNoiNhan" Type="nvarchar" MaxLength="20" Nullable="false" />
     <Property Name="TenNoiNhan" Type="nvarchar" MaxLength="265" Nullable="false" />
     <Property Name="Loai" Type="nvarchar" MaxLength="20" Nullable="false" />
@@ -16,6 +15,8 @@
     <Property Name="TrichYeu" Type="nvarchar" MaxLength="265" />
     <Property Name="Ngay" Type="datetime" />
     <Property Name="DoMat" Type="int" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BanIn" Type="int" />
   </EntityType>
   <EntityType Name="NguoiDuyet">
     <Key>
@@ -30,7 +31,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TenNguoiKy" Type="nvarchar" MaxLength="265" />
     <Property Name="ChucDanh" Type="nvarchar" MaxLength="265" />
     <Property Name="MacDinh" Type="bit" />
@@ -40,7 +41,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Ma" Type="varchar" MaxLength="265" />
     <Property Name="Ten" Type="nvarchar" MaxLength="265" />
   </EntityType>
@@ -48,7 +49,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MaNoiNhan" Type="nvarchar" MaxLength="20" Nullable="false" />
     <Property Name="TenNoiNhan" Type="nvarchar" MaxLength="265" Nullable="false" />
     <Property Name="Loai" Type="nvarchar" MaxLength="20" Nullable="false" />
@@ -58,7 +59,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="PerDetail" Type="int" Nullable="false" />
     <Property Name="Per_Action" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="Per" Type="char" MaxLength="10" />
@@ -67,7 +68,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="NamePer" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="DescriptionPer" Type="nvarchar" MaxLength="256" />
   </EntityType>
@@ -83,13 +84,13 @@
   </EntityType>
   <EntityType Name="USER">
     <Key>
-      <PropertyRef Name="id" />
+      <PropertyRef Name="ID" />
     </Key>
-    <Property Name="id" Type="int" Nullable="false" />
     <Property Name="NameUser" Type="nvarchar" MaxLength="250" Nullable="false" />
     <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="PerUser" Type="nvarchar" MaxLength="50" />
+    <Property Name="PerUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
   <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
   <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">

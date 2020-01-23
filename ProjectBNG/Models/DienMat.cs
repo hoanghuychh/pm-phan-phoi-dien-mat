@@ -14,7 +14,6 @@ namespace ProjectBNG.Models
     
     public partial class DienMat
     {
-        public int id { get; set; }
         public string MaNoiNhan { get; set; }
         public string TenNoiNhan { get; set; }
         public string Loai { get; set; }
@@ -26,5 +25,7 @@ namespace ProjectBNG.Models
         public string TrichYeu { get; set; }
         public Nullable<System.DateTime> Ngay { get; set; }
         public Nullable<int> DoMat { get; set; }
+        public int ID { get; set; }
+        public Nullable<int> BanIn { get; set; }
     }
 }
