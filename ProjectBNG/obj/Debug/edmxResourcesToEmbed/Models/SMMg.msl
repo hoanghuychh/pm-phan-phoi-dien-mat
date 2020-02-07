@@ -74,17 +74,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="NoiNhans">
-      <EntityTypeMapping TypeName="SMMgModel.NoiNhan">
-        <MappingFragment StoreEntitySet="NoiNhan">
-          <ScalarProperty Name="SoBaoMat" ColumnName="SoBaoMat" />
-          <ScalarProperty Name="Loai" ColumnName="Loai" />
-          <ScalarProperty Name="TenNoiNhan" ColumnName="TenNoiNhan" />
-          <ScalarProperty Name="MaNoiNhan" ColumnName="MaNoiNhan" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="PemisionDetails">
       <EntityTypeMapping TypeName="SMMgModel.PemisionDetail">
         <MappingFragment StoreEntitySet="PemisionDetail">
@@ -123,6 +112,30 @@
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="NameUser" ColumnName="NameUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhanLoaiNoiNhans">
+      <EntityTypeMapping TypeName="SMMgModel.PhanLoaiNoiNhan">
+        <MappingFragment StoreEntitySet="PhanLoaiNoiNhan">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="PhanLoai" ColumnName="PhanLoai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NoiNhans">
+      <EntityTypeMapping TypeName="SMMgModel.NoiNhan">
+        <MappingFragment StoreEntitySet="NoiNhan">
+          <ScalarProperty Name="CoSo" ColumnName="CoSo" />
+          <ScalarProperty Name="DangHoatDong" ColumnName="DangHoatDong" />
+          <ScalarProperty Name="CoBi" ColumnName="CoBi" />
+          <ScalarProperty Name="SoThuTu" ColumnName="SoThuTu" />
+          <ScalarProperty Name="Nhom" ColumnName="Nhom" />
+          <ScalarProperty Name="SoBaoMat" ColumnName="SoBaoMat" />
+          <ScalarProperty Name="Loai" ColumnName="Loai" />
+          <ScalarProperty Name="TenNoiNhan" ColumnName="TenNoiNhan" />
+          <ScalarProperty Name="MaNoiNhan" ColumnName="MaNoiNhan" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

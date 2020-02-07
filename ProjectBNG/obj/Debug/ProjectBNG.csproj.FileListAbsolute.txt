@@ -238,3 +238,9 @@ D:\Github\winform_mail_manager\ProjectBNG\obj\Debug\ProjectBNG.csproj.CoreCompil
 D:\Github\winform_mail_manager\ProjectBNG\obj\Debug\ProjectBNG.csproj.CopyComplete
 D:\Github\winform_mail_manager\ProjectBNG\obj\Debug\ProjectBNG.exe
 D:\Github\winform_mail_manager\ProjectBNG\obj\Debug\ProjectBNG.pdb
+D:\Github\winform_mail_manager\ProjectBNG\bin\Debug\DevExpress.XtraBars.v15.2.dll
+D:\Github\winform_mail_manager\ProjectBNG\bin\Debug\DevExpress.Utils.v15.2.dll
+D:\Github\winform_mail_manager\ProjectBNG\bin\Debug\DevExpress.XtraEditors.v15.2.dll
+D:\Github\winform_mail_manager\ProjectBNG\bin\Debug\DevExpress.Data.v15.2.dll
+D:\Github\winform_mail_manager\ProjectBNG\bin\Debug\DevExpress.Printing.v15.2.Core.dll
+D:\Github\winform_mail_manager\ProjectBNG\bin\Debug\DevExpress.Sparkline.v15.2.Core.dll

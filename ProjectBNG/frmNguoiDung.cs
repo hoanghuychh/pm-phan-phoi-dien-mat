@@ -8,11 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Entity;
+using DevExpress.Data;
+using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid.Views.Base;
+using DevExpress.XtraGrid.Columns;
 
 namespace ProjectBNG
 {
     public partial class frmNguoiDung : Form
     {
+        public System.Windows.Forms.Keys Modifiers { get; }
         public frmNguoiDung()
         {
             InitializeComponent();
@@ -73,5 +79,21 @@ namespace ProjectBNG
             }
 
         }
+
+        private void btnXoa_Click(object sender,KeyEventArgs e)
+        {
+           // gridControl1.ProcessGridKey += GridControl1_ProcessGridKey;
+            ColumnView columnView = gridControl1.MainView as ColumnView;
+            columnView.OptionsSelection.MultiSelect = true;
+
+            var gird = sender as GridControl;
+            var view = gird.FocusedView as GridView;
+            //if (e.KeyData = Keys.Delete) {
+                columnView.DeleteSelectedRows();
+                e.Handled = true;
+           // }           
+
+        }
+
     }
 }

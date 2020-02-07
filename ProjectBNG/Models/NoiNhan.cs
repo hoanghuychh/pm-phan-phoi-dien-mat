@@ -18,6 +18,11 @@ namespace ProjectBNG.Models
         public string MaNoiNhan { get; set; }
         public string TenNoiNhan { get; set; }
         public string Loai { get; set; }
-        public Nullable<int> SoBaoMat { get; set; }
+        public int SoBaoMat { get; set; }
+        public string Nhom { get; set; }
+        public Nullable<int> SoThuTu { get; set; }
+        public Nullable<bool> CoBi { get; set; }
+        public Nullable<bool> DangHoatDong { get; set; }
+        public string CoSo { get; set; }
     }
 }

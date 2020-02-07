@@ -43,7 +43,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.btnThemNoiNhan = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbLoai = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -95,6 +95,9 @@
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.GroupCount = 1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsSelection.EnableAppearanceHideSelection = false;
+            this.gridView1.OptionsSelection.ShowCheckBoxSelectorInColumnHeader = DevExpress.Utils.DefaultBoolean.True;
+            this.gridView1.OptionsSelection.ShowCheckBoxSelectorInGroupRow = DevExpress.Utils.DefaultBoolean.True;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.OptionsView.ShowIndicator = false;
             this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
@@ -158,7 +161,7 @@
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.btnThemNoiNhan);
             this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.comboBox1);
+            this.panel2.Controls.Add(this.cmbLoai);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.textBox1);
@@ -201,14 +204,14 @@
             this.button1.Text = "Tìm";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // cmbLoai
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(443, 2);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(137, 24);
-            this.comboBox1.TabIndex = 3;
+            this.cmbLoai.FormattingEnabled = true;
+            this.cmbLoai.Location = new System.Drawing.Point(443, 2);
+            this.cmbLoai.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbLoai.Name = "cmbLoai";
+            this.cmbLoai.Size = new System.Drawing.Size(137, 24);
+            this.cmbLoai.TabIndex = 3;
             // 
             // label2
             // 
@@ -267,7 +270,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnThemNoiNhan;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbLoai;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;

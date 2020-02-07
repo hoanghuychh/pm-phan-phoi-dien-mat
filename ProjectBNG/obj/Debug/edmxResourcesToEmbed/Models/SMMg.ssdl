@@ -53,7 +53,12 @@
     <Property Name="MaNoiNhan" Type="nvarchar" MaxLength="20" Nullable="false" />
     <Property Name="TenNoiNhan" Type="nvarchar" MaxLength="265" Nullable="false" />
     <Property Name="Loai" Type="nvarchar" MaxLength="20" Nullable="false" />
-    <Property Name="SoBaoMat" Type="int" />
+    <Property Name="SoBaoMat" Type="int" Nullable="false" />
+    <Property Name="Nhom" Type="nvarchar" MaxLength="265" />
+    <Property Name="SoThuTu" Type="int" />
+    <Property Name="CoBi" Type="bit" />
+    <Property Name="DangHoatDong" Type="bit" />
+    <Property Name="CoSo" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="PemisionDetail">
     <Key>
@@ -71,6 +76,13 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="NamePer" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="DescriptionPer" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="PhanLoaiNoiNhan">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="PhanLoai" Type="nvarchar" MaxLength="50" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -131,6 +143,7 @@
     <EntitySet Name="NoiNhan" EntityType="Self.NoiNhan" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PemisionDetail" EntityType="Self.PemisionDetail" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Permision" EntityType="Self.Permision" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhanLoaiNoiNhan" EntityType="Self.PhanLoaiNoiNhan" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="USER" EntityType="Self.USER" Schema="dbo" store:Type="Tables" />
   </EntityContainer>

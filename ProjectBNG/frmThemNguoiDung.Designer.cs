@@ -66,7 +66,7 @@
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 28);
-            this.button2.TabIndex = 9;
+            this.button2.TabIndex = 6;
             this.button2.Text = "Đóng";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -77,17 +77,17 @@
             this.tbNameUser.Margin = new System.Windows.Forms.Padding(4);
             this.tbNameUser.Name = "tbNameUser";
             this.tbNameUser.Size = new System.Drawing.Size(288, 22);
-            this.tbNameUser.TabIndex = 8;
+            this.tbNameUser.TabIndex = 4;
             // 
             // tbPassword
             // 
+            this.tbPassword.BackColor = System.Drawing.SystemColors.Window;
             this.tbPassword.Location = new System.Drawing.Point(120, 49);
             this.tbPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
-            this.tbPassword.ReadOnly = true;
             this.tbPassword.Size = new System.Drawing.Size(288, 22);
-            this.tbPassword.TabIndex = 7;
+            this.tbPassword.TabIndex = 2;
             // 
             // label4
             // 
@@ -125,7 +125,7 @@
             this.btnGhi.Margin = new System.Windows.Forms.Padding(4);
             this.btnGhi.Name = "btnGhi";
             this.btnGhi.Size = new System.Drawing.Size(100, 28);
-            this.btnGhi.TabIndex = 3;
+            this.btnGhi.TabIndex = 5;
             this.btnGhi.Text = "Ghi";
             this.btnGhi.UseVisualStyleBackColor = true;
             this.btnGhi.Click += new System.EventHandler(this.btnGhi_Click);
@@ -137,7 +137,7 @@
             this.cmoQuyen.Margin = new System.Windows.Forms.Padding(4);
             this.cmoQuyen.Name = "cmoQuyen";
             this.cmoQuyen.Size = new System.Drawing.Size(200, 24);
-            this.cmoQuyen.TabIndex = 2;
+            this.cmoQuyen.TabIndex = 3;
             // 
             // tbUsername
             // 

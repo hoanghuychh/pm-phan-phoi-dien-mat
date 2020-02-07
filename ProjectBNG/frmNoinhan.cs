@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Entity;
+using ProjectBNG.Models;
 
 namespace ProjectBNG
 {
@@ -67,11 +68,21 @@ namespace ProjectBNG
             }
 
         }
-
+        private SMMgEntities publicLoai;
         private void frmNoinhan_Load(object sender, EventArgs e)
         {
             this.gridView1.OptionsView.ShowGroupedColumns = true;
-            
+            publicLoai = new SMMgEntities();
+            cmbLoai.DataSource = publicLoai.PhanLoaiNoiNhans.ToList();
+            cmbLoai.DisplayMember = "PhanLoai";
+            cmbLoai.Invalidate();
+        }
+        public void reloadFormNoiNhan()
+        {
+            //if
+            //this.Close();
+            ////this.Refresh();
+            //this.Show();
         }
     }
 }
