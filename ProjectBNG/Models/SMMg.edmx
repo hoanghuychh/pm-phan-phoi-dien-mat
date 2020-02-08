@@ -79,7 +79,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NamePer" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="NamePer" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="DescriptionPer" Type="nvarchar" MaxLength="256" />
         </EntityType>
         <EntityType Name="PhanLoaiNoiNhan">
@@ -98,6 +98,13 @@
           <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TrangThai">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameTrangThai" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="USER">
           <Key>
@@ -150,6 +157,7 @@
           <EntitySet Name="Permision" EntityType="Self.Permision" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PhanLoaiNoiNhan" EntityType="Self.PhanLoaiNoiNhan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TrangThai" EntityType="Self.TrangThai" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USER" EntityType="Self.USER" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -192,11 +200,12 @@
           <EntitySet Name="NguoiKies" EntityType="SMMgModel.NguoiKy" />
           <EntitySet Name="NoiGuis" EntityType="SMMgModel.NoiGui" />
           <EntitySet Name="PemisionDetails" EntityType="SMMgModel.PemisionDetail" />
-          <EntitySet Name="Permisions" EntityType="SMMgModel.Permision" />
           <EntitySet Name="sysdiagrams" EntityType="SMMgModel.sysdiagram" />
           <EntitySet Name="USERs" EntityType="SMMgModel.USER" />
           <EntitySet Name="PhanLoaiNoiNhans" EntityType="SMMgModel.PhanLoaiNoiNhan" />
           <EntitySet Name="NoiNhans" EntityType="SMMgModel.NoiNhan" />
+          <EntitySet Name="Permisions" EntityType="SMMgModel.Permision" />
+          <EntitySet Name="TrangThais" EntityType="SMMgModel.TrangThai" />
           </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -263,14 +272,6 @@
           <Property Name="Per_Action" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="Per" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
         </EntityType>
-        <EntityType Name="Permision">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NamePer" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="DescriptionPer" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -312,6 +313,21 @@
           <Property Name="CoBi" Type="Boolean" />
           <Property Name="DangHoatDong" Type="Boolean" />
           <Property Name="CoSo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Permision">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NamePer" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DescriptionPer" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TrangThai">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameTrangThai" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -402,15 +418,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Permisions">
-            <EntityTypeMapping TypeName="SMMgModel.Permision">
-              <MappingFragment StoreEntitySet="Permision">
-                <ScalarProperty Name="DescriptionPer" ColumnName="DescriptionPer" />
-                <ScalarProperty Name="NamePer" ColumnName="NamePer" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="SMMgModel.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
@@ -453,6 +460,23 @@
                 <ScalarProperty Name="Loai" ColumnName="Loai" />
                 <ScalarProperty Name="TenNoiNhan" ColumnName="TenNoiNhan" />
                 <ScalarProperty Name="MaNoiNhan" ColumnName="MaNoiNhan" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Permisions">
+            <EntityTypeMapping TypeName="SMMgModel.Permision">
+              <MappingFragment StoreEntitySet="Permision">
+                <ScalarProperty Name="DescriptionPer" ColumnName="DescriptionPer" />
+                <ScalarProperty Name="NamePer" ColumnName="NamePer" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrangThais">
+            <EntityTypeMapping TypeName="SMMgModel.TrangThai">
+              <MappingFragment StoreEntitySet="TrangThai">
+                <ScalarProperty Name="NameTrangThai" ColumnName="NameTrangThai" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -84,15 +84,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Permisions">
-      <EntityTypeMapping TypeName="SMMgModel.Permision">
-        <MappingFragment StoreEntitySet="Permision">
-          <ScalarProperty Name="DescriptionPer" ColumnName="DescriptionPer" />
-          <ScalarProperty Name="NamePer" ColumnName="NamePer" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
       <EntityTypeMapping TypeName="SMMgModel.sysdiagram">
         <MappingFragment StoreEntitySet="sysdiagrams">
@@ -135,6 +126,23 @@
           <ScalarProperty Name="Loai" ColumnName="Loai" />
           <ScalarProperty Name="TenNoiNhan" ColumnName="TenNoiNhan" />
           <ScalarProperty Name="MaNoiNhan" ColumnName="MaNoiNhan" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Permisions">
+      <EntityTypeMapping TypeName="SMMgModel.Permision">
+        <MappingFragment StoreEntitySet="Permision">
+          <ScalarProperty Name="DescriptionPer" ColumnName="DescriptionPer" />
+          <ScalarProperty Name="NamePer" ColumnName="NamePer" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrangThais">
+      <EntityTypeMapping TypeName="SMMgModel.TrangThai">
+        <MappingFragment StoreEntitySet="TrangThai">
+          <ScalarProperty Name="NameTrangThai" ColumnName="NameTrangThai" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>

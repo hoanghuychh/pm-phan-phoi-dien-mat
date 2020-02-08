@@ -263,6 +263,8 @@
             this.Name = "frmThongTinNoiNhan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thông tin nơi nhận";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmThongTinNoiNhan_FormClosing);
+            this.Load += new System.EventHandler(this.frmThongTinNoiNhan_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

@@ -76,6 +76,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exten\CheckMarkSelection.cs" />
     <Compile Include="frmDoiMK.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +195,9 @@
       <DependentUpon>SMMg.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>SMMg.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TrangThai.cs">
       <DependentUpon>SMMg.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\USER.cs">

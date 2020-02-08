@@ -40,13 +40,13 @@
             this.colSoBaoMat = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
             this.btnThemNoiNhan = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnTimKiem = new System.Windows.Forms.Button();
             this.cmbLoai = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbTenNoiNhanTimKiem = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.noiNhansBindingSource)).BeginInit();
@@ -69,9 +69,6 @@
             // 
             // gridControl1
             // 
-            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.DataSource = this.noiNhansBindingSource;
             this.gridControl1.Location = new System.Drawing.Point(4, 42);
             this.gridControl1.MainView = this.gridView1;
@@ -80,6 +77,7 @@
             this.gridControl1.TabIndex = 2;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.gridControl1.Load += new System.EventHandler(this.gridControl1_Load);
             // 
             // noiNhansBindingSource
             // 
@@ -95,8 +93,9 @@
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.GroupCount = 1;
             this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsSelection.EnableAppearanceHideSelection = false;
-            this.gridView1.OptionsSelection.ShowCheckBoxSelectorInColumnHeader = DevExpress.Utils.DefaultBoolean.True;
+            this.gridView1.OptionsBehavior.AutoExpandAllGroups = true;
+            this.gridView1.OptionsSelection.MultiSelect = true;
+            this.gridView1.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
             this.gridView1.OptionsSelection.ShowCheckBoxSelectorInGroupRow = DevExpress.Utils.DefaultBoolean.True;
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.OptionsView.ShowIndicator = false;
@@ -122,7 +121,7 @@
             this.colTenNoiNhan.MinWidth = 25;
             this.colTenNoiNhan.Name = "colTenNoiNhan";
             this.colTenNoiNhan.Visible = true;
-            this.colTenNoiNhan.VisibleIndex = 0;
+            this.colTenNoiNhan.VisibleIndex = 1;
             this.colTenNoiNhan.Width = 94;
             // 
             // colLoai
@@ -132,7 +131,7 @@
             this.colLoai.MinWidth = 25;
             this.colLoai.Name = "colLoai";
             this.colLoai.Visible = true;
-            this.colLoai.VisibleIndex = 1;
+            this.colLoai.VisibleIndex = 2;
             this.colLoai.Width = 94;
             // 
             // colSoBaoMat
@@ -142,7 +141,7 @@
             this.colSoBaoMat.MinWidth = 25;
             this.colSoBaoMat.Name = "colSoBaoMat";
             this.colSoBaoMat.Visible = true;
-            this.colSoBaoMat.VisibleIndex = 2;
+            this.colSoBaoMat.VisibleIndex = 3;
             this.colSoBaoMat.Width = 94;
             // 
             // dataGridView1
@@ -158,29 +157,30 @@
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.btnXoa);
             this.panel2.Controls.Add(this.btnThemNoiNhan);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.btnTimKiem);
             this.panel2.Controls.Add(this.cmbLoai);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.tbTenNoiNhanTimKiem);
             this.panel2.Location = new System.Drawing.Point(4, 4);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(939, 31);
             this.panel2.TabIndex = 0;
             // 
-            // button2
+            // btnXoa
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(895, 1);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(40, 28);
-            this.button2.TabIndex = 7;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnXoa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
+            this.btnXoa.Location = new System.Drawing.Point(895, 1);
+            this.btnXoa.Margin = new System.Windows.Forms.Padding(4);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(40, 28);
+            this.btnXoa.TabIndex = 7;
+            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnThemNoiNhan
             // 
@@ -194,15 +194,15 @@
             this.btnThemNoiNhan.UseVisualStyleBackColor = true;
             this.btnThemNoiNhan.Click += new System.EventHandler(this.btnThemNoiNhan_Click);
             // 
-            // button1
+            // btnTimKiem
             // 
-            this.button1.Location = new System.Drawing.Point(601, 1);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 28);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Tìm";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnTimKiem.Location = new System.Drawing.Point(601, 1);
+            this.btnTimKiem.Margin = new System.Windows.Forms.Padding(4);
+            this.btnTimKiem.Name = "btnTimKiem";
+            this.btnTimKiem.Size = new System.Drawing.Size(100, 28);
+            this.btnTimKiem.TabIndex = 4;
+            this.btnTimKiem.Text = "Tìm";
+            this.btnTimKiem.UseVisualStyleBackColor = true;
             // 
             // cmbLoai
             // 
@@ -233,13 +233,13 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Tên nơi nhận";
             // 
-            // textBox1
+            // tbTenNoiNhanTimKiem
             // 
-            this.textBox1.Location = new System.Drawing.Point(105, 2);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(269, 22);
-            this.textBox1.TabIndex = 0;
+            this.tbTenNoiNhanTimKiem.Location = new System.Drawing.Point(105, 2);
+            this.tbTenNoiNhanTimKiem.Margin = new System.Windows.Forms.Padding(4);
+            this.tbTenNoiNhanTimKiem.Name = "tbTenNoiNhanTimKiem";
+            this.tbTenNoiNhanTimKiem.Size = new System.Drawing.Size(269, 22);
+            this.tbTenNoiNhanTimKiem.TabIndex = 0;
             // 
             // frmNoinhan
             // 
@@ -252,6 +252,8 @@
             this.Name = "frmNoinhan";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nơi nhận";
+            this.Activated += new System.EventHandler(this.frmNoinhan_Activated);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmNoinhan_FormClosing);
             this.Load += new System.EventHandler(this.frmNoinhan_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
@@ -269,12 +271,12 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnThemNoiNhan;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.ComboBox cmbLoai;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox tbTenNoiNhanTimKiem;
+        private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.DataGridView dataGridView1;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;

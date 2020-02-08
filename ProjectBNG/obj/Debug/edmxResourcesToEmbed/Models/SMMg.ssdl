@@ -74,7 +74,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="NamePer" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="NamePer" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="DescriptionPer" Type="nvarchar" MaxLength="256" />
   </EntityType>
   <EntityType Name="PhanLoaiNoiNhan">
@@ -93,6 +93,13 @@
     <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TrangThai">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameTrangThai" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="USER">
     <Key>
@@ -145,6 +152,7 @@
     <EntitySet Name="Permision" EntityType="Self.Permision" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PhanLoaiNoiNhan" EntityType="Self.PhanLoaiNoiNhan" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TrangThai" EntityType="Self.TrangThai" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="USER" EntityType="Self.USER" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

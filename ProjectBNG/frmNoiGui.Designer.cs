@@ -36,10 +36,10 @@
             this.colMa = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTen = new DevExpress.XtraGrid.Columns.GridColumn();
             this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBoxMaNguoiGui = new System.Windows.Forms.TextBox();
+            this.btXoa = new System.Windows.Forms.Button();
+            this.tbMaNguoiGui = new System.Windows.Forms.TextBox();
             this.btnThemNguoiGui = new System.Windows.Forms.Button();
-            this.textBoxTenNguoiGui = new System.Windows.Forms.TextBox();
+            this.tbTenNguoiGui = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -54,10 +54,10 @@
             // 
             this.panel1.Controls.Add(this.gridControl1);
             this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.textBoxMaNguoiGui);
+            this.panel1.Controls.Add(this.btXoa);
+            this.panel1.Controls.Add(this.tbMaNguoiGui);
             this.panel1.Controls.Add(this.btnThemNguoiGui);
-            this.panel1.Controls.Add(this.textBoxTenNguoiGui);
+            this.panel1.Controls.Add(this.tbTenNguoiGui);
             this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.textBox1);
@@ -80,6 +80,7 @@
             this.gridControl1.TabIndex = 9;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            this.gridControl1.Load += new System.EventHandler(this.gridControl1_Load);
             // 
             // noiGuisBindingSource
             // 
@@ -94,6 +95,8 @@
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.OptionsView.ShowIndicator = false;
+            this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colMa, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // colMa
             // 
@@ -101,9 +104,11 @@
             this.colMa.FieldName = "Ma";
             this.colMa.MinWidth = 25;
             this.colMa.Name = "colMa";
+            this.colMa.OptionsColumn.AllowEdit = false;
+            this.colMa.OptionsColumn.ReadOnly = true;
             this.colMa.Visible = true;
             this.colMa.VisibleIndex = 0;
-            this.colMa.Width = 94;
+            this.colMa.Width = 261;
             // 
             // colTen
             // 
@@ -111,9 +116,10 @@
             this.colTen.FieldName = "Ten";
             this.colTen.MinWidth = 25;
             this.colTen.Name = "colTen";
+            this.colTen.OptionsColumn.AllowEdit = false;
             this.colTen.Visible = true;
             this.colTen.VisibleIndex = 1;
-            this.colTen.Width = 94;
+            this.colTen.Width = 721;
             // 
             // button4
             // 
@@ -128,27 +134,28 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button3
+            // btXoa
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.btXoa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(179, 602);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(100, 28);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "Xóa";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btXoa.Location = new System.Drawing.Point(179, 602);
+            this.btXoa.Margin = new System.Windows.Forms.Padding(4);
+            this.btXoa.Name = "btXoa";
+            this.btXoa.Size = new System.Drawing.Size(100, 28);
+            this.btXoa.TabIndex = 7;
+            this.btXoa.Text = "Xóa";
+            this.btXoa.UseVisualStyleBackColor = true;
+            this.btXoa.Click += new System.EventHandler(this.btXoa_Click);
             // 
-            // textBoxMaNguoiGui
+            // tbMaNguoiGui
             // 
-            this.textBoxMaNguoiGui.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.tbMaNguoiGui.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxMaNguoiGui.Location = new System.Drawing.Point(4, 570);
-            this.textBoxMaNguoiGui.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxMaNguoiGui.Name = "textBoxMaNguoiGui";
-            this.textBoxMaNguoiGui.Size = new System.Drawing.Size(117, 22);
-            this.textBoxMaNguoiGui.TabIndex = 6;
+            this.tbMaNguoiGui.Location = new System.Drawing.Point(4, 570);
+            this.tbMaNguoiGui.Margin = new System.Windows.Forms.Padding(4);
+            this.tbMaNguoiGui.Name = "tbMaNguoiGui";
+            this.tbMaNguoiGui.Size = new System.Drawing.Size(136, 22);
+            this.tbMaNguoiGui.TabIndex = 6;
             // 
             // btnThemNguoiGui
             // 
@@ -161,16 +168,17 @@
             this.btnThemNguoiGui.TabIndex = 5;
             this.btnThemNguoiGui.Text = "Thêm";
             this.btnThemNguoiGui.UseVisualStyleBackColor = true;
+            this.btnThemNguoiGui.Click += new System.EventHandler(this.btnThemNguoiGui_Click);
             // 
-            // textBoxTenNguoiGui
+            // tbTenNguoiGui
             // 
-            this.textBoxTenNguoiGui.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.tbTenNguoiGui.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxTenNguoiGui.Location = new System.Drawing.Point(131, 570);
-            this.textBoxTenNguoiGui.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxTenNguoiGui.Name = "textBoxTenNguoiGui";
-            this.textBoxTenNguoiGui.Size = new System.Drawing.Size(305, 22);
-            this.textBoxTenNguoiGui.TabIndex = 4;
+            this.tbTenNguoiGui.Location = new System.Drawing.Point(148, 570);
+            this.tbTenNguoiGui.Margin = new System.Windows.Forms.Padding(4);
+            this.tbTenNguoiGui.Name = "tbTenNguoiGui";
+            this.tbTenNguoiGui.Size = new System.Drawing.Size(288, 22);
+            this.tbTenNguoiGui.TabIndex = 4;
             // 
             // dataGridView1
             // 
@@ -224,10 +232,10 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBoxMaNguoiGui;
+        private System.Windows.Forms.Button btXoa;
+        private System.Windows.Forms.TextBox tbMaNguoiGui;
         private System.Windows.Forms.Button btnThemNguoiGui;
-        private System.Windows.Forms.TextBox textBoxTenNguoiGui;
+        private System.Windows.Forms.TextBox tbTenNguoiGui;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
