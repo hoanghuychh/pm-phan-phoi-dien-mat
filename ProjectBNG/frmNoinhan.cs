@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Entity;
-
+using ProjectBNG.Models; 
 namespace ProjectBNG
 {
     public partial class frmNoinhan : Form
@@ -26,7 +26,6 @@ namespace ProjectBNG
     noiNhansBindingSource.DataSource = dbContext.NoiNhans.Local.ToBindingList();
             }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
         }
-
         private bool CheckExistForm(string name)
         {
             bool check = false;
@@ -67,11 +66,57 @@ namespace ProjectBNG
             }
 
         }
-
-        private void frmNoinhan_Load(object sender, EventArgs e)
+        private SMMgEntities publicLoai;
+        public void frmNoinhan_Load(object sender, EventArgs e)
         {
             this.gridView1.OptionsView.ShowGroupedColumns = true;
+            publicLoai = new SMMgEntities();
+            cmbLoai.DataSource = publicLoai.PhanLoaiNoiNhans.ToList();
+            cmbLoai.DisplayMember = "PhanLoai";
+            cmbLoai.Invalidate();
+            gridControl1_Load(sender,e);
+        }
+        public void reloadFormNoiNhan()
+        {
             
         }
+
+        public void gridControl1_Load(object sender, EventArgs e)
+        {
+            SMMgEntities db = new SMMgEntities();
+            gridControl1.DataSource = db.NoiNhans.ToList();
+            gridControl1.RefreshDataSource();
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            SMMgEntities db = new SMMgEntities();
+            DialogResult wr = MessageBox.Show("Xóa nơi nhận này ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (wr == DialogResult.Yes)
+            {
+                NoiNhan delNoiNhan = new NoiNhan();
+                delNoiNhan.id = int.Parse(gridView1.GetRowCellValue(gridView1.FocusedRowHandle,"id").ToString());
+                deleteNoiNhan(delNoiNhan);
+                gridControl1_Load(sender, e);
+                MessageBox.Show("Xóa thành công ", "Thông báo");
+            }
+            void deleteNoiNhan(NoiNhan noiNhan)
+            {
+                NoiNhan d = db.NoiNhans.Find(noiNhan.id);
+                db.NoiNhans.Remove(d);
+                db.SaveChanges();
+            }
+        }
+
+        private void frmNoinhan_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            gridControl1_Load(sender, e);
+        }
+
+        private void frmNoinhan_Activated(object sender, EventArgs e)
+        {
+            gridControl1_Load(sender,e);
+        }
+        
     }
 }

@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -19,9 +20,9 @@ namespace ProjectBNG
         {
             InitializeComponent();
             publishQuyen = new SMMgEntities();
-            cmoQuyen.DataSource = publishQuyen.USERs.ToList();
-            cmoQuyen.DisplayMember = "PerUser";
-            cmoQuyen.Invalidate();
+            cmbQuyen.DataSource = publishQuyen.Permisions.ToList();
+            cmbQuyen.DisplayMember = "NamePer";
+            cmbQuyen.Invalidate();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -31,14 +32,35 @@ namespace ProjectBNG
 
         private void btnGhi_Click(object sender, EventArgs e)
         {
-            var newUser = new USER();
-            newUser.Username = tbUsername.Text;
-            newUser.Password = tbPassword.Text;
-            newUser.PerUser = cmoQuyen.Text;
-            newUser.NameUser = tbNameUser.Text;
-            var db = new SMMgEntities();
-            db.USERs.Add(newUser);
-            db.SaveChanges();
+            try
+            {
+                var newUser = new USER();
+                newUser.Username = tbUsername.Text;
+                newUser.Password = tbPassword.Text;
+                newUser.PerUser = cmbQuyen.Text;
+                newUser.NameUser = tbNameUser.Text;
+                var db = new SMMgEntities();
+                db.USERs.Add(newUser);
+                db.SaveChanges();
+                frmThemNguoiDung_Load(sender, e);
+                MessageBox.Show("Thêm người sử dụng thành công");
+                this.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Tên đăng nhập đã được sử dụng", "Thông báo");
+            }
+            
+        }
+        void frmThemNguoiDung_Load(object sender,EventArgs e)
+        {
+            frmNguoiDung frmNguoiDung = new frmNguoiDung();
+            frmNguoiDung.gridControl1_Load(sender, e);
+        }
+        private void frmThemNguoiDung_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            frmNguoiDung frmNguoiDung = new frmNguoiDung();
+            frmNguoiDung.gridControl1_Load(sender, e);
         }
     }
 }

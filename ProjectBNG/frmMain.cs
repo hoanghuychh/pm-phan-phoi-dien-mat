@@ -106,15 +106,15 @@ namespace ProjectBNG
 
         private void nơiGửiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!CheckExistForm("frmNoiGui"))
+            if (!CheckExistForm("frmNoiGui_1_"))
             {
-                frmNoiGui fnoigui = new frmNoiGui();
+                frmNoiGui_1_cs fnoigui = new frmNoiGui_1_cs();
                 fnoigui.MdiParent = this;
                 fnoigui.Show();
             }
             else
             {
-                ActiveChildForm("frmNoiGui");
+                ActiveChildForm("frmNoiGui_1_");
             }
         }
 

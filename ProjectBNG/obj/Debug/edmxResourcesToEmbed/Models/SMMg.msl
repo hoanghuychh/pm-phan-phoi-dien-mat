@@ -74,32 +74,12 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="NoiNhans">
-      <EntityTypeMapping TypeName="SMMgModel.NoiNhan">
-        <MappingFragment StoreEntitySet="NoiNhan">
-          <ScalarProperty Name="SoBaoMat" ColumnName="SoBaoMat" />
-          <ScalarProperty Name="Loai" ColumnName="Loai" />
-          <ScalarProperty Name="TenNoiNhan" ColumnName="TenNoiNhan" />
-          <ScalarProperty Name="MaNoiNhan" ColumnName="MaNoiNhan" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="PemisionDetails">
       <EntityTypeMapping TypeName="SMMgModel.PemisionDetail">
         <MappingFragment StoreEntitySet="PemisionDetail">
           <ScalarProperty Name="Per" ColumnName="Per" />
           <ScalarProperty Name="Per_Action" ColumnName="Per_Action" />
           <ScalarProperty Name="PerDetail" ColumnName="PerDetail" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Permisions">
-      <EntityTypeMapping TypeName="SMMgModel.Permision">
-        <MappingFragment StoreEntitySet="Permision">
-          <ScalarProperty Name="DescriptionPer" ColumnName="DescriptionPer" />
-          <ScalarProperty Name="NamePer" ColumnName="NamePer" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -123,6 +103,47 @@
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="NameUser" ColumnName="NameUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhanLoaiNoiNhans">
+      <EntityTypeMapping TypeName="SMMgModel.PhanLoaiNoiNhan">
+        <MappingFragment StoreEntitySet="PhanLoaiNoiNhan">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="PhanLoai" ColumnName="PhanLoai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NoiNhans">
+      <EntityTypeMapping TypeName="SMMgModel.NoiNhan">
+        <MappingFragment StoreEntitySet="NoiNhan">
+          <ScalarProperty Name="CoSo" ColumnName="CoSo" />
+          <ScalarProperty Name="DangHoatDong" ColumnName="DangHoatDong" />
+          <ScalarProperty Name="CoBi" ColumnName="CoBi" />
+          <ScalarProperty Name="SoThuTu" ColumnName="SoThuTu" />
+          <ScalarProperty Name="Nhom" ColumnName="Nhom" />
+          <ScalarProperty Name="SoBaoMat" ColumnName="SoBaoMat" />
+          <ScalarProperty Name="Loai" ColumnName="Loai" />
+          <ScalarProperty Name="TenNoiNhan" ColumnName="TenNoiNhan" />
+          <ScalarProperty Name="MaNoiNhan" ColumnName="MaNoiNhan" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Permisions">
+      <EntityTypeMapping TypeName="SMMgModel.Permision">
+        <MappingFragment StoreEntitySet="Permision">
+          <ScalarProperty Name="DescriptionPer" ColumnName="DescriptionPer" />
+          <ScalarProperty Name="NamePer" ColumnName="NamePer" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrangThais">
+      <EntityTypeMapping TypeName="SMMgModel.TrangThai">
+        <MappingFragment StoreEntitySet="TrangThai">
+          <ScalarProperty Name="NameTrangThai" ColumnName="NameTrangThai" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

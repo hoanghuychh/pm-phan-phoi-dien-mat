@@ -36,7 +36,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnGhi = new System.Windows.Forms.Button();
-            this.cmoQuyen = new System.Windows.Forms.ComboBox();
+            this.cmbQuyen = new System.Windows.Forms.ComboBox();
             this.tbUsername = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -51,7 +51,7 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.btnGhi);
-            this.panel1.Controls.Add(this.cmoQuyen);
+            this.panel1.Controls.Add(this.cmbQuyen);
             this.panel1.Controls.Add(this.tbUsername);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(16, 15);
@@ -66,7 +66,7 @@
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 28);
-            this.button2.TabIndex = 9;
+            this.button2.TabIndex = 6;
             this.button2.Text = "Đóng";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -77,17 +77,17 @@
             this.tbNameUser.Margin = new System.Windows.Forms.Padding(4);
             this.tbNameUser.Name = "tbNameUser";
             this.tbNameUser.Size = new System.Drawing.Size(288, 22);
-            this.tbNameUser.TabIndex = 8;
+            this.tbNameUser.TabIndex = 4;
             // 
             // tbPassword
             // 
+            this.tbPassword.BackColor = System.Drawing.SystemColors.Window;
             this.tbPassword.Location = new System.Drawing.Point(120, 49);
             this.tbPassword.Margin = new System.Windows.Forms.Padding(4);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.PasswordChar = '*';
-            this.tbPassword.ReadOnly = true;
             this.tbPassword.Size = new System.Drawing.Size(288, 22);
-            this.tbPassword.TabIndex = 7;
+            this.tbPassword.TabIndex = 2;
             // 
             // label4
             // 
@@ -125,19 +125,19 @@
             this.btnGhi.Margin = new System.Windows.Forms.Padding(4);
             this.btnGhi.Name = "btnGhi";
             this.btnGhi.Size = new System.Drawing.Size(100, 28);
-            this.btnGhi.TabIndex = 3;
+            this.btnGhi.TabIndex = 5;
             this.btnGhi.Text = "Ghi";
             this.btnGhi.UseVisualStyleBackColor = true;
             this.btnGhi.Click += new System.EventHandler(this.btnGhi_Click);
             // 
-            // cmoQuyen
+            // cmbQuyen
             // 
-            this.cmoQuyen.FormattingEnabled = true;
-            this.cmoQuyen.Location = new System.Drawing.Point(120, 96);
-            this.cmoQuyen.Margin = new System.Windows.Forms.Padding(4);
-            this.cmoQuyen.Name = "cmoQuyen";
-            this.cmoQuyen.Size = new System.Drawing.Size(200, 24);
-            this.cmoQuyen.TabIndex = 2;
+            this.cmbQuyen.FormattingEnabled = true;
+            this.cmbQuyen.Location = new System.Drawing.Point(120, 96);
+            this.cmbQuyen.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbQuyen.Name = "cmbQuyen";
+            this.cmbQuyen.Size = new System.Drawing.Size(200, 24);
+            this.cmbQuyen.TabIndex = 3;
             // 
             // tbUsername
             // 
@@ -168,6 +168,7 @@
             this.Name = "frmThemNguoiDung";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thêm người sử dụng";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmThemNguoiDung_FormClosing);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -184,7 +185,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnGhi;
-        private System.Windows.Forms.ComboBox cmoQuyen;
+        private System.Windows.Forms.ComboBox cmbQuyen;
         private System.Windows.Forms.TextBox tbUsername;
         private System.Windows.Forms.Label label1;
     }

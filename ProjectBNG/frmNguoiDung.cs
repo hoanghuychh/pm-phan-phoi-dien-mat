@@ -8,11 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Entity;
+using DevExpress.Data;
+using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid.Views.Base;
+using DevExpress.XtraGrid.Columns;
+using ProjectBNG.Models;
 
 namespace ProjectBNG
 {
     public partial class frmNguoiDung : Form
     {
+        public System.Windows.Forms.Keys Modifiers { get; }
         public frmNguoiDung()
         {
             InitializeComponent();
@@ -26,6 +33,7 @@ namespace ProjectBNG
     // Bind data to control when loading complete
     uSERsBindingSource.DataSource = dbContext.USERs.Local.ToBindingList();
             }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
+
         }
 
         private bool CheckExistForm(string name)
@@ -72,6 +80,67 @@ namespace ProjectBNG
                 ActiveChildForm("frmThemNguoiDung");
             }
 
+        }
+
+        private void btnXoa_Click(object sender,KeyEventArgs e)
+        {
+            //// gridControl1.ProcessGridKey += GridControl1_ProcessGridKey;
+            // ColumnView columnView = gridControl1.MainView as ColumnView;
+            // columnView.OptionsSelection.MultiSelect = true;
+
+            // var gird = sender as GridControl;
+            // var view = gird.FocusedView as GridView;
+            // //if (e.KeyData = Keys.Delete) {
+            //     columnView.DeleteSelectedRows();
+            //     e.Handled = true;
+            //// }           
+            MessageBox.Show("alsd");
+            DialogResult de = MessageBox.Show("Xóa người dùng này ?", "Thông báo",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            if (de == DialogResult.Yes)
+            {
+                USER newUser = new USER();
+                newUser.ID = int.Parse(gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "ID").ToString());
+                SMMgEntities db = new SMMgEntities();
+                db.USERs.Remove(newUser);
+                db.SaveChanges();
+                gridControl1.RefreshDataSource();
+                MessageBox.Show("Xóa thành công ");
+                
+            }
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            SMMgEntities db = new SMMgEntities();
+            DialogResult de = MessageBox.Show("Xóa người dùng này ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (de == DialogResult.Yes)
+            {
+                USER newUser = new USER();
+                newUser.ID = int.Parse(gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "ID").ToString());
+                deleteUser(newUser);
+                MessageBox.Show("Xóa thành công ");
+                gridControl1_Load(sender,e);
+            }
+            void deleteUser(USER uSER)
+            {
+                USER p = db.USERs.Find(uSER.ID);
+                db.USERs.Remove(p);
+                db.SaveChanges();
+            }
+        }
+
+        public void gridControl1_Load(object sender, EventArgs e)
+        {
+            SMMgEntities db = new SMMgEntities();
+            gridControl1.DataSource = db.USERs.ToList();
+            gridControl1.RefreshDataSource();
+        }
+
+        private void frmNguoiDung_Activated(object sender, EventArgs e)
+        {
+            SMMgEntities db = new SMMgEntities();
+            gridControl1.DataSource = db.USERs.ToList();
+            gridControl1.RefreshDataSource();
         }
     }
 }
