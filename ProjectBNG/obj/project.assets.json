@@ -120,7 +120,7 @@
   },
   "libraries": {
     "DevExpress.Data/19.2.6": {
-      "sha512": "vXP6wzNUpnBBxsMKDTs4drcZY9KtOD7nKDrGmc+qGT/E1IgXCTiC+UV+ixOXIMIMRmkHYPPzIb/MHth15zipgQ==",
+      "sha512": "uZx5cOb4B2L4+xJpj46SlKPMLZYLcUlMEoQCROc6wxjjWdDv8FC8DR00hnseC2dbZJdTyrR80WBLS7izWnm6ag==",
       "type": "package",
       "path": "devexpress.data/19.2.6",
       "files": [

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,7 @@ namespace ProjectBNG
             InitializeComponent();
         }
 
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -30,7 +32,14 @@ namespace ProjectBNG
             nguoiKy.TenNguoiKy = tbTenNguoiKy.Text;
             nguoiKy.ChucDanh = tbChucDanh.Text;
             nguoiKy.MacDinh = cbMacDinh.Checked;
-            //nguoiKy.ChuKy=
+          
+            MemoryStream fileImageSave = new MemoryStream();
+            pbxChuKy.Image.Save(fileImageSave, ImageFormat.Bmp);
+
+            nguoiKy.ChuKy = fileImageSave.ToArray();
+                    fileImageSave.Dispose();
+            db.NguoiKies.Add(nguoiKy);
+            db.SaveChanges();
         }
 
         private void btnBrowseFile_Click(object sender, EventArgs e)
@@ -43,7 +52,11 @@ namespace ProjectBNG
                 {
                     tbChuKy.Text = openFileDialog.FileName;
                     pbxChuKy.Image = new Bitmap(openFileDialog.FileName);
+                    
+                   
                     pbxChuKy.SizeMode = PictureBoxSizeMode.StretchImage;
+                   
+                    
                 }
             }
             catch (Exception)

@@ -13,10 +13,11 @@ using System.Windows.Forms;
 namespace ProjectBNG {
     public partial class frmThongTinNoiNhan : Form
     {
-                
-        public frmThongTinNoiNhan()
+        Func<bool> onSubmit;
+        public frmThongTinNoiNhan(Func<bool>  onSumit)
         {
             InitializeComponent();
+            this.onSubmit = onSumit;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -50,6 +51,7 @@ namespace ProjectBNG {
             {
                 MessageBox.Show("Điền thông tin chính xác vào mẫu");
             }
+            this.onSubmit.Invoke();
 
         }
         void frmNoiNhan_Load(object sender,EventArgs e)

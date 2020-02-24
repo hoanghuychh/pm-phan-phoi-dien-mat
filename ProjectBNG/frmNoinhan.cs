@@ -56,7 +56,12 @@ namespace ProjectBNG
         {
             if (!CheckExistForm("frmThongTinNoiNhan"))
             {
-                frmThongTinNoiNhan fthongtinnoinhan = new frmThongTinNoiNhan();
+                frmThongTinNoiNhan fthongtinnoinhan = new frmThongTinNoiNhan(()=> {
+                    SMMgEntities db = new SMMgEntities();
+                    gridControl1.DataSource = db.NoiNhans.ToList();
+                    gridControl1.RefreshDataSource();
+                    return false;
+                });
                 //fthongtinnoinhan.MdiParent = this.MdiParent;
                 fthongtinnoinhan.ShowDialog(this);
             }
