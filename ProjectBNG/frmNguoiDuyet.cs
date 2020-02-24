@@ -31,5 +31,10 @@ namespace ProjectBNG
         {
             this.Close();
         }
+
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

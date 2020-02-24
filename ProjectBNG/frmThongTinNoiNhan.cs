@@ -56,6 +56,7 @@ namespace ProjectBNG {
         {
             frmNoinhan frmNoinhan = new frmNoinhan();
             frmNoinhan.gridControl1_Load(sender,e);
+            frmNoinhan.frmNoinhan_Load(sender, e);
         }
         private void tbSoBaoMat_KeyPress(object sender, KeyPressEventArgs e)
         {
