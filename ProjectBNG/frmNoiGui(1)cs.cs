@@ -51,7 +51,16 @@ namespace ProjectBNG
             if (de == DialogResult.Yes)
             {
                 NoiGui noiGui = new NoiGui();
+                try
+                {
+
                 noiGui.id = int.Parse(gridviewNoiGui.GetRowCellValue(gridviewNoiGui.FocusedRowHandle, "id").ToString());
+                
+                }
+                catch
+                {
+
+                }
                 deleteNoiGui(noiGui);
                 MessageBox.Show("Đã Xóa");
                 gridControl1_Load(sender, e);

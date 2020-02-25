@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Entity;
 using ProjectBNG.Models; 
+
 namespace ProjectBNG
 {
     public partial class frmNoinhan : Form
@@ -51,13 +52,13 @@ namespace ProjectBNG
                 }
             }
         }
-
+        SMMgEntities db = new SMMgEntities();
         private void btnThemNoiNhan_Click(object sender, EventArgs e)
         {
             if (!CheckExistForm("frmThongTinNoiNhan"))
             {
                 frmThongTinNoiNhan fthongtinnoinhan = new frmThongTinNoiNhan(()=> {
-                    SMMgEntities db = new SMMgEntities();
+                    
                     gridControl1.DataSource = db.NoiNhans.ToList();
                     gridControl1.RefreshDataSource();
                     return false;
@@ -88,19 +89,26 @@ namespace ProjectBNG
 
         public void gridControl1_Load(object sender, EventArgs e)
         {
-            SMMgEntities db = new SMMgEntities();
+            
             gridControl1.DataSource = db.NoiNhans.ToList();
             gridControl1.RefreshDataSource();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            SMMgEntities db = new SMMgEntities();
+            
             DialogResult wr = MessageBox.Show("Xóa nơi nhận này ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (wr == DialogResult.Yes)
             {
                 NoiNhan delNoiNhan = new NoiNhan();
-                delNoiNhan.id = int.Parse(gridView1.GetRowCellValue(gridView1.FocusedRowHandle,"id").ToString());
+                try
+                {
+
+                    delNoiNhan.id = int.Parse(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "id").ToString());
+                }
+                catch
+                {   
+                }
                 deleteNoiNhan(delNoiNhan);
                 gridControl1_Load(sender, e);
                 MessageBox.Show("Xóa thành công ", "Thông báo");

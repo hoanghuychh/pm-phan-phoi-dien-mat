@@ -1,6 +1,6 @@
 ﻿namespace ProjectBNG
 {
-    partial class frmThemNguoiDuyet
+    partial class frmSuaNguoiKy
     {
         /// <summary>
         /// Required designer variable.
@@ -29,52 +29,56 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pbChuKy = new System.Windows.Forms.PictureBox();
+            this.pbxChuKy = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnBrowseFile = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnThem = new System.Windows.Forms.Button();
+            this.btnCapNhat = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.tbChuKy = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cbMacDinh = new System.Windows.Forms.CheckBox();
-            this.tbTenNguoiDuyet = new System.Windows.Forms.TextBox();
+            this.tbChucDanh = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbTenNguoiKy = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbChuKy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxChuKy)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.pbChuKy);
+            this.panel1.Controls.Add(this.pbxChuKy);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.btnBrowseFile);
             this.panel1.Controls.Add(this.btnClose);
-            this.panel1.Controls.Add(this.btnThem);
+            this.panel1.Controls.Add(this.btnCapNhat);
             this.panel1.Controls.Add(this.richTextBox1);
             this.panel1.Controls.Add(this.tbChuKy);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.cbMacDinh);
-            this.panel1.Controls.Add(this.tbTenNguoiDuyet);
+            this.panel1.Controls.Add(this.tbChucDanh);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.tbTenNguoiKy);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(16, 15);
+            this.panel1.Location = new System.Drawing.Point(13, 13);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(489, 233);
             this.panel1.TabIndex = 1;
             // 
-            // pbChuKy
+            // pbxChuKy
             // 
-            this.pbChuKy.Location = new System.Drawing.Point(181, 128);
-            this.pbChuKy.Name = "pbChuKy";
-            this.pbChuKy.Size = new System.Drawing.Size(156, 64);
-            this.pbChuKy.TabIndex = 37;
-            this.pbChuKy.TabStop = false;
+            this.pbxChuKy.Location = new System.Drawing.Point(181, 128);
+            this.pbxChuKy.Name = "pbxChuKy";
+            this.pbxChuKy.Size = new System.Drawing.Size(156, 64);
+            this.pbxChuKy.TabIndex = 37;
+            this.pbxChuKy.TabStop = false;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(154, 56);
+            this.label4.Location = new System.Drawing.Point(146, 68);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(65, 17);
             this.label4.TabIndex = 36;
@@ -90,7 +94,6 @@
             this.btnBrowseFile.TabIndex = 4;
             this.btnBrowseFile.Text = "...";
             this.btnBrowseFile.UseVisualStyleBackColor = true;
-            this.btnBrowseFile.Click += new System.EventHandler(this.btnBrowseFile_Click);
             // 
             // btnClose
             // 
@@ -101,18 +104,17 @@
             this.btnClose.TabIndex = 6;
             this.btnClose.Text = "Đóng";
             this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // btnThem
+            // btnCapNhat
             // 
-            this.btnThem.Location = new System.Drawing.Point(157, 201);
-            this.btnThem.Margin = new System.Windows.Forms.Padding(4);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(100, 28);
-            this.btnThem.TabIndex = 5;
-            this.btnThem.Text = "Thêm";
-            this.btnThem.UseVisualStyleBackColor = true;
-            this.btnThem.Click += new System.EventHandler(this.btnCapNhat_Click);
+            this.btnCapNhat.Location = new System.Drawing.Point(157, 201);
+            this.btnCapNhat.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCapNhat.Name = "btnCapNhat";
+            this.btnCapNhat.Size = new System.Drawing.Size(100, 28);
+            this.btnCapNhat.TabIndex = 5;
+            this.btnCapNhat.Text = "Cập nhật";
+            this.btnCapNhat.UseVisualStyleBackColor = true;
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
             // richTextBox1
             // 
@@ -130,7 +132,6 @@
             this.tbChuKy.Name = "tbChuKy";
             this.tbChuKy.Size = new System.Drawing.Size(297, 22);
             this.tbChuKy.TabIndex = 6;
-            this.tbChuKy.TextChanged += new System.EventHandler(this.tbChuKy_TextChanged);
             // 
             // label3
             // 
@@ -145,20 +146,38 @@
             // cbMacDinh
             // 
             this.cbMacDinh.AutoSize = true;
-            this.cbMacDinh.Location = new System.Drawing.Point(120, 56);
+            this.cbMacDinh.Location = new System.Drawing.Point(120, 68);
             this.cbMacDinh.Margin = new System.Windows.Forms.Padding(4);
             this.cbMacDinh.Name = "cbMacDinh";
             this.cbMacDinh.Size = new System.Drawing.Size(18, 17);
             this.cbMacDinh.TabIndex = 3;
             this.cbMacDinh.UseVisualStyleBackColor = true;
             // 
-            // tbTenNguoiDuyet
+            // tbChucDanh
             // 
-            this.tbTenNguoiDuyet.Location = new System.Drawing.Point(120, 4);
-            this.tbTenNguoiDuyet.Margin = new System.Windows.Forms.Padding(4);
-            this.tbTenNguoiDuyet.Name = "tbTenNguoiDuyet";
-            this.tbTenNguoiDuyet.Size = new System.Drawing.Size(297, 22);
-            this.tbTenNguoiDuyet.TabIndex = 1;
+            this.tbChucDanh.Location = new System.Drawing.Point(120, 36);
+            this.tbChucDanh.Margin = new System.Windows.Forms.Padding(4);
+            this.tbChucDanh.Name = "tbChucDanh";
+            this.tbChucDanh.Size = new System.Drawing.Size(297, 22);
+            this.tbChucDanh.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(4, 41);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(76, 17);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Chức danh";
+            // 
+            // tbTenNguoiKy
+            // 
+            this.tbTenNguoiKy.Location = new System.Drawing.Point(120, 4);
+            this.tbTenNguoiKy.Margin = new System.Windows.Forms.Padding(4);
+            this.tbTenNguoiKy.Name = "tbTenNguoiKy";
+            this.tbTenNguoiKy.Size = new System.Drawing.Size(297, 22);
+            this.tbTenNguoiKy.TabIndex = 1;
             // 
             // label1
             // 
@@ -166,22 +185,22 @@
             this.label1.Location = new System.Drawing.Point(4, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 17);
+            this.label1.Size = new System.Drawing.Size(90, 17);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Tên người duyệt";
+            this.label1.Text = "Tên người ký";
             // 
-            // frmThemNguoiDuyet
+            // frmSuaNguoiKy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(521, 262);
             this.Controls.Add(this.panel1);
-            this.Name = "frmThemNguoiDuyet";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Thêm người duyệt";
+            this.Name = "frmSuaNguoiKy";
+            this.Text = "Sửa thông tin người ký";
+            this.Load += new System.EventHandler(this.frmSuaNguoiKy_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbChuKy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxChuKy)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -189,16 +208,18 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pbChuKy;
+        private System.Windows.Forms.PictureBox pbxChuKy;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnBrowseFile;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.Button btnCapNhat;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.TextBox tbChuKy;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox cbMacDinh;
-        private System.Windows.Forms.TextBox tbTenNguoiDuyet;
+        private System.Windows.Forms.TextBox tbChucDanh;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tbTenNguoiKy;
         private System.Windows.Forms.Label label1;
     }
 }

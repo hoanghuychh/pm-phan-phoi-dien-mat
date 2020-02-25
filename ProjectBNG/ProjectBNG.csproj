@@ -137,6 +137,12 @@
     <Compile Include="frmPrinting.Designer.cs">
       <DependentUpon>frmPrinting.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSuaNguoiKy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSuaNguoiKy.Designer.cs">
+      <DependentUpon>frmSuaNguoiKy.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmThemNguoiDung.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,11 +155,11 @@
     <Compile Include="frmThemNguoiDuyet.Designer.cs">
       <DependentUpon>frmThemNguoiDuyet.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmThemSuaNguoiKy.cs">
+    <Compile Include="frmThemNguoiKy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmThemSuaNguoiKy.Designer.cs">
-      <DependentUpon>frmThemSuaNguoiKy.cs</DependentUpon>
+    <Compile Include="frmThemNguoiKy.Designer.cs">
+      <DependentUpon>frmThemNguoiKy.cs</DependentUpon>
     </Compile>
     <Compile Include="frmThongTinNoiNhan.cs">
       <SubType>Form</SubType>
@@ -249,14 +255,17 @@
     <EmbeddedResource Include="frmPrinting.resx">
       <DependentUpon>frmPrinting.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmSuaNguoiKy.resx">
+      <DependentUpon>frmSuaNguoiKy.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmThemNguoiDung.resx">
       <DependentUpon>frmThemNguoiDung.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmThemNguoiDuyet.resx">
       <DependentUpon>frmThemNguoiDuyet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmThemSuaNguoiKy.resx">
-      <DependentUpon>frmThemSuaNguoiKy.cs</DependentUpon>
+    <EmbeddedResource Include="frmThemNguoiKy.resx">
+      <DependentUpon>frmThemNguoiKy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmThongTinNoiNhan.resx">
       <DependentUpon>frmThongTinNoiNhan.cs</DependentUpon>

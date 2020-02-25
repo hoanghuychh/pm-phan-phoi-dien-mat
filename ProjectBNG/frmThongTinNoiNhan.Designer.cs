@@ -47,11 +47,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbTenVietTat = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.btDong);
             this.panel1.Controls.Add(this.btCapNhat);
             this.panel1.Controls.Add(this.label8);
@@ -124,20 +128,18 @@
             this.cbHoatDong.Location = new System.Drawing.Point(93, 226);
             this.cbHoatDong.Margin = new System.Windows.Forms.Padding(4);
             this.cbHoatDong.Name = "cbHoatDong";
-            this.cbHoatDong.Size = new System.Drawing.Size(132, 21);
+            this.cbHoatDong.Size = new System.Drawing.Size(18, 17);
             this.cbHoatDong.TabIndex = 8;
-            this.cbHoatDong.Text = "Đang hoạt động";
             this.cbHoatDong.UseVisualStyleBackColor = true;
             // 
             // cbCoBi
             // 
             this.cbCoBi.AutoSize = true;
-            this.cbCoBi.Location = new System.Drawing.Point(295, 191);
+            this.cbCoBi.Location = new System.Drawing.Point(296, 188);
             this.cbCoBi.Margin = new System.Windows.Forms.Padding(4);
             this.cbCoBi.Name = "cbCoBi";
-            this.cbCoBi.Size = new System.Drawing.Size(62, 21);
+            this.cbCoBi.Size = new System.Drawing.Size(18, 17);
             this.cbCoBi.TabIndex = 7;
-            this.cbCoBi.Text = "Có bì";
             this.cbCoBi.UseVisualStyleBackColor = true;
             // 
             // tbSoThuTu
@@ -252,6 +254,24 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên viết tắt";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(338, 188);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(40, 17);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Có bì";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(129, 226);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(110, 17);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "Đang hoạt động";
+            // 
             // frmThongTinNoiNhan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -292,5 +312,7 @@
         private System.Windows.Forms.ComboBox cmbCoSo;
         private System.Windows.Forms.CheckBox cbHoatDong;
         private System.Windows.Forms.CheckBox cbCoBi;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label7;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace ProjectBNG
 {
-    partial class frmThemSuaNguoiKy
+    partial class frmThemNguoiKy
     {
         /// <summary>
         /// Required designer variable.
@@ -114,7 +114,7 @@
             this.btnCapNhat.Name = "btnCapNhat";
             this.btnCapNhat.Size = new System.Drawing.Size(100, 28);
             this.btnCapNhat.TabIndex = 5;
-            this.btnCapNhat.Text = "Cập nhật";
+            this.btnCapNhat.Text = "Thêm";
             this.btnCapNhat.UseVisualStyleBackColor = true;
             this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
@@ -191,7 +191,7 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên người ký";
             // 
-            // frmThemSuaNguoiKy
+            // frmThemNguoiKy
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -199,9 +199,9 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "frmThemSuaNguoiKy";
+            this.Name = "frmThemNguoiKy";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Người Ký";
+            this.Text = "Thêm thông tin người Ký";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxChuKy)).EndInit();

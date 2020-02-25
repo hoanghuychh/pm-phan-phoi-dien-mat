@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridControlNguoiKy = new DevExpress.XtraGrid.GridControl();
             this.nguoiKiesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridViewNguoiKy = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colTenNguoiKy = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colChucDanh = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMacDinh = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -45,9 +45,9 @@
             this.nguoiKiesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.nguoiKiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlNguoiKy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nguoiKiesBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewNguoiKy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nguoiKiesBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nguoiKiesBindingSource)).BeginInit();
@@ -55,7 +55,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.gridControl1);
+            this.panel1.Controls.Add(this.gridControlNguoiKy);
             this.panel1.Controls.Add(this.btnDong);
             this.panel1.Controls.Add(this.btnXoaNgKy);
             this.panel1.Controls.Add(this.btnSuaNgKy);
@@ -67,35 +67,35 @@
             this.panel1.Size = new System.Drawing.Size(976, 458);
             this.panel1.TabIndex = 0;
             // 
-            // gridControl1
+            // gridControlNguoiKy
             // 
-            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.gridControlNguoiKy.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gridControl1.DataSource = this.nguoiKiesBindingSource1;
-            this.gridControl1.Location = new System.Drawing.Point(3, 4);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(968, 415);
-            this.gridControl1.TabIndex = 5;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.gridControlNguoiKy.DataSource = this.nguoiKiesBindingSource1;
+            this.gridControlNguoiKy.Location = new System.Drawing.Point(3, 4);
+            this.gridControlNguoiKy.MainView = this.gridViewNguoiKy;
+            this.gridControlNguoiKy.Name = "gridControlNguoiKy";
+            this.gridControlNguoiKy.Size = new System.Drawing.Size(968, 415);
+            this.gridControlNguoiKy.TabIndex = 5;
+            this.gridControlNguoiKy.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewNguoiKy});
             // 
             // nguoiKiesBindingSource1
             // 
             this.nguoiKiesBindingSource1.DataSource = typeof(ProjectBNG.Models.NguoiKy);
             // 
-            // gridView1
+            // gridViewNguoiKy
             // 
-            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridViewNguoiKy.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colTenNguoiKy,
             this.colChucDanh,
             this.colMacDinh,
             this.colChuKy});
-            this.gridView1.GridControl = this.gridControl1;
-            this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsView.ShowGroupPanel = false;
-            this.gridView1.OptionsView.ShowIndicator = false;
+            this.gridViewNguoiKy.GridControl = this.gridControlNguoiKy;
+            this.gridViewNguoiKy.Name = "gridViewNguoiKy";
+            this.gridViewNguoiKy.OptionsView.ShowGroupPanel = false;
+            this.gridViewNguoiKy.OptionsView.ShowIndicator = false;
             // 
             // colTenNguoiKy
             // 
@@ -163,6 +163,7 @@
             this.btnXoaNgKy.TabIndex = 3;
             this.btnXoaNgKy.Text = "Xóa";
             this.btnXoaNgKy.UseVisualStyleBackColor = true;
+            this.btnXoaNgKy.Click += new System.EventHandler(this.btnXoaNgKy_Click);
             // 
             // btnSuaNgKy
             // 
@@ -176,6 +177,7 @@
             this.btnSuaNgKy.TabIndex = 2;
             this.btnSuaNgKy.Text = "Sửa";
             this.btnSuaNgKy.UseVisualStyleBackColor = true;
+            this.btnSuaNgKy.Click += new System.EventHandler(this.btnSuaNgKy_Click);
             // 
             // btnThemNgKy
             // 
@@ -219,10 +221,11 @@
             this.Name = "frmNguoiKy";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Người Ký";
+            this.Load += new System.EventHandler(this.frmNguoiKy_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlNguoiKy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nguoiKiesBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewNguoiKy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nguoiKiesBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nguoiKiesBindingSource)).EndInit();
@@ -238,9 +241,9 @@
         private System.Windows.Forms.Button btnSuaNgKy;
         private System.Windows.Forms.Button btnThemNgKy;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.GridControl gridControlNguoiKy;
         private System.Windows.Forms.BindingSource nguoiKiesBindingSource;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewNguoiKy;
         private DevExpress.XtraGrid.Columns.GridColumn colTenNguoiKy;
         private DevExpress.XtraGrid.Columns.GridColumn colChucDanh;
         private DevExpress.XtraGrid.Columns.GridColumn colMacDinh;

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Entity;
+using ProjectBNG.Models;
 
 namespace ProjectBNG
 {
@@ -31,10 +32,76 @@ namespace ProjectBNG
         {
             this.Close();
         }
+        SMMgEntities db = new SMMgEntities();
 
+        private bool CheckExistForm(string name)
+        {
+            bool check = false;
+            foreach (Form frm in this.MdiChildren)
+            {
+                if (frm.Name == name)
+                {
+                    check = true;
+                    break;
+                }
+            }
+            return check;
+        }
+
+        private void ActiveChildForm(string name)
+        {
+            foreach (Form frm in this.MdiChildren)
+            {
+                if (frm.Name == name)
+                {
+                    frm.Activate();
+                    break;
+                }
+            }
+        }
         private void btnThem_Click(object sender, EventArgs e)
         {
+            if (!CheckExistForm("frmThemNguoiDuyet"))
+            {
+                frmThemNguoiDuyet fThemNguoiDuyet = new frmThemNguoiDuyet(() => {
+                    gridControlNguoiDuyet.DataSource = db.NguoiDuyets.ToList();
+                    gridControlNguoiDuyet.RefreshDataSource();
+                    return false;
+                });
+                //fthemsuangky.MdiParent = this.MdiParent;
+                fThemNguoiDuyet.Show();
+            }
+            else
+            {
+                ActiveChildForm("frmThemNguoiDuyet");
+            }
+        }
 
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            NguoiDuyet delNguoiDuyet = new NguoiDuyet();
+            try
+            {
+                delNguoiDuyet.id = int.Parse(gridViewNguoiDuyet.GetRowCellValue(gridViewNguoiDuyet.FocusedRowHandle, "id").ToString());
+            }
+            catch { }
+            NguoiDuyet d = db.NguoiDuyets.Find(delNguoiDuyet.id);
+            db.NguoiDuyets.Remove(d);
+            db.SaveChanges();
+            //deleteNguoiKy(delNguoiKy); 
+            frmNguoiDuyet_Load(sender, e);
+            MessageBox.Show("Đã xóa thành công ", "Thông báo");
+        }
+
+        private void btnSua_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmNguoiDuyet_Load(object sender, EventArgs e)
+        {
+            gridControlNguoiDuyet.DataSource = db.NguoiDuyets.ToList();
+            gridControlNguoiDuyet.RefreshDataSource();
         }
     }
 }

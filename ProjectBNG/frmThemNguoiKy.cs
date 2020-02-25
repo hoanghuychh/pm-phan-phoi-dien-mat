@@ -13,14 +13,15 @@ using ProjectBNG.Models;
 
 namespace ProjectBNG
 {
-    public partial class frmThemSuaNguoiKy : Form
+    public partial class frmThemNguoiKy : Form
     {
-        public frmThemSuaNguoiKy()
+        Func<bool> onSubmit;
+        public frmThemNguoiKy(Func<bool> onSub)
         {
             InitializeComponent();
+            this.onSubmit = onSub;
         }
-
-
+        
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -37,9 +38,12 @@ namespace ProjectBNG
             pbxChuKy.Image.Save(fileImageSave, ImageFormat.Bmp);
 
             nguoiKy.ChuKy = fileImageSave.ToArray();
-                    fileImageSave.Dispose();
+            fileImageSave.Dispose();
             db.NguoiKies.Add(nguoiKy);
             db.SaveChanges();
+            this.onSubmit.Invoke();
+            MessageBox.Show("Thêm thông tin người ký thành công ", "Thông báo");
+            this.Close();
         }
 
         private void btnBrowseFile_Click(object sender, EventArgs e)
