@@ -90,24 +90,24 @@ namespace ProjectBNG
         NguoiKy getNguoiKy = new NguoiKy();
             if (!CheckExistForm("frmThemNguoiKy"))
             {
-                frmSuaNguoiKy fSuaNguoiKy = new frmSuaNguoiKy(()=> {
-                    gridControlNguoiKy.DataSource = db.NguoiKies.ToList();
-                    gridControlNguoiKy.RefreshDataSource();
-                    return false;
-                });
+                
 
                 try
                 {
-                    getNguoiKy.id = int.Parse(gridViewNguoiKy.GetRowCellValue(gridViewNguoiKy.FocusedRowHandle, "id").ToString());
+                    getNguoiKy = (NguoiKy)gridViewNguoiKy.GetRow(gridViewNguoiKy.FocusedRowHandle);
+
+                        //int.Parse(gridViewNguoiKy.GetRowCellValue(gridViewNguoiKy.FocusedRowHandle, "id").ToString());
                 }
                 catch { }
                 //int idNguoiKySelected;
                 //idNguoiKySelected = getNguoiKy.id;
                 //fSuaNguoiKy.getIdSelect(getNguoiKy);
-                if (passData != null)
-                {
-                    passData(getNguoiKy);
-                }
+                frmSuaNguoiKy fSuaNguoiKy = new frmSuaNguoiKy(() => {
+                    gridControlNguoiKy.DataSource = db.NguoiKies.ToList();
+                    gridControlNguoiKy.RefreshDataSource();
+                    return false;
+                }, getNguoiKy);
+                // ok done =)))))
                 fSuaNguoiKy.Show();
                 
             }

@@ -272,6 +272,7 @@ D:\Github\winform_mail_manager\ProjectBNG\obj\Debug\ProjectBNG.frmPrinting.resou
 D:\Github\winform_mail_manager\ProjectBNG\obj\Debug\ProjectBNG.frmSuaNguoiKy.resources
 D:\Github\winform_mail_manager\ProjectBNG\obj\Debug\ProjectBNG.frmThemNguoiDung.resources
 D:\Github\winform_mail_manager\ProjectBNG\obj\Debug\ProjectBNG.frmThemNguoiDuyet.resources
+D:\Github\winform_mail_manager\ProjectBNG\obj\Debug\ProjectBNG.frmThemNguoiKy.resources
 D:\Github\winform_mail_manager\ProjectBNG\obj\Debug\ProjectBNG.frmThongTinNoiNhan.resources
 D:\Github\winform_mail_manager\ProjectBNG\obj\Debug\ProjectBNG.Properties.Resources.resources
 D:\Github\winform_mail_manager\ProjectBNG\obj\Debug\ProjectBNG.csproj.GenerateResource.cache
@@ -280,4 +281,3 @@ D:\Github\winform_mail_manager\ProjectBNG\obj\Debug\ProjectBNG.csproj.CoreCompil
 D:\Github\winform_mail_manager\ProjectBNG\obj\Debug\ProjectBNG.csproj.CopyComplete
 D:\Github\winform_mail_manager\ProjectBNG\obj\Debug\ProjectBNG.exe
 D:\Github\winform_mail_manager\ProjectBNG\obj\Debug\ProjectBNG.pdb
-D:\Github\winform_mail_manager\ProjectBNG\obj\Debug\ProjectBNG.frmThemNguoiKy.resources
