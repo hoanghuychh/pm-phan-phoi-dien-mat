@@ -69,7 +69,7 @@ namespace ProjectBNG
                     return false;
                 });
                 //fthemsuangky.MdiParent = this.MdiParent;
-                fThemNguoiDuyet.Show();
+                fThemNguoiDuyet.ShowDialog(this);
             }
             else
             {
@@ -95,7 +95,19 @@ namespace ProjectBNG
 
         private void btnSua_Click(object sender, EventArgs e)
         {
+            if (!CheckExistForm("frmSuaNguoiDuyet"))
+            {
+                NguoiDuyet selectNguoiDuyet = new NguoiDuyet();
+                try
+                {
+                    selectNguoiDuyet = (NguoiDuyet)gridViewNguoiDuyet.GetRow(gridViewNguoiDuyet.FocusedRowHandle);
 
+                }
+                catch { }
+                frmNguoiDuyet frmNguoiDuyet = new frmNguoiDuyet();
+
+            }
+           
         }
 
         private void frmNguoiDuyet_Load(object sender, EventArgs e)

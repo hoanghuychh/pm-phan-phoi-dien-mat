@@ -72,7 +72,7 @@ namespace ProjectBNG
                     return false;
                 });
                 //fthemsuangky.MdiParent = this.MdiParent;
-                fthemsuangky.Show();
+                fthemsuangky.ShowDialog(this);
             }
             else
             {
@@ -88,10 +88,9 @@ namespace ProjectBNG
         {
         // lay thong tin id cua nguoi ky
         NguoiKy getNguoiKy = new NguoiKy();
-            if (!CheckExistForm("frmThemNguoiKy"))
+            if (!CheckExistForm("frmSuaNguoiKy"))
             {
                 
-
                 try
                 {
                     getNguoiKy = (NguoiKy)gridViewNguoiKy.GetRow(gridViewNguoiKy.FocusedRowHandle);
@@ -108,12 +107,12 @@ namespace ProjectBNG
                     return false;
                 }, getNguoiKy);
                 // ok done =)))))
-                fSuaNguoiKy.Show();
+                fSuaNguoiKy.ShowDialog(this);
                 
             }
             else
             {
-                ActiveChildForm("frmThemSuaNguoiKy");
+                ActiveChildForm("frmSuaNguoiKy");
             }
         }
 

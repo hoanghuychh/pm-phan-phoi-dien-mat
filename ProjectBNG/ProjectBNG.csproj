@@ -70,6 +70,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\CommonFunction.cs" />
     <Compile Include="Exten\CheckMarkSelection.cs" />
     <Compile Include="frmAddPrinting.cs">
       <SubType>Form</SubType>
@@ -167,6 +168,12 @@
     <Compile Include="frmThongTinNoiNhan.Designer.cs">
       <DependentUpon>frmThongTinNoiNhan.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSuaNguoiDuyet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSuaNguoiDuyet.Designer.cs">
+      <DependentUpon>frmSuaNguoiDuyet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\DienMat.cs">
       <DependentUpon>SMMg.tt</DependentUpon>
     </Compile>
@@ -224,6 +231,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validation\RegexModel.cs" />
+    <EmbeddedResource Include="frmAddPrinting.resx">
+      <DependentUpon>frmAddPrinting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDoiMK.resx">
       <DependentUpon>frmDoiMK.cs</DependentUpon>
     </EmbeddedResource>
@@ -254,6 +264,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrinting.resx">
       <DependentUpon>frmPrinting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSuaNguoiDuyet.resx">
+      <DependentUpon>frmSuaNguoiDuyet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSuaNguoiKy.resx">
       <DependentUpon>frmSuaNguoiKy.cs</DependentUpon>

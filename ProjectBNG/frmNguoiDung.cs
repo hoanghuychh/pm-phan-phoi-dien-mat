@@ -73,7 +73,7 @@ namespace ProjectBNG
             {
                 frmThemNguoiDung fthemngdung = new frmThemNguoiDung();
                 fthemngdung.MdiParent = this.MdiParent;
-                fthemngdung.Show();
+                fthemngdung.ShowDialog(this);
             }
             else
             {

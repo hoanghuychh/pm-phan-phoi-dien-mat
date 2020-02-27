@@ -35,8 +35,11 @@ namespace ProjectBNG
             nguoiKy.MacDinh = cbMacDinh.Checked;
           
             MemoryStream fileImageSave = new MemoryStream();
-            pbxChuKy.Image.Save(fileImageSave, ImageFormat.Bmp);
-
+            try
+            {
+                pbxChuKy.Image.Save(fileImageSave, ImageFormat.Bmp);
+            }
+            catch { }
             nguoiKy.ChuKy = fileImageSave.ToArray();
             fileImageSave.Dispose();
             db.NguoiKies.Add(nguoiKy);

@@ -281,3 +281,5 @@ D:\Github\winform_mail_manager\ProjectBNG\obj\Debug\ProjectBNG.csproj.CoreCompil
 D:\Github\winform_mail_manager\ProjectBNG\obj\Debug\ProjectBNG.csproj.CopyComplete
 D:\Github\winform_mail_manager\ProjectBNG\obj\Debug\ProjectBNG.exe
 D:\Github\winform_mail_manager\ProjectBNG\obj\Debug\ProjectBNG.pdb
+D:\Github\winform_mail_manager\ProjectBNG\obj\Debug\ProjectBNG.frmSuaNguoiDuyet.resources
+D:\Github\winform_mail_manager\ProjectBNG\obj\Debug\ProjectBNG.frmAddPrinting.resources
