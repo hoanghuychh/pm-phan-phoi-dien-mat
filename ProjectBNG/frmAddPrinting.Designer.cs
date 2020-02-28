@@ -95,6 +95,7 @@
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.GroupCount = 1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.AutoExpandAllGroups = true;
             this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.OptionsSelection.MultiSelect = true;
             this.gridView1.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect;
@@ -154,7 +155,7 @@
             this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.button1);
             this.Name = "frmAddPrinting";
-            this.Text = "frmAddPrinting";
+            this.Text = "Thêm nơi nhận";
             this.Load += new System.EventHandler(this.frmAddPrinting_Load);
             ((System.ComponentModel.ISupportInitialize)(this.noiNhansBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.noiNhansBindingSource1)).EndInit();

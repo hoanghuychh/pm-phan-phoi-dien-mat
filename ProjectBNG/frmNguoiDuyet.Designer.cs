@@ -118,7 +118,6 @@
             // colChuKy
             // 
             this.colChuKy.Caption = "Chữ Ký";
-            this.colChuKy.ColumnEdit = this.repositoryItemPictureEdit1;
             this.colChuKy.FieldName = "ChuKy";
             this.colChuKy.MinWidth = 25;
             this.colChuKy.Name = "colChuKy";
@@ -178,7 +177,7 @@
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(100, 28);
             this.btnThem.TabIndex = 1;
-            this.btnThem.Text = "Thêm";
+            this.btnThem.Text = "Thêm mới";
             this.btnThem.UseVisualStyleBackColor = true;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 

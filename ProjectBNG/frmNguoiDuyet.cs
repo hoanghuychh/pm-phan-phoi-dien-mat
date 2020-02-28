@@ -104,8 +104,17 @@ namespace ProjectBNG
 
                 }
                 catch { }
-                frmNguoiDuyet frmNguoiDuyet = new frmNguoiDuyet();
-
+                frmSuaNguoiDuyet frmSuaNguoiDuyet = new frmSuaNguoiDuyet(() =>
+                {
+                    gridControlNguoiDuyet.DataSource = db.NguoiDuyets.ToList();
+                    gridControlNguoiDuyet.RefreshDataSource();
+                    return false;
+                }, selectNguoiDuyet);
+                frmSuaNguoiDuyet.ShowDialog(this);
+            }
+            else
+            {
+                ActiveChildForm("frmSuaNguoiDuyet");
             }
            
         }

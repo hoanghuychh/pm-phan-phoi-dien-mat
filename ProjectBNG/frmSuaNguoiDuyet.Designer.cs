@@ -110,7 +110,7 @@
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(100, 28);
             this.btnThem.TabIndex = 5;
-            this.btnThem.Text = "Thêm";
+            this.btnThem.Text = "Lưu";
             this.btnThem.UseVisualStyleBackColor = true;
             this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
@@ -178,6 +178,7 @@
             this.Name = "frmSuaNguoiDuyet";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sửa thông tin người duyệt";
+            this.Load += new System.EventHandler(this.frmSuaNguoiDuyet_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbChuKy)).EndInit();

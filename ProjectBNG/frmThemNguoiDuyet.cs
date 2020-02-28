@@ -61,6 +61,7 @@ namespace ProjectBNG
                 openFileDialog.Filter = "jpg files(*.jpg)|*.jpg| PNG files(*.png)|*.png| All files(*.*)|*.*";
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
+
                     tbChuKy.Text = openFileDialog.FileName;
                     pbChuKy.Image = new Bitmap(openFileDialog.FileName);
 
