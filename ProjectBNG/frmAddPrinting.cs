@@ -45,7 +45,7 @@ namespace ProjectBNG
                 listNoiNhan.Add(item);
             }
             if (listNoiNhan.Count > 0)
-            {
+            {   
                 OnSubmitForm.Invoke(listNoiNhan);
             }
             this.Close();

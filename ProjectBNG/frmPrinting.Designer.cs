@@ -56,10 +56,7 @@
             this.colMaNoiNhan = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTenNoiNhan = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colLoai = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colBanIn = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSoBaoMat = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colGhiChu = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDoMat = new DevExpress.XtraGrid.Columns.GridColumn();
             this.label8 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.rtxtSignature = new System.Windows.Forms.RichTextBox();
@@ -94,6 +91,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.dienMatsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pdfViewer1 = new DevExpress.XtraPdfViewer.PdfViewer();
+            this.noiNhanTempsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -101,6 +99,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridViewNoiNhanPDF)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dienMatsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.noiNhanTempsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -124,7 +123,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.txtFileName);
             this.panel1.Location = new System.Drawing.Point(16, 15);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(764, 167);
             this.panel1.TabIndex = 21;
@@ -134,7 +133,7 @@
             this.btnAddAttachedFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddAttachedFile.Image = global::ProjectBNG.Properties.Resources.plus;
             this.btnAddAttachedFile.Location = new System.Drawing.Point(479, 52);
-            this.btnAddAttachedFile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddAttachedFile.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddAttachedFile.Name = "btnAddAttachedFile";
             this.btnAddAttachedFile.Size = new System.Drawing.Size(56, 28);
             this.btnAddAttachedFile.TabIndex = 36;
@@ -146,7 +145,7 @@
             this.btnRemoveAttachedFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemoveAttachedFile.Image = global::ProjectBNG.Properties.Resources.minus;
             this.btnRemoveAttachedFile.Location = new System.Drawing.Point(421, 52);
-            this.btnRemoveAttachedFile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRemoveAttachedFile.Margin = new System.Windows.Forms.Padding(4);
             this.btnRemoveAttachedFile.Name = "btnRemoveAttachedFile";
             this.btnRemoveAttachedFile.Size = new System.Drawing.Size(56, 28);
             this.btnRemoveAttachedFile.TabIndex = 35;
@@ -157,7 +156,7 @@
             // 
             this.btnBrowseFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBrowseFile.Location = new System.Drawing.Point(421, 11);
-            this.btnBrowseFile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBrowseFile.Margin = new System.Windows.Forms.Padding(4);
             this.btnBrowseFile.Name = "btnBrowseFile";
             this.btnBrowseFile.Size = new System.Drawing.Size(115, 28);
             this.btnBrowseFile.TabIndex = 34;
@@ -170,7 +169,7 @@
             this.datetime.CustomFormat = "dd/MM/yyyy";
             this.datetime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.datetime.Location = new System.Drawing.Point(603, 94);
-            this.datetime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.datetime.Margin = new System.Windows.Forms.Padding(4);
             this.datetime.Name = "datetime";
             this.datetime.Size = new System.Drawing.Size(159, 22);
             this.datetime.TabIndex = 33;
@@ -178,7 +177,7 @@
             // txtPrivateNumber
             // 
             this.txtPrivateNumber.Location = new System.Drawing.Point(408, 94);
-            this.txtPrivateNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPrivateNumber.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrivateNumber.Name = "txtPrivateNumber";
             this.txtPrivateNumber.Size = new System.Drawing.Size(125, 22);
             this.txtPrivateNumber.TabIndex = 32;
@@ -187,7 +186,7 @@
             // 
             this.cbxPrivateAttachedFile.FormattingEnabled = true;
             this.cbxPrivateAttachedFile.Location = new System.Drawing.Point(603, 53);
-            this.cbxPrivateAttachedFile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbxPrivateAttachedFile.Margin = new System.Windows.Forms.Padding(4);
             this.cbxPrivateAttachedFile.Name = "cbxPrivateAttachedFile";
             this.cbxPrivateAttachedFile.Size = new System.Drawing.Size(159, 24);
             this.cbxPrivateAttachedFile.TabIndex = 31;
@@ -196,7 +195,7 @@
             // 
             this.cbxPrivateFile.FormattingEnabled = true;
             this.cbxPrivateFile.Location = new System.Drawing.Point(603, 12);
-            this.cbxPrivateFile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbxPrivateFile.Margin = new System.Windows.Forms.Padding(4);
             this.cbxPrivateFile.Name = "cbxPrivateFile";
             this.cbxPrivateFile.Size = new System.Drawing.Size(159, 24);
             this.cbxPrivateFile.TabIndex = 30;
@@ -235,7 +234,7 @@
             // 
             this.cbxPlaceOfSending.FormattingEnabled = true;
             this.cbxPlaceOfSending.Location = new System.Drawing.Point(129, 94);
-            this.cbxPlaceOfSending.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbxPlaceOfSending.Margin = new System.Windows.Forms.Padding(4);
             this.cbxPlaceOfSending.Name = "cbxPlaceOfSending";
             this.cbxPlaceOfSending.Size = new System.Drawing.Size(191, 24);
             this.cbxPlaceOfSending.TabIndex = 26;
@@ -243,7 +242,7 @@
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(129, 134);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(632, 22);
             this.textBox3.TabIndex = 25;
@@ -251,7 +250,7 @@
             // txtAttachedFileName
             // 
             this.txtAttachedFileName.Location = new System.Drawing.Point(129, 53);
-            this.txtAttachedFileName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAttachedFileName.Margin = new System.Windows.Forms.Padding(4);
             this.txtAttachedFileName.Name = "txtAttachedFileName";
             this.txtAttachedFileName.Size = new System.Drawing.Size(280, 22);
             this.txtAttachedFileName.TabIndex = 24;
@@ -300,7 +299,7 @@
             // 
             this.txtFileName.Enabled = false;
             this.txtFileName.Location = new System.Drawing.Point(129, 12);
-            this.txtFileName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtFileName.Margin = new System.Windows.Forms.Padding(4);
             this.txtFileName.Name = "txtFileName";
             this.txtFileName.ReadOnly = true;
             this.txtFileName.Size = new System.Drawing.Size(280, 22);
@@ -311,14 +310,14 @@
             this.panel2.Controls.Add(this.gridControl1);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Location = new System.Drawing.Point(15, 190);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(764, 369);
             this.panel2.TabIndex = 22;
             // 
             // gridControl1
             // 
-            this.gridControl1.DataSource = this.dienMatsBindingSource1;
+            this.gridControl1.DataSource = this.noiNhanTempsBindingSource;
             this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             gridLevelNode1.RelationName = "Level1";
             this.gridControl1.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
@@ -342,10 +341,7 @@
             this.colMaNoiNhan,
             this.colTenNoiNhan,
             this.colLoai,
-            this.colBanIn,
-            this.colSoBaoMat,
-            this.colGhiChu,
-            this.colDoMat});
+            this.colSoBaoMat});
             this.gridViewNoiNhanPDF.GridControl = this.gridControl1;
             this.gridViewNoiNhanPDF.Name = "gridViewNoiNhanPDF";
             this.gridViewNoiNhanPDF.OptionsView.ShowGroupPanel = false;
@@ -353,6 +349,7 @@
             // 
             // colMaNoiNhan
             // 
+            this.colMaNoiNhan.Caption = "Mã nơi nhận";
             this.colMaNoiNhan.FieldName = "MaNoiNhan";
             this.colMaNoiNhan.MinWidth = 25;
             this.colMaNoiNhan.Name = "colMaNoiNhan";
@@ -362,6 +359,7 @@
             // 
             // colTenNoiNhan
             // 
+            this.colTenNoiNhan.Caption = "Tên nơi nhận";
             this.colTenNoiNhan.FieldName = "TenNoiNhan";
             this.colTenNoiNhan.MinWidth = 25;
             this.colTenNoiNhan.Name = "colTenNoiNhan";
@@ -371,6 +369,7 @@
             // 
             // colLoai
             // 
+            this.colLoai.Caption = "Loại";
             this.colLoai.FieldName = "Loai";
             this.colLoai.MinWidth = 25;
             this.colLoai.Name = "colLoai";
@@ -378,41 +377,15 @@
             this.colLoai.VisibleIndex = 2;
             this.colLoai.Width = 93;
             // 
-            // colBanIn
-            // 
-            this.colBanIn.Caption = "Bản In";
-            this.colBanIn.MinWidth = 25;
-            this.colBanIn.Name = "colBanIn";
-            this.colBanIn.Visible = true;
-            this.colBanIn.VisibleIndex = 6;
-            this.colBanIn.Width = 93;
-            // 
             // colSoBaoMat
             // 
+            this.colSoBaoMat.Caption = "Số bảo mật";
             this.colSoBaoMat.FieldName = "SoBaoMat";
             this.colSoBaoMat.MinWidth = 25;
             this.colSoBaoMat.Name = "colSoBaoMat";
             this.colSoBaoMat.Visible = true;
             this.colSoBaoMat.VisibleIndex = 3;
             this.colSoBaoMat.Width = 93;
-            // 
-            // colGhiChu
-            // 
-            this.colGhiChu.FieldName = "GhiChu";
-            this.colGhiChu.MinWidth = 25;
-            this.colGhiChu.Name = "colGhiChu";
-            this.colGhiChu.Visible = true;
-            this.colGhiChu.VisibleIndex = 4;
-            this.colGhiChu.Width = 93;
-            // 
-            // colDoMat
-            // 
-            this.colDoMat.FieldName = "DoMat";
-            this.colDoMat.MinWidth = 25;
-            this.colDoMat.Name = "colDoMat";
-            this.colDoMat.Visible = true;
-            this.colDoMat.VisibleIndex = 5;
-            this.colDoMat.Width = 93;
             // 
             // label8
             // 
@@ -447,7 +420,7 @@
             this.panel3.Controls.Add(this.label11);
             this.panel3.Controls.Add(this.label12);
             this.panel3.Location = new System.Drawing.Point(16, 566);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(765, 171);
             this.panel3.TabIndex = 23;
@@ -455,7 +428,7 @@
             // rtxtSignature
             // 
             this.rtxtSignature.Location = new System.Drawing.Point(361, 92);
-            this.rtxtSignature.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rtxtSignature.Margin = new System.Windows.Forms.Padding(4);
             this.rtxtSignature.Name = "rtxtSignature";
             this.rtxtSignature.ReadOnly = true;
             this.rtxtSignature.Size = new System.Drawing.Size(165, 64);
@@ -465,7 +438,7 @@
             // textBox12
             // 
             this.textBox12.Location = new System.Drawing.Point(365, 14);
-            this.textBox12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox12.Margin = new System.Windows.Forms.Padding(4);
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(161, 22);
             this.textBox12.TabIndex = 42;
@@ -474,7 +447,7 @@
             // txtIncluding
             // 
             this.txtIncluding.Location = new System.Drawing.Point(427, 53);
-            this.txtIncluding.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIncluding.Margin = new System.Windows.Forms.Padding(4);
             this.txtIncluding.Name = "txtIncluding";
             this.txtIncluding.Size = new System.Drawing.Size(100, 22);
             this.txtIncluding.TabIndex = 41;
@@ -485,7 +458,7 @@
             // 
             this.chbIncluding.AutoSize = true;
             this.chbIncluding.Location = new System.Drawing.Point(361, 55);
-            this.chbIncluding.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chbIncluding.Margin = new System.Windows.Forms.Padding(4);
             this.chbIncluding.Name = "chbIncluding";
             this.chbIncluding.Size = new System.Drawing.Size(57, 21);
             this.chbIncluding.TabIndex = 40;
@@ -495,7 +468,7 @@
             // txtAllignBottomSM
             // 
             this.txtAllignBottomSM.Location = new System.Drawing.Point(696, 92);
-            this.txtAllignBottomSM.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAllignBottomSM.Margin = new System.Windows.Forms.Padding(4);
             this.txtAllignBottomSM.Name = "txtAllignBottomSM";
             this.txtAllignBottomSM.Size = new System.Drawing.Size(65, 22);
             this.txtAllignBottomSM.TabIndex = 39;
@@ -506,7 +479,7 @@
             // txtAllignBottomSignature
             // 
             this.txtAllignBottomSignature.Location = new System.Drawing.Point(696, 53);
-            this.txtAllignBottomSignature.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAllignBottomSignature.Margin = new System.Windows.Forms.Padding(4);
             this.txtAllignBottomSignature.Name = "txtAllignBottomSignature";
             this.txtAllignBottomSignature.Size = new System.Drawing.Size(65, 22);
             this.txtAllignBottomSignature.TabIndex = 38;
@@ -517,7 +490,7 @@
             // txtAllignBottomIncludedSM
             // 
             this.txtAllignBottomIncludedSM.Location = new System.Drawing.Point(696, 132);
-            this.txtAllignBottomIncludedSM.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAllignBottomIncludedSM.Margin = new System.Windows.Forms.Padding(4);
             this.txtAllignBottomIncludedSM.Name = "txtAllignBottomIncludedSM";
             this.txtAllignBottomIncludedSM.Size = new System.Drawing.Size(65, 22);
             this.txtAllignBottomIncludedSM.TabIndex = 37;
@@ -529,7 +502,7 @@
             // txtPage
             // 
             this.txtPage.Location = new System.Drawing.Point(696, 14);
-            this.txtPage.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPage.Margin = new System.Windows.Forms.Padding(4);
             this.txtPage.Name = "txtPage";
             this.txtPage.Size = new System.Drawing.Size(65, 22);
             this.txtPage.TabIndex = 36;
@@ -540,7 +513,7 @@
             // txtTitle
             // 
             this.txtTitle.Location = new System.Drawing.Point(97, 132);
-            this.txtTitle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTitle.Margin = new System.Windows.Forms.Padding(4);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(257, 22);
             this.txtTitle.TabIndex = 35;
@@ -548,7 +521,7 @@
             // txtNote
             // 
             this.txtNote.Location = new System.Drawing.Point(144, 14);
-            this.txtNote.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNote.Margin = new System.Windows.Forms.Padding(4);
             this.txtNote.Name = "txtNote";
             this.txtNote.Size = new System.Drawing.Size(211, 22);
             this.txtNote.TabIndex = 34;
@@ -557,7 +530,7 @@
             // 
             this.cbxSigner.FormattingEnabled = true;
             this.cbxSigner.Location = new System.Drawing.Point(97, 92);
-            this.cbxSigner.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbxSigner.Margin = new System.Windows.Forms.Padding(4);
             this.cbxSigner.Name = "cbxSigner";
             this.cbxSigner.Size = new System.Drawing.Size(257, 24);
             this.cbxSigner.TabIndex = 33;
@@ -566,7 +539,7 @@
             // 
             this.cbxCensor.FormattingEnabled = true;
             this.cbxCensor.Location = new System.Drawing.Point(97, 53);
-            this.cbxCensor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbxCensor.Margin = new System.Windows.Forms.Padding(4);
             this.cbxCensor.Name = "cbxCensor";
             this.cbxCensor.Size = new System.Drawing.Size(257, 24);
             this.cbxCensor.TabIndex = 32;
@@ -657,7 +630,7 @@
             this.btnRemovePlaceOfSending.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemovePlaceOfSending.Image = global::ProjectBNG.Properties.Resources.minus;
             this.btnRemovePlaceOfSending.Location = new System.Drawing.Point(787, 258);
-            this.btnRemovePlaceOfSending.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRemovePlaceOfSending.Margin = new System.Windows.Forms.Padding(4);
             this.btnRemovePlaceOfSending.Name = "btnRemovePlaceOfSending";
             this.btnRemovePlaceOfSending.Size = new System.Drawing.Size(40, 28);
             this.btnRemovePlaceOfSending.TabIndex = 39;
@@ -668,7 +641,7 @@
             this.btnUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUp.Image = global::ProjectBNG.Properties.Resources.page_up;
             this.btnUp.Location = new System.Drawing.Point(787, 363);
-            this.btnUp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUp.Margin = new System.Windows.Forms.Padding(4);
             this.btnUp.Name = "btnUp";
             this.btnUp.Size = new System.Drawing.Size(40, 28);
             this.btnUp.TabIndex = 38;
@@ -679,7 +652,7 @@
             this.btnDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDown.Image = global::ProjectBNG.Properties.Resources.page_down;
             this.btnDown.Location = new System.Drawing.Point(787, 399);
-            this.btnDown.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDown.Margin = new System.Windows.Forms.Padding(4);
             this.btnDown.Name = "btnDown";
             this.btnDown.Size = new System.Drawing.Size(40, 28);
             this.btnDown.TabIndex = 37;
@@ -690,7 +663,7 @@
             this.btnAddPlaceOfSending.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddPlaceOfSending.Image = global::ProjectBNG.Properties.Resources.plus;
             this.btnAddPlaceOfSending.Location = new System.Drawing.Point(787, 223);
-            this.btnAddPlaceOfSending.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddPlaceOfSending.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddPlaceOfSending.Name = "btnAddPlaceOfSending";
             this.btnAddPlaceOfSending.Size = new System.Drawing.Size(40, 28);
             this.btnAddPlaceOfSending.TabIndex = 36;
@@ -701,7 +674,7 @@
             // 
             this.chbPrint.AutoSize = true;
             this.chbPrint.Location = new System.Drawing.Point(835, 698);
-            this.chbPrint.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chbPrint.Margin = new System.Windows.Forms.Padding(4);
             this.chbPrint.Name = "chbPrint";
             this.chbPrint.Size = new System.Drawing.Size(117, 21);
             this.chbPrint.TabIndex = 40;
@@ -712,7 +685,7 @@
             // btnPreview
             // 
             this.btnPreview.Location = new System.Drawing.Point(964, 694);
-            this.btnPreview.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPreview.Margin = new System.Windows.Forms.Padding(4);
             this.btnPreview.Name = "btnPreview";
             this.btnPreview.Size = new System.Drawing.Size(100, 28);
             this.btnPreview.TabIndex = 41;
@@ -723,7 +696,7 @@
             // btnPrint
             // 
             this.btnPrint.Location = new System.Drawing.Point(1072, 694);
-            this.btnPrint.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(4);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(100, 28);
             this.btnPrint.TabIndex = 42;
@@ -734,7 +707,7 @@
             // btnClose
             // 
             this.btnClose.Location = new System.Drawing.Point(1396, 694);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(100, 28);
             this.btnClose.TabIndex = 43;
@@ -745,7 +718,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(1288, 694);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 28);
             this.button1.TabIndex = 45;
@@ -756,7 +729,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(1180, 694);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 28);
             this.button2.TabIndex = 46;
@@ -771,11 +744,15 @@
             // pdfViewer1
             // 
             this.pdfViewer1.Location = new System.Drawing.Point(836, 15);
-            this.pdfViewer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pdfViewer1.Margin = new System.Windows.Forms.Padding(4);
             this.pdfViewer1.Name = "pdfViewer1";
             this.pdfViewer1.NavigationPaneInitialVisibility = DevExpress.XtraPdfViewer.PdfNavigationPaneVisibility.Hidden;
             this.pdfViewer1.Size = new System.Drawing.Size(659, 671);
             this.pdfViewer1.TabIndex = 47;
+            // 
+            // noiNhanTempsBindingSource
+            // 
+            this.noiNhanTempsBindingSource.DataSource = typeof(ProjectBNG.Models.NoiNhanTemp);
             // 
             // frmPrinting
             // 
@@ -797,7 +774,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmPrinting";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "In điện mật";
@@ -812,6 +789,7 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dienMatsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.noiNhanTempsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -878,10 +856,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn colMaNoiNhan;
         private DevExpress.XtraGrid.Columns.GridColumn colTenNoiNhan;
         private DevExpress.XtraGrid.Columns.GridColumn colLoai;
-        private DevExpress.XtraGrid.Columns.GridColumn colBanIn;
         private DevExpress.XtraGrid.Columns.GridColumn colSoBaoMat;
-        private DevExpress.XtraGrid.Columns.GridColumn colGhiChu;
-        private DevExpress.XtraGrid.Columns.GridColumn colDoMat;
+        private System.Windows.Forms.BindingSource noiNhanTempsBindingSource;
     }
 }
 

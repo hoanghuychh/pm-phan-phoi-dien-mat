@@ -1,15 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="SMMgModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BiThu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="soBiThu" Type="int" Nullable="false" />
+    <Property Name="danhSachDien" Type="char" MaxLength="256" />
+  </EntityType>
   <EntityType Name="DienMat">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="MaNoiNhan" Type="nvarchar" MaxLength="20" Nullable="false" />
-    <Property Name="TenNoiNhan" Type="nvarchar" MaxLength="265" Nullable="false" />
-    <Property Name="Loai" Type="nvarchar" MaxLength="20" Nullable="false" />
-    <Property Name="SoBaoMat" Type="int" Nullable="false" />
+    <Property Name="danhSachDien" Type="char" MaxLength="256" />
     <Property Name="GhiChu" Type="nvarchar" MaxLength="265" />
     <Property Name="LuuFile" Type="nvarchar" MaxLength="265" />
+    <Property Name="Loai" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="SoBaoMat" Type="int" Nullable="false" />
     <Property Name="FileDinhKem" Type="nvarchar" MaxLength="265" />
     <Property Name="NoiGui" Type="nvarchar" MaxLength="265" />
     <Property Name="TrichYeu" Type="nvarchar" MaxLength="265" />
@@ -46,6 +53,21 @@
     <Property Name="Ten" Type="nvarchar" MaxLength="265" />
   </EntityType>
   <EntityType Name="NoiNhan">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaNoiNhan" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="TenNoiNhan" Type="nvarchar" MaxLength="265" Nullable="false" />
+    <Property Name="Loai" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="SoBaoMat" Type="int" Nullable="false" />
+    <Property Name="Nhom" Type="nvarchar" MaxLength="265" />
+    <Property Name="SoThuTu" Type="int" />
+    <Property Name="CoBi" Type="bit" />
+    <Property Name="DangHoatDong" Type="bit" />
+    <Property Name="CoSo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="NoiNhanTemp">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -143,11 +165,13 @@
   </Function>
   <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="SMMgModelStoreContainer">
+    <EntitySet Name="BiThu" EntityType="Self.BiThu" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DienMat" EntityType="Self.DienMat" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NguoiDuyet" EntityType="Self.NguoiDuyet" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NguoiKy" EntityType="Self.NguoiKy" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NoiGui" EntityType="Self.NoiGui" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NoiNhan" EntityType="Self.NoiNhan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NoiNhanTemp" EntityType="Self.NoiNhanTemp" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PemisionDetail" EntityType="Self.PemisionDetail" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Permision" EntityType="Self.Permision" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PhanLoaiNoiNhan" EntityType="Self.PhanLoaiNoiNhan" Schema="dbo" store:Type="Tables" />

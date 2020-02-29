@@ -31,17 +31,19 @@
       <Parameter Name="new_diagramname" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="BiThus" EntityType="SMMgModel.BiThu" />
     <EntitySet Name="DienMats" EntityType="SMMgModel.DienMat" />
     <EntitySet Name="NguoiDuyets" EntityType="SMMgModel.NguoiDuyet" />
     <EntitySet Name="NguoiKies" EntityType="SMMgModel.NguoiKy" />
     <EntitySet Name="NoiGuis" EntityType="SMMgModel.NoiGui" />
-    <EntitySet Name="PemisionDetails" EntityType="SMMgModel.PemisionDetail" />
-    <EntitySet Name="sysdiagrams" EntityType="SMMgModel.sysdiagram" />
-    <EntitySet Name="USERs" EntityType="SMMgModel.USER" />
-    <EntitySet Name="PhanLoaiNoiNhans" EntityType="SMMgModel.PhanLoaiNoiNhan" />
     <EntitySet Name="NoiNhans" EntityType="SMMgModel.NoiNhan" />
+    <EntitySet Name="NoiNhanTemps" EntityType="SMMgModel.NoiNhanTemp" />
+    <EntitySet Name="PemisionDetails" EntityType="SMMgModel.PemisionDetail" />
     <EntitySet Name="Permisions" EntityType="SMMgModel.Permision" />
+    <EntitySet Name="PhanLoaiNoiNhans" EntityType="SMMgModel.PhanLoaiNoiNhan" />
+    <EntitySet Name="sysdiagrams" EntityType="SMMgModel.sysdiagram" />
     <EntitySet Name="TrangThais" EntityType="SMMgModel.TrangThai" />
+    <EntitySet Name="USERs" EntityType="SMMgModel.USER" />
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -54,16 +56,23 @@
     <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
     <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
+  <EntityType Name="BiThu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="soBiThu" Type="Int32" Nullable="false" />
+    <Property Name="danhSachDien" Type="String" MaxLength="256" FixedLength="true" Unicode="false" />
+  </EntityType>
   <EntityType Name="DienMat">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="MaNoiNhan" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="TenNoiNhan" Type="String" Nullable="false" MaxLength="265" FixedLength="false" Unicode="true" />
-    <Property Name="Loai" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="SoBaoMat" Type="Int32" Nullable="false" />
+    <Property Name="danhSachDien" Type="String" MaxLength="256" FixedLength="true" Unicode="false" />
     <Property Name="GhiChu" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
     <Property Name="LuuFile" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
+    <Property Name="Loai" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SoBaoMat" Type="Int32" Nullable="false" />
     <Property Name="FileDinhKem" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
     <Property Name="NoiGui" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
     <Property Name="TrichYeu" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
@@ -99,42 +108,6 @@
     <Property Name="Ma" Type="String" MaxLength="265" FixedLength="false" Unicode="false" />
     <Property Name="Ten" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityType Name="PemisionDetail">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="PerDetail" Type="Int32" Nullable="false" />
-    <Property Name="Per_Action" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="Per" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
-  </EntityType>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
-  <EntityType Name="USER">
-    <Key>
-      <PropertyRef Name="ID" />
-    </Key>
-    <Property Name="NameUser" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="PerUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-  </EntityType>
-  <EntityType Name="PhanLoaiNoiNhan">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="PhanLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-  </EntityType>
   <EntityType Name="NoiNhan">
     <Key>
       <PropertyRef Name="id" />
@@ -150,6 +123,30 @@
     <Property Name="DangHoatDong" Type="Boolean" />
     <Property Name="CoSo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
+  <EntityType Name="NoiNhanTemp">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaNoiNhan" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TenNoiNhan" Type="String" Nullable="false" MaxLength="265" FixedLength="false" Unicode="true" />
+    <Property Name="Loai" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="SoBaoMat" Type="Int32" Nullable="false" />
+    <Property Name="Nhom" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
+    <Property Name="SoThuTu" Type="Int32" />
+    <Property Name="CoBi" Type="Boolean" />
+    <Property Name="DangHoatDong" Type="Boolean" />
+    <Property Name="CoSo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PemisionDetail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PerDetail" Type="Int32" Nullable="false" />
+    <Property Name="Per_Action" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Per" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+  </EntityType>
   <EntityType Name="Permision">
     <Key>
       <PropertyRef Name="id" />
@@ -158,11 +155,38 @@
     <Property Name="NamePer" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="DescriptionPer" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
   </EntityType>
+  <EntityType Name="PhanLoaiNoiNhan">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="PhanLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
   <EntityType Name="TrangThai">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="NameTrangThai" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="USER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="NameUser" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PerUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
   </EntityType>
 </Schema>
