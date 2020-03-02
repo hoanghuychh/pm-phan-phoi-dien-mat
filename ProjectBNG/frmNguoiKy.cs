@@ -37,7 +37,7 @@ namespace ProjectBNG
             foreach (Form frm in this.MdiChildren)
             {
                 if (frm.Name == name)
-                {
+                {   
                     check = true;
                     break;
                 }
@@ -86,7 +86,7 @@ namespace ProjectBNG
 
         public void btnSuaNgKy_Click(object sender, EventArgs e)
         {
-        // lay thong tin id cua nguoi ky
+        
         NguoiKy getNguoiKy = new NguoiKy();
             if (!CheckExistForm("frmSuaNguoiKy"))
             {
@@ -94,7 +94,7 @@ namespace ProjectBNG
                 try
                 {
                     getNguoiKy = (NguoiKy)gridViewNguoiKy.GetRow(gridViewNguoiKy.FocusedRowHandle);
-
+                         // lay thong tin id cua nguoi ky
                         //int.Parse(gridViewNguoiKy.GetRowCellValue(gridViewNguoiKy.FocusedRowHandle, "id").ToString());
                 }
                 catch { }

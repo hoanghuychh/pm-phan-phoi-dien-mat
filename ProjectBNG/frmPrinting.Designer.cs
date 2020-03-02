@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnAddAttachedFile = new System.Windows.Forms.Button();
             this.btnRemoveAttachedFile = new System.Windows.Forms.Button();
@@ -48,16 +48,17 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtIncludingFile = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtFileName = new System.Windows.Forms.TextBox();
+            this.tbFileNameDienMat = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-            this.dienMatsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.gridViewNoiNhanPDF = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.noiNhanTempsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.gridViewNoiNhanTemp = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMaNoiNhan = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTenNoiNhan = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colLoai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSoBaoMat = new DevExpress.XtraGrid.Columns.GridColumn();
             this.label8 = new System.Windows.Forms.Label();
+            this.dienMatsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
             this.rtxtSignature = new System.Windows.Forms.RichTextBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
@@ -91,15 +92,14 @@
             this.button2 = new System.Windows.Forms.Button();
             this.dienMatsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pdfViewer1 = new DevExpress.XtraPdfViewer.PdfViewer();
-            this.noiNhanTempsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.noiNhanTempsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewNoiNhanTemp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dienMatsBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewNoiNhanPDF)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dienMatsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.noiNhanTempsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -121,7 +121,7 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.txtIncludingFile);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.txtFileName);
+            this.panel1.Controls.Add(this.tbFileNameDienMat);
             this.panel1.Location = new System.Drawing.Point(16, 15);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
@@ -295,15 +295,16 @@
             this.label1.TabIndex = 20;
             this.label1.Text = "Điện mật";
             // 
-            // txtFileName
+            // tbFileNameDienMat
             // 
-            this.txtFileName.Enabled = false;
-            this.txtFileName.Location = new System.Drawing.Point(129, 12);
-            this.txtFileName.Margin = new System.Windows.Forms.Padding(4);
-            this.txtFileName.Name = "txtFileName";
-            this.txtFileName.ReadOnly = true;
-            this.txtFileName.Size = new System.Drawing.Size(280, 22);
-            this.txtFileName.TabIndex = 19;
+            this.tbFileNameDienMat.BackColor = System.Drawing.SystemColors.Window;
+            this.tbFileNameDienMat.Enabled = false;
+            this.tbFileNameDienMat.Location = new System.Drawing.Point(129, 12);
+            this.tbFileNameDienMat.Margin = new System.Windows.Forms.Padding(4);
+            this.tbFileNameDienMat.Name = "tbFileNameDienMat";
+            this.tbFileNameDienMat.ReadOnly = true;
+            this.tbFileNameDienMat.Size = new System.Drawing.Size(280, 22);
+            this.tbFileNameDienMat.TabIndex = 19;
             // 
             // panel2
             // 
@@ -319,33 +320,33 @@
             // 
             this.gridControl1.DataSource = this.noiNhanTempsBindingSource;
             this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            gridLevelNode1.RelationName = "Level1";
+            gridLevelNode2.RelationName = "Level1";
             this.gridControl1.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
+            gridLevelNode2});
             this.gridControl1.Location = new System.Drawing.Point(0, 33);
-            this.gridControl1.MainView = this.gridViewNoiNhanPDF;
+            this.gridControl1.MainView = this.gridViewNoiNhanTemp;
             this.gridControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControl1.Name = "gridControl1";
             this.gridControl1.Size = new System.Drawing.Size(761, 332);
             this.gridControl1.TabIndex = 23;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridViewNoiNhanPDF});
+            this.gridViewNoiNhanTemp});
             // 
-            // dienMatsBindingSource1
+            // noiNhanTempsBindingSource
             // 
-            this.dienMatsBindingSource1.DataSource = typeof(ProjectBNG.Models.DienMat);
+            this.noiNhanTempsBindingSource.DataSource = typeof(ProjectBNG.Models.NoiNhanTemp);
             // 
-            // gridViewNoiNhanPDF
+            // gridViewNoiNhanTemp
             // 
-            this.gridViewNoiNhanPDF.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridViewNoiNhanTemp.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colMaNoiNhan,
             this.colTenNoiNhan,
             this.colLoai,
             this.colSoBaoMat});
-            this.gridViewNoiNhanPDF.GridControl = this.gridControl1;
-            this.gridViewNoiNhanPDF.Name = "gridViewNoiNhanPDF";
-            this.gridViewNoiNhanPDF.OptionsView.ShowGroupPanel = false;
-            this.gridViewNoiNhanPDF.OptionsView.ShowIndicator = false;
+            this.gridViewNoiNhanTemp.GridControl = this.gridControl1;
+            this.gridViewNoiNhanTemp.Name = "gridViewNoiNhanTemp";
+            this.gridViewNoiNhanTemp.OptionsView.ShowGroupPanel = false;
+            this.gridViewNoiNhanTemp.OptionsView.ShowIndicator = false;
             // 
             // colMaNoiNhan
             // 
@@ -396,6 +397,10 @@
             this.label8.Size = new System.Drawing.Size(65, 17);
             this.label8.TabIndex = 21;
             this.label8.Text = "Nơi nhận";
+            // 
+            // dienMatsBindingSource1
+            // 
+            this.dienMatsBindingSource1.DataSource = typeof(ProjectBNG.Models.DienMat);
             // 
             // panel3
             // 
@@ -750,10 +755,6 @@
             this.pdfViewer1.Size = new System.Drawing.Size(659, 671);
             this.pdfViewer1.TabIndex = 47;
             // 
-            // noiNhanTempsBindingSource
-            // 
-            this.noiNhanTempsBindingSource.DataSource = typeof(ProjectBNG.Models.NoiNhanTemp);
-            // 
             // frmPrinting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -784,12 +785,12 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.noiNhanTempsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewNoiNhanTemp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dienMatsBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridViewNoiNhanPDF)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dienMatsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.noiNhanTempsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -814,7 +815,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label txtIncludingFile;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtFileName;
+        private System.Windows.Forms.TextBox tbFileNameDienMat;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel3;
@@ -852,7 +853,7 @@
         private System.Windows.Forms.BindingSource dienMatsBindingSource1;
         private DevExpress.XtraPdfViewer.PdfViewer pdfViewer1;
         private DevExpress.XtraGrid.GridControl gridControl1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridViewNoiNhanPDF;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewNoiNhanTemp;
         private DevExpress.XtraGrid.Columns.GridColumn colMaNoiNhan;
         private DevExpress.XtraGrid.Columns.GridColumn colTenNoiNhan;
         private DevExpress.XtraGrid.Columns.GridColumn colLoai;

@@ -7,9 +7,9 @@ using System.Windows.Forms;
 
 namespace ProjectBNG.Class
 {
-    class CommonFunction
+     class CommonFunction
     {
-        public bool checkExistForm(string name,Form form)
+        public static bool checkExistForm(string name,Form form)
         {
             bool check = false;
             foreach (Form newForm in form.MdiChildren)
@@ -22,7 +22,7 @@ namespace ProjectBNG.Class
             }
             return check;
         }
-        public void activateForm(string name,Form form)
+        public static void activateForm(string name,Form form)
         {
             foreach(Form newForm in form.MdiChildren)
             {

@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SMMgModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BiThu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="soBiThu" Type="int" Nullable="false" />
+    <Property Name="danhSachDien" Type="char" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="DienMat">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="danhSachDien" Type="char" MaxLength="256" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="265" />
+    <Property Name="LuuFile" Type="nvarchar" MaxLength="265" />
+    <Property Name="Loai" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="SoBaoMat" Type="int" Nullable="false" />
+    <Property Name="FileDinhKem" Type="nvarchar" MaxLength="265" />
+    <Property Name="NoiGui" Type="nvarchar" MaxLength="265" />
+    <Property Name="TrichYeu" Type="nvarchar" MaxLength="265" />
+    <Property Name="Ngay" Type="datetime" />
+    <Property Name="DoMat" Type="int" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BanIn" Type="int" />
+  </EntityType>
+  <EntityType Name="NguoiDuyet">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenNguoiDuyet" Type="nvarchar" MaxLength="265" />
+    <Property Name="MacDinh" Type="bit" />
+    <Property Name="ChuKy" Type="image" />
+  </EntityType>
+  <EntityType Name="NguoiKy">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenNguoiKy" Type="nvarchar" MaxLength="265" />
+    <Property Name="ChucDanh" Type="nvarchar" MaxLength="265" />
+    <Property Name="MacDinh" Type="bit" />
+    <Property Name="ChuKy" Type="image" />
+  </EntityType>
+  <EntityType Name="NoiGui">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ma" Type="varchar" MaxLength="265" />
+    <Property Name="Ten" Type="nvarchar" MaxLength="265" />
+  </EntityType>
+  <EntityType Name="NoiNhan">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaNoiNhan" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="TenNoiNhan" Type="nvarchar" MaxLength="265" Nullable="false" />
+    <Property Name="Loai" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="SoBaoMat" Type="int" Nullable="false" />
+    <Property Name="Nhom" Type="nvarchar" MaxLength="265" />
+    <Property Name="SoThuTu" Type="int" />
+    <Property Name="CoBi" Type="bit" />
+    <Property Name="DangHoatDong" Type="bit" />
+    <Property Name="CoSo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="NoiNhanTemp">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="MaNoiNhan" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="TenNoiNhan" Type="nvarchar" MaxLength="265" Nullable="false" />
+    <Property Name="Loai" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="SoBaoMat" Type="int" Nullable="false" />
+    <Property Name="Nhom" Type="nvarchar" MaxLength="265" />
+    <Property Name="SoThuTu" Type="int" />
+    <Property Name="CoBi" Type="bit" />
+    <Property Name="DangHoatDong" Type="bit" />
+    <Property Name="CoSo" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PemisionDetail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PerDetail" Type="int" Nullable="false" />
+    <Property Name="Per_Action" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Per" Type="char" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Permision">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NamePer" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DescriptionPer" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="PhanLoaiNoiNhan">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="PhanLoai" Type="nvarchar" MaxLength="50" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TrangThai">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameTrangThai" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="USER">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="NameUser" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PerUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="SMMgModelStoreContainer">
+    <EntitySet Name="BiThu" EntityType="Self.BiThu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DienMat" EntityType="Self.DienMat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NguoiDuyet" EntityType="Self.NguoiDuyet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NguoiKy" EntityType="Self.NguoiKy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NoiGui" EntityType="Self.NoiGui" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NoiNhan" EntityType="Self.NoiNhan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NoiNhanTemp" EntityType="Self.NoiNhanTemp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PemisionDetail" EntityType="Self.PemisionDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Permision" EntityType="Self.Permision" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhanLoaiNoiNhan" EntityType="Self.PhanLoaiNoiNhan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TrangThai" EntityType="Self.TrangThai" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USER" EntityType="Self.USER" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
