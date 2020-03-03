@@ -12,7 +12,7 @@ namespace ProjectBNG.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class DienMat
+    public partial class DienMatDaPhanPhoi
     {
         public int ID { get; set; }
         public string LuuFile { get; set; }

@@ -1,4 +1,5 @@
 ﻿using ProjectBNG.Class;
+using ProjectBNG.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -55,6 +56,9 @@ namespace ProjectBNG
             {
                 frmPrinting fprint = new frmPrinting();
                 fprint.MdiParent = this;
+                SMMgEntities db = new SMMgEntities();
+
+                db.Database.ExecuteSqlCommand("delete from NoiNhanTemp", new object[] { });
                 fprint.Show();
             }
             else

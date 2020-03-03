@@ -35,7 +35,7 @@
             this.btnRemoveAttachedFile = new System.Windows.Forms.Button();
             this.btnBrowseFile = new System.Windows.Forms.Button();
             this.datetimeNgayLuu = new System.Windows.Forms.DateTimePicker();
-            this.txtPrivateNumber = new System.Windows.Forms.TextBox();
+            this.tbMaDienMat = new System.Windows.Forms.TextBox();
             this.cbxPrivateAttachedFile = new System.Windows.Forms.ComboBox();
             this.cbxPrivateFile = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -72,7 +72,7 @@
             this.txtAllignBottomIncludedSM = new System.Windows.Forms.TextBox();
             this.txtPage = new System.Windows.Forms.TextBox();
             this.tbChucDanhMD = new System.Windows.Forms.TextBox();
-            this.txtNote = new System.Windows.Forms.TextBox();
+            this.tbGhiChu = new System.Windows.Forms.TextBox();
             this.cbxNguoiKiMD = new System.Windows.Forms.ComboBox();
             this.cbxNguoiDuyetMD = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -108,7 +108,7 @@
             this.panel1.Controls.Add(this.btnRemoveAttachedFile);
             this.panel1.Controls.Add(this.btnBrowseFile);
             this.panel1.Controls.Add(this.datetimeNgayLuu);
-            this.panel1.Controls.Add(this.txtPrivateNumber);
+            this.panel1.Controls.Add(this.tbMaDienMat);
             this.panel1.Controls.Add(this.cbxPrivateAttachedFile);
             this.panel1.Controls.Add(this.cbxPrivateFile);
             this.panel1.Controls.Add(this.label7);
@@ -174,13 +174,13 @@
             this.datetimeNgayLuu.Size = new System.Drawing.Size(159, 22);
             this.datetimeNgayLuu.TabIndex = 33;
             // 
-            // txtPrivateNumber
+            // tbMaDienMat
             // 
-            this.txtPrivateNumber.Location = new System.Drawing.Point(408, 94);
-            this.txtPrivateNumber.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPrivateNumber.Name = "txtPrivateNumber";
-            this.txtPrivateNumber.Size = new System.Drawing.Size(125, 22);
-            this.txtPrivateNumber.TabIndex = 32;
+            this.tbMaDienMat.Location = new System.Drawing.Point(408, 94);
+            this.tbMaDienMat.Margin = new System.Windows.Forms.Padding(4);
+            this.tbMaDienMat.Name = "tbMaDienMat";
+            this.tbMaDienMat.Size = new System.Drawing.Size(125, 22);
+            this.tbMaDienMat.TabIndex = 32;
             // 
             // cbxPrivateAttachedFile
             // 
@@ -317,6 +317,7 @@
             this.btnRemovePlaceOfSending.Size = new System.Drawing.Size(40, 28);
             this.btnRemovePlaceOfSending.TabIndex = 39;
             this.btnRemovePlaceOfSending.UseVisualStyleBackColor = true;
+            this.btnRemovePlaceOfSending.Click += new System.EventHandler(this.btnRemovePlaceOfSending_Click);
             // 
             // btnAddPlaceOfSending
             // 
@@ -355,6 +356,7 @@
             this.gridControl1.TabIndex = 23;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewNoiNhanTemp});
+            this.gridControl1.Load += new System.EventHandler(this.gridControl1_Load);
             // 
             // noiNhanTempsBindingSource
             // 
@@ -370,6 +372,7 @@
             this.gridViewNoiNhanTemp.GridControl = this.gridControl1;
             this.gridViewNoiNhanTemp.Name = "gridViewNoiNhanTemp";
             this.gridViewNoiNhanTemp.OptionsBehavior.Editable = false;
+            this.gridViewNoiNhanTemp.OptionsSelection.MultiSelect = true;
             this.gridViewNoiNhanTemp.OptionsView.ShowGroupPanel = false;
             this.gridViewNoiNhanTemp.OptionsView.ShowIndicator = false;
             // 
@@ -439,7 +442,7 @@
             this.panel3.Controls.Add(this.txtAllignBottomIncludedSM);
             this.panel3.Controls.Add(this.txtPage);
             this.panel3.Controls.Add(this.tbChucDanhMD);
-            this.panel3.Controls.Add(this.txtNote);
+            this.panel3.Controls.Add(this.tbGhiChu);
             this.panel3.Controls.Add(this.cbxNguoiKiMD);
             this.panel3.Controls.Add(this.cbxNguoiDuyetMD);
             this.panel3.Controls.Add(this.label13);
@@ -551,19 +554,21 @@
             // 
             // tbChucDanhMD
             // 
+            this.tbChucDanhMD.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.tbChucDanhMD.Enabled = false;
             this.tbChucDanhMD.Location = new System.Drawing.Point(97, 132);
             this.tbChucDanhMD.Margin = new System.Windows.Forms.Padding(4);
             this.tbChucDanhMD.Name = "tbChucDanhMD";
             this.tbChucDanhMD.Size = new System.Drawing.Size(257, 22);
             this.tbChucDanhMD.TabIndex = 35;
             // 
-            // txtNote
+            // tbGhiChu
             // 
-            this.txtNote.Location = new System.Drawing.Point(144, 14);
-            this.txtNote.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNote.Name = "txtNote";
-            this.txtNote.Size = new System.Drawing.Size(211, 22);
-            this.txtNote.TabIndex = 34;
+            this.tbGhiChu.Location = new System.Drawing.Point(144, 14);
+            this.tbGhiChu.Margin = new System.Windows.Forms.Padding(4);
+            this.tbGhiChu.Name = "tbGhiChu";
+            this.tbGhiChu.Size = new System.Drawing.Size(211, 22);
+            this.tbGhiChu.TabIndex = 34;
             // 
             // cbxNguoiKiMD
             // 
@@ -792,7 +797,7 @@
         private System.Windows.Forms.Button btnRemoveAttachedFile;
         private System.Windows.Forms.Button btnBrowseFile;
         private System.Windows.Forms.DateTimePicker datetimeNgayLuu;
-        private System.Windows.Forms.TextBox txtPrivateNumber;
+        private System.Windows.Forms.TextBox tbMaDienMat;
         private System.Windows.Forms.ComboBox cbxPrivateAttachedFile;
         private System.Windows.Forms.ComboBox cbxPrivateFile;
         private System.Windows.Forms.Label label7;
@@ -818,7 +823,7 @@
         private System.Windows.Forms.TextBox txtAllignBottomIncludedSM;
         private System.Windows.Forms.TextBox txtPage;
         private System.Windows.Forms.TextBox tbChucDanhMD;
-        private System.Windows.Forms.TextBox txtNote;
+        private System.Windows.Forms.TextBox tbGhiChu;
         private System.Windows.Forms.ComboBox cbxNguoiKiMD;
         private System.Windows.Forms.ComboBox cbxNguoiDuyetMD;
         private System.Windows.Forms.Label label13;

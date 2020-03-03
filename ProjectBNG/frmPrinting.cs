@@ -21,13 +21,14 @@ namespace ProjectBNG
     public partial class frmPrinting : Form
     {
         static public List<NoiNhan> noiNhans { get; set; }
+        static public List<NoiNhanTemp> noiNhanTemps { get; set; }
         static public string FileName;
         float x = 0;
         float y = 250;
         MemoryStream ms = new MemoryStream();
-        public void setNoiNhan(List<NoiNhan> n)
+        public void setNoiNhan(List<NoiNhanTemp> n)
         {
-            noiNhans = n;
+            noiNhanTemps = n;
             try
             {
                 PdfDocumentProcessor processor = new PdfDocumentProcessor();
@@ -39,11 +40,12 @@ namespace ProjectBNG
                 {
                     processor.LoadDocument(ms);
                 }
-                foreach (var a in noiNhans)
+                foreach (var a in noiNhanTemps)
                 {
                     using (SolidBrush textBrush = new SolidBrush(Color.FromArgb(0, 0, 0)))
                     {
                         AddGraphics(processor, a.TenNoiNhan, textBrush, x, y);
+                        //DrawGraphics();
                     }
                     y += 20;
                 }
@@ -53,12 +55,10 @@ namespace ProjectBNG
                 ms2.WriteTo(ms);
 
                 pdfViewer1.LoadDocument(ms2);
-                pdfViewer1.SaveDocument("D:/BACKUP/Desktop/newSave.pdf");
             }
             catch { }
-
-
         }
+
         private bool CheckExistForm(string name)
         {
             bool check = false;
@@ -109,17 +109,17 @@ namespace ProjectBNG
         private void frmPrinting_Load(object sender, EventArgs e)
         {
             //// cbxPrivateFile
-            //cbxPrivateFile.Items.Add("Mật");
-            //cbxPrivateFile.Items.Add("TM");
-            //cbxPrivateFile.Items.Add("Tuyệt mật");
-            //cbxPrivateFile.SelectedItem = cbxPrivateFile.Items[0];
+            cbxPrivateFile.Items.Add("Mật");
+            cbxPrivateFile.Items.Add("TM");
+            cbxPrivateFile.Items.Add("Tuyệt mật");
+            cbxPrivateFile.SelectedItem = cbxPrivateFile.Items[0];
 
-            //// cbxPrivateAttachedFile
-            //cbxPrivateAttachedFile.Items.Add("Rõ");
-            //cbxPrivateAttachedFile.Items.Add("Mật");
-            //cbxPrivateAttachedFile.Items.Add("TM");
-            //cbxPrivateAttachedFile.Items.Add("Tuyệt mật");
-            //cbxPrivateAttachedFile.SelectedItem = cbxPrivateAttachedFile.Items[1];
+            // cbxPrivateAttachedFile
+            cbxPrivateAttachedFile.Items.Add("Rõ");
+            cbxPrivateAttachedFile.Items.Add("Mật");
+            cbxPrivateAttachedFile.Items.Add("TM");
+            cbxPrivateAttachedFile.Items.Add("Tuyệt mật");
+            cbxPrivateAttachedFile.SelectedItem = cbxPrivateAttachedFile.Items[1];
 
             //// cbxPlaceOfSending: Lay tu DB ra
             //cbxNoiGuiMD.Items.Add("Place 0");
@@ -139,7 +139,9 @@ namespace ProjectBNG
             //// chbIncluding, txtIncluding
             //chbIncluding.Checked = true;
             //txtIncluding.Text = "(Ghi)";
-            
+
+            db.Database.ExecuteSqlCommand("delete from NoiNhanTemp", new object[] { });
+
             cbxNoiGuiMD.DataSource = db.NoiGuis.ToList();
             cbxNoiGuiMD.ValueMember = "id";
             cbxNoiGuiMD.DisplayMember = "Ten";
@@ -182,7 +184,7 @@ namespace ProjectBNG
                     FileName = ofd.FileName;
                     tbFileNameDienMat.Text = FileName;
                 }
-                
+
             }
         }
 
@@ -205,6 +207,17 @@ namespace ProjectBNG
                         graphics.AddToPageForeground(page, DrawingDpi, DrawingDpi);
                     }
                 }
+            }
+        }
+
+        static void DrawGraphics(PdfGraphics graph)
+        {
+            // Draw an image on the page. 
+            using (Bitmap image = new Bitmap("..\\..\\DevExpress.png"))
+            {
+                float width = image.Width;
+                float height = image.Height;
+                graph.DrawImage(image, new RectangleF(20, 40, width / 2, height / 2));
             }
         }
 
@@ -311,11 +324,57 @@ namespace ProjectBNG
         private void btnPrint_Click(object sender, EventArgs e)
         {
 
+            pdfViewer1.SaveDocument("D:/BACKUP/Desktop/newSave.pdf");
+
+            var addDienMat = new DienMat();
+            addDienMat.LuuFile = "D:/BACKUP/Desktop/newSave.pdf";
+            //addDienMat.FileDinhKem=
+            addDienMat.NoiGui = cbxNoiGuiMD.Text;
+            addDienMat.TrichYeu = tbTrichYeu.Text;
+            addDienMat.DoMat = cbxPrivateFile.Text;
+            //addDienMat.DoMatFile=
+            try
+            {
+
+                addDienMat.MaDienMat = Convert.ToInt32(tbMaDienMat.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Chưa điền thông tin số điện", "Thông báo");
+            }
+            addDienMat.Ngay = DateTime.Now;
+            addDienMat.GhiChu = tbGhiChu.Text;
+            addDienMat.NguoiDuyet = cbxNguoiDuyetMD.Text;
+            addDienMat.NguoiKy = cbxNguoiKiMD.Text;
+            addDienMat.ChucDanh = tbChucDanhMD.Text;
+            //chua xong
+            //var stream = new MemoryStream();
+            //addDienMat.ChuKy = Image.FromStream(stream);
+
+            db.DienMats.Add(addDienMat);
+            db.SaveChanges();
+
+
+
         }
 
+        public List<NoiNhanTemp> listNoiNhanTemp = new List<NoiNhanTemp>();
         private void btnPreview_Click(object sender, EventArgs e)
         {
 
+            listNoiNhanTemp.Clear();
+            NoiNhanTemp item = null;
+            gridViewNoiNhanTemp.SelectAll();
+            foreach (var a in gridViewNoiNhanTemp.GetSelectedRows())
+            {
+                item = (NoiNhanTemp)this.gridViewNoiNhanTemp.GetRow(a);
+                listNoiNhanTemp.Add(item);
+
+            }
+            if (listNoiNhanTemp.Count > 0)
+            {
+                OnSubmitNguoiNhan(listNoiNhanTemp);
+            }
         }
 
         private void chbPrint_CheckedChanged(object sender, EventArgs e)
@@ -336,11 +395,10 @@ namespace ProjectBNG
         private void btnAddPlaceOfSending_Click(object sender, EventArgs e)
         {
 
-            if (!CommonFunction.checkExistForm("frmAddPrinting",this))
+            if (!CommonFunction.checkExistForm("frmAddPrinting", this))
             {
                 frmAddPrinting frmAdd = new frmAddPrinting(() =>
                 {
-                    
                     gridControl1.DataSource = db.NoiNhanTemps.ToList();
                     gridControl1.RefreshDataSource();
                     return false;
@@ -352,16 +410,47 @@ namespace ProjectBNG
             }
             else
             {
-                CommonFunction.activateForm("frmAddPrinting",this);
+                CommonFunction.activateForm("frmAddPrinting", this);
             }
         }
-        public void OnSubmitNguoiNhan(List<NoiNhan> list)
+        public void OnSubmitNguoiNhan(List<NoiNhanTemp> list)
         {
             setNoiNhan(list);
         }
         public void PushNguoiNhanToGridView(List<NoiNhan> list)
         {
 
+        }
+
+        private void gridControl1_Load(object sender, EventArgs e)
+        {
+            gridControl1.DataSource = db.NoiNhanTemps.ToList();
+            gridControl1.RefreshDataSource();
+
+        }
+
+        private void btnRemovePlaceOfSending_Click(object sender, EventArgs e)
+        {
+            NoiNhanTemp noiNhanTemp = new NoiNhanTemp();
+            try
+            {
+
+                noiNhanTemp.id = int.Parse(gridViewNoiNhanTemp.GetRowCellValue(gridViewNoiNhanTemp.FocusedRowHandle, "id").ToString());
+
+            }
+            catch
+            {
+
+            }
+            deleteNoiNhanTemp(noiNhanTemp);
+            void deleteNoiNhanTemp(NoiNhanTemp x)
+            {
+                NoiNhanTemp p = db.NoiNhanTemps.Find(x.id);
+                db.NoiNhanTemps.Remove(p);
+                db.SaveChanges();
+            }
+            MessageBox.Show("Đã Xóa");
+            gridControl1_Load(sender, e);
         }
     }
 }

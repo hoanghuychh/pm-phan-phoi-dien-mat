@@ -208,6 +208,9 @@
     <Compile Include="Models\DienMat.cs">
       <DependentUpon>SMMg.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DienMatDaPhanPhoi.cs">
+      <DependentUpon>SMMg.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\NguoiDuyet.cs">
       <DependentUpon>SMMg.tt</DependentUpon>
     </Compile>

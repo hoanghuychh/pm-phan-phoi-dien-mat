@@ -14,7 +14,7 @@ using ProjectBNG.Models;
 
 namespace ProjectBNG
 {
-    public delegate void OnSaveNguoiNhan(List<NoiNhan> nguoinhan);
+    public delegate void OnSaveNguoiNhan(List<NoiNhanTemp> nguoinhan);
     
     public partial class frmAddPrinting : Form
     {
@@ -38,25 +38,25 @@ namespace ProjectBNG
         SMMgEntities db = new SMMgEntities();
         private void button1_Click(object sender, EventArgs e)
         {
-            listNoiNhan.Clear();
+            //listNoiNhan.Clear();
             NoiNhan item = null;
 
-            foreach (var a in this.gridView1.GetSelectedRows())
-            {
-                if (this.gridView1.IsGroupRow(a))
-                {
-                    this.gridView1.UnselectRow(a);
-                }
-                else
-                {
-                    item = (NoiNhan)this.gridView1.GetRow(a);
-                    listNoiNhan.Add(item);
-                }
-            }
-            if (listNoiNhan.Count > 0)
-            {
-                OnSubmitForm.Invoke(listNoiNhan);
-            }
+            //foreach (var a in this.gridView1.GetSelectedRows())
+            //{
+            //    if (this.gridView1.IsGroupRow(a))
+            //    {
+            //        this.gridView1.UnselectRow(a);
+            //    }
+            //    else
+            //    {
+            //        item = (NoiNhan)this.gridView1.GetRow(a);
+            //        listNoiNhan.Add(item);
+            //    }
+            //}
+            //if (listNoiNhan.Count > 0)
+            //{
+            //    OnSubmitForm.Invoke(listNoiNhan);
+            //}
             // add nguoiNhan to gridviewNoiNhanTemp
             foreach (var a in this.gridView1.GetSelectedRows())
             {

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,7 +44,17 @@
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.gridControlBaoCao = new DevExpress.XtraGrid.GridControl();
+            this.dienMatsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gridViewDienPhanPhoi = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colMaDienMat = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNgay = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNoiGui = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDoMat = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colTrichYeu = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSoBaoMat = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colBanIn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNgayIn = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colLuuFile = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnInLai = new System.Windows.Forms.Button();
             this.btnIn = new System.Windows.Forms.Button();
@@ -51,6 +62,7 @@
             this.btnDong = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlBaoCao)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dienMatsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewDienPhanPhoi)).BeginInit();
             this.SuspendLayout();
             // 
@@ -193,6 +205,7 @@
             this.gridControlBaoCao.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gridControlBaoCao.DataSource = this.dienMatsBindingSource;
             this.gridControlBaoCao.Location = new System.Drawing.Point(12, 73);
             this.gridControlBaoCao.MainView = this.gridViewDienPhanPhoi;
             this.gridControlBaoCao.Name = "gridControlBaoCao";
@@ -201,10 +214,116 @@
             this.gridControlBaoCao.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewDienPhanPhoi});
             // 
+            // dienMatsBindingSource
+            // 
+            this.dienMatsBindingSource.DataSource = typeof(ProjectBNG.Models.DienMat);
+            // 
             // gridViewDienPhanPhoi
             // 
+            this.gridViewDienPhanPhoi.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colMaDienMat,
+            this.colNgay,
+            this.colNoiGui,
+            this.colDoMat,
+            this.colTrichYeu,
+            this.colSoBaoMat,
+            this.colBanIn,
+            this.colNgayIn,
+            this.colLuuFile});
             this.gridViewDienPhanPhoi.GridControl = this.gridControlBaoCao;
             this.gridViewDienPhanPhoi.Name = "gridViewDienPhanPhoi";
+            this.gridViewDienPhanPhoi.OptionsView.ShowGroupPanel = false;
+            this.gridViewDienPhanPhoi.OptionsView.ShowIndicator = false;
+            // 
+            // colMaDienMat
+            // 
+            this.colMaDienMat.Caption = "Số mật";
+            this.colMaDienMat.FieldName = "MaDienMat";
+            this.colMaDienMat.MinWidth = 25;
+            this.colMaDienMat.Name = "colMaDienMat";
+            this.colMaDienMat.Visible = true;
+            this.colMaDienMat.VisibleIndex = 0;
+            this.colMaDienMat.Width = 94;
+            // 
+            // colNgay
+            // 
+            this.colNgay.Caption = "Ngày gửi";
+            this.colNgay.FieldName = "Ngay";
+            this.colNgay.MinWidth = 25;
+            this.colNgay.Name = "colNgay";
+            this.colNgay.Visible = true;
+            this.colNgay.VisibleIndex = 4;
+            this.colNgay.Width = 94;
+            // 
+            // colNoiGui
+            // 
+            this.colNoiGui.Caption = "Nơi gửi";
+            this.colNoiGui.FieldName = "NoiGui";
+            this.colNoiGui.MinWidth = 25;
+            this.colNoiGui.Name = "colNoiGui";
+            this.colNoiGui.Visible = true;
+            this.colNoiGui.VisibleIndex = 2;
+            this.colNoiGui.Width = 94;
+            // 
+            // colDoMat
+            // 
+            this.colDoMat.Caption = "Độ mật";
+            this.colDoMat.FieldName = "DoMat";
+            this.colDoMat.MinWidth = 25;
+            this.colDoMat.Name = "colDoMat";
+            this.colDoMat.Visible = true;
+            this.colDoMat.VisibleIndex = 5;
+            this.colDoMat.Width = 94;
+            // 
+            // colTrichYeu
+            // 
+            this.colTrichYeu.Caption = "Trích yếu";
+            this.colTrichYeu.FieldName = "TrichYeu";
+            this.colTrichYeu.MinWidth = 25;
+            this.colTrichYeu.Name = "colTrichYeu";
+            this.colTrichYeu.Visible = true;
+            this.colTrichYeu.VisibleIndex = 3;
+            this.colTrichYeu.Width = 94;
+            // 
+            // colSoBaoMat
+            // 
+            this.colSoBaoMat.Caption = "Số bảo mật";
+            this.colSoBaoMat.FieldName = "SoBaoMat";
+            this.colSoBaoMat.MinWidth = 25;
+            this.colSoBaoMat.Name = "colSoBaoMat";
+            this.colSoBaoMat.Visible = true;
+            this.colSoBaoMat.VisibleIndex = 1;
+            this.colSoBaoMat.Width = 94;
+            // 
+            // colBanIn
+            // 
+            this.colBanIn.Caption = "Bản in";
+            this.colBanIn.FieldName = "BanIn";
+            this.colBanIn.MinWidth = 25;
+            this.colBanIn.Name = "colBanIn";
+            this.colBanIn.Visible = true;
+            this.colBanIn.VisibleIndex = 6;
+            this.colBanIn.Width = 94;
+            // 
+            // colNgayIn
+            // 
+            this.colNgayIn.Caption = "Ngày in";
+            this.colNgayIn.FieldName = "NgayIn";
+            this.colNgayIn.MinWidth = 25;
+            this.colNgayIn.Name = "colNgayIn";
+            this.colNgayIn.Visible = true;
+            this.colNgayIn.VisibleIndex = 7;
+            this.colNgayIn.Width = 94;
+            // 
+            // colLuuFile
+            // 
+            this.colLuuFile.Caption = "Lưu file";
+            this.colLuuFile.FieldName = "LuuFile";
+            this.colLuuFile.MinWidth = 25;
+            this.colLuuFile.Name = "colLuuFile";
+            this.colLuuFile.Visible = true;
+            this.colLuuFile.VisibleIndex = 8;
+            this.colLuuFile.Width = 94;
             // 
             // btnXoa
             // 
@@ -260,6 +379,7 @@
             this.btnDong.TabIndex = 19;
             this.btnDong.Text = "Đóng";
             this.btnDong.UseVisualStyleBackColor = true;
+            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
             // 
             // frmDienPhanPhoi
             // 
@@ -279,6 +399,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlBaoCao)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dienMatsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewDienPhanPhoi)).EndInit();
             this.ResumeLayout(false);
 
@@ -307,5 +428,15 @@
         private System.Windows.Forms.Button btnIn;
         private System.Windows.Forms.Button btnThongKe;
         private System.Windows.Forms.Button btnDong;
+        private System.Windows.Forms.BindingSource dienMatsBindingSource;
+        private DevExpress.XtraGrid.Columns.GridColumn colMaDienMat;
+        private DevExpress.XtraGrid.Columns.GridColumn colSoBaoMat;
+        private DevExpress.XtraGrid.Columns.GridColumn colNoiGui;
+        private DevExpress.XtraGrid.Columns.GridColumn colTrichYeu;
+        private DevExpress.XtraGrid.Columns.GridColumn colNgay;
+        private DevExpress.XtraGrid.Columns.GridColumn colDoMat;
+        private DevExpress.XtraGrid.Columns.GridColumn colBanIn;
+        private DevExpress.XtraGrid.Columns.GridColumn colNgayIn;
+        private DevExpress.XtraGrid.Columns.GridColumn colLuuFile;
     }
 }

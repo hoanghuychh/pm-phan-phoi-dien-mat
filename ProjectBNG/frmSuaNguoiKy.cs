@@ -68,6 +68,7 @@ namespace ProjectBNG
          
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
+            SMMgEntities db = new SMMgEntities();
             NguoiKy updateNguoiKy = db.NguoiKies.SingleOrDefault(x => x.id == nguoiKy.id);
             nguoiKy.TenNguoiKy = tbTenNguoiKy.Text;
             nguoiKy.ChucDanh = tbChucDanh.Text;
@@ -85,9 +86,8 @@ namespace ProjectBNG
             fileImageSave.Dispose();
             if (updateNguoiKy.MacDinh == true)
             {
-                db.Database.ExecuteSqlCommand("update  NguoiKy set MacDinh = 0", new object[] { });
-                db.Database.ExecuteSqlCommand("update NguoiKy set MacDinh=1 where id= {0}", updateNguoiKy.id);
-                db.SaveChanges();
+                db.Database.ExecuteSqlCommand("update  NguoiKy set MacDinh = 0 where id != {0}", new object[] { nguoiKy.id });
+                updateNguoiKy.MacDinh = true;
             }
             db.SaveChanges();
             this.onSubmit.Invoke();
