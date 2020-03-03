@@ -19,7 +19,7 @@ namespace ProjectBNG
         Func<bool> onSubmit;
         NguoiDuyet selectNguoiDuyet;
         SMMgEntities db = new SMMgEntities();
-        public frmSuaNguoiDuyet(Func<bool> onSub,NguoiDuyet nguoiDuyet)
+        public frmSuaNguoiDuyet(Func<bool> onSub, NguoiDuyet nguoiDuyet)
         {
             InitializeComponent();
             this.onSubmit = onSub;
@@ -45,6 +45,7 @@ namespace ProjectBNG
             updateNguoiDuyet.TenNguoiDuyet = tbTenNguoiDuyet.Text;
             updateNguoiDuyet.MacDinh = cbMacDinh.Checked;
 
+
             MemoryStream stream = new MemoryStream();
             try
             {
@@ -52,6 +53,17 @@ namespace ProjectBNG
             }
             catch { }
             db.SaveChanges();
+
+            this.onSubmit.Invoke();
+            if (updateNguoiDuyet.MacDinh == true)
+            {
+                db.Database.ExecuteSqlCommand("update  NguoiDuyet set MacDinh = 0", new object[] { });
+                updateNguoiDuyet.MacDinh = true;
+                db.Database.ExecuteSqlCommand(" update NguoiDuyet set MacDinh=1 where id ={0} ",updateNguoiDuyet.id);
+                db.SaveChanges();
+            this.onSubmit.Invoke();
+            }
+
             MessageBox.Show("Thông tin người duyệt đã được thay đổi", "Thông báo");
             this.Close();
         }
@@ -65,7 +77,7 @@ namespace ProjectBNG
         {
             NguoiDuyet loadNguoiDuyet = db.NguoiDuyets.SingleOrDefault(x => x.id == selectNguoiDuyet.id);
             tbTenNguoiDuyet.Text = loadNguoiDuyet.TenNguoiDuyet;
-            cbMacDinh.Checked = loadNguoiDuyet.MacDinh.HasValue;
+            cbMacDinh.Checked = loadNguoiDuyet.MacDinh == true;
             var stream = new MemoryStream(loadNguoiDuyet.ChuKy);
             pbChuKy.Image = Image.FromStream(stream);
             pbChuKy.SizeMode = PictureBoxSizeMode.StretchImage;

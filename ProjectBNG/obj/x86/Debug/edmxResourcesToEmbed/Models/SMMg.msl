@@ -28,6 +28,8 @@
     <EntitySetMapping Name="BiThus">
       <EntityTypeMapping TypeName="SMMgModel.BiThu">
         <MappingFragment StoreEntitySet="BiThu">
+          <ScalarProperty Name="soDien" ColumnName="soDien" />
+          <ScalarProperty Name="ngay" ColumnName="ngay" />
           <ScalarProperty Name="danhSachDien" ColumnName="danhSachDien" />
           <ScalarProperty Name="soBiThu" ColumnName="soBiThu" />
           <ScalarProperty Name="id" ColumnName="id" />
@@ -48,7 +50,7 @@
           <ScalarProperty Name="Loai" ColumnName="Loai" />
           <ScalarProperty Name="LuuFile" ColumnName="LuuFile" />
           <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
-          <ScalarProperty Name="danhSachDien" ColumnName="danhSachDien" />
+          <ScalarProperty Name="MaDienMat" ColumnName="MaDienMat" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

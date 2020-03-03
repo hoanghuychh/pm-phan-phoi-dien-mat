@@ -12,12 +12,14 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="soBiThu" Type="int" Nullable="false" />
           <Property Name="danhSachDien" Type="char" MaxLength="256" />
+          <Property Name="ngay" Type="datetime" Nullable="false" />
+          <Property Name="soDien" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="DienMat">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="danhSachDien" Type="char" MaxLength="256" />
+          <Property Name="MaDienMat" Type="int" />
           <Property Name="GhiChu" Type="nvarchar" MaxLength="265" />
           <Property Name="LuuFile" Type="nvarchar" MaxLength="265" />
           <Property Name="Loai" Type="nvarchar" MaxLength="20" Nullable="false" />
@@ -251,12 +253,14 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="soBiThu" Type="Int32" Nullable="false" />
           <Property Name="danhSachDien" Type="String" MaxLength="256" FixedLength="true" Unicode="false" />
+          <Property Name="ngay" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="soDien" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="DienMat">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="danhSachDien" Type="String" MaxLength="256" FixedLength="true" Unicode="false" />
+          <Property Name="MaDienMat" Type="Int32" />
           <Property Name="GhiChu" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
           <Property Name="LuuFile" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
           <Property Name="Loai" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
@@ -410,6 +414,8 @@
           <EntitySetMapping Name="BiThus">
             <EntityTypeMapping TypeName="SMMgModel.BiThu">
               <MappingFragment StoreEntitySet="BiThu">
+                <ScalarProperty Name="soDien" ColumnName="soDien" />
+                <ScalarProperty Name="ngay" ColumnName="ngay" />
                 <ScalarProperty Name="danhSachDien" ColumnName="danhSachDien" />
                 <ScalarProperty Name="soBiThu" ColumnName="soBiThu" />
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -430,7 +436,7 @@
                 <ScalarProperty Name="Loai" ColumnName="Loai" />
                 <ScalarProperty Name="LuuFile" ColumnName="LuuFile" />
                 <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
-                <ScalarProperty Name="danhSachDien" ColumnName="danhSachDien" />
+                <ScalarProperty Name="MaDienMat" ColumnName="MaDienMat" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

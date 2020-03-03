@@ -56,7 +56,7 @@ namespace ProjectBNG
             
             tbTenNguoiKy.Text = nguoiKy.TenNguoiKy;
             tbChucDanh.Text = nguoiKy.ChucDanh;
-            cbMacDinh.Checked = nguoiKy.MacDinh.Value;
+            cbMacDinh.Checked = nguoiKy.MacDinh==true;
             var fileImage = new MemoryStream(nguoiKy.ChuKy);
             pbxChuKy.Image = Image.FromStream(fileImage);
             pbxChuKy.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -83,7 +83,12 @@ namespace ProjectBNG
             catch { }
             nguoiKy.ChuKy = fileImageSave.ToArray();
             fileImageSave.Dispose();
-            
+            if (updateNguoiKy.MacDinh == true)
+            {
+                db.Database.ExecuteSqlCommand("update  NguoiKy set MacDinh = 0", new object[] { });
+                db.Database.ExecuteSqlCommand("update NguoiKy set MacDinh=1 where id= {0}", updateNguoiKy.id);
+                db.SaveChanges();
+            }
             db.SaveChanges();
             this.onSubmit.Invoke();
             MessageBox.Show("Thông tin người ký đã được thay đổi ", "Thông báo");

@@ -230,6 +230,7 @@
             // 
             // cmbTrangThai
             // 
+            this.cmbTrangThai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTrangThai.FormattingEnabled = true;
             this.cmbTrangThai.Location = new System.Drawing.Point(87, 4);
             this.cmbTrangThai.Margin = new System.Windows.Forms.Padding(4);

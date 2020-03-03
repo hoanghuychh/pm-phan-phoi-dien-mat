@@ -53,6 +53,7 @@ namespace ProjectBNG
                 ms2.WriteTo(ms);
 
                 pdfViewer1.LoadDocument(ms2);
+                pdfViewer1.SaveDocument("D:/BACKUP/Desktop/newSave.pdf");
             }
             catch { }
 
@@ -107,37 +108,59 @@ namespace ProjectBNG
 
         private void frmPrinting_Load(object sender, EventArgs e)
         {
-            // cbxPrivateFile
-            cbxPrivateFile.Items.Add("Mật");
-            cbxPrivateFile.Items.Add("TM");
-            cbxPrivateFile.Items.Add("Tuyệt mật");
-            cbxPrivateFile.SelectedItem = cbxPrivateFile.Items[0];
+            //// cbxPrivateFile
+            //cbxPrivateFile.Items.Add("Mật");
+            //cbxPrivateFile.Items.Add("TM");
+            //cbxPrivateFile.Items.Add("Tuyệt mật");
+            //cbxPrivateFile.SelectedItem = cbxPrivateFile.Items[0];
 
-            // cbxPrivateAttachedFile
-            cbxPrivateAttachedFile.Items.Add("Rõ");
-            cbxPrivateAttachedFile.Items.Add("Mật");
-            cbxPrivateAttachedFile.Items.Add("TM");
-            cbxPrivateAttachedFile.Items.Add("Tuyệt mật");
-            cbxPrivateAttachedFile.SelectedItem = cbxPrivateAttachedFile.Items[1];
+            //// cbxPrivateAttachedFile
+            //cbxPrivateAttachedFile.Items.Add("Rõ");
+            //cbxPrivateAttachedFile.Items.Add("Mật");
+            //cbxPrivateAttachedFile.Items.Add("TM");
+            //cbxPrivateAttachedFile.Items.Add("Tuyệt mật");
+            //cbxPrivateAttachedFile.SelectedItem = cbxPrivateAttachedFile.Items[1];
 
-            // cbxPlaceOfSending: Lay tu DB ra
-            cbxPlaceOfSending.Items.Add("Place 0");
-            cbxPlaceOfSending.Items.Add("Place 1");
-            cbxPlaceOfSending.SelectedItem = cbxPlaceOfSending.Items[0];
+            //// cbxPlaceOfSending: Lay tu DB ra
+            //cbxNoiGuiMD.Items.Add("Place 0");
+            //cbxNoiGuiMD.Items.Add("Place 1");
+            //cbxNoiGuiMD.SelectedItem = cbxNoiGuiMD.Items[0];
 
-            // cbxCensor: Lay tu DB ra
-            cbxCensor.Items.Add("Đặng Bảo Châu");
-            cbxCensor.Items.Add("Censor 1");
-            cbxCensor.Items.Add("Censor 2");
+            //// cbxCensor: Lay tu DB ra
+            //cbxNguoiDuyetMD.Items.Add("Đặng Bảo Châu");
+            //cbxNguoiDuyetMD.Items.Add("Censor 1");
+            //cbxNguoiDuyetMD.Items.Add("Censor 2");
 
-            // cbxSigner: Lay tu DB ra
-            cbxSigner.Items.Add("Lê Thanh Tùng");
-            cbxSigner.Items.Add("Signer 1");
-            cbxSigner.Items.Add("Signer 2");
+            //// cbxSigner: Lay tu DB ra
+            //cbxNguoiKiMD.Items.Add("Lê Thanh Tùng");
+            //cbxNguoiKiMD.Items.Add("Signer 1");
+            //cbxNguoiKiMD.Items.Add("Signer 2");
 
-            // chbIncluding, txtIncluding
-            chbIncluding.Checked = true;
-            txtIncluding.Text = "(Ghi)";
+            //// chbIncluding, txtIncluding
+            //chbIncluding.Checked = true;
+            //txtIncluding.Text = "(Ghi)";
+            
+            cbxNoiGuiMD.DataSource = db.NoiGuis.ToList();
+            cbxNoiGuiMD.ValueMember = "id";
+            cbxNoiGuiMD.DisplayMember = "Ten";
+
+            NguoiDuyet defaultNguoiNhan = db.NguoiDuyets.SingleOrDefault(x => x.MacDinh == true);
+            cbxNguoiDuyetMD.SelectedText = defaultNguoiNhan.TenNguoiDuyet;
+            cbxNguoiDuyetMD.DataSource = db.NguoiDuyets.ToList();
+            cbxNguoiDuyetMD.ValueMember = "id";
+            cbxNguoiDuyetMD.DisplayMember = "TenNguoiDuyet";
+
+            NguoiKy defaultNguoiKy = db.NguoiKies.SingleOrDefault(x => x.MacDinh == true);
+            cbxNguoiKiMD.SelectedText = defaultNguoiKy.TenNguoiKy;
+            cbxNguoiKiMD.DataSource = db.NguoiKies.ToList();
+            cbxNguoiKiMD.ValueMember = "id";
+            cbxNguoiKiMD.DisplayMember = "TenNguoiKy";
+
+            tbChucDanhMD.Text = defaultNguoiKy.ChucDanh;
+
+            var stream = new MemoryStream(defaultNguoiKy.ChuKy);
+            pbChuKiMD.Image = Image.FromStream(stream);
+            pbChuKiMD.SizeMode = PictureBoxSizeMode.StretchImage;
 
         }
 
@@ -159,6 +182,7 @@ namespace ProjectBNG
                     FileName = ofd.FileName;
                     tbFileNameDienMat.Text = FileName;
                 }
+                
             }
         }
 
@@ -312,7 +336,7 @@ namespace ProjectBNG
         private void btnAddPlaceOfSending_Click(object sender, EventArgs e)
         {
 
-            if (!CheckExistForm("frmAddPrinting"))
+            if (!CommonFunction.checkExistForm("frmAddPrinting",this))
             {
                 frmAddPrinting frmAdd = new frmAddPrinting(() =>
                 {
@@ -328,7 +352,7 @@ namespace ProjectBNG
             }
             else
             {
-                ActiveChildForm("frmAddPrinting");
+                CommonFunction.activateForm("frmAddPrinting",this);
             }
         }
         public void OnSubmitNguoiNhan(List<NoiNhan> list)

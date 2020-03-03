@@ -147,3 +147,16 @@ D:\Github\winform_mail_manager\ProjectBNG\obj\x86\Debug\ProjectBNG.csproj.CoreCo
 D:\Github\winform_mail_manager\ProjectBNG\obj\x86\Debug\ProjectBNG.csproj.CopyComplete
 D:\Github\winform_mail_manager\ProjectBNG\obj\x86\Debug\ProjectBNG.exe
 D:\Github\winform_mail_manager\ProjectBNG\obj\x86\Debug\ProjectBNG.pdb
+D:\Github\winform_mail_manager\ProjectBNG\bin\x86\Debug\DevExpress.XtraScheduler.v19.2.Core.dll
+D:\Github\winform_mail_manager\ProjectBNG\bin\x86\Debug\DevExpress.XtraScheduler.v19.2.dll
+D:\Github\winform_mail_manager\ProjectBNG\bin\x86\Debug\DevExpress.XtraScheduler.v19.2.xml
+D:\Github\winform_mail_manager\ProjectBNG\bin\x86\Debug\DevExpress.XtraScheduler.v19.2.Core.xml
+D:\Github\winform_mail_manager\ProjectBNG\bin\x86\Debug\de\DevExpress.XtraScheduler.v19.2.resources.dll
+D:\Github\winform_mail_manager\ProjectBNG\bin\x86\Debug\es\DevExpress.XtraScheduler.v19.2.resources.dll
+D:\Github\winform_mail_manager\ProjectBNG\bin\x86\Debug\ja\DevExpress.XtraScheduler.v19.2.resources.dll
+D:\Github\winform_mail_manager\ProjectBNG\bin\x86\Debug\ru\DevExpress.XtraScheduler.v19.2.resources.dll
+D:\Github\winform_mail_manager\ProjectBNG\bin\x86\Debug\de\DevExpress.XtraScheduler.v19.2.Core.resources.dll
+D:\Github\winform_mail_manager\ProjectBNG\bin\x86\Debug\es\DevExpress.XtraScheduler.v19.2.Core.resources.dll
+D:\Github\winform_mail_manager\ProjectBNG\bin\x86\Debug\ja\DevExpress.XtraScheduler.v19.2.Core.resources.dll
+D:\Github\winform_mail_manager\ProjectBNG\bin\x86\Debug\ru\DevExpress.XtraScheduler.v19.2.Core.resources.dll
+D:\Github\winform_mail_manager\ProjectBNG\obj\x86\Debug\ProjectBNG.frmDienPhanPhoi.resources

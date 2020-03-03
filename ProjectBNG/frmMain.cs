@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectBNG.Class;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -157,6 +158,20 @@ namespace ProjectBNG
             else
             {
                 ActiveChildForm("frmNguoiDung");
+            }
+        }
+
+        private void điệnMậtĐãPhânPhốiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!CommonFunction.checkExistForm("frmDienPhanPhoi",this))
+            {
+                frmDienPhanPhoi fDienPhanPhoi = new frmDienPhanPhoi();
+                fDienPhanPhoi.MdiParent = this;
+                fDienPhanPhoi.Show();
+            }
+            else
+            {
+                CommonFunction.activateForm("frmDienPhanPhoi", this);
             }
         }
     }

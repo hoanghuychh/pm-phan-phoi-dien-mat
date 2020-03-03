@@ -132,6 +132,7 @@
             // 
             // cmbQuyen
             // 
+            this.cmbQuyen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbQuyen.FormattingEnabled = true;
             this.cmbQuyen.Location = new System.Drawing.Point(120, 96);
             this.cmbQuyen.Margin = new System.Windows.Forms.Padding(4);

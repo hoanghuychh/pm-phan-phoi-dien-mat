@@ -7,12 +7,14 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="soBiThu" Type="int" Nullable="false" />
     <Property Name="danhSachDien" Type="char" MaxLength="256" />
+    <Property Name="ngay" Type="datetime" Nullable="false" />
+    <Property Name="soDien" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="DienMat">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="danhSachDien" Type="char" MaxLength="256" />
+    <Property Name="MaDienMat" Type="int" />
     <Property Name="GhiChu" Type="nvarchar" MaxLength="265" />
     <Property Name="LuuFile" Type="nvarchar" MaxLength="265" />
     <Property Name="Loai" Type="nvarchar" MaxLength="20" Nullable="false" />

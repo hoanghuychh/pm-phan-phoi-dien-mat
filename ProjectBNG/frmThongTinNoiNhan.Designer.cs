@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.btDong = new System.Windows.Forms.Button();
             this.btCapNhat = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -47,8 +49,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbTenVietTat = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,6 +79,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(416, 332);
             this.panel1.TabIndex = 0;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(129, 226);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(110, 17);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "Đang hoạt động";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(338, 188);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(40, 17);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Có bì";
             // 
             // btDong
             // 
@@ -114,6 +132,8 @@
             // 
             // cmbCoSo
             // 
+            this.cmbCoSo.BackColor = System.Drawing.SystemColors.Window;
+            this.cmbCoSo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCoSo.FormattingEnabled = true;
             this.cmbCoSo.ItemHeight = 16;
             this.cmbCoSo.Location = new System.Drawing.Point(93, 260);
@@ -182,6 +202,7 @@
             // 
             // cmbNhom
             // 
+            this.cmbNhom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbNhom.FormattingEnabled = true;
             this.cmbNhom.Location = new System.Drawing.Point(93, 117);
             this.cmbNhom.Margin = new System.Windows.Forms.Padding(4);
@@ -201,6 +222,7 @@
             // 
             // cmbLoai
             // 
+            this.cmbLoai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLoai.FormattingEnabled = true;
             this.cmbLoai.Location = new System.Drawing.Point(93, 81);
             this.cmbLoai.Margin = new System.Windows.Forms.Padding(4);
@@ -253,24 +275,6 @@
             this.label1.Size = new System.Drawing.Size(79, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên viết tắt";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(338, 188);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(40, 17);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "Có bì";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(129, 226);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(110, 17);
-            this.label9.TabIndex = 18;
-            this.label9.Text = "Đang hoạt động";
             // 
             // frmThongTinNoiNhan
             // 

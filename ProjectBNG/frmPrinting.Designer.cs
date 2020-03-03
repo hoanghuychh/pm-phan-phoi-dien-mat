@@ -29,26 +29,28 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnAddAttachedFile = new System.Windows.Forms.Button();
             this.btnRemoveAttachedFile = new System.Windows.Forms.Button();
             this.btnBrowseFile = new System.Windows.Forms.Button();
-            this.datetime = new System.Windows.Forms.DateTimePicker();
+            this.datetimeNgayLuu = new System.Windows.Forms.DateTimePicker();
             this.txtPrivateNumber = new System.Windows.Forms.TextBox();
             this.cbxPrivateAttachedFile = new System.Windows.Forms.ComboBox();
             this.cbxPrivateFile = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.cbxPlaceOfSending = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.cbxNoiGuiMD = new System.Windows.Forms.ComboBox();
+            this.tbTrichYeu = new System.Windows.Forms.TextBox();
             this.txtAttachedFileName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtIncludingFile = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tbFileNameDienMat = new System.Windows.Forms.TextBox();
+            this.btnRemovePlaceOfSending = new System.Windows.Forms.Button();
+            this.btnAddPlaceOfSending = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.noiNhanTempsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -60,6 +62,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.dienMatsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pbChuKiMD = new System.Windows.Forms.PictureBox();
             this.rtxtSignature = new System.Windows.Forms.RichTextBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.txtIncluding = new System.Windows.Forms.TextBox();
@@ -68,10 +71,10 @@
             this.txtAllignBottomSignature = new System.Windows.Forms.TextBox();
             this.txtAllignBottomIncludedSM = new System.Windows.Forms.TextBox();
             this.txtPage = new System.Windows.Forms.TextBox();
-            this.txtTitle = new System.Windows.Forms.TextBox();
+            this.tbChucDanhMD = new System.Windows.Forms.TextBox();
             this.txtNote = new System.Windows.Forms.TextBox();
-            this.cbxSigner = new System.Windows.Forms.ComboBox();
-            this.cbxCensor = new System.Windows.Forms.ComboBox();
+            this.cbxNguoiKiMD = new System.Windows.Forms.ComboBox();
+            this.cbxNguoiDuyetMD = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -80,10 +83,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.btnRemovePlaceOfSending = new System.Windows.Forms.Button();
-            this.btnUp = new System.Windows.Forms.Button();
-            this.btnDown = new System.Windows.Forms.Button();
-            this.btnAddPlaceOfSending = new System.Windows.Forms.Button();
             this.chbPrint = new System.Windows.Forms.CheckBox();
             this.btnPreview = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
@@ -99,6 +98,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridViewNoiNhanTemp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dienMatsBindingSource1)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbChuKiMD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dienMatsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,15 +107,15 @@
             this.panel1.Controls.Add(this.btnAddAttachedFile);
             this.panel1.Controls.Add(this.btnRemoveAttachedFile);
             this.panel1.Controls.Add(this.btnBrowseFile);
-            this.panel1.Controls.Add(this.datetime);
+            this.panel1.Controls.Add(this.datetimeNgayLuu);
             this.panel1.Controls.Add(this.txtPrivateNumber);
             this.panel1.Controls.Add(this.cbxPrivateAttachedFile);
             this.panel1.Controls.Add(this.cbxPrivateFile);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.cbxPlaceOfSending);
-            this.panel1.Controls.Add(this.textBox3);
+            this.panel1.Controls.Add(this.cbxNoiGuiMD);
+            this.panel1.Controls.Add(this.tbTrichYeu);
             this.panel1.Controls.Add(this.txtAttachedFileName);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
@@ -125,7 +125,7 @@
             this.panel1.Location = new System.Drawing.Point(16, 15);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(764, 167);
+            this.panel1.Size = new System.Drawing.Size(764, 200);
             this.panel1.TabIndex = 21;
             // 
             // btnAddAttachedFile
@@ -164,15 +164,15 @@
             this.btnBrowseFile.UseVisualStyleBackColor = true;
             this.btnBrowseFile.Click += new System.EventHandler(this.btnBrowseFile_Click);
             // 
-            // datetime
+            // datetimeNgayLuu
             // 
-            this.datetime.CustomFormat = "dd/MM/yyyy";
-            this.datetime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.datetime.Location = new System.Drawing.Point(603, 94);
-            this.datetime.Margin = new System.Windows.Forms.Padding(4);
-            this.datetime.Name = "datetime";
-            this.datetime.Size = new System.Drawing.Size(159, 22);
-            this.datetime.TabIndex = 33;
+            this.datetimeNgayLuu.CustomFormat = "dd/MM/yyyy";
+            this.datetimeNgayLuu.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.datetimeNgayLuu.Location = new System.Drawing.Point(603, 94);
+            this.datetimeNgayLuu.Margin = new System.Windows.Forms.Padding(4);
+            this.datetimeNgayLuu.Name = "datetimeNgayLuu";
+            this.datetimeNgayLuu.Size = new System.Drawing.Size(159, 22);
+            this.datetimeNgayLuu.TabIndex = 33;
             // 
             // txtPrivateNumber
             // 
@@ -230,22 +230,23 @@
             this.label5.TabIndex = 27;
             this.label5.Text = "Số mật";
             // 
-            // cbxPlaceOfSending
+            // cbxNoiGuiMD
             // 
-            this.cbxPlaceOfSending.FormattingEnabled = true;
-            this.cbxPlaceOfSending.Location = new System.Drawing.Point(129, 94);
-            this.cbxPlaceOfSending.Margin = new System.Windows.Forms.Padding(4);
-            this.cbxPlaceOfSending.Name = "cbxPlaceOfSending";
-            this.cbxPlaceOfSending.Size = new System.Drawing.Size(191, 24);
-            this.cbxPlaceOfSending.TabIndex = 26;
+            this.cbxNoiGuiMD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxNoiGuiMD.FormattingEnabled = true;
+            this.cbxNoiGuiMD.Location = new System.Drawing.Point(129, 94);
+            this.cbxNoiGuiMD.Margin = new System.Windows.Forms.Padding(4);
+            this.cbxNoiGuiMD.Name = "cbxNoiGuiMD";
+            this.cbxNoiGuiMD.Size = new System.Drawing.Size(191, 24);
+            this.cbxNoiGuiMD.TabIndex = 26;
             // 
-            // textBox3
+            // tbTrichYeu
             // 
-            this.textBox3.Location = new System.Drawing.Point(129, 134);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(632, 22);
-            this.textBox3.TabIndex = 25;
+            this.tbTrichYeu.Location = new System.Drawing.Point(129, 134);
+            this.tbTrichYeu.Margin = new System.Windows.Forms.Padding(4);
+            this.tbTrichYeu.Name = "tbTrichYeu";
+            this.tbTrichYeu.Size = new System.Drawing.Size(632, 22);
+            this.tbTrichYeu.TabIndex = 25;
             // 
             // txtAttachedFileName
             // 
@@ -306,28 +307,51 @@
             this.tbFileNameDienMat.Size = new System.Drawing.Size(280, 22);
             this.tbFileNameDienMat.TabIndex = 19;
             // 
+            // btnRemovePlaceOfSending
+            // 
+            this.btnRemovePlaceOfSending.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemovePlaceOfSending.Image = global::ProjectBNG.Properties.Resources.minus;
+            this.btnRemovePlaceOfSending.Location = new System.Drawing.Point(788, 288);
+            this.btnRemovePlaceOfSending.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRemovePlaceOfSending.Name = "btnRemovePlaceOfSending";
+            this.btnRemovePlaceOfSending.Size = new System.Drawing.Size(40, 28);
+            this.btnRemovePlaceOfSending.TabIndex = 39;
+            this.btnRemovePlaceOfSending.UseVisualStyleBackColor = true;
+            // 
+            // btnAddPlaceOfSending
+            // 
+            this.btnAddPlaceOfSending.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddPlaceOfSending.Image = global::ProjectBNG.Properties.Resources.plus;
+            this.btnAddPlaceOfSending.Location = new System.Drawing.Point(787, 225);
+            this.btnAddPlaceOfSending.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAddPlaceOfSending.Name = "btnAddPlaceOfSending";
+            this.btnAddPlaceOfSending.Size = new System.Drawing.Size(40, 28);
+            this.btnAddPlaceOfSending.TabIndex = 36;
+            this.btnAddPlaceOfSending.UseVisualStyleBackColor = true;
+            this.btnAddPlaceOfSending.Click += new System.EventHandler(this.btnAddPlaceOfSending_Click);
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.gridControl1);
             this.panel2.Controls.Add(this.label8);
-            this.panel2.Location = new System.Drawing.Point(15, 190);
+            this.panel2.Location = new System.Drawing.Point(15, 179);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(764, 369);
+            this.panel2.Size = new System.Drawing.Size(764, 380);
             this.panel2.TabIndex = 22;
             // 
             // gridControl1
             // 
             this.gridControl1.DataSource = this.noiNhanTempsBindingSource;
             this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            gridLevelNode2.RelationName = "Level1";
+            gridLevelNode1.RelationName = "Level1";
             this.gridControl1.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode2});
+            gridLevelNode1});
             this.gridControl1.Location = new System.Drawing.Point(0, 33);
             this.gridControl1.MainView = this.gridViewNoiNhanTemp;
             this.gridControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(761, 332);
+            this.gridControl1.Size = new System.Drawing.Size(766, 345);
             this.gridControl1.TabIndex = 23;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewNoiNhanTemp});
@@ -345,6 +369,7 @@
             this.colSoBaoMat});
             this.gridViewNoiNhanTemp.GridControl = this.gridControl1;
             this.gridViewNoiNhanTemp.Name = "gridViewNoiNhanTemp";
+            this.gridViewNoiNhanTemp.OptionsBehavior.Editable = false;
             this.gridViewNoiNhanTemp.OptionsView.ShowGroupPanel = false;
             this.gridViewNoiNhanTemp.OptionsView.ShowIndicator = false;
             // 
@@ -404,6 +429,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.pbChuKiMD);
             this.panel3.Controls.Add(this.rtxtSignature);
             this.panel3.Controls.Add(this.textBox12);
             this.panel3.Controls.Add(this.txtIncluding);
@@ -412,10 +438,10 @@
             this.panel3.Controls.Add(this.txtAllignBottomSignature);
             this.panel3.Controls.Add(this.txtAllignBottomIncludedSM);
             this.panel3.Controls.Add(this.txtPage);
-            this.panel3.Controls.Add(this.txtTitle);
+            this.panel3.Controls.Add(this.tbChucDanhMD);
             this.panel3.Controls.Add(this.txtNote);
-            this.panel3.Controls.Add(this.cbxSigner);
-            this.panel3.Controls.Add(this.cbxCensor);
+            this.panel3.Controls.Add(this.cbxNguoiKiMD);
+            this.panel3.Controls.Add(this.cbxNguoiDuyetMD);
             this.panel3.Controls.Add(this.label13);
             this.panel3.Controls.Add(this.label14);
             this.panel3.Controls.Add(this.label15);
@@ -429,6 +455,14 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(765, 171);
             this.panel3.TabIndex = 23;
+            // 
+            // pbChuKiMD
+            // 
+            this.pbChuKiMD.Location = new System.Drawing.Point(361, 92);
+            this.pbChuKiMD.Name = "pbChuKiMD";
+            this.pbChuKiMD.Size = new System.Drawing.Size(165, 68);
+            this.pbChuKiMD.TabIndex = 44;
+            this.pbChuKiMD.TabStop = false;
             // 
             // rtxtSignature
             // 
@@ -515,13 +549,13 @@
             this.txtPage.Click += new System.EventHandler(this.txt_Click);
             this.txtPage.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKeyPress);
             // 
-            // txtTitle
+            // tbChucDanhMD
             // 
-            this.txtTitle.Location = new System.Drawing.Point(97, 132);
-            this.txtTitle.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(257, 22);
-            this.txtTitle.TabIndex = 35;
+            this.tbChucDanhMD.Location = new System.Drawing.Point(97, 132);
+            this.tbChucDanhMD.Margin = new System.Windows.Forms.Padding(4);
+            this.tbChucDanhMD.Name = "tbChucDanhMD";
+            this.tbChucDanhMD.Size = new System.Drawing.Size(257, 22);
+            this.tbChucDanhMD.TabIndex = 35;
             // 
             // txtNote
             // 
@@ -531,23 +565,25 @@
             this.txtNote.Size = new System.Drawing.Size(211, 22);
             this.txtNote.TabIndex = 34;
             // 
-            // cbxSigner
+            // cbxNguoiKiMD
             // 
-            this.cbxSigner.FormattingEnabled = true;
-            this.cbxSigner.Location = new System.Drawing.Point(97, 92);
-            this.cbxSigner.Margin = new System.Windows.Forms.Padding(4);
-            this.cbxSigner.Name = "cbxSigner";
-            this.cbxSigner.Size = new System.Drawing.Size(257, 24);
-            this.cbxSigner.TabIndex = 33;
+            this.cbxNguoiKiMD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxNguoiKiMD.FormattingEnabled = true;
+            this.cbxNguoiKiMD.Location = new System.Drawing.Point(97, 92);
+            this.cbxNguoiKiMD.Margin = new System.Windows.Forms.Padding(4);
+            this.cbxNguoiKiMD.Name = "cbxNguoiKiMD";
+            this.cbxNguoiKiMD.Size = new System.Drawing.Size(257, 24);
+            this.cbxNguoiKiMD.TabIndex = 33;
             // 
-            // cbxCensor
+            // cbxNguoiDuyetMD
             // 
-            this.cbxCensor.FormattingEnabled = true;
-            this.cbxCensor.Location = new System.Drawing.Point(97, 53);
-            this.cbxCensor.Margin = new System.Windows.Forms.Padding(4);
-            this.cbxCensor.Name = "cbxCensor";
-            this.cbxCensor.Size = new System.Drawing.Size(257, 24);
-            this.cbxCensor.TabIndex = 32;
+            this.cbxNguoiDuyetMD.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxNguoiDuyetMD.FormattingEnabled = true;
+            this.cbxNguoiDuyetMD.Location = new System.Drawing.Point(97, 53);
+            this.cbxNguoiDuyetMD.Margin = new System.Windows.Forms.Padding(4);
+            this.cbxNguoiDuyetMD.Name = "cbxNguoiDuyetMD";
+            this.cbxNguoiDuyetMD.Size = new System.Drawing.Size(257, 24);
+            this.cbxNguoiDuyetMD.TabIndex = 32;
             // 
             // label13
             // 
@@ -629,51 +665,6 @@
             this.label12.Size = new System.Drawing.Size(119, 17);
             this.label12.TabIndex = 24;
             this.label12.Text = "Chú thích bên trái";
-            // 
-            // btnRemovePlaceOfSending
-            // 
-            this.btnRemovePlaceOfSending.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemovePlaceOfSending.Image = global::ProjectBNG.Properties.Resources.minus;
-            this.btnRemovePlaceOfSending.Location = new System.Drawing.Point(787, 258);
-            this.btnRemovePlaceOfSending.Margin = new System.Windows.Forms.Padding(4);
-            this.btnRemovePlaceOfSending.Name = "btnRemovePlaceOfSending";
-            this.btnRemovePlaceOfSending.Size = new System.Drawing.Size(40, 28);
-            this.btnRemovePlaceOfSending.TabIndex = 39;
-            this.btnRemovePlaceOfSending.UseVisualStyleBackColor = true;
-            // 
-            // btnUp
-            // 
-            this.btnUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUp.Image = global::ProjectBNG.Properties.Resources.page_up;
-            this.btnUp.Location = new System.Drawing.Point(787, 363);
-            this.btnUp.Margin = new System.Windows.Forms.Padding(4);
-            this.btnUp.Name = "btnUp";
-            this.btnUp.Size = new System.Drawing.Size(40, 28);
-            this.btnUp.TabIndex = 38;
-            this.btnUp.UseVisualStyleBackColor = true;
-            // 
-            // btnDown
-            // 
-            this.btnDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDown.Image = global::ProjectBNG.Properties.Resources.page_down;
-            this.btnDown.Location = new System.Drawing.Point(787, 399);
-            this.btnDown.Margin = new System.Windows.Forms.Padding(4);
-            this.btnDown.Name = "btnDown";
-            this.btnDown.Size = new System.Drawing.Size(40, 28);
-            this.btnDown.TabIndex = 37;
-            this.btnDown.UseVisualStyleBackColor = true;
-            // 
-            // btnAddPlaceOfSending
-            // 
-            this.btnAddPlaceOfSending.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddPlaceOfSending.Image = global::ProjectBNG.Properties.Resources.plus;
-            this.btnAddPlaceOfSending.Location = new System.Drawing.Point(787, 223);
-            this.btnAddPlaceOfSending.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAddPlaceOfSending.Name = "btnAddPlaceOfSending";
-            this.btnAddPlaceOfSending.Size = new System.Drawing.Size(40, 28);
-            this.btnAddPlaceOfSending.TabIndex = 36;
-            this.btnAddPlaceOfSending.UseVisualStyleBackColor = true;
-            this.btnAddPlaceOfSending.Click += new System.EventHandler(this.btnAddPlaceOfSending_Click);
             // 
             // chbPrint
             // 
@@ -768,11 +759,9 @@
             this.Controls.Add(this.btnPreview);
             this.Controls.Add(this.chbPrint);
             this.Controls.Add(this.btnRemovePlaceOfSending);
-            this.Controls.Add(this.btnUp);
-            this.Controls.Add(this.btnDown);
-            this.Controls.Add(this.btnAddPlaceOfSending);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.btnAddPlaceOfSending);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -790,6 +779,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dienMatsBindingSource1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbChuKiMD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dienMatsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -801,15 +791,15 @@
         private System.Windows.Forms.Button btnAddAttachedFile;
         private System.Windows.Forms.Button btnRemoveAttachedFile;
         private System.Windows.Forms.Button btnBrowseFile;
-        private System.Windows.Forms.DateTimePicker datetime;
+        private System.Windows.Forms.DateTimePicker datetimeNgayLuu;
         private System.Windows.Forms.TextBox txtPrivateNumber;
         private System.Windows.Forms.ComboBox cbxPrivateAttachedFile;
         private System.Windows.Forms.ComboBox cbxPrivateFile;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cbxPlaceOfSending;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.ComboBox cbxNoiGuiMD;
+        private System.Windows.Forms.TextBox tbTrichYeu;
         private System.Windows.Forms.TextBox txtAttachedFileName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -827,10 +817,10 @@
         private System.Windows.Forms.TextBox txtAllignBottomSignature;
         private System.Windows.Forms.TextBox txtAllignBottomIncludedSM;
         private System.Windows.Forms.TextBox txtPage;
-        private System.Windows.Forms.TextBox txtTitle;
+        private System.Windows.Forms.TextBox tbChucDanhMD;
         private System.Windows.Forms.TextBox txtNote;
-        private System.Windows.Forms.ComboBox cbxSigner;
-        private System.Windows.Forms.ComboBox cbxCensor;
+        private System.Windows.Forms.ComboBox cbxNguoiKiMD;
+        private System.Windows.Forms.ComboBox cbxNguoiDuyetMD;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
@@ -840,8 +830,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnAddPlaceOfSending;
-        private System.Windows.Forms.Button btnDown;
-        private System.Windows.Forms.Button btnUp;
         private System.Windows.Forms.Button btnRemovePlaceOfSending;
         private System.Windows.Forms.CheckBox chbPrint;
         private System.Windows.Forms.Button btnPreview;
@@ -852,13 +840,14 @@
         private System.Windows.Forms.BindingSource dienMatsBindingSource;
         private System.Windows.Forms.BindingSource dienMatsBindingSource1;
         private DevExpress.XtraPdfViewer.PdfViewer pdfViewer1;
-        private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewNoiNhanTemp;
         private DevExpress.XtraGrid.Columns.GridColumn colMaNoiNhan;
         private DevExpress.XtraGrid.Columns.GridColumn colTenNoiNhan;
         private DevExpress.XtraGrid.Columns.GridColumn colLoai;
         private DevExpress.XtraGrid.Columns.GridColumn colSoBaoMat;
         private System.Windows.Forms.BindingSource noiNhanTempsBindingSource;
+        private System.Windows.Forms.PictureBox pbChuKiMD;
+        private DevExpress.XtraGrid.GridControl gridControl1;
     }
 }
 

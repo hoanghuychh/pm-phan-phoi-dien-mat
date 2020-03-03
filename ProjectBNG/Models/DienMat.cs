@@ -14,7 +14,7 @@ namespace ProjectBNG.Models
     
     public partial class DienMat
     {
-        public string danhSachDien { get; set; }
+        public Nullable<int> MaDienMat { get; set; }
         public string GhiChu { get; set; }
         public string LuuFile { get; set; }
         public string Loai { get; set; }

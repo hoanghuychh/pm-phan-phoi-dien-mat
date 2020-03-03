@@ -17,5 +17,7 @@ namespace ProjectBNG.Models
         public int id { get; set; }
         public int soBiThu { get; set; }
         public string danhSachDien { get; set; }
+        public System.DateTime ngay { get; set; }
+        public int soDien { get; set; }
     }
 }

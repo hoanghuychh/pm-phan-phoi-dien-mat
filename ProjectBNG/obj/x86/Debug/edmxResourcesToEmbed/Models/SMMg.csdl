@@ -63,12 +63,14 @@
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="soBiThu" Type="Int32" Nullable="false" />
     <Property Name="danhSachDien" Type="String" MaxLength="256" FixedLength="true" Unicode="false" />
+    <Property Name="ngay" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="soDien" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityType Name="DienMat">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="danhSachDien" Type="String" MaxLength="256" FixedLength="true" Unicode="false" />
+    <Property Name="MaDienMat" Type="Int32" />
     <Property Name="GhiChu" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
     <Property Name="LuuFile" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
     <Property Name="Loai" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
