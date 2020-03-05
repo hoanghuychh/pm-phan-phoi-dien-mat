@@ -1,9 +1,14 @@
-﻿using System;
+﻿using DevExpress.XtraGrid.Views.Grid;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms.ComponentModel;
+
 using System.Windows.Forms;
+using System.Data.Entity;
+using ProjectBNG.Class;
 
 namespace ProjectBNG.Class
 {
@@ -33,5 +38,12 @@ namespace ProjectBNG.Class
                 }
             }
         }
-    }
+        public static bool cal(int _Width, GridView _View)
+        {
+            _View.IndicatorWidth = _View.IndicatorWidth < _Width ? _Width : _View.IndicatorWidth;
+            return true;
+        }
+        
+        }
+    
 }

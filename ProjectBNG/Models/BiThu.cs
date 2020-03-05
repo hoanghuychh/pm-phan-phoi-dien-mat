@@ -15,9 +15,10 @@ namespace ProjectBNG.Models
     public partial class BiThu
     {
         public int id { get; set; }
-        public int soBiThu { get; set; }
-        public string danhSachDien { get; set; }
-        public System.DateTime ngay { get; set; }
-        public int soDien { get; set; }
+        public System.DateTime Ngay { get; set; }
+        public Nullable<int> SoPhieu { get; set; }
+        public string DanhSachDien { get; set; }
+        public int SoBiThu { get; set; }
+        public string KiNhan { get; set; }
     }
 }

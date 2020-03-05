@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Entity;
+using DevExpress.XtraGrid.Views.Grid;
+using ProjectBNG.Models;
 
 namespace ProjectBNG
 {
@@ -22,14 +24,88 @@ namespace ProjectBNG
             // Call the LoadAsync method to asynchronously get the data for the given DbSet from the database.
             dbContext.DienMats.LoadAsync().ContinueWith(loadTask =>
             {
-    // Bind data to control when loading complete
-    dienMatsBindingSource.DataSource = dbContext.DienMats.Local.ToBindingList();
+                // Bind data to control when loading complete
+                dienMatsBindingSource.DataSource = dbContext.DienMats.Local.ToBindingList();
             }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
+
+        }
+
+        private bool cal(int _Width, GridView _View)
+        {
+            _View.IndicatorWidth = _View.IndicatorWidth < _Width ? _Width : _View.IndicatorWidth;
+            return true;
         }
 
         private void btnDong_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void gridViewDienPhanPhoi_CustomDrawRowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)
+        {
+            if (!gridViewDienPhanPhoi.IsGroupRow(e.RowHandle)) //Nếu không phải là Group
+            {
+                if (e.Info.IsRowIndicator) //Nếu là dòng Indicator
+                {
+                    if (e.RowHandle < 0)
+                    {
+                        e.Info.ImageIndex = 0;
+                        e.Info.DisplayText = string.Empty;
+                    }
+                    else
+                    {
+                        e.Info.ImageIndex = -1; //Không hiển thị hình
+                        e.Info.DisplayText = (e.RowHandle + 1).ToString(); //Số thứ tự tăng dần
+                    }
+
+                    //hàm này dùng thay đổi độ rộng mặc định của cột số thứ tự
+                    var _Size = e.Graphics.MeasureString(e.Info.DisplayText, e.Appearance.Font);
+                    var _Width = Convert.ToInt32(_Size.Width) + 20;
+                    BeginInvoke(new MethodInvoker(delegate { cal(_Width, gridViewDienPhanPhoi); }));
+                }
+            }
+            else
+            {
+                e.Info.ImageIndex = -1;
+                e.Info.DisplayText = string.Format("[{0}]", e.RowHandle * -1); //Nhân -1 để đánh lại số thứ tự tăng dần
+                var _Size = e.Graphics.MeasureString(e.Info.DisplayText, e.Appearance.Font);
+                var _Width = Convert.ToInt32(_Size.Width) + 20;
+                BeginInvoke(new MethodInvoker(delegate { cal(_Width, gridViewDienPhanPhoi); }));
+            }
+        }
+
+            SMMgEntities db = new SMMgEntities();
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            DialogResult wr = MessageBox.Show("Xóa điện mật ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (wr == DialogResult.Yes)
+            {
+                DienMat delDienMat = new DienMat();
+                try
+                {
+
+                    delDienMat.ID = int.Parse(gridViewDienPhanPhoi.GetRowCellValue(gridViewDienPhanPhoi.FocusedRowHandle, "ID").ToString());
+                }
+                catch
+                {
+                }
+                deleteNoiNhan(delDienMat);
+                gridControlBaoCao_Load(sender, e);
+                MessageBox.Show("Xóa thành công ", "Thông báo");
+            }
+            void deleteNoiNhan(DienMat dienMat)
+            {
+                DienMat d = db.DienMats.Find(dienMat.ID);
+                db.DienMats.Remove(d);
+                db.SaveChanges();
+            }
+        }
+
+        private void gridControlBaoCao_Load(object sender, EventArgs e)
+        {
+            gridControlBaoCao.DataSource = db.DienMats.ToList();
+            gridControlBaoCao.RefreshDataSource();
         }
     }
 }

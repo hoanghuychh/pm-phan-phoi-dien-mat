@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
+            DevExpress.XtraGrid.GridFormatRule gridFormatRule2 = new DevExpress.XtraGrid.GridFormatRule();
             this.panel1 = new System.Windows.Forms.Panel();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.noiGuisBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -89,14 +91,16 @@
             // gridView1
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colMa,
-            this.colTen});
+            this.colTen,
+            this.colMa});
+            gridFormatRule1.Name = "Format0";
+            gridFormatRule1.Rule = null;
+            gridFormatRule2.Name = "Format1";
+            gridFormatRule2.Rule = null;
+            this.gridView1.FormatRules.Add(gridFormatRule1);
+            this.gridView1.FormatRules.Add(gridFormatRule2);
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
-            this.gridView1.OptionsView.ShowGroupPanel = false;
-            this.gridView1.OptionsView.ShowIndicator = false;
-            this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colMa, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // colMa
             // 
@@ -108,7 +112,7 @@
             this.colMa.OptionsColumn.ReadOnly = true;
             this.colMa.Visible = true;
             this.colMa.VisibleIndex = 0;
-            this.colMa.Width = 261;
+            this.colMa.Width = 143;
             // 
             // colTen
             // 
@@ -119,7 +123,7 @@
             this.colTen.OptionsColumn.AllowEdit = false;
             this.colTen.Visible = true;
             this.colTen.VisibleIndex = 1;
-            this.colTen.Width = 721;
+            this.colTen.Width = 421;
             // 
             // button4
             // 

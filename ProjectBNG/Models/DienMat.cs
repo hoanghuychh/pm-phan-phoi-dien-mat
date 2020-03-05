@@ -32,5 +32,6 @@ namespace ProjectBNG.Models
         public string NguoiKy { get; set; }
         public string ChucDanh { get; set; }
         public byte[] ChuKy { get; set; }
+        public string NguoiIn { get; set; }
     }
 }

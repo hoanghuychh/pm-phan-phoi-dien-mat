@@ -94,6 +94,7 @@
             this.colChuKy});
             this.gridViewNguoiKy.GridControl = this.gridControlNguoiKy;
             this.gridViewNguoiKy.Name = "gridViewNguoiKy";
+            this.gridViewNguoiKy.OptionsBehavior.Editable = false;
             this.gridViewNguoiKy.OptionsView.ShowGroupPanel = false;
             this.gridViewNguoiKy.OptionsView.ShowIndicator = false;
             // 

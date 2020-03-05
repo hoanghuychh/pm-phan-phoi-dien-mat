@@ -5,10 +5,11 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="soBiThu" Type="int" Nullable="false" />
-    <Property Name="danhSachDien" Type="char" MaxLength="256" />
-    <Property Name="ngay" Type="datetime" Nullable="false" />
-    <Property Name="soDien" Type="int" Nullable="false" />
+    <Property Name="Ngay" Type="datetime" Nullable="false" />
+    <Property Name="SoPhieu" Type="int" />
+    <Property Name="DanhSachDien" Type="char" MaxLength="256" />
+    <Property Name="SoBiThu" Type="int" Nullable="false" />
+    <Property Name="KiNhan" Type="nvarchar" MaxLength="265" />
   </EntityType>
   <EntityType Name="DienMat">
     <Key>
@@ -32,6 +33,7 @@
     <Property Name="NguoiKy" Type="nvarchar" MaxLength="256" />
     <Property Name="ChucDanh" Type="nvarchar" MaxLength="256" />
     <Property Name="ChuKy" Type="image" />
+    <Property Name="NguoiIn" Type="varchar" MaxLength="50" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->

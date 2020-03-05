@@ -213,6 +213,7 @@
             this.gridControlBaoCao.TabIndex = 14;
             this.gridControlBaoCao.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewDienPhanPhoi});
+            this.gridControlBaoCao.Load += new System.EventHandler(this.gridControlBaoCao_Load);
             // 
             // dienMatsBindingSource
             // 
@@ -232,8 +233,9 @@
             this.colLuuFile});
             this.gridViewDienPhanPhoi.GridControl = this.gridControlBaoCao;
             this.gridViewDienPhanPhoi.Name = "gridViewDienPhanPhoi";
+            this.gridViewDienPhanPhoi.OptionsBehavior.Editable = false;
             this.gridViewDienPhanPhoi.OptionsView.ShowGroupPanel = false;
-            this.gridViewDienPhanPhoi.OptionsView.ShowIndicator = false;
+            this.gridViewDienPhanPhoi.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridViewDienPhanPhoi_CustomDrawRowIndicator);
             // 
             // colMaDienMat
             // 
@@ -335,6 +337,7 @@
             this.btnXoa.TabIndex = 15;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnInLai
             // 

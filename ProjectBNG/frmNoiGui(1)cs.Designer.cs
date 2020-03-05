@@ -72,6 +72,7 @@
             this.colTen});
             this.gridviewNoiGui.GridControl = this.gridControl1;
             this.gridviewNoiGui.Name = "gridviewNoiGui";
+            this.gridviewNoiGui.OptionsBehavior.Editable = false;
             this.gridviewNoiGui.OptionsView.ShowGroupPanel = false;
             this.gridviewNoiGui.OptionsView.ShowIndicator = false;
             // 

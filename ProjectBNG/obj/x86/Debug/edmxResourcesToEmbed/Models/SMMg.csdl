@@ -62,10 +62,11 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="soBiThu" Type="Int32" Nullable="false" />
-    <Property Name="danhSachDien" Type="String" MaxLength="256" FixedLength="true" Unicode="false" />
-    <Property Name="ngay" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="soDien" Type="Int32" Nullable="false" />
+    <Property Name="Ngay" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SoPhieu" Type="Int32" />
+    <Property Name="DanhSachDien" Type="String" MaxLength="256" FixedLength="true" Unicode="false" />
+    <Property Name="SoBiThu" Type="Int32" Nullable="false" />
+    <Property Name="KiNhan" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="DienMat">
     <Key>
@@ -89,6 +90,7 @@
     <Property Name="NguoiKy" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
     <Property Name="ChucDanh" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
     <Property Name="ChuKy" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="NguoiIn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="NguoiDuyet">
     <Key>

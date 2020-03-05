@@ -178,5 +178,19 @@ namespace ProjectBNG
                 CommonFunction.activateForm("frmDienPhanPhoi", this);
             }
         }
+
+        private void bifToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!CommonFunction.checkExistForm("frmBiThu",this)){
+                frmBiThu frmBiThu = new frmBiThu();
+                frmBiThu.MdiParent = this;
+                frmBiThu.Show();
+
+            }
+            else
+            {
+                CommonFunction.activateForm("frmBiThu", this);
+            }
+        }
     }
 }

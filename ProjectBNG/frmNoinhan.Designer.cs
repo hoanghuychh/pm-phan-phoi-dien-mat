@@ -85,6 +85,7 @@
             // 
             // gridView1
             // 
+            this.gridView1.OptionsBehavior.Editable = false;
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colMaNoiNhan,
             this.colTenNoiNhan,

@@ -160,3 +160,5 @@ D:\Github\winform_mail_manager\ProjectBNG\bin\x86\Debug\es\DevExpress.XtraSchedu
 D:\Github\winform_mail_manager\ProjectBNG\bin\x86\Debug\ja\DevExpress.XtraScheduler.v19.2.Core.resources.dll
 D:\Github\winform_mail_manager\ProjectBNG\bin\x86\Debug\ru\DevExpress.XtraScheduler.v19.2.Core.resources.dll
 D:\Github\winform_mail_manager\ProjectBNG\obj\x86\Debug\ProjectBNG.frmDienPhanPhoi.resources
+D:\Github\winform_mail_manager\ProjectBNG\obj\x86\Debug\ProjectBNG.frmBiThu.resources
+D:\Github\winform_mail_manager\ProjectBNG\obj\x86\Debug\ProjectBNG.frmChiTietBiThu.resources
