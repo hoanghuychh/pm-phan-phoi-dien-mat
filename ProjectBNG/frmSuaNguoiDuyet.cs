@@ -40,11 +40,11 @@ namespace ProjectBNG
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            SMMgEntities db = new SMMgEntities();
             NguoiDuyet updateNguoiDuyet = db.NguoiDuyets.SingleOrDefault(x => x.id == selectNguoiDuyet.id);
 
             updateNguoiDuyet.TenNguoiDuyet = tbTenNguoiDuyet.Text;
             updateNguoiDuyet.MacDinh = cbMacDinh.Checked;
-
 
             MemoryStream stream = new MemoryStream();
             try
@@ -78,9 +78,15 @@ namespace ProjectBNG
             NguoiDuyet loadNguoiDuyet = db.NguoiDuyets.SingleOrDefault(x => x.id == selectNguoiDuyet.id);
             tbTenNguoiDuyet.Text = loadNguoiDuyet.TenNguoiDuyet;
             cbMacDinh.Checked = loadNguoiDuyet.MacDinh == true;
-            var stream = new MemoryStream(loadNguoiDuyet.ChuKy);
-            pbChuKy.Image = Image.FromStream(stream);
-            pbChuKy.SizeMode = PictureBoxSizeMode.StretchImage;
+            try
+            {
+                var stream = new MemoryStream(loadNguoiDuyet.ChuKy);
+                pbChuKy.Image = Image.FromStream(stream);
+                pbChuKy.SizeMode = PictureBoxSizeMode.StretchImage;
+            }catch
+            {
+
+            }
         }
     }
 }

@@ -449,7 +449,7 @@ namespace ProjectBNG
                 db.NoiNhanTemps.Remove(p);
                 db.SaveChanges();
             }
-            MessageBox.Show("Đã Xóa");
+            MessageBox.Show("Đã Xóa","Thông báo");
             gridControl1_Load(sender, e);
         }
     }

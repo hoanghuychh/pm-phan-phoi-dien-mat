@@ -106,11 +106,18 @@ namespace ProjectBNG
                 catch { }
                 frmSuaNguoiDuyet frmSuaNguoiDuyet = new frmSuaNguoiDuyet(() =>
                 {
-                    gridControlNguoiDuyet.DataSource = db.NguoiDuyets.ToList();
-                    gridControlNguoiDuyet.RefreshDataSource();
+                    ProjectBNG.Models.SMMgEntities dbContext = new ProjectBNG.Models.SMMgEntities();
+                    // Call the LoadAsync method to asynchronously get the data for the given DbSet from the database.
+                    dbContext.NguoiDuyets.LoadAsync().ContinueWith(loadTask =>
+                    {
+                        // Bind data to control when loading complete
+                        nguoiDuyetsBindingSource.DataSource = dbContext.NguoiDuyets.Local.ToBindingList();
+                    }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
                     return false;
                 }, selectNguoiDuyet);
                 frmSuaNguoiDuyet.ShowDialog(this);
+                 
+            frmNguoiDuyet_Load(sender, e);
             }
             else
             {
@@ -121,6 +128,7 @@ namespace ProjectBNG
 
         private void frmNguoiDuyet_Load(object sender, EventArgs e)
         {
+            SMMgEntities db = new SMMgEntities();
             gridControlNguoiDuyet.DataSource = db.NguoiDuyets.ToList();
             gridControlNguoiDuyet.RefreshDataSource();
         }

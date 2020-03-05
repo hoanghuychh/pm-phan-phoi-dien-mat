@@ -71,9 +71,17 @@ namespace ProjectBNG
         }
 
         private void gridViewBiThu0_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
-        { 
+        {
+            string DanhSachDien= gridViewBiThu0.GetRowCellValue(gridViewBiThu0.FocusedRowHandle, "DanhSachDien").ToString();
+            if (!CommonFunction.checkExistForm("frmChiTietBiThu", this))
+            {
 
-            MessageBox.Show("gridViewBiThu0_RowCellClick   {0} ",gridViewBiThu0.GetRowCellValue(gridViewBiThu0.FocusedRowHandle,"id").ToString()); 
+                frmChiTietBiThu frmChiTietBiThu = new frmChiTietBiThu(DanhSachDien);
+                frmChiTietBiThu.ShowDialog();
+            }
+            else
+                CommonFunction.activateForm("frmChiTietBiThu", this);
+            
         }
     }
 

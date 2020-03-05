@@ -41,30 +41,29 @@
             this.btnXoaNgKy = new System.Windows.Forms.Button();
             this.btnSuaNgKy = new System.Windows.Forms.Button();
             this.btnThemNgKy = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.nguoiKiesBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.nguoiKiesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlNguoiKy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nguoiKiesBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewNguoiKy)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nguoiKiesBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nguoiKiesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Window;
             this.panel1.Controls.Add(this.gridControlNguoiKy);
             this.panel1.Controls.Add(this.btnDong);
             this.panel1.Controls.Add(this.btnXoaNgKy);
             this.panel1.Controls.Add(this.btnSuaNgKy);
             this.panel1.Controls.Add(this.btnThemNgKy);
-            this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Location = new System.Drawing.Point(16, 15);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(976, 458);
+            this.panel1.Size = new System.Drawing.Size(1008, 487);
             this.panel1.TabIndex = 0;
             // 
             // gridControlNguoiKy
@@ -73,10 +72,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControlNguoiKy.DataSource = this.nguoiKiesBindingSource1;
-            this.gridControlNguoiKy.Location = new System.Drawing.Point(3, 4);
+            this.gridControlNguoiKy.Location = new System.Drawing.Point(6, 12);
             this.gridControlNguoiKy.MainView = this.gridViewNguoiKy;
             this.gridControlNguoiKy.Name = "gridControlNguoiKy";
-            this.gridControlNguoiKy.Size = new System.Drawing.Size(968, 415);
+            this.gridControlNguoiKy.Size = new System.Drawing.Size(995, 427);
             this.gridControlNguoiKy.TabIndex = 5;
             this.gridControlNguoiKy.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewNguoiKy});
@@ -140,13 +139,12 @@
             // 
             // btnDong
             // 
-            this.btnDong.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDong.Location = new System.Drawing.Point(597, 426);
+            this.btnDong.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnDong.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDong.Location = new System.Drawing.Point(644, 446);
             this.btnDong.Margin = new System.Windows.Forms.Padding(4);
             this.btnDong.Name = "btnDong";
-            this.btnDong.Size = new System.Drawing.Size(100, 28);
+            this.btnDong.Size = new System.Drawing.Size(94, 32);
             this.btnDong.TabIndex = 4;
             this.btnDong.Text = "Đóng";
             this.btnDong.UseVisualStyleBackColor = true;
@@ -154,13 +152,12 @@
             // 
             // btnXoaNgKy
             // 
-            this.btnXoaNgKy.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnXoaNgKy.Location = new System.Drawing.Point(489, 426);
+            this.btnXoaNgKy.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnXoaNgKy.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnXoaNgKy.Location = new System.Drawing.Point(521, 446);
             this.btnXoaNgKy.Margin = new System.Windows.Forms.Padding(4);
             this.btnXoaNgKy.Name = "btnXoaNgKy";
-            this.btnXoaNgKy.Size = new System.Drawing.Size(100, 28);
+            this.btnXoaNgKy.Size = new System.Drawing.Size(94, 32);
             this.btnXoaNgKy.TabIndex = 3;
             this.btnXoaNgKy.Text = "Xóa";
             this.btnXoaNgKy.UseVisualStyleBackColor = true;
@@ -168,13 +165,12 @@
             // 
             // btnSuaNgKy
             // 
-            this.btnSuaNgKy.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSuaNgKy.Location = new System.Drawing.Point(381, 426);
+            this.btnSuaNgKy.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnSuaNgKy.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSuaNgKy.Location = new System.Drawing.Point(395, 446);
             this.btnSuaNgKy.Margin = new System.Windows.Forms.Padding(4);
             this.btnSuaNgKy.Name = "btnSuaNgKy";
-            this.btnSuaNgKy.Size = new System.Drawing.Size(100, 28);
+            this.btnSuaNgKy.Size = new System.Drawing.Size(94, 32);
             this.btnSuaNgKy.TabIndex = 2;
             this.btnSuaNgKy.Text = "Sửa";
             this.btnSuaNgKy.UseVisualStyleBackColor = true;
@@ -182,26 +178,16 @@
             // 
             // btnThemNgKy
             // 
-            this.btnThemNgKy.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThemNgKy.Location = new System.Drawing.Point(273, 426);
+            this.btnThemNgKy.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnThemNgKy.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnThemNgKy.Location = new System.Drawing.Point(273, 446);
             this.btnThemNgKy.Margin = new System.Windows.Forms.Padding(4);
             this.btnThemNgKy.Name = "btnThemNgKy";
-            this.btnThemNgKy.Size = new System.Drawing.Size(100, 28);
+            this.btnThemNgKy.Size = new System.Drawing.Size(94, 32);
             this.btnThemNgKy.TabIndex = 1;
             this.btnThemNgKy.Text = "Thêm mới";
             this.btnThemNgKy.UseVisualStyleBackColor = true;
             this.btnThemNgKy.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(4, 4);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(968, 415);
-            this.dataGridView1.TabIndex = 0;
             // 
             // nguoiKiesBindingSource2
             // 
@@ -227,7 +213,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControlNguoiKy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nguoiKiesBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewNguoiKy)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nguoiKiesBindingSource2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nguoiKiesBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -241,7 +226,6 @@
         private System.Windows.Forms.Button btnXoaNgKy;
         private System.Windows.Forms.Button btnSuaNgKy;
         private System.Windows.Forms.Button btnThemNgKy;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private DevExpress.XtraGrid.GridControl gridControlNguoiKy;
         private System.Windows.Forms.BindingSource nguoiKiesBindingSource;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewNguoiKy;

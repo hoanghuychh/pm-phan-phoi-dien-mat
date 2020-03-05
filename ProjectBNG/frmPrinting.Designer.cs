@@ -87,10 +87,10 @@
             this.btnPreview = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.dienMatsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pdfViewer1 = new DevExpress.XtraPdfViewer.PdfViewer();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -104,6 +104,9 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.btnAddAttachedFile);
             this.panel1.Controls.Add(this.btnRemoveAttachedFile);
             this.panel1.Controls.Add(this.btnBrowseFile);
@@ -343,6 +346,9 @@
             // 
             // gridControl1
             // 
+            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.DataSource = this.noiNhanTempsBindingSource;
             this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             gridLevelNode1.RelationName = "Level1";
@@ -352,7 +358,7 @@
             this.gridControl1.MainView = this.gridViewNoiNhanTemp;
             this.gridControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(766, 345);
+            this.gridControl1.Size = new System.Drawing.Size(761, 345);
             this.gridControl1.TabIndex = 23;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewNoiNhanTemp});
@@ -432,6 +438,9 @@
             // 
             // panel3
             // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.Controls.Add(this.pbChuKiMD);
             this.panel3.Controls.Add(this.rtxtSignature);
             this.panel3.Controls.Add(this.textBox12);
@@ -673,6 +682,7 @@
             // 
             // chbPrint
             // 
+            this.chbPrint.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.chbPrint.AutoSize = true;
             this.chbPrint.Location = new System.Drawing.Point(835, 698);
             this.chbPrint.Margin = new System.Windows.Forms.Padding(4);
@@ -685,10 +695,12 @@
             // 
             // btnPreview
             // 
+            this.btnPreview.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnPreview.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnPreview.Location = new System.Drawing.Point(964, 694);
             this.btnPreview.Margin = new System.Windows.Forms.Padding(4);
             this.btnPreview.Name = "btnPreview";
-            this.btnPreview.Size = new System.Drawing.Size(100, 28);
+            this.btnPreview.Size = new System.Drawing.Size(94, 32);
             this.btnPreview.TabIndex = 41;
             this.btnPreview.Text = "Xem trước";
             this.btnPreview.UseVisualStyleBackColor = true;
@@ -696,47 +708,29 @@
             // 
             // btnPrint
             // 
+            this.btnPrint.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnPrint.Location = new System.Drawing.Point(1072, 694);
             this.btnPrint.Margin = new System.Windows.Forms.Padding(4);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(100, 28);
+            this.btnPrint.Size = new System.Drawing.Size(94, 32);
             this.btnPrint.TabIndex = 42;
-            this.btnPrint.Text = "In";
+            this.btnPrint.Text = "Lưu";
             this.btnPrint.UseVisualStyleBackColor = true;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // btnClose
             // 
+            this.btnClose.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnClose.Location = new System.Drawing.Point(1396, 694);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(100, 28);
+            this.btnClose.Size = new System.Drawing.Size(94, 32);
             this.btnClose.TabIndex = 43;
             this.btnClose.Text = "Đóng";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1288, 694);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 28);
-            this.button1.TabIndex = 45;
-            this.button1.Text = "Phóng to";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(1180, 694);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 28);
-            this.button2.TabIndex = 46;
-            this.button2.Text = "Thu nhỏ";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // dienMatsBindingSource
             // 
@@ -744,12 +738,41 @@
             // 
             // pdfViewer1
             // 
+            this.pdfViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pdfViewer1.Location = new System.Drawing.Point(836, 15);
             this.pdfViewer1.Margin = new System.Windows.Forms.Padding(4);
             this.pdfViewer1.Name = "pdfViewer1";
             this.pdfViewer1.NavigationPaneInitialVisibility = DevExpress.XtraPdfViewer.PdfNavigationPaneVisibility.Hidden;
             this.pdfViewer1.Size = new System.Drawing.Size(659, 671);
             this.pdfViewer1.TabIndex = 47;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Location = new System.Drawing.Point(1288, 694);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(94, 32);
+            this.button1.TabIndex = 45;
+            this.button1.Text = "Phóng to";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Location = new System.Drawing.Point(1180, 694);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(94, 32);
+            this.button2.TabIndex = 46;
+            this.button2.Text = "Thu nhỏ";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // frmPrinting
             // 
@@ -768,7 +791,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.btnAddPlaceOfSending);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmPrinting";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -840,8 +863,6 @@
         private System.Windows.Forms.Button btnPreview;
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.BindingSource dienMatsBindingSource;
         private System.Windows.Forms.BindingSource dienMatsBindingSource1;
         private DevExpress.XtraPdfViewer.PdfViewer pdfViewer1;
@@ -853,6 +874,8 @@
         private System.Windows.Forms.BindingSource noiNhanTempsBindingSource;
         private System.Windows.Forms.PictureBox pbChuKiMD;
         private DevExpress.XtraGrid.GridControl gridControl1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 

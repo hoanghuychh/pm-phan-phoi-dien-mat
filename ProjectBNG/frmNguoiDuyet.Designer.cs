@@ -29,40 +29,82 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.gridControlNguoiDuyet = new DevExpress.XtraGrid.GridControl();
             this.nguoiDuyetsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnThem = new System.Windows.Forms.Button();
+            this.btnSua = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.gridControlNguoiDuyet = new DevExpress.XtraGrid.GridControl();
             this.gridViewNguoiDuyet = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colTenNguoiDuyet = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMacDinh = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colChuKy = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemPictureEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit();
-            this.button4 = new System.Windows.Forms.Button();
-            this.btnXoa = new System.Windows.Forms.Button();
-            this.btnSua = new System.Windows.Forms.Button();
-            this.btnThem = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlNguoiDuyet)).BeginInit();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.nguoiDuyetsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlNguoiDuyet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewNguoiDuyet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // nguoiDuyetsBindingSource
             // 
-            this.panel1.Controls.Add(this.gridControlNguoiDuyet);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.btnXoa);
-            this.panel1.Controls.Add(this.btnSua);
-            this.panel1.Controls.Add(this.btnThem);
-            this.panel1.Controls.Add(this.dataGridView1);
-            this.panel1.Location = new System.Drawing.Point(16, 15);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(709, 492);
-            this.panel1.TabIndex = 0;
+            this.nguoiDuyetsBindingSource.DataSource = typeof(ProjectBNG.Models.NguoiDuyet);
+            // 
+            // btnThem
+            // 
+            this.btnThem.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnThem.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnThem.Location = new System.Drawing.Point(125, 467);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(4);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(94, 32);
+            this.btnThem.TabIndex = 1;
+            this.btnThem.Text = "Thêm mới";
+            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
+            // 
+            // btnSua
+            // 
+            this.btnSua.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnSua.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSua.Location = new System.Drawing.Point(250, 467);
+            this.btnSua.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(94, 32);
+            this.btnSua.TabIndex = 2;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
+            // 
+            // btnXoa
+            // 
+            this.btnXoa.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnXoa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnXoa.Location = new System.Drawing.Point(379, 467);
+            this.btnXoa.Margin = new System.Windows.Forms.Padding(4);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(94, 32);
+            this.btnXoa.TabIndex = 3;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
+            // 
+            // button4
+            // 
+            this.button4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button4.Location = new System.Drawing.Point(509, 467);
+            this.button4.Margin = new System.Windows.Forms.Padding(4);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(94, 32);
+            this.button4.TabIndex = 4;
+            this.button4.Text = "Đóng";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // gridControlNguoiDuyet
             // 
@@ -70,19 +112,16 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControlNguoiDuyet.DataSource = this.nguoiDuyetsBindingSource;
-            this.gridControlNguoiDuyet.Location = new System.Drawing.Point(0, 0);
+            this.gridControlNguoiDuyet.Location = new System.Drawing.Point(10, 12);
             this.gridControlNguoiDuyet.MainView = this.gridViewNguoiDuyet;
             this.gridControlNguoiDuyet.Name = "gridControlNguoiDuyet";
             this.gridControlNguoiDuyet.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemPictureEdit1});
-            this.gridControlNguoiDuyet.Size = new System.Drawing.Size(709, 453);
+            this.gridControlNguoiDuyet.Size = new System.Drawing.Size(718, 448);
             this.gridControlNguoiDuyet.TabIndex = 5;
             this.gridControlNguoiDuyet.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridViewNguoiDuyet});
-            // 
-            // nguoiDuyetsBindingSource
-            // 
-            this.nguoiDuyetsBindingSource.DataSource = typeof(ProjectBNG.Models.NguoiDuyet);
+            this.gridViewNguoiDuyet,
+            this.gridView1});
             // 
             // gridViewNguoiDuyet
             // 
@@ -130,72 +169,31 @@
             // 
             this.repositoryItemPictureEdit1.Name = "repositoryItemPictureEdit1";
             // 
-            // button4
+            // gridView1
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Location = new System.Drawing.Point(499, 460);
-            this.button4.Margin = new System.Windows.Forms.Padding(4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(100, 28);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Đóng";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.gridView1.GridControl = this.gridControlNguoiDuyet;
+            this.gridView1.Name = "gridView1";
             // 
-            // btnXoa
+            // panel1
             // 
-            this.btnXoa.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnXoa.Location = new System.Drawing.Point(369, 460);
-            this.btnXoa.Margin = new System.Windows.Forms.Padding(4);
-            this.btnXoa.Name = "btnXoa";
-            this.btnXoa.Size = new System.Drawing.Size(100, 28);
-            this.btnXoa.TabIndex = 3;
-            this.btnXoa.Text = "Xóa";
-            this.btnXoa.UseVisualStyleBackColor = true;
-            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
-            // 
-            // btnSua
-            // 
-            this.btnSua.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSua.Location = new System.Drawing.Point(240, 460);
-            this.btnSua.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSua.Name = "btnSua";
-            this.btnSua.Size = new System.Drawing.Size(100, 28);
-            this.btnSua.TabIndex = 2;
-            this.btnSua.Text = "Sửa";
-            this.btnSua.UseVisualStyleBackColor = true;
-            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
-            // 
-            // btnThem
-            // 
-            this.btnThem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnThem.Location = new System.Drawing.Point(115, 460);
-            this.btnThem.Margin = new System.Windows.Forms.Padding(4);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(100, 28);
-            this.btnThem.TabIndex = 1;
-            this.btnThem.Text = "Thêm mới";
-            this.btnThem.UseVisualStyleBackColor = true;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(709, 453);
-            this.dataGridView1.TabIndex = 0;
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel1.Controls.Add(this.gridControlNguoiDuyet);
+            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.btnXoa);
+            this.panel1.Controls.Add(this.btnSua);
+            this.panel1.Controls.Add(this.btnThem);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(737, 508);
+            this.panel1.TabIndex = 0;
             // 
             // frmNguoiDuyet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(741, 522);
+            this.ClientSize = new System.Drawing.Size(737, 508);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -203,30 +201,29 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Danh sách người duyệt";
             this.Load += new System.EventHandler(this.frmNguoiDuyet_Load);
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControlNguoiDuyet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nguoiDuyetsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlNguoiDuyet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewNguoiDuyet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemPictureEdit1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button btnXoa;
-        private System.Windows.Forms.Button btnSua;
+        private System.Windows.Forms.BindingSource nguoiDuyetsBindingSource;
         private System.Windows.Forms.Button btnThem;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnSua;
+        private System.Windows.Forms.Button btnXoa;
+        private System.Windows.Forms.Button button4;
         private DevExpress.XtraGrid.GridControl gridControlNguoiDuyet;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewNguoiDuyet;
-        private System.Windows.Forms.BindingSource nguoiDuyetsBindingSource;
         private DevExpress.XtraGrid.Columns.GridColumn colTenNguoiDuyet;
         private DevExpress.XtraGrid.Columns.GridColumn colMacDinh;
         private DevExpress.XtraGrid.Columns.GridColumn colChuKy;
         private DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit repositoryItemPictureEdit1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

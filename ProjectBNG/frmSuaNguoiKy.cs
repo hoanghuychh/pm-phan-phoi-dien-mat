@@ -67,12 +67,11 @@ namespace ProjectBNG
         //}
          
         private void btnCapNhat_Click(object sender, EventArgs e)
-        {
-            SMMgEntities db = new SMMgEntities();
-            NguoiKy updateNguoiKy = db.NguoiKies.SingleOrDefault(x => x.id == nguoiKy.id);
-            nguoiKy.TenNguoiKy = tbTenNguoiKy.Text;
-            nguoiKy.ChucDanh = tbChucDanh.Text;
-            nguoiKy.MacDinh = cbMacDinh.Checked;
+        { 
+            NguoiKy updateNguoiKy = db.NguoiKies.Where(x => x.id == nguoiKy.id).FirstOrDefault();
+            updateNguoiKy.TenNguoiKy = tbTenNguoiKy.Text;
+            updateNguoiKy.ChucDanh = tbChucDanh.Text;
+            updateNguoiKy.MacDinh = cbMacDinh.Checked;
 
             MemoryStream fileImageSave = new MemoryStream();
             try
@@ -82,12 +81,11 @@ namespace ProjectBNG
 
             }
             catch { }
-            nguoiKy.ChuKy = fileImageSave.ToArray();
+            updateNguoiKy.ChuKy = fileImageSave.ToArray();
             fileImageSave.Dispose();
             if (updateNguoiKy.MacDinh == true)
             {
-                db.Database.ExecuteSqlCommand("update  NguoiKy set MacDinh = 0 where id != {0}", new object[] { nguoiKy.id });
-                updateNguoiKy.MacDinh = true;
+                db.Database.ExecuteSqlCommand("update  NguoiKy set MacDinh = 0 where id != {0}", new object[] { updateNguoiKy.id });
             }
             db.SaveChanges();
             this.onSubmit.Invoke();

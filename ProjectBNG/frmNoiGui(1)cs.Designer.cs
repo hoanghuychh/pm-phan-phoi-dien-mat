@@ -52,10 +52,10 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.DataSource = this.noiGuisBindingSource;
-            this.gridControl1.Location = new System.Drawing.Point(23, 80);
+            this.gridControl1.Location = new System.Drawing.Point(10, 57);
             this.gridControl1.MainView = this.gridviewNoiGui;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(605, 489);
+            this.gridControl1.Size = new System.Drawing.Size(643, 512);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridviewNoiGui});
@@ -100,31 +100,38 @@
             // 
             // tbSearch
             // 
-            this.tbSearch.Location = new System.Drawing.Point(23, 28);
+            this.tbSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tbSearch.Location = new System.Drawing.Point(23, 19);
             this.tbSearch.Multiline = true;
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(492, 23);
+            this.tbSearch.Size = new System.Drawing.Size(503, 32);
             this.tbSearch.TabIndex = 1;
             // 
             // tbMaNguoiGui
             // 
-            this.tbMaNguoiGui.Location = new System.Drawing.Point(23, 590);
+            this.tbMaNguoiGui.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.tbMaNguoiGui.Location = new System.Drawing.Point(12, 585);
+            this.tbMaNguoiGui.Multiline = true;
             this.tbMaNguoiGui.Name = "tbMaNguoiGui";
-            this.tbMaNguoiGui.Size = new System.Drawing.Size(106, 22);
+            this.tbMaNguoiGui.Size = new System.Drawing.Size(117, 32);
             this.tbMaNguoiGui.TabIndex = 3;
             // 
             // tbTenNguoiGui
             // 
-            this.tbTenNguoiGui.Location = new System.Drawing.Point(135, 590);
+            this.tbTenNguoiGui.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.tbTenNguoiGui.Location = new System.Drawing.Point(135, 585);
+            this.tbTenNguoiGui.Multiline = true;
             this.tbTenNguoiGui.Name = "tbTenNguoiGui";
-            this.tbTenNguoiGui.Size = new System.Drawing.Size(380, 22);
+            this.tbTenNguoiGui.Size = new System.Drawing.Size(391, 32);
             this.tbTenNguoiGui.TabIndex = 4;
             // 
             // btnThemNguoiGui
             // 
-            this.btnThemNguoiGui.Location = new System.Drawing.Point(521, 590);
+            this.btnThemNguoiGui.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnThemNguoiGui.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnThemNguoiGui.Location = new System.Drawing.Point(550, 585);
             this.btnThemNguoiGui.Name = "btnThemNguoiGui";
-            this.btnThemNguoiGui.Size = new System.Drawing.Size(107, 23);
+            this.btnThemNguoiGui.Size = new System.Drawing.Size(101, 32);
             this.btnThemNguoiGui.TabIndex = 5;
             this.btnThemNguoiGui.Text = "Thêm";
             this.btnThemNguoiGui.UseVisualStyleBackColor = true;
@@ -132,18 +139,22 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(521, 28);
+            this.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSearch.Location = new System.Drawing.Point(550, 19);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(107, 23);
+            this.btnSearch.Size = new System.Drawing.Size(101, 32);
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Tìm";
             this.btnSearch.UseVisualStyleBackColor = true;
             // 
             // btXoa
             // 
-            this.btXoa.Location = new System.Drawing.Point(196, 619);
+            this.btXoa.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btXoa.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btXoa.Location = new System.Drawing.Point(193, 623);
             this.btXoa.Name = "btXoa";
-            this.btXoa.Size = new System.Drawing.Size(97, 31);
+            this.btXoa.Size = new System.Drawing.Size(94, 32);
             this.btXoa.TabIndex = 6;
             this.btXoa.Text = "Xóa";
             this.btXoa.UseVisualStyleBackColor = true;
@@ -151,9 +162,11 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(319, 619);
+            this.button4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button4.Location = new System.Drawing.Point(322, 623);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(91, 31);
+            this.button4.Size = new System.Drawing.Size(94, 32);
             this.button4.TabIndex = 7;
             this.button4.Text = "Đóng";
             this.button4.UseVisualStyleBackColor = true;
@@ -163,6 +176,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(663, 662);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.btXoa);
