@@ -15,6 +15,7 @@ using DevExpress.Pdf;
 using ProjectBNG.Models;
 using System.Diagnostics;
 using ProjectBNG.Class;
+using ProjectBNG.Exten;
 
 namespace ProjectBNG
 {
@@ -22,6 +23,7 @@ namespace ProjectBNG
     {
         static public List<NoiNhan> noiNhans { get; set; }
         static public List<NoiNhanTemp> noiNhanTemps { get; set; }
+
         static public string FileName;
         float x = 0;
         float y = 250;
@@ -59,31 +61,7 @@ namespace ProjectBNG
             catch { }
         }
 
-        private bool CheckExistForm(string name)
-        {
-            bool check = false;
-            foreach (Form frm in this.MdiChildren)
-            {
-                if (frm.Name == name)
-                {
-                    check = true;
-                    break;
-                }
-            }
-            return check;
-        }
-
-        private void ActiveChildForm(string name)
-        {
-            foreach (Form frm in this.MdiChildren)
-            {
-                if (frm.Name == name)
-                {
-                    frm.Activate();
-                    break;
-                }
-            }
-        }
+      
         public frmPrinting()
         {
             InitializeComponent();
@@ -120,25 +98,6 @@ namespace ProjectBNG
             cbxPrivateAttachedFile.Items.Add("TM");
             cbxPrivateAttachedFile.Items.Add("Tuyệt mật");
             cbxPrivateAttachedFile.SelectedItem = cbxPrivateAttachedFile.Items[1];
-
-            //// cbxPlaceOfSending: Lay tu DB ra
-            //cbxNoiGuiMD.Items.Add("Place 0");
-            //cbxNoiGuiMD.Items.Add("Place 1");
-            //cbxNoiGuiMD.SelectedItem = cbxNoiGuiMD.Items[0];
-
-            //// cbxCensor: Lay tu DB ra
-            //cbxNguoiDuyetMD.Items.Add("Đặng Bảo Châu");
-            //cbxNguoiDuyetMD.Items.Add("Censor 1");
-            //cbxNguoiDuyetMD.Items.Add("Censor 2");
-
-            //// cbxSigner: Lay tu DB ra
-            //cbxNguoiKiMD.Items.Add("Lê Thanh Tùng");
-            //cbxNguoiKiMD.Items.Add("Signer 1");
-            //cbxNguoiKiMD.Items.Add("Signer 2");
-
-            //// chbIncluding, txtIncluding
-            //chbIncluding.Checked = true;
-            //txtIncluding.Text = "(Ghi)";
 
             db.Database.ExecuteSqlCommand("delete from NoiNhanTemp", new object[] { });
 
@@ -359,21 +318,44 @@ namespace ProjectBNG
         }
 
         public List<NoiNhanTemp> listNoiNhanTemp = new List<NoiNhanTemp>();
+
+        public static List<NoiNhanTemp> listPreviewNoiNhan { get; set; }
         private void btnPreview_Click(object sender, EventArgs e)
         {
-
             listNoiNhanTemp.Clear();
-            NoiNhanTemp item = null;
+             NoiNhanTemp item = null;
             gridViewNoiNhanTemp.SelectAll();
-            foreach (var a in gridViewNoiNhanTemp.GetSelectedRows())
+            var rows = gridViewNoiNhanTemp.GetSelectedRows(); 
+            foreach (var a in rows)
             {
-                item = (NoiNhanTemp)this.gridViewNoiNhanTemp.GetRow(a);
+                item = (NoiNhanTemp)gridViewNoiNhanTemp.GetRow(a);
                 listNoiNhanTemp.Add(item);
 
             }
+             
+
             if (listNoiNhanTemp.Count > 0)
             {
+
+
+                if (listPreviewNoiNhan != null)
+                {
+                    // xoa het cac item da add
+                    listNoiNhanTemp.RemoveAll(m => listPreviewNoiNhan.Any(m2 => m2.id == m.id));
+                }
+                else
+                {
+                    // tao moi lan dau tien
+                    listPreviewNoiNhan = new List<NoiNhanTemp>();
+                }
+                // them cac item da add vao list preview de luu :3 cho lan sau xoa
+                listPreviewNoiNhan.AddRange(listNoiNhanTemp);
+
+
+                // done
                 OnSubmitNguoiNhan(listNoiNhanTemp);
+                
+
             }
         }
 
@@ -415,6 +397,7 @@ namespace ProjectBNG
         }
         public void OnSubmitNguoiNhan(List<NoiNhanTemp> list)
         {
+             
             setNoiNhan(list);
         }
         public void PushNguoiNhanToGridView(List<NoiNhan> list)

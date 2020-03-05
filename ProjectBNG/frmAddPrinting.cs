@@ -89,7 +89,15 @@ namespace ProjectBNG
 
 
             }
-            db.SaveChanges();
+            try
+            {
+                db.SaveChanges();
+            }
+            catch
+            {
+
+            }
+            
             this.onSubmit.Invoke();
             this.Close();
         }

@@ -123,7 +123,7 @@ namespace ProjectBNG
             {
                 ActiveChildForm("frmSuaNguoiDuyet");
             }
-           
+           // form kia dau nhi 
         }
 
         private void frmNguoiDuyet_Load(object sender, EventArgs e)

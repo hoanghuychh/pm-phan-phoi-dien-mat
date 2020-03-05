@@ -93,6 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\CommonFunction.cs" />
+    <Compile Include="Exten\GnExtension.cs" />
     <Compile Include="frmBiThu.cs">
       <SubType>Form</SubType>
     </Compile>
