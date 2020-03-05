@@ -67,7 +67,7 @@ namespace ProjectBNG
         {
 #if DEBUG 
             this.txtUsername.Text = "user2";
-            this.txtPassword.Text = "user2"; 
+            this.txtPassword.Text = "user2";
 #endif
         }
     }
