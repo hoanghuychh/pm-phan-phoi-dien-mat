@@ -33,6 +33,7 @@
     <FunctionImport Name="sp_upgraddiagrams" />
     <EntitySet Name="BiThus" EntityType="SMMgModel.BiThu" />
     <EntitySet Name="DienMats" EntityType="SMMgModel.DienMat" />
+    <EntitySet Name="KiemChungDiens" EntityType="SMMgModel.KiemChungDien" />
     <EntitySet Name="NguoiDuyets" EntityType="SMMgModel.NguoiDuyet" />
     <EntitySet Name="NguoiKies" EntityType="SMMgModel.NguoiKy" />
     <EntitySet Name="NoiGuis" EntityType="SMMgModel.NoiGui" />
@@ -45,6 +46,11 @@
     <EntitySet Name="TrangThais" EntityType="SMMgModel.TrangThai" />
     <EntitySet Name="USERs" EntityType="SMMgModel.USER" />
     <EntitySet Name="DienMatDaPhanPhois" EntityType="SMMgModel.DienMatDaPhanPhoi" />
+    <AssociationSet Name="FK_KiemChungDien_NoiNhan" Association="SMMgModel.FK_KiemChungDien_NoiNhan">
+      <End Role="NoiNhan" EntitySet="NoiNhans" />
+      <End Role="KiemChungDien" EntitySet="KiemChungDiens" />
+    </AssociationSet>
+    <EntitySet Name="ViewKiemChungDiens" EntityType="SMMgModel.ViewKiemChungDien" />
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -91,6 +97,20 @@
     <Property Name="ChucDanh" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
     <Property Name="ChuKy" Type="Binary" MaxLength="Max" FixedLength="false" />
     <Property Name="NguoiIn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NoiNhan" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="Trang" Type="Int32" />
+  </EntityType>
+  <EntityType Name="KiemChungDien">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenNoiNhan" Type="String" Nullable="false" MaxLength="265" FixedLength="false" Unicode="true" />
+    <Property Name="DanhSachDien" Type="String" MaxLength="256" FixedLength="true" Unicode="false" />
+    <Property Name="SoBiThu" Type="Int32" Nullable="false" />
+    <Property Name="TongSoTrang" Type="Int32" />
+    <Property Name="idNoiNhan" Type="Int32" />
+    <NavigationProperty Name="NoiNhan" Relationship="SMMgModel.FK_KiemChungDien_NoiNhan" FromRole="KiemChungDien" ToRole="NoiNhan" />
   </EntityType>
   <EntityType Name="NguoiDuyet">
     <Key>
@@ -133,6 +153,7 @@
     <Property Name="CoBi" Type="Boolean" />
     <Property Name="DangHoatDong" Type="Boolean" />
     <Property Name="CoSo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="KiemChungDiens" Relationship="SMMgModel.FK_KiemChungDien_NoiNhan" FromRole="NoiNhan" ToRole="KiemChungDien" />
   </EntityType>
   <EntityType Name="NoiNhanTemp">
     <Key>
@@ -225,5 +246,30 @@
     <Property Name="NguoiKy" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
     <Property Name="ChucDanh" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
     <Property Name="ChuKy" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_KiemChungDien_NoiNhan">
+    <End Type="SMMgModel.NoiNhan" Role="NoiNhan" Multiplicity="0..1" />
+    <End Type="SMMgModel.KiemChungDien" Role="KiemChungDien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NoiNhan">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="KiemChungDien">
+        <PropertyRef Name="idNoiNhan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ViewKiemChungDien">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="SoBiThu" />
+      <PropertyRef Name="TenNoiNhan" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="SoBiThu" Type="Int32" Nullable="false" />
+    <Property Name="TongSoTrang" Type="Int32" />
+    <Property Name="TenNoiNhan" Type="String" Nullable="false" MaxLength="265" FixedLength="false" Unicode="true" />
+    <Property Name="idNoiNhan" Type="Int32" />
+    <Property Name="DanhSachDien" Type="String" MaxLength="256" FixedLength="true" Unicode="false" />
   </EntityType>
 </Schema>

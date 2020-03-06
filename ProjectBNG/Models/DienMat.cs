@@ -33,5 +33,7 @@ namespace ProjectBNG.Models
         public string ChucDanh { get; set; }
         public byte[] ChuKy { get; set; }
         public string NguoiIn { get; set; }
+        public string NoiNhan { get; set; }
+        public Nullable<int> Trang { get; set; }
     }
 }

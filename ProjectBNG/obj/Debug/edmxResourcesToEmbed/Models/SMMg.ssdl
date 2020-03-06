@@ -34,6 +34,8 @@
     <Property Name="ChucDanh" Type="nvarchar" MaxLength="256" />
     <Property Name="ChuKy" Type="image" />
     <Property Name="NguoiIn" Type="varchar" MaxLength="50" />
+    <Property Name="NoiNhan" Type="nvarchar" MaxLength="256" />
+    <Property Name="Trang" Type="int" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -62,6 +64,17 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
     <Property Name="NguoiKy" Type="nvarchar" MaxLength="256" />
     <Property Name="ChucDanh" Type="nvarchar" MaxLength="256" />
     <Property Name="ChuKy" Type="image" />
+  </EntityType>
+  <EntityType Name="KiemChungDien">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenNoiNhan" Type="nvarchar" MaxLength="265" Nullable="false" />
+    <Property Name="DanhSachDien" Type="char" MaxLength="256" />
+    <Property Name="SoBiThu" Type="int" Nullable="false" />
+    <Property Name="TongSoTrang" Type="int" />
+    <Property Name="idNoiNhan" Type="int" />
   </EntityType>
   <EntityType Name="NguoiDuyet">
     <Key>
@@ -171,6 +184,33 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
     <Property Name="PerUser" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SMMg.dbo.ViewKiemChungDien' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ViewKiemChungDien">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="SoBiThu" />
+      <PropertyRef Name="TenNoiNhan" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="SoBiThu" Type="int" Nullable="false" />
+    <Property Name="TongSoTrang" Type="int" />
+    <Property Name="TenNoiNhan" Type="nvarchar" MaxLength="265" Nullable="false" />
+    <Property Name="idNoiNhan" Type="int" />
+    <Property Name="DanhSachDien" Type="char" MaxLength="256" />
+  </EntityType>
+  <Association Name="FK_KiemChungDien_NoiNhan">
+    <End Role="NoiNhan" Type="Self.NoiNhan" Multiplicity="0..1" />
+    <End Role="KiemChungDien" Type="Self.KiemChungDien" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NoiNhan">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="KiemChungDien">
+        <PropertyRef Name="idNoiNhan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
   <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
@@ -205,6 +245,7 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
   <EntityContainer Name="SMMgModelStoreContainer">
     <EntitySet Name="BiThu" EntityType="Self.BiThu" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DienMat" EntityType="Self.DienMat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KiemChungDien" EntityType="Self.KiemChungDien" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NguoiDuyet" EntityType="Self.NguoiDuyet" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NguoiKy" EntityType="Self.NguoiKy" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NoiGui" EntityType="Self.NoiGui" Schema="dbo" store:Type="Tables" />
@@ -238,5 +279,19 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
     [DienMatDaPhanPhoi].[ChuKy] AS [ChuKy]
     FROM [dbo].[DienMatDaPhanPhoi] AS [DienMatDaPhanPhoi]</DefiningQuery>
     </EntitySet>
+    <EntitySet Name="ViewKiemChungDien" EntityType="Self.ViewKiemChungDien" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ViewKiemChungDien].[id] AS [id], 
+    [ViewKiemChungDien].[SoBiThu] AS [SoBiThu], 
+    [ViewKiemChungDien].[TongSoTrang] AS [TongSoTrang], 
+    [ViewKiemChungDien].[TenNoiNhan] AS [TenNoiNhan], 
+    [ViewKiemChungDien].[idNoiNhan] AS [idNoiNhan], 
+    [ViewKiemChungDien].[DanhSachDien] AS [DanhSachDien]
+    FROM [dbo].[ViewKiemChungDien] AS [ViewKiemChungDien]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_KiemChungDien_NoiNhan" Association="Self.FK_KiemChungDien_NoiNhan">
+      <End Role="NoiNhan" EntitySet="NoiNhan" />
+      <End Role="KiemChungDien" EntitySet="KiemChungDien" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

@@ -14,6 +14,12 @@ namespace ProjectBNG.Models
     
     public partial class NoiNhan
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public NoiNhan()
+        {
+            this.KiemChungDiens = new HashSet<KiemChungDien>();
+        }
+    
         public int id { get; set; }
         public string MaNoiNhan { get; set; }
         public string TenNoiNhan { get; set; }
@@ -24,5 +30,8 @@ namespace ProjectBNG.Models
         public Nullable<bool> CoBi { get; set; }
         public Nullable<bool> DangHoatDong { get; set; }
         public string CoSo { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<KiemChungDien> KiemChungDiens { get; set; }
     }
 }

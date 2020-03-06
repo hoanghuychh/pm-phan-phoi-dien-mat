@@ -48,8 +48,15 @@ namespace ProjectBNG
                     {
                         AddGraphics(processor, a.TenNoiNhan, textBrush, x, y);
                         //DrawGraphics();
+
                     }
                     y += 20;
+                }
+                //preview chu ky
+                using (PdfGraphics graphics = processor.CreateGraphics())
+                {
+                    DrawImage(graphics, 100, 700);
+                    graphics.AddToPageForeground(processor.Document.Pages[0], 72, 72);
                 }
                 //fix exception throw :devexpress...
                 MemoryStream ms2 = new MemoryStream();
@@ -145,6 +152,7 @@ namespace ProjectBNG
                 }
 
             }
+            
         }
 
         static void AddGraphics(PdfDocumentProcessor processor, string text, SolidBrush textBrush, float x, float y)
@@ -282,16 +290,7 @@ namespace ProjectBNG
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-
-            pdfViewer1.SaveDocument("D:/BACKUP/Desktop/newSave.pdf");
-
             var addDienMat = new DienMat();
-            addDienMat.LuuFile = "D:/BACKUP/Desktop/newSave.pdf";
-            //addDienMat.FileDinhKem=
-            addDienMat.NoiGui = cbxNoiGuiMD.Text;
-            addDienMat.TrichYeu = tbTrichYeu.Text;
-            addDienMat.DoMat = cbxPrivateFile.Text;
-            //addDienMat.DoMatFile=
             try
             {
 
@@ -300,8 +299,19 @@ namespace ProjectBNG
             catch
             {
                 MessageBox.Show("Chưa điền thông tin số điện", "Thông báo");
+                return;
             }
-            addDienMat.Ngay = DateTime.Now;
+            string timeSave = DateTime.Now.ToString("yyyyMMddHHmmssfff");
+            pdfViewer1.SaveDocument("D:/BACKUP/Desktop/DienMat/DienMatNgay" + timeSave + ".pdf");
+
+            addDienMat.LuuFile = "D:/BACKUP/Desktop/DienMat/DienMatNgay" + timeSave+".pdf";
+            //addDienMat.FileDinhKem=
+            addDienMat.NoiGui = cbxNoiGuiMD.Text;
+            addDienMat.TrichYeu = tbTrichYeu.Text;
+            addDienMat.DoMat = cbxPrivateFile.Text;
+            //addDienMat.DoMatFile=
+            
+            addDienMat.Ngay = datetimeNgayLuu.Value;
             addDienMat.GhiChu = tbGhiChu.Text;
             addDienMat.NguoiDuyet = cbxNguoiDuyetMD.Text;
             addDienMat.NguoiKy = cbxNguoiKiMD.Text;
@@ -311,6 +321,7 @@ namespace ProjectBNG
             //addDienMat.ChuKy = Image.FromStream(stream);
 
             db.DienMats.Add(addDienMat);
+            MessageBox.Show("Đã lưu điện mật","Thông báo");
             db.SaveChanges();
 
 
@@ -332,12 +343,10 @@ namespace ProjectBNG
                 listNoiNhanTemp.Add(item);
 
             }
-             
 
             if (listNoiNhanTemp.Count > 0)
             {
-
-
+                 
                 if (listPreviewNoiNhan != null)
                 {
                     // xoa het cac item da add
@@ -357,6 +366,8 @@ namespace ProjectBNG
                 
 
             }
+            
+
         }
 
         private void chbPrint_CheckedChanged(object sender, EventArgs e)
@@ -400,10 +411,6 @@ namespace ProjectBNG
              
             setNoiNhan(list);
         }
-        public void PushNguoiNhanToGridView(List<NoiNhan> list)
-        {
-
-        }
 
         private void gridControl1_Load(object sender, EventArgs e)
         {
@@ -435,5 +442,18 @@ namespace ProjectBNG
             MessageBox.Show("Đã Xóa","Thông báo");
             gridControl1_Load(sender, e);
         }
+        static void DrawImage(PdfGraphics graphics, float x, float y)
+        {
+            SMMgEntities db = new SMMgEntities();
+            NguoiKy defaultNguoiKy = db.NguoiKies.SingleOrDefault(m => m.MacDinh == true);
+            var stream = new MemoryStream(defaultNguoiKy.ChuKy);
+            using (Image image =Image.FromStream(stream))
+            {
+                float width = image.Width;
+                float height = image.Height;
+                graphics.DrawImage(image, new RectangleF(x, y, width / 2, height / 2));
+            }
+        }
+
     }
 }

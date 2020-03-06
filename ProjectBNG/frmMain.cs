@@ -192,5 +192,20 @@ namespace ProjectBNG
                 CommonFunction.activateForm("frmBiThu", this);
             }
         }
+
+        private void kcĐiệnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!CommonFunction.checkExistForm("frmKiemChungDien", this))
+            {
+                frmKiemChungDien frmKiemChungDien = new frmKiemChungDien();
+                frmKiemChungDien.MdiParent = this;
+                frmKiemChungDien.Show();
+
+            }
+            else
+            {
+                CommonFunction.activateForm("frmKiemChungDien", this);
+            }
+        }
     }
 }
