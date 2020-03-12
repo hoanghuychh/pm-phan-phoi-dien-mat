@@ -15,7 +15,6 @@ namespace ProjectBNG.Models
     public partial class KiemChungDien
     {
         public int id { get; set; }
-        public string TenNoiNhan { get; set; }
         public string DanhSachDien { get; set; }
         public int SoBiThu { get; set; }
         public Nullable<int> TongSoTrang { get; set; }

@@ -33,9 +33,10 @@
     <Property Name="NguoiKy" Type="nvarchar" MaxLength="256" />
     <Property Name="ChucDanh" Type="nvarchar" MaxLength="256" />
     <Property Name="ChuKy" Type="image" />
-    <Property Name="NguoiIn" Type="varchar" MaxLength="50" />
-    <Property Name="NoiNhan" Type="nvarchar" MaxLength="256" />
+    <Property Name="DsNoiNhan" Type="nvarchar" MaxLength="256" />
     <Property Name="Trang" Type="int" />
+    <Property Name="idUsername" Type="int" />
+    <Property Name="NguoiIn" Type="varchar" MaxLength="50" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -70,7 +71,6 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="TenNoiNhan" Type="nvarchar" MaxLength="265" Nullable="false" />
     <Property Name="DanhSachDien" Type="char" MaxLength="256" />
     <Property Name="SoBiThu" Type="int" Nullable="false" />
     <Property Name="TongSoTrang" Type="int" />
@@ -185,6 +185,38 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
   <!--Errors Found During Generation:
+warning 6002: The table/view 'SMMg.dbo.ViewDienMat' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="ViewDienMat">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="SoBaoMat" />
+      <PropertyRef Name="NgayIn" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="LuuFile" Type="nvarchar" MaxLength="265" />
+    <Property Name="FileDinhKem" Type="nvarchar" MaxLength="265" />
+    <Property Name="NoiGui" Type="nvarchar" MaxLength="265" />
+    <Property Name="TrichYeu" Type="nvarchar" MaxLength="265" />
+    <Property Name="DoMat" Type="nvarchar" MaxLength="20" />
+    <Property Name="DoMatFile" Type="nchar" MaxLength="20" />
+    <Property Name="MaDienMat" Type="int" />
+    <Property Name="Ngay" Type="datetime2" Precision="7" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="265" />
+    <Property Name="Loai" Type="nvarchar" MaxLength="20" />
+    <Property Name="SoBaoMat" Type="int" Nullable="false" />
+    <Property Name="BanIn" Type="int" />
+    <Property Name="NgayIn" Type="datetime2" Precision="7" Nullable="false" />
+    <Property Name="NguoiDuyet" Type="nvarchar" MaxLength="256" />
+    <Property Name="NguoiKy" Type="nvarchar" MaxLength="256" />
+    <Property Name="ChucDanh" Type="nvarchar" MaxLength="256" />
+    <Property Name="NguoiIn" Type="varchar" MaxLength="50" />
+    <Property Name="NoiNhan" Type="nvarchar" MaxLength="256" />
+    <Property Name="Trang" Type="int" />
+    <Property Name="Username" Type="varchar" MaxLength="50" />
+    <Property Name="ChuKy" Type="image" />
+    <Property Name="idUsername" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
 warning 6002: The table/view 'SMMg.dbo.ViewKiemChungDien' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="ViewKiemChungDien">
     <Key>
@@ -199,6 +231,18 @@ warning 6002: The table/view 'SMMg.dbo.ViewKiemChungDien' does not have a primar
     <Property Name="idNoiNhan" Type="int" />
     <Property Name="DanhSachDien" Type="char" MaxLength="256" />
   </EntityType>
+  <Association Name="FK_DienMat_USER1">
+    <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
+    <End Role="DienMat" Type="Self.DienMat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USER">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DienMat">
+        <PropertyRef Name="idUsername" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_KiemChungDien_NoiNhan">
     <End Role="NoiNhan" Type="Self.NoiNhan" Multiplicity="0..1" />
     <End Role="KiemChungDien" Type="Self.KiemChungDien" Multiplicity="*" />
@@ -279,6 +323,33 @@ warning 6002: The table/view 'SMMg.dbo.ViewKiemChungDien' does not have a primar
     [DienMatDaPhanPhoi].[ChuKy] AS [ChuKy]
     FROM [dbo].[DienMatDaPhanPhoi] AS [DienMatDaPhanPhoi]</DefiningQuery>
     </EntitySet>
+    <EntitySet Name="ViewDienMat" EntityType="Self.ViewDienMat" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ViewDienMat].[ID] AS [ID], 
+    [ViewDienMat].[LuuFile] AS [LuuFile], 
+    [ViewDienMat].[FileDinhKem] AS [FileDinhKem], 
+    [ViewDienMat].[NoiGui] AS [NoiGui], 
+    [ViewDienMat].[TrichYeu] AS [TrichYeu], 
+    [ViewDienMat].[DoMat] AS [DoMat], 
+    [ViewDienMat].[DoMatFile] AS [DoMatFile], 
+    [ViewDienMat].[MaDienMat] AS [MaDienMat], 
+    [ViewDienMat].[Ngay] AS [Ngay], 
+    [ViewDienMat].[GhiChu] AS [GhiChu], 
+    [ViewDienMat].[Loai] AS [Loai], 
+    [ViewDienMat].[SoBaoMat] AS [SoBaoMat], 
+    [ViewDienMat].[BanIn] AS [BanIn], 
+    [ViewDienMat].[NgayIn] AS [NgayIn], 
+    [ViewDienMat].[NguoiDuyet] AS [NguoiDuyet], 
+    [ViewDienMat].[NguoiKy] AS [NguoiKy], 
+    [ViewDienMat].[ChucDanh] AS [ChucDanh], 
+    [ViewDienMat].[NguoiIn] AS [NguoiIn], 
+    [ViewDienMat].[NoiNhan] AS [NoiNhan], 
+    [ViewDienMat].[Trang] AS [Trang], 
+    [ViewDienMat].[Username] AS [Username], 
+    [ViewDienMat].[ChuKy] AS [ChuKy], 
+    [ViewDienMat].[idUsername] AS [idUsername]
+    FROM [dbo].[ViewDienMat] AS [ViewDienMat]</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="ViewKiemChungDien" EntityType="Self.ViewKiemChungDien" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [ViewKiemChungDien].[id] AS [id], 
@@ -289,6 +360,10 @@ warning 6002: The table/view 'SMMg.dbo.ViewKiemChungDien' does not have a primar
     [ViewKiemChungDien].[DanhSachDien] AS [DanhSachDien]
     FROM [dbo].[ViewKiemChungDien] AS [ViewKiemChungDien]</DefiningQuery>
     </EntitySet>
+    <AssociationSet Name="FK_DienMat_USER1" Association="Self.FK_DienMat_USER1">
+      <End Role="USER" EntitySet="USER" />
+      <End Role="DienMat" EntitySet="DienMat" />
+    </AssociationSet>
     <AssociationSet Name="FK_KiemChungDien_NoiNhan" Association="Self.FK_KiemChungDien_NoiNhan">
       <End Role="NoiNhan" EntitySet="NoiNhan" />
       <End Role="KiemChungDien" EntitySet="KiemChungDien" />

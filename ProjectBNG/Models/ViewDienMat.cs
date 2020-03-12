@@ -12,7 +12,7 @@ namespace ProjectBNG.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class DienMat
+    public partial class ViewDienMat
     {
         public int ID { get; set; }
         public string LuuFile { get; set; }
@@ -31,12 +31,11 @@ namespace ProjectBNG.Models
         public string NguoiDuyet { get; set; }
         public string NguoiKy { get; set; }
         public string ChucDanh { get; set; }
-        public byte[] ChuKy { get; set; }
-        public string DsNoiNhan { get; set; }
-        public Nullable<int> Trang { get; set; }
-        public Nullable<int> idUsername { get; set; }
         public string NguoiIn { get; set; }
-    
-        public virtual USER USER { get; set; }
+        public string NoiNhan { get; set; }
+        public Nullable<int> Trang { get; set; }
+        public string Username { get; set; }
+        public byte[] ChuKy { get; set; }
+        public Nullable<int> idUsername { get; set; }
     }
 }

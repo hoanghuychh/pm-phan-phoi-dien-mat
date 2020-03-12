@@ -67,10 +67,10 @@
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.txtIncluding = new System.Windows.Forms.TextBox();
             this.chbIncluding = new System.Windows.Forms.CheckBox();
-            this.txtAllignBottomSM = new System.Windows.Forms.TextBox();
-            this.txtAllignBottomSignature = new System.Windows.Forms.TextBox();
-            this.txtAllignBottomIncludedSM = new System.Windows.Forms.TextBox();
-            this.txtPage = new System.Windows.Forms.TextBox();
+            this.tbSMTrangDuoi = new System.Windows.Forms.TextBox();
+            this.tbLeDuoiChuKy = new System.Windows.Forms.TextBox();
+            this.tbSMDinhKem = new System.Windows.Forms.TextBox();
+            this.tbDatChuKyTrang = new System.Windows.Forms.TextBox();
             this.tbChucDanhMD = new System.Windows.Forms.TextBox();
             this.tbGhiChu = new System.Windows.Forms.TextBox();
             this.cbxNguoiKiMD = new System.Windows.Forms.ComboBox();
@@ -446,10 +446,10 @@
             this.panel3.Controls.Add(this.textBox12);
             this.panel3.Controls.Add(this.txtIncluding);
             this.panel3.Controls.Add(this.chbIncluding);
-            this.panel3.Controls.Add(this.txtAllignBottomSM);
-            this.panel3.Controls.Add(this.txtAllignBottomSignature);
-            this.panel3.Controls.Add(this.txtAllignBottomIncludedSM);
-            this.panel3.Controls.Add(this.txtPage);
+            this.panel3.Controls.Add(this.tbSMTrangDuoi);
+            this.panel3.Controls.Add(this.tbLeDuoiChuKy);
+            this.panel3.Controls.Add(this.tbSMDinhKem);
+            this.panel3.Controls.Add(this.tbDatChuKyTrang);
             this.panel3.Controls.Add(this.tbChucDanhMD);
             this.panel3.Controls.Add(this.tbGhiChu);
             this.panel3.Controls.Add(this.cbxNguoiKiMD);
@@ -516,50 +516,50 @@
             this.chbIncluding.Text = "Gộp";
             this.chbIncluding.UseVisualStyleBackColor = true;
             // 
-            // txtAllignBottomSM
+            // tbSMTrangDuoi
             // 
-            this.txtAllignBottomSM.Location = new System.Drawing.Point(696, 92);
-            this.txtAllignBottomSM.Margin = new System.Windows.Forms.Padding(4);
-            this.txtAllignBottomSM.Name = "txtAllignBottomSM";
-            this.txtAllignBottomSM.Size = new System.Drawing.Size(65, 22);
-            this.txtAllignBottomSM.TabIndex = 39;
-            this.txtAllignBottomSM.Text = "0";
-            this.txtAllignBottomSM.Click += new System.EventHandler(this.txt_Click);
-            this.txtAllignBottomSM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKeyPress);
+            this.tbSMTrangDuoi.Location = new System.Drawing.Point(696, 92);
+            this.tbSMTrangDuoi.Margin = new System.Windows.Forms.Padding(4);
+            this.tbSMTrangDuoi.Name = "tbSMTrangDuoi";
+            this.tbSMTrangDuoi.Size = new System.Drawing.Size(65, 22);
+            this.tbSMTrangDuoi.TabIndex = 39;
+            this.tbSMTrangDuoi.Text = "0";
+            this.tbSMTrangDuoi.Click += new System.EventHandler(this.txt_Click);
+            this.tbSMTrangDuoi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKeyPress);
             // 
-            // txtAllignBottomSignature
+            // tbLeDuoiChuKy
             // 
-            this.txtAllignBottomSignature.Location = new System.Drawing.Point(696, 53);
-            this.txtAllignBottomSignature.Margin = new System.Windows.Forms.Padding(4);
-            this.txtAllignBottomSignature.Name = "txtAllignBottomSignature";
-            this.txtAllignBottomSignature.Size = new System.Drawing.Size(65, 22);
-            this.txtAllignBottomSignature.TabIndex = 38;
-            this.txtAllignBottomSignature.Text = "0";
-            this.txtAllignBottomSignature.Click += new System.EventHandler(this.txt_Click);
-            this.txtAllignBottomSignature.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKeyPress);
+            this.tbLeDuoiChuKy.Location = new System.Drawing.Point(696, 53);
+            this.tbLeDuoiChuKy.Margin = new System.Windows.Forms.Padding(4);
+            this.tbLeDuoiChuKy.Name = "tbLeDuoiChuKy";
+            this.tbLeDuoiChuKy.Size = new System.Drawing.Size(65, 22);
+            this.tbLeDuoiChuKy.TabIndex = 38;
+            this.tbLeDuoiChuKy.Text = "0";
+            this.tbLeDuoiChuKy.Click += new System.EventHandler(this.txt_Click);
+            this.tbLeDuoiChuKy.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKeyPress);
             // 
-            // txtAllignBottomIncludedSM
+            // tbSMDinhKem
             // 
-            this.txtAllignBottomIncludedSM.Location = new System.Drawing.Point(696, 132);
-            this.txtAllignBottomIncludedSM.Margin = new System.Windows.Forms.Padding(4);
-            this.txtAllignBottomIncludedSM.Name = "txtAllignBottomIncludedSM";
-            this.txtAllignBottomIncludedSM.Size = new System.Drawing.Size(65, 22);
-            this.txtAllignBottomIncludedSM.TabIndex = 37;
-            this.txtAllignBottomIncludedSM.Text = "0";
-            this.txtAllignBottomIncludedSM.Click += new System.EventHandler(this.txt_Click);
-            this.txtAllignBottomIncludedSM.TextChanged += new System.EventHandler(this.txtAllignBottomIncludedSM_TextChanged);
-            this.txtAllignBottomIncludedSM.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKeyPress);
+            this.tbSMDinhKem.Location = new System.Drawing.Point(696, 132);
+            this.tbSMDinhKem.Margin = new System.Windows.Forms.Padding(4);
+            this.tbSMDinhKem.Name = "tbSMDinhKem";
+            this.tbSMDinhKem.Size = new System.Drawing.Size(65, 22);
+            this.tbSMDinhKem.TabIndex = 37;
+            this.tbSMDinhKem.Text = "0";
+            this.tbSMDinhKem.Click += new System.EventHandler(this.txt_Click);
+            this.tbSMDinhKem.TextChanged += new System.EventHandler(this.txtAllignBottomIncludedSM_TextChanged);
+            this.tbSMDinhKem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKeyPress);
             // 
-            // txtPage
+            // tbDatChuKyTrang
             // 
-            this.txtPage.Location = new System.Drawing.Point(696, 14);
-            this.txtPage.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPage.Name = "txtPage";
-            this.txtPage.Size = new System.Drawing.Size(65, 22);
-            this.txtPage.TabIndex = 36;
-            this.txtPage.Text = "0";
-            this.txtPage.Click += new System.EventHandler(this.txt_Click);
-            this.txtPage.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKeyPress);
+            this.tbDatChuKyTrang.Location = new System.Drawing.Point(696, 14);
+            this.tbDatChuKyTrang.Margin = new System.Windows.Forms.Padding(4);
+            this.tbDatChuKyTrang.Name = "tbDatChuKyTrang";
+            this.tbDatChuKyTrang.Size = new System.Drawing.Size(65, 22);
+            this.tbDatChuKyTrang.TabIndex = 36;
+            this.tbDatChuKyTrang.Text = "0";
+            this.tbDatChuKyTrang.Click += new System.EventHandler(this.txt_Click);
+            this.tbDatChuKyTrang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKeyPress);
             // 
             // tbChucDanhMD
             // 
@@ -841,10 +841,10 @@
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.TextBox txtIncluding;
         private System.Windows.Forms.CheckBox chbIncluding;
-        private System.Windows.Forms.TextBox txtAllignBottomSM;
-        private System.Windows.Forms.TextBox txtAllignBottomSignature;
-        private System.Windows.Forms.TextBox txtAllignBottomIncludedSM;
-        private System.Windows.Forms.TextBox txtPage;
+        private System.Windows.Forms.TextBox tbSMTrangDuoi;
+        private System.Windows.Forms.TextBox tbLeDuoiChuKy;
+        private System.Windows.Forms.TextBox tbSMDinhKem;
+        private System.Windows.Forms.TextBox tbDatChuKyTrang;
         private System.Windows.Forms.TextBox tbChucDanhMD;
         private System.Windows.Forms.TextBox tbGhiChu;
         private System.Windows.Forms.ComboBox cbxNguoiKiMD;

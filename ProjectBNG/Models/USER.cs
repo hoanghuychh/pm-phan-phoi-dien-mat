@@ -14,10 +14,19 @@ namespace ProjectBNG.Models
     
     public partial class USER
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public USER()
+        {
+            this.DienMats = new HashSet<DienMat>();
+        }
+    
         public string NameUser { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public string PerUser { get; set; }
         public int ID { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DienMat> DienMats { get; set; }
     }
 }

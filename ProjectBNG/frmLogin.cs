@@ -20,6 +20,7 @@ namespace ProjectBNG
             this.Close();
         }
         public static string userID = "";
+        public static string Username = "";
         public void CheckLogin( string username , string password)
         {
             DbContext dbContext;
@@ -33,6 +34,7 @@ namespace ProjectBNG
                     if (username == data.Username && password == data.Password)
                     {
                         userID = data.ID.ToString();
+                        Username = data.Username;
                         success = true;
                         break;
                     }

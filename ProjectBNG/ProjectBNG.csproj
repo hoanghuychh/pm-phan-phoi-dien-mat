@@ -287,6 +287,9 @@
     <Compile Include="Models\USER.cs">
       <DependentUpon>SMMg.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewDienMat.cs">
+      <DependentUpon>SMMg.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ViewKiemChungDien.cs">
       <DependentUpon>SMMg.tt</DependentUpon>
     </Compile>
