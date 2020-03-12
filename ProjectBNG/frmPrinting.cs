@@ -24,6 +24,7 @@ namespace ProjectBNG
         static public List<NoiNhan> noiNhans { get; set; }
         static public List<NoiNhanTemp> noiNhanTemps { get; set; }
         static public List<NoiNhanTemp> noiNhanNoiBo { get; set; }
+        static public List<NoiNhanTemp> noiNhanNgoaiBo { get; set; }
 
         static public string FileName;
         float x = 0;
@@ -33,11 +34,20 @@ namespace ProjectBNG
         {
             noiNhanTemps = n;
             noiNhanNoiBo = new List<NoiNhanTemp>();
-            foreach(var a in noiNhanTemps)
+
+            noiNhanNgoaiBo = new List<NoiNhanTemp>();
+            foreach (var a in noiNhanTemps)
             {
                 if(a.Loai== "Nội bộ")
                 {
                     noiNhanNoiBo.Add(a);
+                }
+            }
+            foreach(var b in noiNhanTemps)
+            {
+                if (b.Loai == "Bên ngoài")
+                {
+                    noiNhanNgoaiBo.Add(b);
                 }
             }
             try
@@ -298,7 +308,7 @@ namespace ProjectBNG
         {
 
         }
-
+        public List<BiThu> listBiThu = new List<BiThu>();
         private void btnPrint_Click(object sender, EventArgs e)
         {
             var isMaDiemMat = true;
@@ -340,6 +350,15 @@ namespace ProjectBNG
                 addDienMat.Trang = pdfViewer1.PageCount;
                 db.DienMats.Add(addDienMat);
                 MessageBox.Show("Đã lưu điện mật", "Thông báo");
+                db.SaveChanges();
+
+                var biThu = new BiThu();
+                biThu.Ngay = datetimeNgayLuu.Value;
+                biThu.SoPhieu = biThu.id;
+                biThu.DanhSachDien = addDienMat.MaDienMat.ToString();
+                biThu.SoBiThu = noiNhanNgoaiBo.Count();
+                biThu.KiNhan = addDienMat.NguoiKy;
+                db.BiThus.Add(biThu);
                 db.SaveChanges();
             }
         }

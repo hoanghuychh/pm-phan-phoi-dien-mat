@@ -292,7 +292,7 @@
             this.colTrichYeu.Name = "colTrichYeu";
             this.colTrichYeu.Visible = true;
             this.colTrichYeu.VisibleIndex = 7;
-            this.colTrichYeu.Width = 275;
+            this.colTrichYeu.Width = 273;
             // 
             // colBanIn
             // 
@@ -302,7 +302,7 @@
             this.colBanIn.Name = "colBanIn";
             this.colBanIn.Visible = true;
             this.colBanIn.VisibleIndex = 6;
-            this.colBanIn.Width = 54;
+            this.colBanIn.Width = 53;
             // 
             // colNgayIn
             // 
@@ -312,7 +312,7 @@
             this.colNgayIn.Name = "colNgayIn";
             this.colNgayIn.Visible = true;
             this.colNgayIn.VisibleIndex = 9;
-            this.colNgayIn.Width = 80;
+            this.colNgayIn.Width = 79;
             // 
             // colLuuFile
             // 
@@ -332,7 +332,7 @@
             this.colNguoiIn.Name = "colNguoiIn";
             this.colNguoiIn.Visible = true;
             this.colNguoiIn.VisibleIndex = 8;
-            this.colNguoiIn.Width = 100;
+            this.colNguoiIn.Width = 99;
             // 
             // colNoiNhan
             // 
@@ -352,7 +352,7 @@
             this.colTrang.Name = "colTrang";
             this.colTrang.Visible = true;
             this.colTrang.VisibleIndex = 5;
-            this.colTrang.Width = 45;
+            this.colTrang.Width = 50;
             // 
             // dienMatsBindingSource
             // 

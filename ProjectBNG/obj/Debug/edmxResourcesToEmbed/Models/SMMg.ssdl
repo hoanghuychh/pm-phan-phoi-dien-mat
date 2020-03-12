@@ -10,6 +10,7 @@
     <Property Name="DanhSachDien" Type="char" MaxLength="256" />
     <Property Name="SoBiThu" Type="int" Nullable="false" />
     <Property Name="KiNhan" Type="nvarchar" MaxLength="265" />
+    <Property Name="TenNoiNhan" Type="nvarchar" MaxLength="265" />
   </EntityType>
   <EntityType Name="DienMat">
     <Key>

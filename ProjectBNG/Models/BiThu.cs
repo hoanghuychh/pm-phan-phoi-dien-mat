@@ -20,5 +20,6 @@ namespace ProjectBNG.Models
         public string DanhSachDien { get; set; }
         public int SoBiThu { get; set; }
         public string KiNhan { get; set; }
+        public string TenNoiNhan { get; set; }
     }
 }

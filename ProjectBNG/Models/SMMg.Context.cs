@@ -28,6 +28,7 @@ namespace ProjectBNG.Models
         }
     
         public virtual DbSet<BiThu> BiThus { get; set; }
+        public virtual DbSet<DienMat> DienMats { get; set; }
         public virtual DbSet<KiemChungDien> KiemChungDiens { get; set; }
         public virtual DbSet<NguoiDuyet> NguoiDuyets { get; set; }
         public virtual DbSet<NguoiKy> NguoiKies { get; set; }
@@ -39,11 +40,10 @@ namespace ProjectBNG.Models
         public virtual DbSet<PhanLoaiNoiNhan> PhanLoaiNoiNhans { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TrangThai> TrangThais { get; set; }
+        public virtual DbSet<USER> USERs { get; set; }
         public virtual DbSet<DienMatDaPhanPhoi> DienMatDaPhanPhois { get; set; }
         public virtual DbSet<ViewDienMat> ViewDienMats { get; set; }
         public virtual DbSet<ViewKiemChungDien> ViewKiemChungDiens { get; set; }
-        public virtual DbSet<DienMat> DienMats { get; set; }
-        public virtual DbSet<USER> USERs { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
