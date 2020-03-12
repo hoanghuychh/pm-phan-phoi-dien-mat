@@ -7,10 +7,10 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Ngay" Type="datetime" Nullable="false" />
     <Property Name="SoPhieu" Type="int" />
-    <Property Name="DanhSachDien" Type="char" MaxLength="256" />
-    <Property Name="SoBiThu" Type="int" Nullable="false" />
     <Property Name="KiNhan" Type="nvarchar" MaxLength="265" />
     <Property Name="TenNoiNhan" Type="nvarchar" MaxLength="265" />
+    <Property Name="TongSo" Type="int" />
+    <Property Name="DanhSachDienMat" Type="nvarchar" MaxLength="265" />
   </EntityType>
   <EntityType Name="DienMat">
     <Key>

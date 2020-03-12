@@ -12,10 +12,10 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Ngay" Type="datetime" Nullable="false" />
           <Property Name="SoPhieu" Type="int" />
-          <Property Name="DanhSachDien" Type="char" MaxLength="256" />
-          <Property Name="SoBiThu" Type="int" Nullable="false" />
           <Property Name="KiNhan" Type="nvarchar" MaxLength="265" />
           <Property Name="TenNoiNhan" Type="nvarchar" MaxLength="265" />
+          <Property Name="TongSo" Type="int" />
+          <Property Name="DanhSachDienMat" Type="nvarchar" MaxLength="265" />
         </EntityType>
         <EntityType Name="DienMat">
           <Key>
@@ -454,10 +454,10 @@ warning 6002: The table/view 'SMMg.dbo.ViewKiemChungDien' does not have a primar
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Ngay" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="SoPhieu" Type="Int32" />
-          <Property Name="DanhSachDien" Type="String" MaxLength="256" FixedLength="true" Unicode="false" />
-          <Property Name="SoBiThu" Type="Int32" Nullable="false" />
           <Property Name="KiNhan" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
           <Property Name="TenNoiNhan" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
+          <Property Name="TongSo" Type="Int32" />
+          <Property Name="DanhSachDienMat" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="DienMat">
           <Key>
@@ -734,10 +734,10 @@ warning 6002: The table/view 'SMMg.dbo.ViewKiemChungDien' does not have a primar
           <EntitySetMapping Name="BiThus">
             <EntityTypeMapping TypeName="SMMgModel.BiThu">
               <MappingFragment StoreEntitySet="BiThu">
+                <ScalarProperty Name="DanhSachDienMat" ColumnName="DanhSachDienMat" />
+                <ScalarProperty Name="TongSo" ColumnName="TongSo" />
                 <ScalarProperty Name="TenNoiNhan" ColumnName="TenNoiNhan" />
                 <ScalarProperty Name="KiNhan" ColumnName="KiNhan" />
-                <ScalarProperty Name="SoBiThu" ColumnName="SoBiThu" />
-                <ScalarProperty Name="DanhSachDien" ColumnName="DanhSachDien" />
                 <ScalarProperty Name="SoPhieu" ColumnName="SoPhieu" />
                 <ScalarProperty Name="Ngay" ColumnName="Ngay" />
                 <ScalarProperty Name="id" ColumnName="id" />

@@ -349,17 +349,50 @@ namespace ProjectBNG
                 addDienMat.NguoiIn = frmLogin.Username;
                 addDienMat.Trang = pdfViewer1.PageCount;
                 db.DienMats.Add(addDienMat);
-                MessageBox.Show("Đã lưu điện mật", "Thông báo");
                 db.SaveChanges();
 
                 var biThu = new BiThu();
                 biThu.Ngay = datetimeNgayLuu.Value;
                 biThu.SoPhieu = biThu.id;
-                biThu.DanhSachDien = addDienMat.MaDienMat.ToString();
-                biThu.SoBiThu = noiNhanNgoaiBo.Count();
+                biThu.DanhSachDienMat = addDienMat.MaDienMat.ToString().Trim();
+                biThu.TongSo = noiNhanNgoaiBo.Count();
                 biThu.KiNhan = addDienMat.NguoiKy;
-                db.BiThus.Add(biThu);
-                db.SaveChanges();
+
+                var arrTenNoiNhanNgoaiBo = noiNhanNgoaiBo.Select(m => m.TenNoiNhan).ToArray();
+                int soBiThu=arrTenNoiNhanNgoaiBo.Count();
+                string themMaDienMat = "";
+
+                BiThu xetBiThu = new BiThu();
+                foreach (var noiNhan in arrTenNoiNhanNgoaiBo)
+                {
+                    /*"Model.Where(a => a.ReviewID == item.Key).Single().Review.PersonID"*/
+                    //BiThu xetBiThu = db.BiThus.SingleOrDefault(x => x.TenNoiNhan == noiNhan);
+                    try
+                    {
+                        xetBiThu = db.BiThus.Single(x => x.TenNoiNhan == noiNhan);
+                    }
+                    catch
+                    {
+
+                    }
+                    if (xetBiThu.id == 0)
+                    {
+
+                        biThu.TenNoiNhan = noiNhan;
+
+                        db.BiThus.Add(biThu);
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+
+                        themMaDienMat = xetBiThu.DanhSachDienMat+',' + addDienMat.MaDienMat.ToString();
+                        db.Database.ExecuteSqlCommand(" update BiThu set DanhSachDienMat={0} where TenNoiNhan={1}",themMaDienMat,noiNhan);
+                        db.SaveChanges();
+                    }
+                }
+
+                MessageBox.Show("Đã lưu điện mật", "Thông báo");
             }
         }
 

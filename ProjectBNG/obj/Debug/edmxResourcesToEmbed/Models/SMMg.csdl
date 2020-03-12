@@ -75,10 +75,10 @@
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Ngay" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="SoPhieu" Type="Int32" />
-    <Property Name="DanhSachDien" Type="String" MaxLength="256" FixedLength="true" Unicode="false" />
-    <Property Name="SoBiThu" Type="Int32" Nullable="false" />
     <Property Name="KiNhan" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
     <Property Name="TenNoiNhan" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
+    <Property Name="TongSo" Type="Int32" />
+    <Property Name="DanhSachDienMat" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="DienMat">
     <Key>
