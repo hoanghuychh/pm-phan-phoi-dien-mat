@@ -72,7 +72,7 @@ namespace ProjectBNG
 
         private void gridViewBiThu0_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)
         {
-            string DanhSachDien= gridViewBiThu0.GetRowCellValue(gridViewBiThu0.FocusedRowHandle, "DanhSachDien").ToString();
+            string DanhSachDien= gridViewBiThu0.GetRowCellValue(gridViewBiThu0.FocusedRowHandle, "DanhSachDienMat").ToString();
             if (!CommonFunction.checkExistForm("frmChiTietBiThu", this))
             {
 
@@ -81,7 +81,26 @@ namespace ProjectBNG
             }
             else
                 CommonFunction.activateForm("frmChiTietBiThu", this);
-            
+
+            /*NguoiDuyet selectNguoiDuyet = new NguoiDuyet();
+                try
+                {
+                    selectNguoiDuyet = (NguoiDuyet)gridViewNguoiDuyet.GetRow(gridViewNguoiDuyet.FocusedRowHandle);
+
+                }
+                catch { }
+                frmSuaNguoiDuyet frmSuaNguoiDuyet = new frmSuaNguoiDuyet(() =>
+                {
+                    ProjectBNG.Models.SMMgEntities dbContext = new ProjectBNG.Models.SMMgEntities();
+                    // Call the LoadAsync method to asynchronously get the data for the given DbSet from the database.
+                    dbContext.NguoiDuyets.LoadAsync().ContinueWith(loadTask =>
+                    {
+                        // Bind data to control when loading complete
+                        nguoiDuyetsBindingSource.DataSource = dbContext.NguoiDuyets.Local.ToBindingList();
+                    }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
+                    return false;
+                }, selectNguoiDuyet);
+                frmSuaNguoiDuyet.ShowDialog(this);*/
         }
     }
 

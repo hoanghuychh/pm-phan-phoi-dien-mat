@@ -261,5 +261,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="DienMatTemps">
+      <EntityTypeMapping TypeName="SMMgModel.DienMatTemp">
+        <MappingFragment StoreEntitySet="DienMatTemp">
+          <ScalarProperty Name="MaDienMat" ColumnName="MaDienMat" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -83,9 +83,9 @@ namespace ProjectBNG
                    
                 }
 
-                var arr = db.NoiNhanTemps.Select(m => m.MaNoiNhan).ToArray(); ;
+                //var arr = db.NoiNhanTemps.Select(m => m.MaNoiNhan).ToArray(); ;
 
-                Debug.WriteLine(string.Join(", ", arr));
+                //Debug.WriteLine(string.Join(", ", arr));
 
 
             }

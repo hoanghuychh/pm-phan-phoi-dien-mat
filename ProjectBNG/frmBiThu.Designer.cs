@@ -39,6 +39,7 @@
             this.colDanhSachDien1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSoBiThu1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colKiNhan1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colNoiNhan = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.biThusBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.biThusBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlBiThu0)).BeginInit();
@@ -79,7 +80,8 @@
             this.colSoPhieu,
             this.colDanhSachDien1,
             this.colSoBiThu1,
-            this.colKiNhan1});
+            this.colKiNhan1,
+            this.colNoiNhan});
             this.gridViewBiThu0.GridControl = this.gridControlBiThu0;
             this.gridViewBiThu0.Name = "gridViewBiThu0";
             this.gridViewBiThu0.OptionsBehavior.Editable = false;
@@ -96,7 +98,7 @@
             this.colNgay1.Name = "colNgay1";
             this.colNgay1.Visible = true;
             this.colNgay1.VisibleIndex = 0;
-            this.colNgay1.Width = 120;
+            this.colNgay1.Width = 110;
             // 
             // colSoPhieu
             // 
@@ -106,27 +108,27 @@
             this.colSoPhieu.Name = "colSoPhieu";
             this.colSoPhieu.Visible = true;
             this.colSoPhieu.VisibleIndex = 1;
-            this.colSoPhieu.Width = 150;
+            this.colSoPhieu.Width = 90;
             // 
             // colDanhSachDien1
             // 
             this.colDanhSachDien1.Caption = "Số điện";
-            this.colDanhSachDien1.FieldName = "DanhSachDien";
+            this.colDanhSachDien1.FieldName = "DanhSachDienMat";
             this.colDanhSachDien1.MinWidth = 25;
             this.colDanhSachDien1.Name = "colDanhSachDien1";
             this.colDanhSachDien1.Visible = true;
-            this.colDanhSachDien1.VisibleIndex = 2;
-            this.colDanhSachDien1.Width = 443;
+            this.colDanhSachDien1.VisibleIndex = 3;
+            this.colDanhSachDien1.Width = 397;
             // 
             // colSoBiThu1
             // 
             this.colSoBiThu1.Caption = "Tổng số";
-            this.colSoBiThu1.FieldName = "SoBiThu";
+            this.colSoBiThu1.FieldName = "TongSo";
             this.colSoBiThu1.MinWidth = 25;
             this.colSoBiThu1.Name = "colSoBiThu1";
             this.colSoBiThu1.Visible = true;
-            this.colSoBiThu1.VisibleIndex = 3;
-            this.colSoBiThu1.Width = 100;
+            this.colSoBiThu1.VisibleIndex = 4;
+            this.colSoBiThu1.Width = 88;
             // 
             // colKiNhan1
             // 
@@ -135,8 +137,18 @@
             this.colKiNhan1.MinWidth = 25;
             this.colKiNhan1.Name = "colKiNhan1";
             this.colKiNhan1.Visible = true;
-            this.colKiNhan1.VisibleIndex = 4;
-            this.colKiNhan1.Width = 94;
+            this.colKiNhan1.VisibleIndex = 5;
+            this.colKiNhan1.Width = 120;
+            // 
+            // colNoiNhan
+            // 
+            this.colNoiNhan.Caption = "Nơi nhận";
+            this.colNoiNhan.FieldName = "TenNoiNhan";
+            this.colNoiNhan.MinWidth = 25;
+            this.colNoiNhan.Name = "colNoiNhan";
+            this.colNoiNhan.Visible = true;
+            this.colNoiNhan.VisibleIndex = 2;
+            this.colNoiNhan.Width = 145;
             // 
             // frmBiThu
             // 
@@ -167,5 +179,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colDanhSachDien1;
         private DevExpress.XtraGrid.Columns.GridColumn colSoBiThu1;
         private DevExpress.XtraGrid.Columns.GridColumn colKiNhan1;
+        private DevExpress.XtraGrid.Columns.GridColumn colNoiNhan;
     }
 }

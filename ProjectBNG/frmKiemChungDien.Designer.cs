@@ -126,6 +126,7 @@
             this.colTongSoTrang});
             this.gridViewKiemChungDien.GridControl = this.gridControlKiemChungDien;
             this.gridViewKiemChungDien.Name = "gridViewKiemChungDien";
+            this.gridViewKiemChungDien.OptionsBehavior.Editable = false;
             this.gridViewKiemChungDien.OptionsView.ShowGroupPanel = false;
             this.gridViewKiemChungDien.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridViewKiemChungDien_CustomDrawRowIndicator);
             // 

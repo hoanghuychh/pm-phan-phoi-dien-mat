@@ -67,6 +67,13 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
     <Property Name="ChucDanh" Type="nvarchar" MaxLength="256" />
     <Property Name="ChuKy" Type="image" />
   </EntityType>
+  <EntityType Name="DienMatTemp">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaDienMat" Type="int" />
+  </EntityType>
   <EntityType Name="KiemChungDien">
     <Key>
       <PropertyRef Name="id" />
@@ -290,6 +297,7 @@ warning 6002: The table/view 'SMMg.dbo.ViewKiemChungDien' does not have a primar
   <EntityContainer Name="SMMgModelStoreContainer">
     <EntitySet Name="BiThu" EntityType="Self.BiThu" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DienMat" EntityType="Self.DienMat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DienMatTemp" EntityType="Self.DienMatTemp" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="KiemChungDien" EntityType="Self.KiemChungDien" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NguoiDuyet" EntityType="Self.NguoiDuyet" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NguoiKy" EntityType="Self.NguoiKy" Schema="dbo" store:Type="Tables" />

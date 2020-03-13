@@ -24,6 +24,7 @@
         <EntityTypeShape EntityType="SMMgModel.ViewKiemChungDien" Width="1.5" PointX="6.75" PointY="11.75" />
         <AssociationConnector Association="SMMgModel.FK_DienMat_USER1" />
         <AssociationConnector Association="SMMgModel.FK_KiemChungDien_NoiNhan" />
+        <EntityTypeShape EntityType="SMMgModel.DienMatTemp" Width="1.5" PointX="3.375" PointY="12.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

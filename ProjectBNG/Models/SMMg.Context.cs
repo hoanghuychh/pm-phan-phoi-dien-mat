@@ -44,6 +44,7 @@ namespace ProjectBNG.Models
         public virtual DbSet<DienMatDaPhanPhoi> DienMatDaPhanPhois { get; set; }
         public virtual DbSet<ViewDienMat> ViewDienMats { get; set; }
         public virtual DbSet<ViewKiemChungDien> ViewKiemChungDiens { get; set; }
+        public virtual DbSet<DienMatTemp> DienMatTemps { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

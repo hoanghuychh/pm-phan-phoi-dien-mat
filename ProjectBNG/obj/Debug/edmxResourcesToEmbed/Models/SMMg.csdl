@@ -56,6 +56,7 @@
       <End Role="NoiNhan" EntitySet="NoiNhans" />
       <End Role="KiemChungDien" EntitySet="KiemChungDiens" />
     </AssociationSet>
+    <EntitySet Name="DienMatTemps" EntityType="SMMgModel.DienMatTemp" />
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -322,4 +323,11 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="DienMatTemp">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaDienMat" Type="Int32" />
+  </EntityType>
 </Schema>

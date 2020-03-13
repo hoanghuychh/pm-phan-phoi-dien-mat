@@ -25,13 +25,18 @@ namespace ProjectBNG
         static public List<NoiNhanTemp> noiNhanTemps { get; set; }
         static public List<NoiNhanTemp> noiNhanNoiBo { get; set; }
         static public List<NoiNhanTemp> noiNhanNgoaiBo { get; set; }
-
+        static public bool openNewpdf=false;
         static public string FileName;
         float x = 0;
         float y = 250;
-        MemoryStream ms = new MemoryStream();
-        public void setNoiNhan(List<NoiNhanTemp> n)
+        public void DrawingNoiNhanTemp(List<NoiNhanTemp> n)
         {
+
+            MemoryStream pdfStream = new MemoryStream();
+
+            MemoryStream ms2 = new MemoryStream();
+            MemoryStream ms3 = new MemoryStream();
+
             noiNhanTemps = n;
             noiNhanNoiBo = new List<NoiNhanTemp>();
 
@@ -56,35 +61,53 @@ namespace ProjectBNG
                 if (y == 250)
                 {
                     processor.LoadDocument(FileName);
-                }
-                else
-                {
-                    processor.LoadDocument(ms);
-                }
-                foreach (var a in noiNhanNoiBo)
-                {
-                    
+                    foreach (var a in noiNhanNoiBo)
+                    {
+
                         using (SolidBrush textBrush = new SolidBrush(Color.FromArgb(0, 0, 0)))
                         {
 
                             AddGraphics(processor, "- " + a.TenNoiNhan, textBrush, x, y);
                             //DrawGraphics();
-
+                            listDrewNoiNhanTemp.Add(a);
                         }
                         y += 20;
-                }
-                //preview chu ky
-                using (PdfGraphics graphics = processor.CreateGraphics())
-                {
-                    DrawImage(graphics, 100, 700);
-                    graphics.AddToPageForeground(processor.Document.Pages[0], 72, 72);
-                }
-                //fix exception throw :devexpress...
-                MemoryStream ms2 = new MemoryStream();
-                processor.SaveDocument(ms2);
-                ms2.WriteTo(ms);
+                    }
+                    //preview chu ky
 
-                pdfViewer1.LoadDocument(ms2);
+                    using (PdfGraphics graphics = processor.CreateGraphics())
+                    {
+                        DrawImage(graphics, 100, 700);
+                        graphics.AddToPageForeground(processor.Document.Pages[0], 72, 72);
+                    }
+                    //fix exception throw :devexpress...
+
+                    //preview chu ky
+                    processor.SaveDocument(ms2);
+                    //ms2.WriteTo(pdfStream);
+
+                    pdfViewer1.LoadDocument(ms2);
+                }
+                else
+                {
+                    processor.LoadDocument(ms2);
+                    foreach (var a in noiNhanNoiBo)
+                    {
+
+                        using (SolidBrush textBrush = new SolidBrush(Color.FromArgb(0, 0, 0)))
+                        {
+
+                            AddGraphics(processor, "- " + a.TenNoiNhan, textBrush, x, y);
+                            //DrawGraphics();
+                            listDrewNoiNhanTemp.Add(a);
+                        }
+                        y += 20;
+                    }
+                    processor.SaveDocument(pdfStream);
+                    pdfViewer1.LoadDocument(pdfStream);
+
+                }
+                
             }
             catch { }
         }
@@ -162,7 +185,7 @@ namespace ProjectBNG
 
         private void btnBrowseFile_Click(object sender, EventArgs e)
         {
-            MemoryStream ms = new MemoryStream();
+            MemoryStream PDFstream = new MemoryStream();
             using (OpenFileDialog ofd = new OpenFileDialog() { ValidateNames = true, Multiselect = false, Filter = "PDF Files(*.PDF)|*.PDF|All Files(*.*)|*.*" })
             {
                 if (ofd.ShowDialog() == DialogResult.OK)
@@ -173,7 +196,8 @@ namespace ProjectBNG
                 }
 
             }
-            
+            if(listDrewNoiNhanTemp.Count>0)
+                listDrewNoiNhanTemp.Clear();
         }
 
         static void AddGraphics(PdfDocumentProcessor processor, string text, SolidBrush textBrush, float x, float y)
@@ -325,10 +349,10 @@ namespace ProjectBNG
                 isMaDiemMat = false;
             }
             if (isMaDiemMat) { 
-            string timeSave = DateTime.Now.ToString("yyyyMMddHHmmssfff");
-                pdfViewer1.SaveDocument("D:/Github/winform_mail_manager/DienMatPDF/DienMatNgay" + timeSave + ".pdf");
+            string timeSave = DateTime.Now.ToString("ddMMyyyyHHmm");
+                pdfViewer1.SaveDocument("D:/Github/winform_mail_manager/DienMatPDF/DienMatSo"+addDienMat.MaDienMat.ToString().Trim() + "_" + timeSave + ".pdf");
 
-                addDienMat.LuuFile = "D:/Github/winform_mail_manager/DienMatPDF/DienMatNgay" + timeSave + ".pdf";
+                addDienMat.LuuFile = "D:/Github/winform_mail_manager/DienMatPDF/DienMatSo" + addDienMat.MaDienMat.ToString().Trim() + "_"+ timeSave + ".pdf";
                 //addDienMat.FileDinhKem=
                 addDienMat.NoiGui = cbxNoiGuiMD.Text;
                 addDienMat.TrichYeu = tbTrichYeu.Text;
@@ -355,7 +379,6 @@ namespace ProjectBNG
                 biThu.Ngay = datetimeNgayLuu.Value;
                 biThu.SoPhieu = biThu.id;
                 biThu.DanhSachDienMat = addDienMat.MaDienMat.ToString().Trim();
-                biThu.TongSo = noiNhanNgoaiBo.Count();
                 biThu.KiNhan = addDienMat.NguoiKy;
 
                 var arrTenNoiNhanNgoaiBo = noiNhanNgoaiBo.Select(m => m.TenNoiNhan).ToArray();
@@ -379,6 +402,7 @@ namespace ProjectBNG
                     {
 
                         biThu.TenNoiNhan = noiNhan;
+                        biThu.TongSo = 1;
 
                         db.BiThus.Add(biThu);
                         db.SaveChanges();
@@ -386,8 +410,10 @@ namespace ProjectBNG
                     else
                     {
 
-                        themMaDienMat = xetBiThu.DanhSachDienMat+',' + addDienMat.MaDienMat.ToString();
+                        themMaDienMat = xetBiThu.DanhSachDienMat+',' + addDienMat.MaDienMat.ToString().Trim();
                         db.Database.ExecuteSqlCommand(" update BiThu set DanhSachDienMat={0} where TenNoiNhan={1}",themMaDienMat,noiNhan);
+                        
+                        db.Database.ExecuteSqlCommand(" update BiThu set TongSo={0} where TenNoiNhan={1}", xetBiThu.TongSo+1, noiNhan);
                         db.SaveChanges();
                     }
                 }
@@ -396,41 +422,50 @@ namespace ProjectBNG
             }
         }
 
-        public List<NoiNhanTemp> listNoiNhanTemp = new List<NoiNhanTemp>();
+        public List<NoiNhanTemp> listDrawNoiNhanTemp = new List<NoiNhanTemp>();//list dc in ra tren pdf
 
-        public static List<NoiNhanTemp> listPreviewNoiNhan { get; set; }
+        public List<NoiNhanTemp> listDrewNoiNhanTemp = new List<NoiNhanTemp>();
         private void btnPreview_Click(object sender, EventArgs e)
         {
-            listNoiNhanTemp.Clear();
+            //try
+            //{
+            //    if (openNewpdf)
+            //    {
+            //        //db.Database.ExecuteSqlCommand("delete from NoiNhanTemp", new object[] { });
+
+            //    }
+                
+            //}
+            //catch { }
              NoiNhanTemp item = null;
+            listDrawNoiNhanTemp.Clear();
             gridViewNoiNhanTemp.SelectAll();
             var rows = gridViewNoiNhanTemp.GetSelectedRows(); 
             foreach (var a in rows)
             {
                 item = (NoiNhanTemp)gridViewNoiNhanTemp.GetRow(a);
-                listNoiNhanTemp.Add(item);
+                listDrawNoiNhanTemp.Add(item);
 
             }
-
-            if (listNoiNhanTemp.Count > 0)
+            if (listDrawNoiNhanTemp.Count > 0)
             {
                  
-                if (listPreviewNoiNhan != null)
+                if (listDrewNoiNhanTemp.Count>0)
                 {
                     // xoa het cac item da add
-                    listNoiNhanTemp.RemoveAll(m => listPreviewNoiNhan.Any(m2 => m2.id == m.id));
+                    listDrawNoiNhanTemp.RemoveAll(m => listDrewNoiNhanTemp.Any(m2 => m2.id == m.id));
                 }
                 else
                 {
                     // tao moi lan dau tien
-                    listPreviewNoiNhan = new List<NoiNhanTemp>();
+                    listDrewNoiNhanTemp = new List<NoiNhanTemp>();
                 }
                 // them cac item da add vao list preview de luu :3 cho lan sau xoa
-                listPreviewNoiNhan.AddRange(listNoiNhanTemp);
+                //listDrewNoiNhanTemp.AddRange(listDrawNoiNhanTemp);
 
 
                 // done
-                OnSubmitNguoiNhan(listNoiNhanTemp);
+                DrawingNoiNhanTemp(listDrawNoiNhanTemp);
                 
 
             }
@@ -465,7 +500,7 @@ namespace ProjectBNG
                     return false;
                 });/**/
 
-                frmAdd.OnSubmitForm += OnSubmitNguoiNhan;
+                //frmAdd.OnSubmitForm += OnSubmitNguoiNhan;
                 frmAdd.ShowDialog();
 
             }
@@ -474,11 +509,11 @@ namespace ProjectBNG
                 CommonFunction.activateForm("frmAddPrinting", this);
             }
         }
-        public void OnSubmitNguoiNhan(List<NoiNhanTemp> list)
-        {
+        //public void OnSubmitNguoiNhan(List<NoiNhanTemp> list)
+        //{
              
-            setNoiNhan(list);
-        }
+        //    DrawingNoiNhanTemp(list);
+        //}
 
         private void gridControl1_Load(object sender, EventArgs e)
         {
