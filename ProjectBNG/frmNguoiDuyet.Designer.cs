@@ -133,7 +133,7 @@
             this.gridViewNguoiDuyet.Name = "gridViewNguoiDuyet";
             this.gridViewNguoiDuyet.OptionsBehavior.Editable = false;
             this.gridViewNguoiDuyet.OptionsView.ShowGroupPanel = false;
-            this.gridViewNguoiDuyet.OptionsView.ShowIndicator = false;
+            this.gridViewNguoiDuyet.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridViewNguoiDuyet_CustomDrawRowIndicator);
             // 
             // colTenNguoiDuyet
             // 

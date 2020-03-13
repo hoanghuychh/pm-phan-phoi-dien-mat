@@ -69,19 +69,22 @@
             // 
             // gridControl1
             // 
+            this.gridControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.DataSource = this.noiNhansBindingSource;
             this.gridControl1.Location = new System.Drawing.Point(4, 42);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(939, 464);
+            this.gridControl1.Size = new System.Drawing.Size(970, 490);
             this.gridControl1.TabIndex = 2;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
             this.gridControl1.Load += new System.EventHandler(this.gridControl1_Load);
             // 
             // noiNhansBindingSource
-            // 
-            this.noiNhansBindingSource.DataSource = typeof(ProjectBNG.Models.NoiNhan);
+            //// 
+            //this.noiNhansBindingSource.DataSource = typeof(ProjectBNG.Models.NoiNhan);
             // 
             // gridView1
             // 
@@ -156,8 +159,9 @@
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right));
             this.panel2.Controls.Add(this.btnXoa);
             this.panel2.Controls.Add(this.btnThemNoiNhan);
             this.panel2.Controls.Add(this.btnTimKiem);
@@ -197,6 +201,7 @@
             // 
             // btnTimKiem
             // 
+            this.btnTimKiem.Anchor= ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top )));
             this.btnTimKiem.Location = new System.Drawing.Point(601, 1);
             this.btnTimKiem.Margin = new System.Windows.Forms.Padding(4);
             this.btnTimKiem.Name = "btnTimKiem";
@@ -207,6 +212,7 @@
             // 
             // cmbLoai
             // 
+            this.cmbLoai.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top)));
             this.cmbLoai.FormattingEnabled = true;
             this.cmbLoai.Location = new System.Drawing.Point(443, 2);
             this.cmbLoai.Margin = new System.Windows.Forms.Padding(4);
@@ -216,6 +222,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor= ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(384, 7);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -226,6 +233,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(4, 7);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -236,6 +244,7 @@
             // 
             // tbTenNoiNhanTimKiem
             // 
+            this.tbTenNoiNhanTimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top)));
             this.tbTenNoiNhanTimKiem.Location = new System.Drawing.Point(105, 2);
             this.tbTenNoiNhanTimKiem.Margin = new System.Windows.Forms.Padding(4);
             this.tbTenNoiNhanTimKiem.Name = "tbTenNoiNhanTimKiem";
@@ -246,7 +255,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(979, 540);
+            this.ClientSize = new System.Drawing.Size(989, 550);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(4);

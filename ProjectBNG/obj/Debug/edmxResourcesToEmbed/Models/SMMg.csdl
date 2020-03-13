@@ -33,6 +33,7 @@
     <FunctionImport Name="sp_upgraddiagrams" />
     <EntitySet Name="BiThus" EntityType="SMMgModel.BiThu" />
     <EntitySet Name="DienMats" EntityType="SMMgModel.DienMat" />
+    <EntitySet Name="DienMatTemps" EntityType="SMMgModel.DienMatTemp" />
     <EntitySet Name="KiemChungDiens" EntityType="SMMgModel.KiemChungDien" />
     <EntitySet Name="NguoiDuyets" EntityType="SMMgModel.NguoiDuyet" />
     <EntitySet Name="NguoiKies" EntityType="SMMgModel.NguoiKy" />
@@ -47,16 +48,10 @@
     <EntitySet Name="USERs" EntityType="SMMgModel.USER" />
     <EntitySet Name="DienMatDaPhanPhois" EntityType="SMMgModel.DienMatDaPhanPhoi" />
     <EntitySet Name="ViewDienMats" EntityType="SMMgModel.ViewDienMat" />
-    <EntitySet Name="ViewKiemChungDiens" EntityType="SMMgModel.ViewKiemChungDien" />
     <AssociationSet Name="FK_DienMat_USER1" Association="SMMgModel.FK_DienMat_USER1">
       <End Role="USER" EntitySet="USERs" />
       <End Role="DienMat" EntitySet="DienMats" />
     </AssociationSet>
-    <AssociationSet Name="FK_KiemChungDien_NoiNhan" Association="SMMgModel.FK_KiemChungDien_NoiNhan">
-      <End Role="NoiNhan" EntitySet="NoiNhans" />
-      <End Role="KiemChungDien" EntitySet="KiemChungDiens" />
-    </AssociationSet>
-    <EntitySet Name="DienMatTemps" EntityType="SMMgModel.DienMatTemp" />
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -109,16 +104,22 @@
     <Property Name="NguoiIn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="USER" Relationship="SMMgModel.FK_DienMat_USER1" FromRole="DienMat" ToRole="USER" />
   </EntityType>
+  <EntityType Name="DienMatTemp">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaDienMat" Type="Int32" />
+  </EntityType>
   <EntityType Name="KiemChungDien">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="DanhSachDien" Type="String" MaxLength="256" FixedLength="true" Unicode="false" />
-    <Property Name="SoBiThu" Type="Int32" Nullable="false" />
+    <Property Name="DanhSachDien" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
     <Property Name="TongSoTrang" Type="Int32" />
-    <Property Name="idNoiNhan" Type="Int32" />
-    <NavigationProperty Name="NoiNhan" Relationship="SMMgModel.FK_KiemChungDien_NoiNhan" FromRole="KiemChungDien" ToRole="NoiNhan" />
+    <Property Name="TenNoiNhan" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
+    <Property Name="SoLuongDien" Type="Int32" />
   </EntityType>
   <EntityType Name="NguoiDuyet">
     <Key>
@@ -151,7 +152,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="id" Type="Int32" Nullable="false" />
     <Property Name="MaNoiNhan" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="TenNoiNhan" Type="String" Nullable="false" MaxLength="265" FixedLength="false" Unicode="true" />
     <Property Name="Loai" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
@@ -161,7 +162,6 @@
     <Property Name="CoBi" Type="Boolean" />
     <Property Name="DangHoatDong" Type="Boolean" />
     <Property Name="CoSo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="KiemChungDiens" Relationship="SMMgModel.FK_KiemChungDien_NoiNhan" FromRole="NoiNhan" ToRole="KiemChungDien" />
   </EntityType>
   <EntityType Name="NoiNhanTemp">
     <Key>
@@ -286,19 +286,6 @@
     <Property Name="ChuKy" Type="Binary" MaxLength="Max" FixedLength="false" />
     <Property Name="idUsername" Type="Int32" />
   </EntityType>
-  <EntityType Name="ViewKiemChungDien">
-    <Key>
-      <PropertyRef Name="id" />
-      <PropertyRef Name="SoBiThu" />
-      <PropertyRef Name="TenNoiNhan" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" />
-    <Property Name="SoBiThu" Type="Int32" Nullable="false" />
-    <Property Name="TongSoTrang" Type="Int32" />
-    <Property Name="TenNoiNhan" Type="String" Nullable="false" MaxLength="265" FixedLength="false" Unicode="true" />
-    <Property Name="idNoiNhan" Type="Int32" />
-    <Property Name="DanhSachDien" Type="String" MaxLength="256" FixedLength="true" Unicode="false" />
-  </EntityType>
   <Association Name="FK_DienMat_USER1">
     <End Type="SMMgModel.USER" Role="USER" Multiplicity="0..1" />
     <End Type="SMMgModel.DienMat" Role="DienMat" Multiplicity="*" />
@@ -311,23 +298,4 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_KiemChungDien_NoiNhan">
-    <End Type="SMMgModel.NoiNhan" Role="NoiNhan" Multiplicity="0..1" />
-    <End Type="SMMgModel.KiemChungDien" Role="KiemChungDien" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="NoiNhan">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="KiemChungDien">
-        <PropertyRef Name="idNoiNhan" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="DienMatTemp">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="MaDienMat" Type="Int32" />
-  </EntityType>
 </Schema>

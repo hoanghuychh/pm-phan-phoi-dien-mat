@@ -14,6 +14,7 @@ using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Columns;
 using ProjectBNG.Models;
+using ProjectBNG.Class;
 
 namespace ProjectBNG
 {
@@ -141,6 +142,10 @@ namespace ProjectBNG
             SMMgEntities db = new SMMgEntities();
             gridControl1.DataSource = db.USERs.ToList();
             gridControl1.RefreshDataSource();
+        }
+        private void gridView2_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
+        {
+            CommonFunction.gridView_CustomDrawRowIndicator(sender, e, gridView2);
         }
     }
 }

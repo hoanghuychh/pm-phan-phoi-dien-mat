@@ -16,10 +16,8 @@ namespace ProjectBNG.Models
     {
         public int id { get; set; }
         public string DanhSachDien { get; set; }
-        public int SoBiThu { get; set; }
         public Nullable<int> TongSoTrang { get; set; }
-        public Nullable<int> idNoiNhan { get; set; }
-    
-        public virtual NoiNhan NoiNhan { get; set; }
+        public string TenNoiNhan { get; set; }
+        public Nullable<int> SoLuongDien { get; set; }
     }
 }

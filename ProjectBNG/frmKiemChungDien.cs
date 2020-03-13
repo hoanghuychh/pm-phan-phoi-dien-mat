@@ -27,23 +27,24 @@ namespace ProjectBNG
             {
                 // Bind data to control when loading complete
                 // ok thu xem =)
-                try
-                {
-                    kiemChungDiensBindingSource.DataSource = dbContext.KiemChungDiens.Select(m => new 
-                    {
-                        TenNoiNhan = m.NoiNhan.TenNoiNhan,
-                        id = m.id,
-                        DanhSachDien = m.DanhSachDien,
-                        SoBiThu = m.SoBiThu,
-                        TongSoTrang = m.TongSoTrang
-                    }).ToList();
-                    //kiemChungDiensBindingSource.DataSource = dbContext.ViewKiemChungDiens.Local.ToBindingList();
+                //try
+                //{
+                //    //kiemChungDiensBindingSource.DataSource = dbContext.KiemChungDiens.Select(m => new 
+                //    //{
+                //    //    TenNoiNhan = m.NoiNhan.TenNoiNhan,
+                //    //    id = m.id,
+                //    //    DanhSachDien = m.DanhSachDien,
+                //    //    SoBiThu = m.SoBiThu,
+                //    //    TongSoTrang = m.TongSoTrang
+                //    //}).ToList();
+                //    //kiemChungDiensBindingSource.DataSource = dbContext.ViewKiemChungDiens.Local.ToBindingList();
 
-                }
-                catch (Exception e) {
-                    Debug.WriteLine("123");
+                //}
+                //catch (Exception e) {
+                //    Debug.WriteLine("123");
 
-                }
+                //}
+                kiemChungDiensBindingSource.DataSource= dbContext.KiemChungDiens.Local.ToBindingList();
 
             }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
         }

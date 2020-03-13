@@ -95,7 +95,7 @@
             this.gridViewNguoiKy.Name = "gridViewNguoiKy";
             this.gridViewNguoiKy.OptionsBehavior.Editable = false;
             this.gridViewNguoiKy.OptionsView.ShowGroupPanel = false;
-            this.gridViewNguoiKy.OptionsView.ShowIndicator = false;
+            this.gridViewNguoiKy.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridViewNguoiKy_CustomDrawRowIndicator);
             // 
             // colTenNguoiKy
             // 

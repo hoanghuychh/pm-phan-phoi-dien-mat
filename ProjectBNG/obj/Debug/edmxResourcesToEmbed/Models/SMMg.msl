@@ -66,12 +66,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="DienMatTemps">
+      <EntityTypeMapping TypeName="SMMgModel.DienMatTemp">
+        <MappingFragment StoreEntitySet="DienMatTemp">
+          <ScalarProperty Name="MaDienMat" ColumnName="MaDienMat" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="KiemChungDiens">
       <EntityTypeMapping TypeName="SMMgModel.KiemChungDien">
         <MappingFragment StoreEntitySet="KiemChungDien">
-          <ScalarProperty Name="idNoiNhan" ColumnName="idNoiNhan" />
+          <ScalarProperty Name="SoLuongDien" ColumnName="SoLuongDien" />
+          <ScalarProperty Name="TenNoiNhan" ColumnName="TenNoiNhan" />
           <ScalarProperty Name="TongSoTrang" ColumnName="TongSoTrang" />
-          <ScalarProperty Name="SoBiThu" ColumnName="SoBiThu" />
           <ScalarProperty Name="DanhSachDien" ColumnName="DanhSachDien" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
@@ -246,26 +254,6 @@
           <ScalarProperty Name="FileDinhKem" ColumnName="FileDinhKem" />
           <ScalarProperty Name="LuuFile" ColumnName="LuuFile" />
           <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ViewKiemChungDiens">
-      <EntityTypeMapping TypeName="SMMgModel.ViewKiemChungDien">
-        <MappingFragment StoreEntitySet="ViewKiemChungDien">
-          <ScalarProperty Name="DanhSachDien" ColumnName="DanhSachDien" />
-          <ScalarProperty Name="idNoiNhan" ColumnName="idNoiNhan" />
-          <ScalarProperty Name="TenNoiNhan" ColumnName="TenNoiNhan" />
-          <ScalarProperty Name="TongSoTrang" ColumnName="TongSoTrang" />
-          <ScalarProperty Name="SoBiThu" ColumnName="SoBiThu" />
-          <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="DienMatTemps">
-      <EntityTypeMapping TypeName="SMMgModel.DienMatTemp">
-        <MappingFragment StoreEntitySet="DienMatTemp">
-          <ScalarProperty Name="MaDienMat" ColumnName="MaDienMat" />
-          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

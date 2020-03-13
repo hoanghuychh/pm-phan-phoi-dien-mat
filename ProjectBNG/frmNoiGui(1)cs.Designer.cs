@@ -74,7 +74,7 @@
             this.gridviewNoiGui.Name = "gridviewNoiGui";
             this.gridviewNoiGui.OptionsBehavior.Editable = false;
             this.gridviewNoiGui.OptionsView.ShowGroupPanel = false;
-            this.gridviewNoiGui.OptionsView.ShowIndicator = false;
+            this.gridviewNoiGui.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridviewNoiGui_CustomDrawRowIndicator);
             // 
             // colMa
             // 
@@ -101,37 +101,37 @@
             // tbSearch
             // 
             this.tbSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tbSearch.Location = new System.Drawing.Point(23, 19);
+            this.tbSearch.Location = new System.Drawing.Point(10, 14);
             this.tbSearch.Multiline = true;
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(503, 32);
+            this.tbSearch.Size = new System.Drawing.Size(505, 30);
             this.tbSearch.TabIndex = 1;
             // 
             // tbMaNguoiGui
             // 
             this.tbMaNguoiGui.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.tbMaNguoiGui.Location = new System.Drawing.Point(12, 585);
+            this.tbMaNguoiGui.Location = new System.Drawing.Point(12, 588);
             this.tbMaNguoiGui.Multiline = true;
             this.tbMaNguoiGui.Name = "tbMaNguoiGui";
-            this.tbMaNguoiGui.Size = new System.Drawing.Size(117, 32);
+            this.tbMaNguoiGui.Size = new System.Drawing.Size(125, 30);
             this.tbMaNguoiGui.TabIndex = 3;
             // 
             // tbTenNguoiGui
             // 
             this.tbTenNguoiGui.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.tbTenNguoiGui.Location = new System.Drawing.Point(135, 585);
+            this.tbTenNguoiGui.Location = new System.Drawing.Point(155, 588);
             this.tbTenNguoiGui.Multiline = true;
             this.tbTenNguoiGui.Name = "tbTenNguoiGui";
-            this.tbTenNguoiGui.Size = new System.Drawing.Size(391, 32);
+            this.tbTenNguoiGui.Size = new System.Drawing.Size(375, 30);
             this.tbTenNguoiGui.TabIndex = 4;
             // 
             // btnThemNguoiGui
             // 
             this.btnThemNguoiGui.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnThemNguoiGui.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnThemNguoiGui.Location = new System.Drawing.Point(550, 585);
+            this.btnThemNguoiGui.Location = new System.Drawing.Point(550, 588);
             this.btnThemNguoiGui.Name = "btnThemNguoiGui";
-            this.btnThemNguoiGui.Size = new System.Drawing.Size(101, 32);
+            this.btnThemNguoiGui.Size = new System.Drawing.Size(101, 30);
             this.btnThemNguoiGui.TabIndex = 5;
             this.btnThemNguoiGui.Text = "Thêm";
             this.btnThemNguoiGui.UseVisualStyleBackColor = true;
@@ -141,9 +141,9 @@
             // 
             this.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSearch.Location = new System.Drawing.Point(550, 19);
+            this.btnSearch.Location = new System.Drawing.Point(538, 14);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(101, 32);
+            this.btnSearch.Size = new System.Drawing.Size(101, 30);
             this.btnSearch.TabIndex = 2;
             this.btnSearch.Text = "Tìm";
             this.btnSearch.UseVisualStyleBackColor = true;

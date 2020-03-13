@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Entity;
 using ProjectBNG.Models;
+using ProjectBNG.Class;
 
 namespace ProjectBNG
 {
@@ -131,6 +132,11 @@ namespace ProjectBNG
             SMMgEntities db = new SMMgEntities();
             gridControlNguoiDuyet.DataSource = db.NguoiDuyets.ToList();
             gridControlNguoiDuyet.RefreshDataSource();
+        }
+
+        private void gridViewNguoiDuyet_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
+        {
+            CommonFunction.gridView_CustomDrawRowIndicator(sender, e, gridViewNguoiDuyet);
         }
     }
 }

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnAddAttachedFile = new System.Windows.Forms.Button();
             this.btnRemoveAttachedFile = new System.Windows.Forms.Button();
@@ -90,7 +90,7 @@
             this.dienMatsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.pdfViewer1 = new DevExpress.XtraPdfViewer.PdfViewer();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnThuNho = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -351,9 +351,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.DataSource = this.noiNhanTempsBindingSource;
             this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            gridLevelNode1.RelationName = "Level1";
+            gridLevelNode2.RelationName = "Level1";
             this.gridControl1.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
+            gridLevelNode2});
             this.gridControl1.Location = new System.Drawing.Point(0, 33);
             this.gridControl1.MainView = this.gridViewNoiNhanTemp;
             this.gridControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -761,18 +761,18 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // btnThuNho
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Location = new System.Drawing.Point(1180, 694);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(94, 32);
-            this.button2.TabIndex = 46;
-            this.button2.Text = "Thu nhỏ";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnThuNho.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnThuNho.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnThuNho.Location = new System.Drawing.Point(1180, 694);
+            this.btnThuNho.Margin = new System.Windows.Forms.Padding(4);
+            this.btnThuNho.Name = "btnThuNho";
+            this.btnThuNho.Size = new System.Drawing.Size(94, 32);
+            this.btnThuNho.TabIndex = 46;
+            this.btnThuNho.Text = "Thu nhỏ";
+            this.btnThuNho.UseVisualStyleBackColor = true;
+            this.btnThuNho.Click += new System.EventHandler(this.button2_Click);
             // 
             // frmPrinting
             // 
@@ -780,7 +780,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1511, 738);
             this.Controls.Add(this.pdfViewer1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnThuNho);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnPrint);
@@ -875,7 +875,7 @@
         private System.Windows.Forms.PictureBox pbChuKiMD;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnThuNho;
     }
 }
 
