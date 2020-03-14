@@ -86,6 +86,7 @@
             this.gridViewBiThu0.Name = "gridViewBiThu0";
             this.gridViewBiThu0.OptionsBehavior.Editable = false;
             this.gridViewBiThu0.OptionsEditForm.ShowOnDoubleClick = DevExpress.Utils.DefaultBoolean.True;
+            this.gridViewBiThu0.OptionsFind.FindNullPrompt = "Tìm kiếm thông tin bì thư";
             this.gridViewBiThu0.OptionsView.ShowGroupPanel = false;
             this.gridViewBiThu0.RowCellClick += new DevExpress.XtraGrid.Views.Grid.RowCellClickEventHandler(this.gridViewBiThu0_RowCellClick);
             this.gridViewBiThu0.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridViewBiThu0_CustomDrawRowIndicator);

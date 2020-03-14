@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.Entity;
 using DevExpress.XtraGrid.Views.Grid;
 using ProjectBNG.Models;
+using ProjectBNG.Class;
 
 namespace ProjectBNG
 {
@@ -47,6 +48,19 @@ namespace ProjectBNG
                 // Bind data to control when loading complete
                 dienMatsBindingSource1.DataSource = dbContext.DienMats.Local.ToBindingList();
             }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
+
+            dateTimePickerTuNgay.Value = DateTime.Today.AddDays(-30);
+
+            cbxNoiGui.DataSource = dbContext.NoiGuis.ToList();
+            cbxNoiGui.DisplayMember = "Ten";
+            cbxNoiGui.SelectedItem = null;
+            cbxNoiGui.SelectedText = "--select--";
+            cbxNoiGui.Invalidate();
+            cbxNoiNhan.DataSource = dbContext.DienMats.Local.ToBindingList();
+            cbxNoiNhan.DisplayMember = "DsNoiNhan";
+            cbxNoiNhan.SelectedItem = null;
+            cbxNoiNhan.SelectedText = "--select--";
+            cbxNoiNhan.Invalidate();
         }
 
         private bool cal(int _Width, GridView _View)
@@ -62,35 +76,7 @@ namespace ProjectBNG
 
         private void gridViewDienPhanPhoi_CustomDrawRowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)
         {
-            if (!gridViewDienPhanPhoi.IsGroupRow(e.RowHandle)) //Nếu không phải là Group
-            {
-                if (e.Info.IsRowIndicator) //Nếu là dòng Indicator
-                {
-                    if (e.RowHandle < 0)
-                    {
-                        e.Info.ImageIndex = 0;
-                        e.Info.DisplayText = string.Empty;
-                    }
-                    else
-                    {
-                        e.Info.ImageIndex = -1; //Không hiển thị hình
-                        e.Info.DisplayText = (e.RowHandle + 1).ToString(); //Số thứ tự tăng dần
-                    }
-
-                    //hàm này dùng thay đổi độ rộng mặc định của cột số thứ tự
-                    var _Size = e.Graphics.MeasureString(e.Info.DisplayText, e.Appearance.Font);
-                    var _Width = Convert.ToInt32(_Size.Width) + 20;
-                    BeginInvoke(new MethodInvoker(delegate { cal(_Width, gridViewDienPhanPhoi); }));
-                }
-            }
-            else
-            {
-                e.Info.ImageIndex = -1;
-                e.Info.DisplayText = string.Format("[{0}]", e.RowHandle * -1); //Nhân -1 để đánh lại số thứ tự tăng dần
-                var _Size = e.Graphics.MeasureString(e.Info.DisplayText, e.Appearance.Font);
-                var _Width = Convert.ToInt32(_Size.Width) + 20;
-                BeginInvoke(new MethodInvoker(delegate { cal(_Width, gridViewDienPhanPhoi); }));
-            }
+            CommonFunction.gridView_CustomDrawRowIndicator(sender, e, gridViewDienPhanPhoi);
         }
 
         SMMgEntities db = new SMMgEntities();
@@ -125,6 +111,34 @@ namespace ProjectBNG
         {
             gridControlBaoCao.DataSource = db.DienMats.ToList();
             gridControlBaoCao.RefreshDataSource();
+        }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            SMMgEntities db = new SMMgEntities();
+            try
+            { 
+                if(cbxNoiGui.Text== "--select--")
+                {
+
+                }
+                if(cbxNoiNhan.Text== "--select--")
+                {
+
+                }
+                //gridControlBaoCao.DataSource = db.DienMats
+                //        .Where(x => x.TrangThai == cmbTrangThai.Text)
+                //        .Select(x => new
+                //        {
+                //            NameUser = x.NameUser,
+                //            Username = x.Username,
+                //            PerUser = x.PerUser,
+                //        }).ToList();
+                //gridControlBaoCao.RefreshDataSource();
+            }
+            catch
+            {
+            }
         }
     }
 }

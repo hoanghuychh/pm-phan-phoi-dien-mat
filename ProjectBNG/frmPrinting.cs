@@ -29,7 +29,6 @@ namespace ProjectBNG
         public List<NoiNhanTemp> listDrawNoiNhanTemp = new List<NoiNhanTemp>();//list dc in ra tren pdf
 
         public List<NoiNhanTemp> listDrewNoiNhanTemp = new List<NoiNhanTemp>();
-        static public bool openNewpdf=false;
         static public bool checkOpenpdf = false;
         static public float dpiDefault = 0;
         static public string FileName;
@@ -123,7 +122,6 @@ namespace ProjectBNG
 
             MemoryStream pdfStream = new MemoryStream();
             MemoryStream ms2 = new MemoryStream();
-            MemoryStream ms3 = new MemoryStream();
 
             noiNhanTemps = n;
             noiNhanNoiBo = new List<NoiNhanTemp>();
@@ -237,6 +235,7 @@ namespace ProjectBNG
 
         private void btnClose_Click(object sender, EventArgs e)
         {
+            checkOpenpdf = false;
             this.Close();
         }
 
@@ -516,6 +515,7 @@ namespace ProjectBNG
                             kiemChungDien.DanhSachDien = Convert.ToInt32(tbMaDienMat.Text).ToString().Trim();
                             kiemChungDien.TongSoTrang = pdfViewer1.PageCount;
                             kiemChungDien.SoLuongDien = 1;
+                            kiemChungDien.NgayIn = datetimeNgayLuu.Value;
                             db.KiemChungDiens.Add(kiemChungDien);
                             db.SaveChanges();
                         }
@@ -525,6 +525,10 @@ namespace ProjectBNG
                             db.Database.ExecuteSqlCommand("update KiemChungDien set DanhSachDien={0} where TenNoiNhan={1}", themDanhSachDien, item.TenNoiNhan);
                             db.Database.ExecuteSqlCommand("update KiemChungDien set TongSoTrang={0} where TenNoiNhan={1}", kiemChungDien.TongSoTrang + pdfViewer1.PageCount, item.TenNoiNhan);
                             db.Database.ExecuteSqlCommand("update KiemChungDien set SoLuongDien={0} where TenNoiNhan={1}", kiemChungDien.SoLuongDien + 1, item.TenNoiNhan);
+                            //if(DateTime.Compare(DateTime.Parse(kiemChungDien.NgayIn.ToString()), datetimeNgayLuu.Value) < 0)
+                            //{
+                            //    db.Database.ExecuteSqlCommand("update KiemChungDien set SoLuongDien={0} where TenNoiNhan={1}", kiemChungDien.SoLuongDien + 1, item.TenNoiNhan);
+                            //}
                             db.SaveChanges();
                         }
                     }
@@ -650,6 +654,7 @@ namespace ProjectBNG
         {
             gridControl1.DataSource = db.NoiNhanTemps.ToList();
             gridControl1.RefreshDataSource();
+            
 
         }
 
@@ -689,5 +694,25 @@ namespace ProjectBNG
             }
         }
 
+        private void gridViewNoiNhanTemp_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
+        {
+            CommonFunction.gridView_CustomDrawRowIndicator(sender, e, gridViewNoiNhanTemp);
+        }
+
+        private void cbxNguoiKiMD_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+            SMMgEntities db = new SMMgEntities();
+            NguoiKy SelectedNguoiKy = db.NguoiKies.SingleOrDefault(m => m.id== (int)cbxNguoiKiMD.SelectedValue);
+            tbChucDanhMD.Text = SelectedNguoiKy.ChucDanh;
+            var stream = new MemoryStream(SelectedNguoiKy.ChuKy);
+            pbChuKiMD.Image = Image.FromStream(stream);
+            pbChuKiMD.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+            catch { }
+
+        }
     }
 }

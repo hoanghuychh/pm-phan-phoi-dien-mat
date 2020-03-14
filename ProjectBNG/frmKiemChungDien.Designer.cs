@@ -98,6 +98,7 @@
             this.btnTim.TabIndex = 17;
             this.btnTim.Text = "Tìm";
             this.btnTim.UseVisualStyleBackColor = true;
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
             // gridControlKiemChungDien
             // 
@@ -153,7 +154,7 @@
             // colSoBiThu
             // 
             this.colSoBiThu.Caption = "Số lượng điện";
-            this.colSoBiThu.FieldName = "SoBiThu";
+            this.colSoBiThu.FieldName = "SoLuongDien";
             this.colSoBiThu.MinWidth = 25;
             this.colSoBiThu.Name = "colSoBiThu";
             this.colSoBiThu.Visible = true;

@@ -12,13 +12,9 @@ namespace ProjectBNG.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class KiemChungDien
+    public partial class Nhom
     {
+        public string TenNhom { get; set; }
         public int id { get; set; }
-        public string DanhSachDien { get; set; }
-        public Nullable<int> TongSoTrang { get; set; }
-        public string TenNoiNhan { get; set; }
-        public Nullable<int> SoLuongDien { get; set; }
-        public Nullable<System.DateTime> NgayIn { get; set; }
     }
 }

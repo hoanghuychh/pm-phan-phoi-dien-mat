@@ -83,5 +83,25 @@ namespace ProjectBNG
         {
             CommonFunction.gridView_CustomDrawRowIndicator(sender, e, gridviewNoiGui);
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            SMMgEntities db = new SMMgEntities();
+            try
+            {
+                //gridControl1.DataSource = db.NoiGuis
+                //        .Where(x => x.Ten == cmbTrangThai.Text)
+                //        .Select(x => new
+                //        {
+                //            NameUser = x.NameUser,
+                //            Username = x.Username,
+                //            PerUser = x.PerUser,
+                //        }).ToList();
+                //gridControl1.RefreshDataSource();
+            }
+            catch
+            {
+            }
+        }
     }
 }

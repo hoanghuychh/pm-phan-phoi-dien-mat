@@ -130,6 +130,42 @@ namespace ProjectBNG
         {
             gridControl1_Load(sender,e);
         }
-        
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            SMMgEntities db = new SMMgEntities();
+            try
+            {
+                if (tbTenNoiNhanTimKiem.Text == "")
+                {
+
+                gridControl1.DataSource = db.NoiNhans
+                        .Where(x =>x.Loai==cmbLoai.Text)
+                        .Select(x => new
+                        {
+                            MaNoiNhan=x.MaNoiNhan,
+                            TenNoiNhan=x.TenNoiNhan,
+                            SoBaoMat=x.SoBaoMat,
+                            Loai=x.Loai
+                        }).ToList();
+                gridControl1.RefreshDataSource();
+                }
+                else
+                {
+                    gridControl1.DataSource = db.NoiNhans
+                        .Where(x => x.Loai == cmbLoai.Text && x.TenNoiNhan==tbTenNoiNhanTimKiem.Text)
+                        .Select(x => new
+                        {
+                            MaNoiNhan = x.MaNoiNhan,
+                            TenNoiNhan = x.TenNoiNhan,
+                            SoBaoMat = x.SoBaoMat,
+                            Loai = x.Loai
+                        }).ToList();
+                    gridControl1.RefreshDataSource();
+                }
+            }
+            catch
+            {
+            }
+        }
     }
 }

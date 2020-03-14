@@ -38,7 +38,7 @@
             this.colTenNoiNhan = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colLoai = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSoBaoMat = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            //this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnThemNoiNhan = new System.Windows.Forms.Button();
@@ -51,14 +51,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.noiNhansBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.gridControl1);
-            this.panel1.Controls.Add(this.dataGridView1);
+            //this.panel1.Controls.Add(this.dataGridView1);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -150,12 +150,12 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(4, 41);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(939, 465);
-            this.dataGridView1.TabIndex = 1;
+            //this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            //this.dataGridView1.Location = new System.Drawing.Point(4, 41);
+            //this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
+            //this.dataGridView1.Name = "dataGridView1";
+            //this.dataGridView1.Size = new System.Drawing.Size(939, 465);
+            //this.dataGridView1.TabIndex = 1;
             // 
             // panel2
             // 
@@ -209,6 +209,8 @@
             this.btnTimKiem.TabIndex = 4;
             this.btnTimKiem.Text = "Tìm";
             this.btnTimKiem.UseVisualStyleBackColor = true;
+
+            this.btnTimKiem.Click += new System.EventHandler(this.btnTimKiem_Click);
             // 
             // cmbLoai
             // 
@@ -269,7 +271,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.noiNhansBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -287,7 +289,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbTenNoiNhanTimKiem;
         private System.Windows.Forms.Button btnXoa;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        //private System.Windows.Forms.DataGridView dataGridView1;
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private System.Windows.Forms.BindingSource noiNhansBindingSource;

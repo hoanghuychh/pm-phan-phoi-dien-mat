@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerTuNgay = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerDenNgay = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnTim = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txbSoMat = new System.Windows.Forms.TextBox();
+            this.tbxTrichYeu = new System.Windows.Forms.TextBox();
             this.cbxNoiGui = new System.Windows.Forms.ComboBox();
             this.cbxNoiNhan = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -70,23 +70,23 @@
             ((System.ComponentModel.ISupportInitialize)(this.dienMatsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // dateTimePicker1
+            // dateTimePickerTuNgay
             // 
-            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(70, 13);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(130, 22);
-            this.dateTimePicker1.TabIndex = 0;
+            this.dateTimePickerTuNgay.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePickerTuNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerTuNgay.Location = new System.Drawing.Point(70, 13);
+            this.dateTimePickerTuNgay.Name = "dateTimePickerTuNgay";
+            this.dateTimePickerTuNgay.Size = new System.Drawing.Size(130, 22);
+            this.dateTimePickerTuNgay.TabIndex = 0;
             // 
-            // dateTimePicker2
+            // dateTimePickerDenNgay
             // 
-            this.dateTimePicker2.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker2.Location = new System.Drawing.Point(281, 13);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(130, 22);
-            this.dateTimePicker2.TabIndex = 1;
+            this.dateTimePickerDenNgay.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePickerDenNgay.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePickerDenNgay.Location = new System.Drawing.Point(281, 13);
+            this.dateTimePickerDenNgay.Name = "dateTimePickerDenNgay";
+            this.dateTimePickerDenNgay.Size = new System.Drawing.Size(130, 22);
+            this.dateTimePickerDenNgay.TabIndex = 1;
             // 
             // label1
             // 
@@ -142,23 +142,27 @@
             this.btnTim.TabIndex = 7;
             this.btnTim.Text = "Tìm";
             this.btnTim.UseVisualStyleBackColor = true;
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
-            // textBox1
+            // txbSoMat
             // 
-            this.textBox1.Location = new System.Drawing.Point(917, 11);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 8;
+            this.txbSoMat.Location = new System.Drawing.Point(917, 11);
+            this.txbSoMat.Multiline = true;
+            this.txbSoMat.Name = "txbSoMat";
+            this.txbSoMat.Size = new System.Drawing.Size(100, 24);
+            this.txbSoMat.TabIndex = 8;
             // 
-            // textBox2
+            // tbxTrichYeu
             // 
-            this.textBox2.Location = new System.Drawing.Point(1106, 11);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(216, 22);
-            this.textBox2.TabIndex = 9;
+            this.tbxTrichYeu.Location = new System.Drawing.Point(1106, 11);
+            this.tbxTrichYeu.Multiline = true;
+            this.tbxTrichYeu.Name = "tbxTrichYeu";
+            this.tbxTrichYeu.Size = new System.Drawing.Size(216, 24);
+            this.tbxTrichYeu.TabIndex = 9;
             // 
             // cbxNoiGui
             // 
+            this.cbxNoiGui.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxNoiGui.FormattingEnabled = true;
             this.cbxNoiGui.Location = new System.Drawing.Point(484, 11);
             this.cbxNoiGui.Name = "cbxNoiGui";
@@ -167,6 +171,7 @@
             // 
             // cbxNoiNhan
             // 
+            this.cbxNoiNhan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxNoiNhan.FormattingEnabled = true;
             this.cbxNoiNhan.Location = new System.Drawing.Point(701, 11);
             this.cbxNoiNhan.Name = "cbxNoiNhan";
@@ -193,11 +198,11 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.cbxNoiGui);
-            this.panel1.Controls.Add(this.dateTimePicker2);
-            this.panel1.Controls.Add(this.dateTimePicker1);
+            this.panel1.Controls.Add(this.dateTimePickerDenNgay);
+            this.panel1.Controls.Add(this.dateTimePickerTuNgay);
             this.panel1.Controls.Add(this.btnTim);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.tbxTrichYeu);
+            this.panel1.Controls.Add(this.txbSoMat);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
@@ -240,6 +245,9 @@
             this.gridViewDienPhanPhoi.GridControl = this.gridControlBaoCao;
             this.gridViewDienPhanPhoi.Name = "gridViewDienPhanPhoi";
             this.gridViewDienPhanPhoi.OptionsBehavior.Editable = false;
+            this.gridViewDienPhanPhoi.OptionsCustomization.CustomizationFormSearchBoxVisible = true;
+            this.gridViewDienPhanPhoi.OptionsFind.FindDelay = 500;
+            this.gridViewDienPhanPhoi.OptionsFind.FindNullPrompt = "Tìm kiếm thông tin điện mật đã phân phối";
             this.gridViewDienPhanPhoi.OptionsSelection.MultiSelect = true;
             this.gridViewDienPhanPhoi.OptionsView.ShowGroupPanel = false;
             this.gridViewDienPhanPhoi.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridViewDienPhanPhoi_CustomDrawRowIndicator);
@@ -442,16 +450,16 @@
 
         #endregion
 
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimePickerTuNgay;
+        private System.Windows.Forms.DateTimePicker dateTimePickerDenNgay;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnTim;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txbSoMat;
+        private System.Windows.Forms.TextBox tbxTrichYeu;
         private System.Windows.Forms.ComboBox cbxNoiGui;
         private System.Windows.Forms.ComboBox cbxNoiNhan;
         private System.Windows.Forms.Label label6;

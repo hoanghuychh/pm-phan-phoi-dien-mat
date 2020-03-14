@@ -75,10 +75,10 @@ namespace ProjectBNG {
             SMMgEntities db = new SMMgEntities();
             cmbLoai.DataSource = db.PhanLoaiNoiNhans.ToList();
             cmbLoai.DisplayMember = "PhanLoai";
-            cmbNhom.DataSource = db.NoiNhans.ToList();
-            cmbNhom.DisplayMember = "Nhom";
-            cmbCoSo.DataSource = db.NoiNhans.ToList();
-            cmbCoSo.DisplayMember = "CoSo";
+            cmbNhom.DataSource = db.Nhoms.ToList();
+            cmbNhom.DisplayMember = "TenNhom";
+            cmbCoSo.DataSource = db.CoSoes.ToList();
+            cmbCoSo.DisplayMember = "TenCoSo";
         }
 
         private void frmThongTinNoiNhan_FormClosing(object sender, FormClosingEventArgs e)

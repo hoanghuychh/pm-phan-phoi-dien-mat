@@ -224,6 +224,9 @@
     <Compile Include="Models\BiThu.cs">
       <DependentUpon>SMMg.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CoSo.cs">
+      <DependentUpon>SMMg.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\DienMat.cs">
       <DependentUpon>SMMg.tt</DependentUpon>
     </Compile>
@@ -240,6 +243,9 @@
       <DependentUpon>SMMg.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NguoiKy.cs">
+      <DependentUpon>SMMg.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Nhom.cs">
       <DependentUpon>SMMg.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NoiGui.cs">

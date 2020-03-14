@@ -47,6 +47,7 @@ namespace ProjectBNG
                 kiemChungDiensBindingSource.DataSource= dbContext.KiemChungDiens.Local.ToBindingList();
 
             }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
+            dateTimePickerTuNgay.Value = DateTime.Today.AddDays(-30);
         }
 
         private void gridViewKiemChungDien_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
@@ -85,6 +86,28 @@ namespace ProjectBNG
         private void btnDong_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            SMMgEntities db = new SMMgEntities();
+            try
+            {
+                gridControlKiemChungDien.DataSource = db.KiemChungDiens
+                        .Where(x => x.NgayIn > dateTimePickerTuNgay.Value && x.NgayIn < dateTimePickerDenNgay.Value)
+                        .Select(x => new
+                        {
+                            TenNoiNhan=x.TenNoiNhan,
+                            DanhSachDien=x.DanhSachDien,
+                            TongSoTrang=x.TongSoTrang,
+                            SoLuongDien=x.SoLuongDien
+
+                        }).ToList();
+                gridControlKiemChungDien.RefreshDataSource();
+            }
+            catch
+            {
+            }
         }
     }
 }

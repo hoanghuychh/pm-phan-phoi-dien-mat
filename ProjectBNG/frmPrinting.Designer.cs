@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnAddAttachedFile = new System.Windows.Forms.Button();
             this.btnRemoveAttachedFile = new System.Windows.Forms.Button();
@@ -351,9 +351,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl1.DataSource = this.noiNhanTempsBindingSource;
             this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            gridLevelNode2.RelationName = "Level1";
+            gridLevelNode1.RelationName = "Level1";
             this.gridControl1.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode2});
+            gridLevelNode1});
             this.gridControl1.Location = new System.Drawing.Point(0, 33);
             this.gridControl1.MainView = this.gridViewNoiNhanTemp;
             this.gridControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -380,7 +380,7 @@
             this.gridViewNoiNhanTemp.OptionsBehavior.Editable = false;
             this.gridViewNoiNhanTemp.OptionsSelection.MultiSelect = true;
             this.gridViewNoiNhanTemp.OptionsView.ShowGroupPanel = false;
-            this.gridViewNoiNhanTemp.OptionsView.ShowIndicator = false;
+            this.gridViewNoiNhanTemp.CustomDrawRowIndicator += new DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventHandler(this.gridViewNoiNhanTemp_CustomDrawRowIndicator);
             // 
             // colMaNoiNhan
             // 
@@ -588,6 +588,7 @@
             this.cbxNguoiKiMD.Name = "cbxNguoiKiMD";
             this.cbxNguoiKiMD.Size = new System.Drawing.Size(257, 24);
             this.cbxNguoiKiMD.TabIndex = 33;
+            this.cbxNguoiKiMD.SelectedIndexChanged += new System.EventHandler(this.cbxNguoiKiMD_SelectedIndexChanged);
             // 
             // cbxNguoiDuyetMD
             // 

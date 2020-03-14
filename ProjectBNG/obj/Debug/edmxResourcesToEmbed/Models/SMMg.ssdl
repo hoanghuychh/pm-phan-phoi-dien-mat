@@ -12,6 +12,13 @@
     <Property Name="TongSo" Type="int" />
     <Property Name="DanhSachDienMat" Type="nvarchar" MaxLength="265" />
   </EntityType>
+  <EntityType Name="CoSo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="TenCoSo" Type="nvarchar" MaxLength="50" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
   <EntityType Name="DienMat">
     <Key>
       <PropertyRef Name="ID" />
@@ -83,6 +90,7 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
     <Property Name="TongSoTrang" Type="int" />
     <Property Name="TenNoiNhan" Type="nvarchar" MaxLength="265" />
     <Property Name="SoLuongDien" Type="int" />
+    <Property Name="NgayIn" Type="datetime2" Precision="7" />
   </EntityType>
   <EntityType Name="NguoiDuyet">
     <Key>
@@ -102,6 +110,13 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
     <Property Name="ChucDanh" Type="nvarchar" MaxLength="265" />
     <Property Name="MacDinh" Type="bit" />
     <Property Name="ChuKy" Type="image" />
+  </EntityType>
+  <EntityType Name="Nhom">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="TenNhom" Type="nvarchar" MaxLength="50" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
   <EntityType Name="NoiGui">
     <Key>
@@ -191,6 +206,7 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
     <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="PerUser" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TrangThai" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <!--Errors Found During Generation:
 warning 6002: The table/view 'SMMg.dbo.ViewDienMat' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -269,11 +285,13 @@ warning 6002: The table/view 'SMMg.dbo.ViewDienMat' does not have a primary key 
   <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="SMMgModelStoreContainer">
     <EntitySet Name="BiThu" EntityType="Self.BiThu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CoSo" EntityType="Self.CoSo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DienMat" EntityType="Self.DienMat" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DienMatTemp" EntityType="Self.DienMatTemp" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="KiemChungDien" EntityType="Self.KiemChungDien" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NguoiDuyet" EntityType="Self.NguoiDuyet" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NguoiKy" EntityType="Self.NguoiKy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Nhom" EntityType="Self.Nhom" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NoiGui" EntityType="Self.NoiGui" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NoiNhan" EntityType="Self.NoiNhan" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NoiNhanTemp" EntityType="Self.NoiNhanTemp" Schema="dbo" store:Type="Tables" />
