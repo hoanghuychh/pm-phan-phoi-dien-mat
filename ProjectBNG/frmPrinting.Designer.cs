@@ -187,6 +187,9 @@
             // 
             // cbxPrivateAttachedFile
             // 
+            this.cbxPrivateAttachedFile.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.cbxPrivateAttachedFile.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxPrivateAttachedFile.ForeColor = System.Drawing.SystemColors.Window;
             this.cbxPrivateAttachedFile.FormattingEnabled = true;
             this.cbxPrivateAttachedFile.Location = new System.Drawing.Point(603, 53);
             this.cbxPrivateAttachedFile.Margin = new System.Windows.Forms.Padding(4);
@@ -196,6 +199,7 @@
             // 
             // cbxPrivateFile
             // 
+            this.cbxPrivateFile.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxPrivateFile.FormattingEnabled = true;
             this.cbxPrivateFile.Location = new System.Drawing.Point(603, 12);
             this.cbxPrivateFile.Margin = new System.Windows.Forms.Padding(4);

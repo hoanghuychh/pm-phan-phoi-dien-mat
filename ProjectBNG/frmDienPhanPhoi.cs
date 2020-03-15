@@ -50,17 +50,17 @@ namespace ProjectBNG
             }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
 
             dateTimePickerTuNgay.Value = DateTime.Today.AddDays(-30);
+            try
+            {
 
             cbxNoiGui.DataSource = dbContext.NoiGuis.ToList();
             cbxNoiGui.DisplayMember = "Ten";
-            cbxNoiGui.SelectedItem = null;
-            cbxNoiGui.SelectedText = "--select--";
-            cbxNoiGui.Invalidate();
+                cbxNoiGui.SelectedIndex = -1;
             cbxNoiNhan.DataSource = dbContext.DienMats.Local.ToBindingList();
             cbxNoiNhan.DisplayMember = "DsNoiNhan";
-            cbxNoiNhan.SelectedItem = null;
-            cbxNoiNhan.SelectedText = "--select--";
-            cbxNoiNhan.Invalidate();
+                cbxNoiNhan.SelectedIndex = -1;
+            }
+            catch { }
         }
 
         private bool cal(int _Width, GridView _View)

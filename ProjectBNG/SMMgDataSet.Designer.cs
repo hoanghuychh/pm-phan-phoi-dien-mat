@@ -10895,7 +10895,17 @@ SELECT id, Ma, Ten FROM NoiGui WHERE (id = @id)";
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[NoiNhan] WHERE (([id] = @Original_id) AND ([MaNoiNhan] = @Original_MaNoiNhan) AND ([TenNoiNhan] = @Original_TenNoiNhan) AND ([Loai] = @Original_Loai) AND ([SoBaoMat] = @Original_SoBaoMat) AND ((@IsNull_Nhom = 1 AND [Nhom] IS NULL) OR ([Nhom] = @Original_Nhom)) AND ((@IsNull_SoThuTu = 1 AND [SoThuTu] IS NULL) OR ([SoThuTu] = @Original_SoThuTu)) AND ((@IsNull_CoBi = 1 AND [CoBi] IS NULL) OR ([CoBi] = @Original_CoBi)) AND ((@IsNull_DangHoatDong = 1 AND [DangHoatDong] IS NULL) OR ([DangHoatDong] = @Original_DangHoatDong)) AND ((@IsNull_CoSo = 1 AND [CoSo] IS NULL) OR ([CoSo] = @Original_CoSo)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[NoiNhan] WHERE (([id] = @Original_id) AND ([MaNoiNhan] = @Original_MaNoiNhan) AND ([TenNoiNhan] = @Original_TenNoiNhan) AND ([Loai] = @Original_Loai) AND ([SoBaoMat] = @Original_SoBaoMat) AND ((@IsNull_Nhom = 1 AND [Nhom] IS NULL) OR ([Nhom] = @Original_Nhom)) AND ((@IsNull_SoThuTu = 1 AND [SoThuTu] IS NULL) OR ([SoThuTu] = @Original_SoThuTu)) AND ((@IsNull_CoBi = 1 AND [CoBi] IS NULL) OR ([CoBi] = @Original_CoBi)) AND ((@IsNull_
+                    
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      = 1 AND [DangHoatDong] IS NULL) OR ([DangHoatDong] = @Original_DangHoatDong)) AND ((@IsNull_CoSo = 1 AND [CoSo] IS NULL) OR ([CoSo] = @Original_CoSo)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MaNoiNhan", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MaNoiNhan", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));

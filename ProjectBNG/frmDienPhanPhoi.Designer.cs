@@ -176,7 +176,7 @@
             this.cbxNoiNhan.Location = new System.Drawing.Point(701, 11);
             this.cbxNoiNhan.Name = "cbxNoiNhan";
             this.cbxNoiNhan.Size = new System.Drawing.Size(142, 24);
-            this.cbxNoiNhan.TabIndex = 11;
+            this.cbxNoiNhan.TabIndex = 11; 
             // 
             // label6
             // 
