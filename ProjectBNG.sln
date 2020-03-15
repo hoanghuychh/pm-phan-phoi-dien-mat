@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectBNG", "ProjectBNG\ProjectBNG.csproj", "{97FC297E-807D-4590-8FB4-149382EAE11D}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AppSetup", "AppSetup\AppSetup.vdproj", "{1658F250-09DD-417B-A3F6-028DA4B34C5D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{97FC297E-807D-4590-8FB4-149382EAE11D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{97FC297E-807D-4590-8FB4-149382EAE11D}.Release|x86.ActiveCfg = Release|x86
 		{97FC297E-807D-4590-8FB4-149382EAE11D}.Release|x86.Build.0 = Release|x86
+		{1658F250-09DD-417B-A3F6-028DA4B34C5D}.Debug|Any CPU.ActiveCfg = Debug
+		{1658F250-09DD-417B-A3F6-028DA4B34C5D}.Debug|x86.ActiveCfg = Debug
+		{1658F250-09DD-417B-A3F6-028DA4B34C5D}.Release|Any CPU.ActiveCfg = Release
+		{1658F250-09DD-417B-A3F6-028DA4B34C5D}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

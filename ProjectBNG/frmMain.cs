@@ -18,6 +18,7 @@ namespace ProjectBNG
         {
             InitializeComponent();
         }
+        
 
         private void frmMain_Load(object sender, EventArgs e)
         {
@@ -206,6 +207,18 @@ namespace ProjectBNG
             {
                 CommonFunction.activateForm("frmKiemChungDien", this);
             }
+        }
+
+        private void tùyChọnToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (!CommonFunction.checkExistForm("frmTuyChinh", this))
+            {
+                frmTuyChinh frmTuyChinh = new frmTuyChinh();
+                frmTuyChinh.MdiParent = this;
+                frmTuyChinh.Show();
+            }
+            else
+                CommonFunction.activateForm("frmTuyChinh", this);
         }
     }
 }

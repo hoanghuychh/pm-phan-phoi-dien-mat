@@ -202,6 +202,38 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NameTrangThai" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="TuyChinh">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="VanBanLeTrai" Type="float" />
+          <Property Name="VanBanLeTren" Type="float" />
+          <Property Name="DsnLeTrai" Type="float" />
+          <Property Name="DsnLeTren" Type="float" />
+          <Property Name="DsnDanDong" Type="float" />
+          <Property Name="DauChimRong" Type="float" />
+          <Property Name="DauChimCao" Type="float" />
+          <Property Name="DauChimFont" Type="float" />
+          <Property Name="DauChimOpacity" Type="float" />
+          <Property Name="DauChimMauDoc" Type="float" />
+          <Property Name="DauChimMauPdf" Type="float" />
+          <Property Name="VungCkRong" Type="float" />
+          <Property Name="VungCkCao" Type="float" />
+          <Property Name="VungCkLeDuoi" Type="float" />
+          <Property Name="AnhCkRong1" Type="float" />
+          <Property Name="AnhCkCao1" Type="float" />
+          <Property Name="AnhCkCao2" Type="float" />
+          <Property Name="AnhCkRong2" Type="float" />
+          <Property Name="TieuDe" Type="nvarchar" MaxLength="256" />
+          <Property Name="In2Mat" Type="nvarchar" MaxLength="50" />
+          <Property Name="KhayGiay" Type="nvarchar" MaxLength="50" />
+          <Property Name="Dien" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="50" />
+          <Property Name="InDauMatLenDien" Type="bit" />
+          <Property Name="CoSo" Type="nvarchar" MaxLength="50" />
+          <Property Name="LuuFile" Type="nvarchar" MaxLength="256" />
+        </EntityType>
         <EntityType Name="USER">
           <Key>
             <PropertyRef Name="ID" />
@@ -212,38 +244,6 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
           <Property Name="PerUser" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TrangThai" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'SMMg.dbo.ViewDienMat' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="ViewDienMat">
-          <Key>
-            <PropertyRef Name="ID" />
-            <PropertyRef Name="SoBaoMat" />
-            <PropertyRef Name="NgayIn" />
-          </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="LuuFile" Type="nvarchar" MaxLength="265" />
-          <Property Name="FileDinhKem" Type="nvarchar" MaxLength="265" />
-          <Property Name="NoiGui" Type="nvarchar" MaxLength="265" />
-          <Property Name="TrichYeu" Type="nvarchar" MaxLength="265" />
-          <Property Name="DoMat" Type="nvarchar" MaxLength="20" />
-          <Property Name="DoMatFile" Type="nchar" MaxLength="20" />
-          <Property Name="MaDienMat" Type="int" />
-          <Property Name="Ngay" Type="datetime2" Precision="7" />
-          <Property Name="GhiChu" Type="nvarchar" MaxLength="265" />
-          <Property Name="Loai" Type="nvarchar" MaxLength="20" />
-          <Property Name="SoBaoMat" Type="int" Nullable="false" />
-          <Property Name="BanIn" Type="int" />
-          <Property Name="NgayIn" Type="datetime2" Precision="7" Nullable="false" />
-          <Property Name="NguoiDuyet" Type="nvarchar" MaxLength="256" />
-          <Property Name="NguoiKy" Type="nvarchar" MaxLength="256" />
-          <Property Name="ChucDanh" Type="nvarchar" MaxLength="256" />
-          <Property Name="NguoiIn" Type="varchar" MaxLength="50" />
-          <Property Name="NoiNhan" Type="nvarchar" MaxLength="256" />
-          <Property Name="Trang" Type="int" />
-          <Property Name="Username" Type="varchar" MaxLength="50" />
-          <Property Name="ChuKy" Type="image" />
-          <Property Name="idUsername" Type="int" />
         </EntityType>
         <Association Name="FK_DienMat_USER1">
           <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
@@ -305,6 +305,7 @@ warning 6002: The table/view 'SMMg.dbo.ViewDienMat' does not have a primary key 
           <EntitySet Name="PhanLoaiNoiNhan" EntityType="Self.PhanLoaiNoiNhan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TrangThai" EntityType="Self.TrangThai" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TuyChinh" EntityType="Self.TuyChinh" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USER" EntityType="Self.USER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DienMatDaPhanPhoi" EntityType="Self.DienMatDaPhanPhoi" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -327,33 +328,6 @@ warning 6002: The table/view 'SMMg.dbo.ViewDienMat' does not have a primary key 
     [DienMatDaPhanPhoi].[ChucDanh] AS [ChucDanh], 
     [DienMatDaPhanPhoi].[ChuKy] AS [ChuKy]
     FROM [dbo].[DienMatDaPhanPhoi] AS [DienMatDaPhanPhoi]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="ViewDienMat" EntityType="Self.ViewDienMat" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [ViewDienMat].[ID] AS [ID], 
-    [ViewDienMat].[LuuFile] AS [LuuFile], 
-    [ViewDienMat].[FileDinhKem] AS [FileDinhKem], 
-    [ViewDienMat].[NoiGui] AS [NoiGui], 
-    [ViewDienMat].[TrichYeu] AS [TrichYeu], 
-    [ViewDienMat].[DoMat] AS [DoMat], 
-    [ViewDienMat].[DoMatFile] AS [DoMatFile], 
-    [ViewDienMat].[MaDienMat] AS [MaDienMat], 
-    [ViewDienMat].[Ngay] AS [Ngay], 
-    [ViewDienMat].[GhiChu] AS [GhiChu], 
-    [ViewDienMat].[Loai] AS [Loai], 
-    [ViewDienMat].[SoBaoMat] AS [SoBaoMat], 
-    [ViewDienMat].[BanIn] AS [BanIn], 
-    [ViewDienMat].[NgayIn] AS [NgayIn], 
-    [ViewDienMat].[NguoiDuyet] AS [NguoiDuyet], 
-    [ViewDienMat].[NguoiKy] AS [NguoiKy], 
-    [ViewDienMat].[ChucDanh] AS [ChucDanh], 
-    [ViewDienMat].[NguoiIn] AS [NguoiIn], 
-    [ViewDienMat].[NoiNhan] AS [NoiNhan], 
-    [ViewDienMat].[Trang] AS [Trang], 
-    [ViewDienMat].[Username] AS [Username], 
-    [ViewDienMat].[ChuKy] AS [ChuKy], 
-    [ViewDienMat].[idUsername] AS [idUsername]
-    FROM [dbo].[ViewDienMat] AS [ViewDienMat]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_DienMat_USER1" Association="Self.FK_DienMat_USER1">
             <End Role="USER" EntitySet="USER" />
@@ -399,6 +373,7 @@ warning 6002: The table/view 'SMMg.dbo.ViewDienMat' does not have a primary key 
           <EntitySet Name="CoSoes" EntityType="SMMgModel.CoSo" />
           <EntitySet Name="DienMats" EntityType="SMMgModel.DienMat" />
           <EntitySet Name="DienMatTemps" EntityType="SMMgModel.DienMatTemp" />
+          <EntitySet Name="KiemChungDiens" EntityType="SMMgModel.KiemChungDien" />
           <EntitySet Name="NguoiDuyets" EntityType="SMMgModel.NguoiDuyet" />
           <EntitySet Name="NguoiKies" EntityType="SMMgModel.NguoiKy" />
           <EntitySet Name="Nhoms" EntityType="SMMgModel.Nhom" />
@@ -410,14 +385,13 @@ warning 6002: The table/view 'SMMg.dbo.ViewDienMat' does not have a primary key 
           <EntitySet Name="PhanLoaiNoiNhans" EntityType="SMMgModel.PhanLoaiNoiNhan" />
           <EntitySet Name="sysdiagrams" EntityType="SMMgModel.sysdiagram" />
           <EntitySet Name="TrangThais" EntityType="SMMgModel.TrangThai" />
-          <EntitySet Name="DienMatDaPhanPhois" EntityType="SMMgModel.DienMatDaPhanPhoi" />
-          <EntitySet Name="ViewDienMats" EntityType="SMMgModel.ViewDienMat" />
           <EntitySet Name="USERs" EntityType="SMMgModel.USER" />
+          <EntitySet Name="DienMatDaPhanPhois" EntityType="SMMgModel.DienMatDaPhanPhoi" />
           <AssociationSet Name="FK_DienMat_USER1" Association="SMMgModel.FK_DienMat_USER1">
             <End Role="USER" EntitySet="USERs" />
             <End Role="DienMat" EntitySet="DienMats" />
           </AssociationSet>
-          <EntitySet Name="KiemChungDiens" EntityType="SMMgModel.KiemChungDien" />
+          <EntitySet Name="TuyChinhs" EntityType="SMMgModel.TuyChinh" />
           </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -483,6 +457,17 @@ warning 6002: The table/view 'SMMg.dbo.ViewDienMat' does not have a primary key 
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MaDienMat" Type="Int32" />
+        </EntityType>
+        <EntityType Name="KiemChungDien">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DanhSachDien" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
+          <Property Name="TongSoTrang" Type="Int32" />
+          <Property Name="TenNoiNhan" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
+          <Property Name="SoLuongDien" Type="Int32" />
+          <Property Name="NgayIn" Type="DateTime" Precision="7" />
         </EntityType>
         <EntityType Name="NguoiDuyet">
           <Key>
@@ -589,6 +574,18 @@ warning 6002: The table/view 'SMMg.dbo.ViewDienMat' does not have a primary key 
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NameTrangThai" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="NameUser" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PerUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TrangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DienMats" Relationship="SMMgModel.FK_DienMat_USER1" FromRole="USER" ToRole="DienMat" />
+        </EntityType>
         <EntityType Name="DienMatDaPhanPhoi">
           <Key>
             <PropertyRef Name="ID" />
@@ -615,48 +612,6 @@ warning 6002: The table/view 'SMMg.dbo.ViewDienMat' does not have a primary key 
           <Property Name="ChucDanh" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="ChuKy" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <EntityType Name="ViewDienMat">
-          <Key>
-            <PropertyRef Name="ID" />
-            <PropertyRef Name="SoBaoMat" />
-            <PropertyRef Name="NgayIn" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="LuuFile" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
-          <Property Name="FileDinhKem" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
-          <Property Name="NoiGui" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
-          <Property Name="TrichYeu" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
-          <Property Name="DoMat" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="DoMatFile" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
-          <Property Name="MaDienMat" Type="Int32" />
-          <Property Name="Ngay" Type="DateTime" Precision="7" />
-          <Property Name="GhiChu" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
-          <Property Name="Loai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="SoBaoMat" Type="Int32" Nullable="false" />
-          <Property Name="BanIn" Type="Int32" />
-          <Property Name="NgayIn" Type="DateTime" Nullable="false" Precision="7" />
-          <Property Name="NguoiDuyet" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="NguoiKy" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="ChucDanh" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="NguoiIn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="NoiNhan" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Trang" Type="Int32" />
-          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ChuKy" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <Property Name="idUsername" Type="Int32" />
-        </EntityType>
-        <EntityType Name="USER">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="NameUser" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PerUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TrangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="DienMats" Relationship="SMMgModel.FK_DienMat_USER1" FromRole="USER" ToRole="DienMat" />
-        </EntityType>
         <Association Name="FK_DienMat_USER1">
           <End Type="SMMgModel.USER" Role="USER" Multiplicity="0..1" />
           <End Type="SMMgModel.DienMat" Role="DienMat" Multiplicity="*" />
@@ -669,16 +624,37 @@ warning 6002: The table/view 'SMMg.dbo.ViewDienMat' does not have a primary key 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="KiemChungDien">
+        <EntityType Name="TuyChinh">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DanhSachDien" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
-          <Property Name="TongSoTrang" Type="Int32" />
-          <Property Name="TenNoiNhan" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
-          <Property Name="SoLuongDien" Type="Int32" />
-          <Property Name="NgayIn" Type="DateTime" Precision="7" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="VanBanLeTrai" Type="Double" />
+          <Property Name="VanBanLeTren" Type="Double" />
+          <Property Name="DsnLeTrai" Type="Double" />
+          <Property Name="DsnLeTren" Type="Double" />
+          <Property Name="DsnDanDong" Type="Double" />
+          <Property Name="DauChimRong" Type="Double" />
+          <Property Name="DauChimCao" Type="Double" />
+          <Property Name="DauChimFont" Type="Double" />
+          <Property Name="DauChimOpacity" Type="Double" />
+          <Property Name="DauChimMauDoc" Type="Double" />
+          <Property Name="DauChimMauPdf" Type="Double" />
+          <Property Name="VungCkRong" Type="Double" />
+          <Property Name="VungCkCao" Type="Double" />
+          <Property Name="VungCkLeDuoi" Type="Double" />
+          <Property Name="AnhCkRong1" Type="Double" />
+          <Property Name="AnhCkCao1" Type="Double" />
+          <Property Name="AnhCkCao2" Type="Double" />
+          <Property Name="AnhCkRong2" Type="Double" />
+          <Property Name="TieuDe" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="In2Mat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KhayGiay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Dien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InDauMatLenDien" Type="Boolean" />
+          <Property Name="CoSo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LuuFile" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
@@ -763,6 +739,18 @@ warning 6002: The table/view 'SMMg.dbo.ViewDienMat' does not have a primary key 
             <EntityTypeMapping TypeName="SMMgModel.DienMatTemp">
               <MappingFragment StoreEntitySet="DienMatTemp">
                 <ScalarProperty Name="MaDienMat" ColumnName="MaDienMat" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KiemChungDiens">
+            <EntityTypeMapping TypeName="SMMgModel.KiemChungDien">
+              <MappingFragment StoreEntitySet="KiemChungDien">
+                <ScalarProperty Name="NgayIn" ColumnName="NgayIn" />
+                <ScalarProperty Name="SoLuongDien" ColumnName="SoLuongDien" />
+                <ScalarProperty Name="TenNoiNhan" ColumnName="TenNoiNhan" />
+                <ScalarProperty Name="TongSoTrang" ColumnName="TongSoTrang" />
+                <ScalarProperty Name="DanhSachDien" ColumnName="DanhSachDien" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -883,6 +871,18 @@ warning 6002: The table/view 'SMMg.dbo.ViewDienMat' does not have a primary key 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="USERs">
+            <EntityTypeMapping TypeName="SMMgModel.USER">
+              <MappingFragment StoreEntitySet="USER">
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PerUser" ColumnName="PerUser" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="NameUser" ColumnName="NameUser" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="DienMatDaPhanPhois">
             <EntityTypeMapping TypeName="SMMgModel.DienMatDaPhanPhoi">
               <MappingFragment StoreEntitySet="DienMatDaPhanPhoi">
@@ -907,55 +907,35 @@ warning 6002: The table/view 'SMMg.dbo.ViewDienMat' does not have a primary key 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ViewDienMats">
-            <EntityTypeMapping TypeName="SMMgModel.ViewDienMat">
-              <MappingFragment StoreEntitySet="ViewDienMat">
-                <ScalarProperty Name="idUsername" ColumnName="idUsername" />
-                <ScalarProperty Name="ChuKy" ColumnName="ChuKy" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="Trang" ColumnName="Trang" />
-                <ScalarProperty Name="NoiNhan" ColumnName="NoiNhan" />
-                <ScalarProperty Name="NguoiIn" ColumnName="NguoiIn" />
-                <ScalarProperty Name="ChucDanh" ColumnName="ChucDanh" />
-                <ScalarProperty Name="NguoiKy" ColumnName="NguoiKy" />
-                <ScalarProperty Name="NguoiDuyet" ColumnName="NguoiDuyet" />
-                <ScalarProperty Name="NgayIn" ColumnName="NgayIn" />
-                <ScalarProperty Name="BanIn" ColumnName="BanIn" />
-                <ScalarProperty Name="SoBaoMat" ColumnName="SoBaoMat" />
-                <ScalarProperty Name="Loai" ColumnName="Loai" />
-                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
-                <ScalarProperty Name="Ngay" ColumnName="Ngay" />
-                <ScalarProperty Name="MaDienMat" ColumnName="MaDienMat" />
-                <ScalarProperty Name="DoMatFile" ColumnName="DoMatFile" />
-                <ScalarProperty Name="DoMat" ColumnName="DoMat" />
-                <ScalarProperty Name="TrichYeu" ColumnName="TrichYeu" />
-                <ScalarProperty Name="NoiGui" ColumnName="NoiGui" />
-                <ScalarProperty Name="FileDinhKem" ColumnName="FileDinhKem" />
+          <EntitySetMapping Name="TuyChinhs">
+            <EntityTypeMapping TypeName="SMMgModel.TuyChinh">
+              <MappingFragment StoreEntitySet="TuyChinh">
                 <ScalarProperty Name="LuuFile" ColumnName="LuuFile" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="USERs">
-            <EntityTypeMapping TypeName="SMMgModel.USER">
-              <MappingFragment StoreEntitySet="USER">
-                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="PerUser" ColumnName="PerUser" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="NameUser" ColumnName="NameUser" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="KiemChungDiens">
-            <EntityTypeMapping TypeName="SMMgModel.KiemChungDien">
-              <MappingFragment StoreEntitySet="KiemChungDien">
-                <ScalarProperty Name="NgayIn" ColumnName="NgayIn" />
-                <ScalarProperty Name="SoLuongDien" ColumnName="SoLuongDien" />
-                <ScalarProperty Name="TenNoiNhan" ColumnName="TenNoiNhan" />
-                <ScalarProperty Name="TongSoTrang" ColumnName="TongSoTrang" />
-                <ScalarProperty Name="DanhSachDien" ColumnName="DanhSachDien" />
+                <ScalarProperty Name="CoSo" ColumnName="CoSo" />
+                <ScalarProperty Name="InDauMatLenDien" ColumnName="InDauMatLenDien" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Dien" ColumnName="Dien" />
+                <ScalarProperty Name="KhayGiay" ColumnName="KhayGiay" />
+                <ScalarProperty Name="In2Mat" ColumnName="In2Mat" />
+                <ScalarProperty Name="TieuDe" ColumnName="TieuDe" />
+                <ScalarProperty Name="AnhCkRong2" ColumnName="AnhCkRong2" />
+                <ScalarProperty Name="AnhCkCao2" ColumnName="AnhCkCao2" />
+                <ScalarProperty Name="AnhCkCao1" ColumnName="AnhCkCao1" />
+                <ScalarProperty Name="AnhCkRong1" ColumnName="AnhCkRong1" />
+                <ScalarProperty Name="VungCkLeDuoi" ColumnName="VungCkLeDuoi" />
+                <ScalarProperty Name="VungCkCao" ColumnName="VungCkCao" />
+                <ScalarProperty Name="VungCkRong" ColumnName="VungCkRong" />
+                <ScalarProperty Name="DauChimMauPdf" ColumnName="DauChimMauPdf" />
+                <ScalarProperty Name="DauChimMauDoc" ColumnName="DauChimMauDoc" />
+                <ScalarProperty Name="DauChimOpacity" ColumnName="DauChimOpacity" />
+                <ScalarProperty Name="DauChimFont" ColumnName="DauChimFont" />
+                <ScalarProperty Name="DauChimCao" ColumnName="DauChimCao" />
+                <ScalarProperty Name="DauChimRong" ColumnName="DauChimRong" />
+                <ScalarProperty Name="DsnDanDong" ColumnName="DsnDanDong" />
+                <ScalarProperty Name="DsnLeTren" ColumnName="DsnLeTren" />
+                <ScalarProperty Name="DsnLeTrai" ColumnName="DsnLeTrai" />
+                <ScalarProperty Name="VanBanLeTren" ColumnName="VanBanLeTren" />
+                <ScalarProperty Name="VanBanLeTrai" ColumnName="VanBanLeTrai" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

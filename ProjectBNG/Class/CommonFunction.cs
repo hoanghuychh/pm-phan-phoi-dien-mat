@@ -8,6 +8,10 @@ using System.Windows.Forms.ComponentModel;
 using System.Windows.Forms; 
 using System.Data.Entity;
 using ProjectBNG.Class;
+using DevExpress.Pdf;
+using System.Drawing;
+using ProjectBNG;
+using ProjectBNG.Models;
 
 namespace ProjectBNG.Class
 {
@@ -73,6 +77,44 @@ namespace ProjectBNG.Class
                 var _Size = e.Graphics.MeasureString(e.Info.DisplayText, e.Appearance.Font);
                 var _Width = Convert.ToInt32(_Size.Width) + 20;
                 //BeginInvoke(new MethodInvoker(delegate { cal(_Width, gridView); }));
+            }
+        }
+        
+        public static void AddWatermark(string text, PdfDocumentProcessor documentProcessor)
+        {
+            SMMgEntities db = new SMMgEntities();
+            TuyChinh tuyChinh = new TuyChinh();
+            tuyChinh = db.TuyChinhs.Single(x => x.id ==1);
+            
+            string fontName = "Times New Roman";
+            float fontSize = (float)tuyChinh.DauChimFont;
+            PdfStringFormat stringFormat = PdfStringFormat.GenericTypographic;
+            stringFormat.Alignment = PdfStringAlignment.Center;
+            stringFormat.LineAlignment = PdfStringAlignment.Center;
+            using (SolidBrush brush = new SolidBrush(Color.FromArgb(int.Parse(tuyChinh.DauChimOpacity.ToString()), Color.FromArgb(int.Parse(tuyChinh.DauChimMauPdf.ToString())))))
+            {
+                using (Font font = new Font(fontName, fontSize))
+                {
+                    foreach (var page in documentProcessor.Document.Pages)
+                    {
+                        var watermarkSize = page.CropBox.Width * tuyChinh.DauChimFont;
+                        using (PdfGraphics graphics = documentProcessor.CreateGraphics())
+                        {
+                            SizeF stringSize = graphics.MeasureString(text, font);
+                            Single scale = Convert.ToSingle(watermarkSize / tuyChinh.DauChimRong);
+                            graphics.TranslateTransform(Convert.ToSingle(page.CropBox.Width * 0.5), Convert.ToSingle(page.CropBox.Height * 0.5));
+                            graphics.RotateTransform(-45);
+                            graphics.TranslateTransform(Convert.ToSingle(-tuyChinh.DauChimRong * scale * 0.5), Convert.ToSingle(-tuyChinh.DauChimCao * scale * 0.5));
+                            using (Font actualFont = new Font(fontName, fontSize * scale))
+                            {
+                                RectangleF rect = new RectangleF(0, 0, (float)tuyChinh.DauChimRong * scale, (float)tuyChinh.DauChimCao * scale);
+                                graphics.DrawString(text, actualFont, brush, rect, stringFormat);
+                            }
+
+                            graphics.AddToPageForeground(page, 72, 72);
+                        }
+                    }
+                }
             }
         }
     }

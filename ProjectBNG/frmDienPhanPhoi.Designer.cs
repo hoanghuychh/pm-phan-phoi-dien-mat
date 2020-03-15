@@ -176,7 +176,7 @@
             this.cbxNoiNhan.Location = new System.Drawing.Point(701, 11);
             this.cbxNoiNhan.Name = "cbxNoiNhan";
             this.cbxNoiNhan.Size = new System.Drawing.Size(142, 24);
-            this.cbxNoiNhan.TabIndex = 11; 
+            this.cbxNoiNhan.TabIndex = 11;
             // 
             // label6
             // 
@@ -438,6 +438,7 @@
             this.Name = "frmDienPhanPhoi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Danh sách điện đã phân phối";
+            this.Load += new System.EventHandler(this.frmDienPhanPhoi_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlBaoCao)).EndInit();

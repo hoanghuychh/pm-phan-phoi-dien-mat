@@ -49,18 +49,7 @@ namespace ProjectBNG
                 dienMatsBindingSource1.DataSource = dbContext.DienMats.Local.ToBindingList();
             }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
 
-            dateTimePickerTuNgay.Value = DateTime.Today.AddDays(-30);
-            try
-            {
-
-            cbxNoiGui.DataSource = dbContext.NoiGuis.ToList();
-            cbxNoiGui.DisplayMember = "Ten";
-                cbxNoiGui.SelectedIndex = -1;
-            cbxNoiNhan.DataSource = dbContext.DienMats.Local.ToBindingList();
-            cbxNoiNhan.DisplayMember = "DsNoiNhan";
-                cbxNoiNhan.SelectedIndex = -1;
-            }
-            catch { }
+           
         }
 
         private bool cal(int _Width, GridView _View)
@@ -117,28 +106,350 @@ namespace ProjectBNG
         {
             SMMgEntities db = new SMMgEntities();
             try
-            { 
-                if(cbxNoiGui.Text== "--select--")
+            {
+                if (cbxNoiGui.Text == "" && cbxNoiNhan.Text == "" && txbSoMat.Text == "" && tbxTrichYeu.Text == "")
                 {
-
+                    gridControlBaoCao.DataSource = db.DienMats
+                        .Where(x => x.Ngay >= dateTimePickerTuNgay.Value && x.Ngay <= dateTimePickerDenNgay.Value)
+                        .Select(x => new
+                        {
+                            MaDienMat = x.MaDienMat,
+                            Ngay = x.Ngay,
+                            NoiGui = x.NoiGui,
+                            DoMat = x.DoMat,
+                            DsNoiNhan = x.DsNoiNhan,
+                            Trang = x.Trang,
+                            BanIn = x.BanIn,
+                            TrichYeu = x.TrichYeu,
+                            NguoiIn = x.NguoiIn,
+                            NgayIn = x.NgayIn,
+                            LuuFile = x.LuuFile
+                        }).ToList();
+                    gridControlBaoCao.RefreshDataSource();
                 }
-                if(cbxNoiNhan.Text== "--select--")
+                if (cbxNoiGui.Text != "")
                 {
-
+                    gridControlBaoCao.DataSource = db.DienMats
+                        .Where(x => x.NoiGui == cbxNoiGui.Text && (x.Ngay >= dateTimePickerTuNgay.Value && x.Ngay <= dateTimePickerDenNgay.Value))
+                        .Select(x => new
+                        {
+                            MaDienMat = x.MaDienMat,
+                            Ngay = x.Ngay,
+                            NoiGui = x.NoiGui,
+                            DoMat = x.DoMat,
+                            DsNoiNhan = x.DsNoiNhan,
+                            Trang = x.Trang,
+                            BanIn = x.BanIn,
+                            TrichYeu = x.TrichYeu,
+                            NguoiIn = x.NguoiIn,
+                            NgayIn = x.NgayIn,
+                            LuuFile = x.LuuFile
+                        }).ToList();
+                    gridControlBaoCao.RefreshDataSource();
                 }
-                //gridControlBaoCao.DataSource = db.DienMats
-                //        .Where(x => x.TrangThai == cmbTrangThai.Text)
-                //        .Select(x => new
-                //        {
-                //            NameUser = x.NameUser,
-                //            Username = x.Username,
-                //            PerUser = x.PerUser,
-                //        }).ToList();
-                //gridControlBaoCao.RefreshDataSource();
+                if (cbxNoiNhan.Text != "")
+                {
+                    gridControlBaoCao.DataSource = db.DienMats
+                        .Where(x => x.DsNoiNhan == cbxNoiNhan.Text && (x.Ngay >= dateTimePickerTuNgay.Value && x.Ngay <= dateTimePickerDenNgay.Value))
+                        .Select(x => new
+                        {
+                            MaDienMat = x.MaDienMat,
+                            Ngay = x.Ngay,
+                            NoiGui = x.NoiGui,
+                            DoMat = x.DoMat,
+                            DsNoiNhan = x.DsNoiNhan,
+                            Trang = x.Trang,
+                            BanIn = x.BanIn,
+                            TrichYeu = x.TrichYeu,
+                            NguoiIn = x.NguoiIn,
+                            NgayIn = x.NgayIn,
+                            LuuFile = x.LuuFile
+                        }).ToList();
+                    gridControlBaoCao.RefreshDataSource();
+                }
+                if (txbSoMat.Text != "")
+                {
+                    gridControlBaoCao.DataSource = db.DienMats
+                        .Where(x => x.MaDienMat == int.Parse(txbSoMat.Text) && (x.Ngay >= dateTimePickerTuNgay.Value && x.Ngay <= dateTimePickerDenNgay.Value))
+                        .Select(x => new
+                        {
+                            MaDienMat = x.MaDienMat,
+                            Ngay = x.Ngay,
+                            NoiGui = x.NoiGui,
+                            DoMat = x.DoMat,
+                            DsNoiNhan = x.DsNoiNhan,
+                            Trang = x.Trang,
+                            BanIn = x.BanIn,
+                            TrichYeu = x.TrichYeu,
+                            NguoiIn = x.NguoiIn,
+                            NgayIn = x.NgayIn,
+                            LuuFile = x.LuuFile
+                        }).ToList();
+                    gridControlBaoCao.RefreshDataSource();
+                }
+                if (tbxTrichYeu.Text != "")
+                {
+                    gridControlBaoCao.DataSource = db.DienMats
+                        .Where(x => x.TrichYeu == tbxTrichYeu.Text && (x.Ngay >= dateTimePickerTuNgay.Value && x.Ngay <= dateTimePickerDenNgay.Value))
+                        .Select(x => new
+                        {
+                            MaDienMat = x.MaDienMat,
+                            Ngay = x.Ngay,
+                            NoiGui = x.NoiGui,
+                            DoMat = x.DoMat,
+                            DsNoiNhan = x.DsNoiNhan,
+                            Trang = x.Trang,
+                            BanIn = x.BanIn,
+                            TrichYeu = x.TrichYeu,
+                            NguoiIn = x.NguoiIn,
+                            NgayIn = x.NgayIn,
+                            LuuFile = x.LuuFile
+                        }).ToList();
+                    gridControlBaoCao.RefreshDataSource();
+                }
+
+                if (cbxNoiGui.Text != "" && cbxNoiNhan.Text != "")
+                {
+                    gridControlBaoCao.DataSource = db.DienMats
+                        .Where(x => x.NoiGui == cbxNoiGui.Text && x.DsNoiNhan == cbxNoiNhan.Text && (x.Ngay >= dateTimePickerTuNgay.Value && x.Ngay <= dateTimePickerDenNgay.Value))
+                        .Select(x => new
+                        {
+                            MaDienMat = x.MaDienMat,
+                            Ngay = x.Ngay,
+                            NoiGui = x.NoiGui,
+                            DoMat = x.DoMat,
+                            DsNoiNhan = x.DsNoiNhan,
+                            Trang = x.Trang,
+                            BanIn = x.BanIn,
+                            TrichYeu = x.TrichYeu,
+                            NguoiIn = x.NguoiIn,
+                            NgayIn = x.NgayIn,
+                            LuuFile = x.LuuFile
+                        }).ToList();
+                    gridControlBaoCao.RefreshDataSource();
+                }
+                if (cbxNoiGui.Text != "" && txbSoMat.Text != "")
+                {
+                    gridControlBaoCao.DataSource = db.DienMats
+                        .Where(x => x.NoiGui == cbxNoiGui.Text && x.MaDienMat == int.Parse(txbSoMat.Text) && (x.Ngay >= dateTimePickerTuNgay.Value && x.Ngay <= dateTimePickerDenNgay.Value))
+                        .Select(x => new
+                        {
+                            MaDienMat = x.MaDienMat,
+                            Ngay = x.Ngay,
+                            NoiGui = x.NoiGui,
+                            DoMat = x.DoMat,
+                            DsNoiNhan = x.DsNoiNhan,
+                            Trang = x.Trang,
+                            BanIn = x.BanIn,
+                            TrichYeu = x.TrichYeu,
+                            NguoiIn = x.NguoiIn,
+                            NgayIn = x.NgayIn,
+                            LuuFile = x.LuuFile
+                        }).ToList();
+                    gridControlBaoCao.RefreshDataSource();
+                }
+                if (cbxNoiGui.Text != "" && tbxTrichYeu.Text != "")
+                {
+                    gridControlBaoCao.DataSource = db.DienMats
+                        .Where(x => x.NoiGui == cbxNoiGui.Text && x.TrichYeu == tbxTrichYeu.Text && (x.Ngay >= dateTimePickerTuNgay.Value && x.Ngay <= dateTimePickerDenNgay.Value))
+                        .Select(x => new
+                        {
+                            MaDienMat = x.MaDienMat,
+                            Ngay = x.Ngay,
+                            NoiGui = x.NoiGui,
+                            DoMat = x.DoMat,
+                            DsNoiNhan = x.DsNoiNhan,
+                            Trang = x.Trang,
+                            BanIn = x.BanIn,
+                            TrichYeu = x.TrichYeu,
+                            NguoiIn = x.NguoiIn,
+                            NgayIn = x.NgayIn,
+                            LuuFile = x.LuuFile
+                        }).ToList();
+                    gridControlBaoCao.RefreshDataSource();
+                }
+                if (cbxNoiNhan.Text != "" && txbSoMat.Text != "")
+                {
+                    gridControlBaoCao.DataSource = db.DienMats
+                        .Where(x => x.DsNoiNhan == cbxNoiNhan.Text && x.MaDienMat == int.Parse(txbSoMat.Text) && (x.Ngay >= dateTimePickerTuNgay.Value && x.Ngay <= dateTimePickerDenNgay.Value))
+                        .Select(x => new
+                        {
+                            MaDienMat = x.MaDienMat,
+                            Ngay = x.Ngay,
+                            NoiGui = x.NoiGui,
+                            DoMat = x.DoMat,
+                            DsNoiNhan = x.DsNoiNhan,
+                            Trang = x.Trang,
+                            BanIn = x.BanIn,
+                            TrichYeu = x.TrichYeu,
+                            NguoiIn = x.NguoiIn,
+                            NgayIn = x.NgayIn,
+                            LuuFile = x.LuuFile
+                        }).ToList();
+                    gridControlBaoCao.RefreshDataSource();
+                }
+                if (cbxNoiNhan.Text != "" && tbxTrichYeu.Text != "")
+                {
+                    gridControlBaoCao.DataSource = db.DienMats
+                        .Where(x => x.DsNoiNhan == cbxNoiNhan.Text && x.TrichYeu == tbxTrichYeu.Text && (x.Ngay >= dateTimePickerTuNgay.Value && x.Ngay <= dateTimePickerDenNgay.Value))
+                        .Select(x => new
+                        {
+                            MaDienMat = x.MaDienMat,
+                            Ngay = x.Ngay,
+                            NoiGui = x.NoiGui,
+                            DoMat = x.DoMat,
+                            DsNoiNhan = x.DsNoiNhan,
+                            Trang = x.Trang,
+                            BanIn = x.BanIn,
+                            TrichYeu = x.TrichYeu,
+                            NguoiIn = x.NguoiIn,
+                            NgayIn = x.NgayIn,
+                            LuuFile = x.LuuFile
+                        }).ToList();
+                    gridControlBaoCao.RefreshDataSource();
+                }
+                if (txbSoMat.Text != "" && tbxTrichYeu.Text != "")
+                {
+                    gridControlBaoCao.DataSource = db.DienMats
+                        .Where(x => x.MaDienMat == int.Parse(txbSoMat.Text) && x.TrichYeu == tbxTrichYeu.Text && (x.Ngay >= dateTimePickerTuNgay.Value && x.Ngay <= dateTimePickerDenNgay.Value))
+                        .Select(x => new
+                        {
+                            MaDienMat = x.MaDienMat,
+                            Ngay = x.Ngay,
+                            NoiGui = x.NoiGui,
+                            DoMat = x.DoMat,
+                            DsNoiNhan = x.DsNoiNhan,
+                            Trang = x.Trang,
+                            BanIn = x.BanIn,
+                            TrichYeu = x.TrichYeu,
+                            NguoiIn = x.NguoiIn,
+                            NgayIn = x.NgayIn,
+                            LuuFile = x.LuuFile
+                        }).ToList();
+                    gridControlBaoCao.RefreshDataSource();
+                }
+
+                if (cbxNoiGui.Text != "" && cbxNoiNhan.Text != "" && txbSoMat.Text != "")
+                {
+                    gridControlBaoCao.DataSource = db.DienMats
+                        .Where(x => x.NoiGui == cbxNoiGui.Text && x.DsNoiNhan == cbxNoiNhan.Text && x.MaDienMat == int.Parse(txbSoMat.Text) && (x.Ngay >= dateTimePickerTuNgay.Value && x.Ngay <= dateTimePickerDenNgay.Value))
+                        .Select(x => new
+                        {
+                            MaDienMat = x.MaDienMat,
+                            Ngay = x.Ngay,
+                            NoiGui = x.NoiGui,
+                            DoMat = x.DoMat,
+                            DsNoiNhan = x.DsNoiNhan,
+                            Trang = x.Trang,
+                            BanIn = x.BanIn,
+                            TrichYeu = x.TrichYeu,
+                            NguoiIn = x.NguoiIn,
+                            NgayIn = x.NgayIn,
+                            LuuFile = x.LuuFile
+                        }).ToList();
+                    gridControlBaoCao.RefreshDataSource();
+                }
+                if (cbxNoiGui.Text != "" && cbxNoiNhan.Text != "" && tbxTrichYeu.Text != "")
+                {
+                    gridControlBaoCao.DataSource = db.DienMats
+                       .Where(x => x.NoiGui == cbxNoiGui.Text && x.DsNoiNhan == cbxNoiNhan.Text && x.TrichYeu == tbxTrichYeu.Text && (x.Ngay >= dateTimePickerTuNgay.Value && x.Ngay <= dateTimePickerDenNgay.Value))
+                       .Select(x => new
+                       {
+                           MaDienMat = x.MaDienMat,
+                           Ngay = x.Ngay,
+                           NoiGui = x.NoiGui,
+                           DoMat = x.DoMat,
+                           DsNoiNhan = x.DsNoiNhan,
+                           Trang = x.Trang,
+                           BanIn = x.BanIn,
+                           TrichYeu = x.TrichYeu,
+                           NguoiIn = x.NguoiIn,
+                           NgayIn = x.NgayIn,
+                           LuuFile = x.LuuFile
+                       }).ToList();
+                    gridControlBaoCao.RefreshDataSource();
+                }
+                if (cbxNoiGui.Text != "" && txbSoMat.Text != "" && tbxTrichYeu.Text != "")
+                {
+                    gridControlBaoCao.DataSource = db.DienMats
+                       .Where(x => x.NoiGui == cbxNoiGui.Text && x.MaDienMat == int.Parse(txbSoMat.Text) && x.TrichYeu == tbxTrichYeu.Text && (x.Ngay >= dateTimePickerTuNgay.Value && x.Ngay <= dateTimePickerDenNgay.Value))
+                       .Select(x => new
+                       {
+                           MaDienMat = x.MaDienMat,
+                           Ngay = x.Ngay,
+                           NoiGui = x.NoiGui,
+                           DoMat = x.DoMat,
+                           DsNoiNhan = x.DsNoiNhan,
+                           Trang = x.Trang,
+                           BanIn = x.BanIn,
+                           TrichYeu = x.TrichYeu,
+                           NguoiIn = x.NguoiIn,
+                           NgayIn = x.NgayIn,
+                           LuuFile = x.LuuFile
+                       }).ToList();
+                    gridControlBaoCao.RefreshDataSource();
+                }
+                if (cbxNoiNhan.Text != "" && txbSoMat.Text != "" && tbxTrichYeu.Text != "")
+                {
+                    gridControlBaoCao.DataSource = db.DienMats
+                       .Where(x => x.DsNoiNhan == cbxNoiNhan.Text && x.MaDienMat == int.Parse(txbSoMat.Text) && x.TrichYeu == tbxTrichYeu.Text && (x.Ngay >= dateTimePickerTuNgay.Value && x.Ngay <= dateTimePickerDenNgay.Value))
+                       .Select(x => new
+                       {
+                           MaDienMat = x.MaDienMat,
+                           Ngay = x.Ngay,
+                           NoiGui = x.NoiGui,
+                           DoMat = x.DoMat,
+                           DsNoiNhan = x.DsNoiNhan,
+                           Trang = x.Trang,
+                           BanIn = x.BanIn,
+                           TrichYeu = x.TrichYeu,
+                           NguoiIn = x.NguoiIn,
+                           NgayIn = x.NgayIn,
+                           LuuFile = x.LuuFile
+                       }).ToList();
+                    gridControlBaoCao.RefreshDataSource();
+                }
+
+                if (cbxNoiGui.Text != "" && cbxNoiNhan.Text != "" && txbSoMat.Text != "" && tbxTrichYeu.Text != "")
+                {
+                    gridControlBaoCao.DataSource = db.DienMats
+                       .Where(x => x.NoiGui == cbxNoiGui.Text && x.DsNoiNhan == cbxNoiNhan.Text && x.MaDienMat == int.Parse(txbSoMat.Text) && x.TrichYeu == tbxTrichYeu.Text && (x.Ngay >= dateTimePickerTuNgay.Value && x.Ngay <= dateTimePickerDenNgay.Value))
+                       .Select(x => new
+                       {
+                           MaDienMat = x.MaDienMat,
+                           Ngay = x.Ngay,
+                           NoiGui = x.NoiGui,
+                           DoMat = x.DoMat,
+                           DsNoiNhan = x.DsNoiNhan,
+                           Trang = x.Trang,
+                           BanIn = x.BanIn,
+                           TrichYeu = x.TrichYeu,
+                           NguoiIn = x.NguoiIn,
+                           NgayIn = x.NgayIn,
+                           LuuFile = x.LuuFile
+                       }).ToList();
+                    gridControlBaoCao.RefreshDataSource();
+                }
             }
             catch
             {
             }
+        }
+
+        private void frmDienPhanPhoi_Load(object sender, EventArgs e)
+        {
+            dateTimePickerTuNgay.Value = DateTime.Today.AddDays(-30);
+            try
+            {
+                SMMgEntities dbContext = new SMMgEntities();
+                cbxNoiGui.DataSource = dbContext.NoiGuis.ToList();
+                cbxNoiGui.DisplayMember = "Ten";
+                cbxNoiGui.SelectedIndex = -1;
+                cbxNoiNhan.DataSource = dbContext.DienMats.ToList();
+                cbxNoiNhan.DisplayMember = "DsNoiNhan";
+                cbxNoiNhan.SelectedIndex = -1;
+            }
+            catch { }
         }
     }
 }
