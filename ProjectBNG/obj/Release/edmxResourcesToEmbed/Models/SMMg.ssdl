@@ -130,7 +130,7 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MaNoiNhan" Type="nvarchar" MaxLength="20" Nullable="false" />
     <Property Name="TenNoiNhan" Type="nvarchar" MaxLength="265" Nullable="false" />
     <Property Name="Loai" Type="nvarchar" MaxLength="20" Nullable="false" />
@@ -180,16 +180,6 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
     <Property Name="PhanLoai" Type="nvarchar" MaxLength="50" />
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
-  </EntityType>
   <EntityType Name="TrangThai">
     <Key>
       <PropertyRef Name="id" />
@@ -202,31 +192,32 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" Nullable="false" />
-    <Property Name="VanBanLeTrai" Type="int" />
-    <Property Name="VanBanLeTren" Type="int" />
-    <Property Name="DsnLeTrai" Type="int" />
-    <Property Name="DsnLeTren" Type="int" />
-    <Property Name="DsnDanDong" Type="int" />
-    <Property Name="DauChimRong" Type="int" />
-    <Property Name="DauChimCao" Type="int" />
-    <Property Name="DauChimFont" Type="int" />
-    <Property Name="DauChimOpacity" Type="int" />
-    <Property Name="DauChimMauDoc" Type="nvarchar" MaxLength="50" />
-    <Property Name="DauChimMauPdf" Type="nvarchar" MaxLength="50" />
-    <Property Name="VungCkRong" Type="int" />
-    <Property Name="VungCkCao" Type="int" />
-    <Property Name="VungCkLeDuoi" Type="int" />
-    <Property Name="AnhCkRong1" Type="int" />
-    <Property Name="AnhCkCao1" Type="int" />
-    <Property Name="AnhCkCao2" Type="int" />
-    <Property Name="AnhCkRong2" Type="int" />
-    <Property Name="TieuDe" Type="nvarchar" MaxLength="265" />
+    <Property Name="VanBanLeTrai" Type="float" />
+    <Property Name="VanBanLeTren" Type="float" />
+    <Property Name="DsnLeTrai" Type="float" />
+    <Property Name="DsnLeTren" Type="float" />
+    <Property Name="DsnDanDong" Type="float" />
+    <Property Name="DauChimRong" Type="float" />
+    <Property Name="DauChimCao" Type="float" />
+    <Property Name="DauChimFont" Type="float" />
+    <Property Name="DauChimOpacity" Type="float" />
+    <Property Name="DauChimMauDoc" Type="float" />
+    <Property Name="DauChimMauPdf" Type="float" />
+    <Property Name="VungCkRong" Type="float" />
+    <Property Name="VungCkCao" Type="float" />
+    <Property Name="VungCkLeDuoi" Type="float" />
+    <Property Name="AnhCkRong1" Type="float" />
+    <Property Name="AnhCkCao1" Type="float" />
+    <Property Name="AnhCkCao2" Type="float" />
+    <Property Name="AnhCkRong2" Type="float" />
+    <Property Name="TieuDe" Type="nvarchar" MaxLength="256" />
     <Property Name="In2Mat" Type="nvarchar" MaxLength="50" />
     <Property Name="KhayGiay" Type="nvarchar" MaxLength="50" />
     <Property Name="Dien" Type="nvarchar" MaxLength="50" />
     <Property Name="Fax" Type="nvarchar" MaxLength="50" />
     <Property Name="InDauMatLenDien" Type="bit" />
     <Property Name="CoSo" Type="nvarchar" MaxLength="50" />
+    <Property Name="LuuFile" Type="nvarchar" MaxLength="256" />
   </EntityType>
   <EntityType Name="USER">
     <Key>
@@ -251,37 +242,6 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
-  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-    <Parameter Name="version" Type="int" Mode="In" />
-    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-  </Function>
-  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-    <Parameter Name="version" Type="int" Mode="In" />
-    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-  </Function>
-  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-    <Parameter Name="owner_id" Type="int" Mode="In" />
-    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
-  </Function>
-  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="SMMgModelStoreContainer">
     <EntitySet Name="BiThu" EntityType="Self.BiThu" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CoSo" EntityType="Self.CoSo" Schema="dbo" store:Type="Tables" />
@@ -297,7 +257,6 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
     <EntitySet Name="PemisionDetail" EntityType="Self.PemisionDetail" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Permision" EntityType="Self.Permision" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PhanLoaiNoiNhan" EntityType="Self.PhanLoaiNoiNhan" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TrangThai" EntityType="Self.TrangThai" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TuyChinh" EntityType="Self.TuyChinh" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="USER" EntityType="Self.USER" Schema="dbo" store:Type="Tables" />

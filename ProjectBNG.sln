@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectBNG", "ProjectBNG\Pr
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AppSetup", "AppSetup\AppSetup.vdproj", "{1658F250-09DD-417B-A3F6-028DA4B34C5D}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "Setup1\Setup1.vdproj", "{8617C21A-E307-419A-91D0-320800D1F1CB}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupSMMg", "SetupSMMg\SetupSMMg.vdproj", "{372716F0-FA3E-48CB-A4A7-86DA784B1633}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{1658F250-09DD-417B-A3F6-028DA4B34C5D}.Debug|x86.ActiveCfg = Debug
 		{1658F250-09DD-417B-A3F6-028DA4B34C5D}.Release|Any CPU.ActiveCfg = Release
 		{1658F250-09DD-417B-A3F6-028DA4B34C5D}.Release|x86.ActiveCfg = Release
+		{8617C21A-E307-419A-91D0-320800D1F1CB}.Debug|Any CPU.ActiveCfg = Debug
+		{8617C21A-E307-419A-91D0-320800D1F1CB}.Debug|x86.ActiveCfg = Debug
+		{8617C21A-E307-419A-91D0-320800D1F1CB}.Release|Any CPU.ActiveCfg = Release
+		{8617C21A-E307-419A-91D0-320800D1F1CB}.Release|x86.ActiveCfg = Release
+		{372716F0-FA3E-48CB-A4A7-86DA784B1633}.Debug|Any CPU.ActiveCfg = Debug
+		{372716F0-FA3E-48CB-A4A7-86DA784B1633}.Debug|x86.ActiveCfg = Debug
+		{372716F0-FA3E-48CB-A4A7-86DA784B1633}.Release|Any CPU.ActiveCfg = Release
+		{372716F0-FA3E-48CB-A4A7-86DA784B1633}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

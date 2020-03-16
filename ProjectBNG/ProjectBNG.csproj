@@ -14,6 +14,7 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -26,7 +27,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -309,9 +309,6 @@
     <Compile Include="Models\sp_helpdiagrams_Result.cs">
       <DependentUpon>SMMg.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>SMMg.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\TrangThai.cs">
       <DependentUpon>SMMg.tt</DependentUpon>
     </Compile>
@@ -473,6 +470,9 @@
     <None Include="Resources\plus.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Data\SMMg.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <Content Include="Models\SMMg.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>SMMg.edmx</DependentUpon>
@@ -507,5 +507,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

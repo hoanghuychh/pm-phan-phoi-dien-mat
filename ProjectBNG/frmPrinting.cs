@@ -225,6 +225,8 @@ namespace ProjectBNG
             cbxNoiGuiMD.DataSource = db.NoiGuis.ToList();
             cbxNoiGuiMD.ValueMember = "id";
             cbxNoiGuiMD.DisplayMember = "Ten";
+            try
+            {
 
             NguoiDuyet defaultNguoiNhan = db.NguoiDuyets.SingleOrDefault(x => x.MacDinh == true);
             cbxNguoiDuyetMD.SelectedText = defaultNguoiNhan.TenNguoiDuyet;
@@ -243,7 +245,8 @@ namespace ProjectBNG
             var stream = new MemoryStream(defaultNguoiKy.ChuKy);
             pbChuKiMD.Image = Image.FromStream(stream);
             pbChuKiMD.SizeMode = PictureBoxSizeMode.StretchImage;
-
+            }
+            catch { }
             tbDatChuKyTrang.Text = "1";
 
         }

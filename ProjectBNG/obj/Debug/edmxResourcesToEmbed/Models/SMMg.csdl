@@ -45,15 +45,14 @@
     <EntitySet Name="PemisionDetails" EntityType="SMMgModel.PemisionDetail" />
     <EntitySet Name="Permisions" EntityType="SMMgModel.Permision" />
     <EntitySet Name="PhanLoaiNoiNhans" EntityType="SMMgModel.PhanLoaiNoiNhan" />
-    <EntitySet Name="sysdiagrams" EntityType="SMMgModel.sysdiagram" />
     <EntitySet Name="TrangThais" EntityType="SMMgModel.TrangThai" />
+    <EntitySet Name="TuyChinhs" EntityType="SMMgModel.TuyChinh" />
     <EntitySet Name="USERs" EntityType="SMMgModel.USER" />
     <EntitySet Name="DienMatDaPhanPhois" EntityType="SMMgModel.DienMatDaPhanPhoi" />
     <AssociationSet Name="FK_DienMat_USER1" Association="SMMgModel.FK_DienMat_USER1">
       <End Role="USER" EntitySet="USERs" />
       <End Role="DienMat" EntitySet="DienMats" />
     </AssociationSet>
-    <EntitySet Name="TuyChinhs" EntityType="SMMgModel.TuyChinh" />
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -169,7 +168,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="MaNoiNhan" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="TenNoiNhan" Type="String" Nullable="false" MaxLength="265" FixedLength="false" Unicode="true" />
     <Property Name="Loai" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
@@ -219,22 +218,44 @@
     <Property Name="PhanLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
   </EntityType>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
   <EntityType Name="TrangThai">
     <Key>
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="NameTrangThai" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TuyChinh">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="VanBanLeTrai" Type="Double" />
+    <Property Name="VanBanLeTren" Type="Double" />
+    <Property Name="DsnLeTrai" Type="Double" />
+    <Property Name="DsnLeTren" Type="Double" />
+    <Property Name="DsnDanDong" Type="Double" />
+    <Property Name="DauChimRong" Type="Double" />
+    <Property Name="DauChimCao" Type="Double" />
+    <Property Name="DauChimFont" Type="Double" />
+    <Property Name="DauChimOpacity" Type="Double" />
+    <Property Name="DauChimMauDoc" Type="Double" />
+    <Property Name="DauChimMauPdf" Type="Double" />
+    <Property Name="VungCkRong" Type="Double" />
+    <Property Name="VungCkCao" Type="Double" />
+    <Property Name="VungCkLeDuoi" Type="Double" />
+    <Property Name="AnhCkRong1" Type="Double" />
+    <Property Name="AnhCkCao1" Type="Double" />
+    <Property Name="AnhCkCao2" Type="Double" />
+    <Property Name="AnhCkRong2" Type="Double" />
+    <Property Name="TieuDe" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="In2Mat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KhayGiay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Dien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="InDauMatLenDien" Type="Boolean" />
+    <Property Name="CoSo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LuuFile" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="USER">
     <Key>
@@ -286,36 +307,4 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityType Name="TuyChinh">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" />
-    <Property Name="VanBanLeTrai" Type="Double" />
-    <Property Name="VanBanLeTren" Type="Double" />
-    <Property Name="DsnLeTrai" Type="Double" />
-    <Property Name="DsnLeTren" Type="Double" />
-    <Property Name="DsnDanDong" Type="Double" />
-    <Property Name="DauChimRong" Type="Double" />
-    <Property Name="DauChimCao" Type="Double" />
-    <Property Name="DauChimFont" Type="Double" />
-    <Property Name="DauChimOpacity" Type="Double" />
-    <Property Name="DauChimMauDoc" Type="Double" />
-    <Property Name="DauChimMauPdf" Type="Double" />
-    <Property Name="VungCkRong" Type="Double" />
-    <Property Name="VungCkCao" Type="Double" />
-    <Property Name="VungCkLeDuoi" Type="Double" />
-    <Property Name="AnhCkRong1" Type="Double" />
-    <Property Name="AnhCkCao1" Type="Double" />
-    <Property Name="AnhCkCao2" Type="Double" />
-    <Property Name="AnhCkRong2" Type="Double" />
-    <Property Name="TieuDe" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-    <Property Name="In2Mat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="KhayGiay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Dien" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="InDauMatLenDien" Type="Boolean" />
-    <Property Name="CoSo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="LuuFile" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-  </EntityType>
 </Schema>

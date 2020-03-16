@@ -29,6 +29,7 @@ namespace ProjectBNG {
         {
             try
             {
+                SMMgEntities db = new SMMgEntities();
                 var newNoiNhan = new NoiNhan();
                 newNoiNhan.MaNoiNhan = tbTenVietTat.Text;
                 newNoiNhan.TenNoiNhan = tbTenDayDu.Text;
@@ -40,7 +41,6 @@ namespace ProjectBNG {
                 newNoiNhan.DangHoatDong = cbHoatDong.Checked;
                 newNoiNhan.CoSo = cmbCoSo.Text;
 
-                var db = new SMMgEntities();
                 db.NoiNhans.Add(newNoiNhan);
                 db.SaveChanges();
                 frmNoiNhan_Load(sender,e);

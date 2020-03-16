@@ -1,3 +1,4 @@
+D:\Github\winform_mail_manager\ProjectBNG\bin\Release\Data\SMMg.mdf
 D:\Github\winform_mail_manager\ProjectBNG\bin\Release\ProjectBNG.exe.config
 D:\Github\winform_mail_manager\ProjectBNG\bin\Release\ProjectBNG.exe
 D:\Github\winform_mail_manager\ProjectBNG\bin\Release\ProjectBNG.pdb

@@ -29,7 +29,7 @@ namespace ProjectBNG
         private void btnOpenFile_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
-            fbd.Description = "Custom Description";
+            fbd.Description = "Chọn thư mục lưu file điện !";
             if (fbd.ShowDialog() == DialogResult.OK)
             {
                 tbLuuFile.Text = fbd.SelectedPath;
@@ -58,6 +58,8 @@ namespace ProjectBNG
             tuyChinh.DauChimRong = (float)Convert.ToDouble(tbDauChimRong.Text);
             tuyChinh.DauChimOpacity = (float)Convert.ToDouble(tbDauChimOpacity.Text);
             db.SaveChanges();
+            MessageBox.Show("Thông số đã được thay đổi", "Thông báo");
+            this.Close();
         }
 
         private void colorPickEditPdf_EditValueChanged(object sender, EventArgs e)
