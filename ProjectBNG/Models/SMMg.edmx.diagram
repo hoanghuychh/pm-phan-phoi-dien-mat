@@ -24,7 +24,7 @@
         <EntityTypeShape EntityType="SMMgModel.TrangThai" Width="1.5" PointX="10.75" PointY="10.75" />
         <EntityTypeShape EntityType="SMMgModel.TuyChinh" Width="1.5" PointX="11.75" PointY="0.75" />
         <EntityTypeShape EntityType="SMMgModel.TuyChinhCombobox" Width="1.5" PointX="11.75" PointY="7.75" />
-        <EntityTypeShape EntityType="SMMgModel.USER" Width="1.5" PointX="0.75" PointY="2.5" />
+        <EntityTypeShape EntityType="SMMgModel.USER" Width="1.5" PointX="0.75" PointY="2.375" />
         <EntityTypeShape EntityType="SMMgModel.DienMatDaPhanPhoi" Width="1.5" PointX="12.75" PointY="10.75" />
         <AssociationConnector Association="SMMgModel.FK_DienMat_USER1" />
       </Diagram>

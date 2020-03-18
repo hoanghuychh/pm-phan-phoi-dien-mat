@@ -1,1 +1,6 @@
-Số mật=MaDienMat
+Số mật=MaDienMat=tbMaDienMat
+Lề dưới số mật trang dưới : khoảng cách của watermark (mặc định 0 thì in giữa trang)
+=>form Bì thư
+Số phiếu:số bảo mật của nơi nhận
+
+

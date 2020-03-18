@@ -100,19 +100,19 @@ namespace ProjectBNG.Class
                 {
                     foreach (var page in documentProcessor.Document.Pages)
                     {
-                        var watermarkSize = page.CropBox.Width * tuyChinh.DauChimFont;
+                        var watermarkSize = page.CropBox.Width;
                         using (PdfGraphics graphics = documentProcessor.CreateGraphics())
                         {
                             SizeF stringSize = graphics.MeasureString(text, font);
                             Single scale = Convert.ToSingle(watermarkSize / tuyChinh.DauChimRong);
-                            graphics.TranslateTransform(Convert.ToSingle(tuyChinh.DauChimRong), Convert.ToSingle(tuyChinh.DauChimCao));
+                            graphics.TranslateTransform(Convert.ToSingle(tuyChinh.DauChimRong * 28.34645669291339), Convert.ToSingle(tuyChinh.DauChimCao * 28.34645669291339));
                             Debug.WriteLine(page.CropBox.Width);
 
                             graphics.RotateTransform(0);
-                            graphics.TranslateTransform(Convert.ToSingle(-tuyChinh.DauChimRong * scale * 0.5), Convert.ToSingle(-tuyChinh.DauChimCao * scale * 0.5));
-                            using (Font actualFont = new Font(fontName, fontSize * scale))
+                            graphics.TranslateTransform(Convert.ToSingle(-stringSize.Width * scale * 0.5), Convert.ToSingle(-stringSize.Height * scale * 0.5));
+                            using (Font actualFont = new Font(fontName, (float)tuyChinh.DauChimFont))
                             {
-                                RectangleF rect = new RectangleF(0, 0, (float)tuyChinh.DauChimRong * scale, (float)tuyChinh.DauChimCao * scale);
+                                RectangleF rect = new RectangleF(0, 0, stringSize.Width * scale, stringSize.Height * scale);
                                 graphics.DrawString(text, actualFont, brush, rect, stringFormat);
                             }
 
@@ -122,40 +122,57 @@ namespace ProjectBNG.Class
                 }
             }
         }
-        public static void InVungChuKy(PdfDocumentProcessor processor, PdfGraphics graphics, float x, float y,Bitmap bitmap,NguoiKy nguoiKy)
+        public static void InVungChuKy(PdfDocumentProcessor processor, PdfGraphics graphics, Bitmap bitmap, NguoiKy nguoiKy,int inTrang)
         {
+            SMMgEntities db = new SMMgEntities();
+
+            TuyChinh tuyChinh = new TuyChinh();
+            tuyChinh = db.TuyChinhs.Single(tc => tc.id == 1);
+            int ngay = DateTime.Now.Day;
+            int thang = DateTime.Now.Month;
+            int nam = DateTime.Now.Year;
+            string tieuDe = tuyChinh.TieuDe.ToString().Trim() + string.Format(", ngày {0} tháng {1} năm {2}", ngay, thang, nam);
+
+            float dong1rong = (float)(tuyChinh.VungCkRong * 28.34645669291339);
+            float dong1cao = (float)(tuyChinh.VungCkCao * 28.34645669291339);
+            float dong2rong = (float)(tuyChinh.VungCkRong * 28.34645669291339) - 70;
+            float dong2cao = (float)(tuyChinh.VungCkCao * 28.34645669291339) + 20;
+            float vitriChukyRong = (float)(tuyChinh.VungCkRong * 28.34645669291339);
+            float vitriChukyCao = (float)(tuyChinh.VungCkCao * 28.34645669291339) + 40 + (float)(tuyChinh.AnhCkCao1 * 28.34645669291339) / 2;
+            float ChuKyRong = (float)(tuyChinh.AnhCkRong1 * 28.34645669291339);
+            float ChuKyCao = (float)(tuyChinh.AnhCkCao1 * 28.34645669291339);
+            float dong3rong = (float)(tuyChinh.VungCkRong * 28.34645669291339) + 10;
+            float dong3cao = (float)(tuyChinh.VungCkCao * 28.34645669291339) + 60 + (float)(tuyChinh.AnhCkCao1 * 28.34645669291339);
+
             using (SolidBrush textBrush = new SolidBrush(Color.FromArgb(0, 0, 0)))
             {
-                SMMgEntities db = new SMMgEntities();
-
-                TuyChinh tuyChinh = new TuyChinh();
-                tuyChinh = db.TuyChinhs.Single(tc => tc.id == 1);
-                int ngay = DateTime.Now.Day;
-                int thang = DateTime.Now.Month;
-                int nam = DateTime.Now.Year;
-                string tieuDe = tuyChinh.TieuDe.ToString().Trim() + string.Format(", ngày {0} tháng {1} năm {2}", ngay, thang, nam);
-                
-                AddGraphics(processor,tieuDe, 10, textBrush, x - 35, y - 35);
-                AddGraphics(processor,nguoiKy.ChucDanh, 10, textBrush, x - 70, y - 15);
-            }  
+                AddGraphics(processor, tieuDe, 10, textBrush, dong1rong, dong1cao,inTrang);
+                AddGraphics(processor, nguoiKy.ChucDanh, 10, textBrush, dong2rong, dong2cao, inTrang);
+            }
             using (Bitmap image = bitmap)
             {
-                float width = image.Width / 5;
-                float height = image.Height / 5;
-                graphics.DrawImage(image, new RectangleF(x, y, width, height));
+                graphics.DrawImage(image, new RectangleF(vitriChukyRong, vitriChukyCao, ChuKyRong, ChuKyCao));
             }
             using (SolidBrush textBrush = new SolidBrush(Color.FromArgb(0, 0, 0)))
             {
-                AddGraphics(processor,nguoiKy.TenNguoiKy, 10, textBrush, x + 10, y + 70);
+                AddGraphics(processor, nguoiKy.TenNguoiKy, 10, textBrush, dong3rong, dong3cao, inTrang);
             }
+            Debug.WriteLine("Dong 1 rong " + dong1rong);
+            Debug.WriteLine("Dong 1 cao " + dong1cao);
+            Debug.WriteLine("Dong 2 rong " + dong2rong);
+            Debug.WriteLine("Dong 2 cao " + dong2cao);
+            Debug.WriteLine("Vi tri chu ky rong " + vitriChukyRong);
+            Debug.WriteLine("Vi tri chu ky cao " + vitriChukyCao);
+            Debug.WriteLine("Chu ky rong " + ChuKyRong);
+            Debug.WriteLine("Chu ky cao " + ChuKyCao);
+            Debug.WriteLine("Dong 3 rong " + dong3rong);
+            Debug.WriteLine("Dong 3 cao " + dong3cao);
         }
 
-        public static void AddGraphics(PdfDocumentProcessor processor, string text, int fontSize, SolidBrush textBrush, float x, float y)
+        public static void AddGraphics(PdfDocumentProcessor processor, string text, int fontSize, SolidBrush textBrush, float x, float y,int InTrang)
         {
             IList<PdfPage> pages = processor.Document.Pages;
-            for (int i = 0; i < pages.Count; i++)
-            {
-                PdfPage page = pages[i];
+                PdfPage page = pages[InTrang];
                 using (PdfGraphics graphics = processor.CreateGraphics())
                 {
                     SizeF actualPageSize = PrepareGraphics(page, graphics);
@@ -169,7 +186,6 @@ namespace ProjectBNG.Class
                         graphics.AddToPageForeground(page, DrawingDpi, DrawingDpi);
                     }
                 }
-            }
         }
         public static SizeF PrepareGraphics(PdfPage page, PdfGraphics graphics)
         {

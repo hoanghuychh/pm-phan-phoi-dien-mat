@@ -43,14 +43,41 @@ namespace ProjectBNG
 
             tuyChinh = db.TuyChinhs.Single(x => x.id == 1);
             tbLuuFile.Text = tuyChinh.LuuFile;
-            tbDauChimCao.Text = tuyChinh.DauChimCao.ToString();
 
+            tbDauChimCao.Text = tuyChinh.DauChimCao.ToString();
             tbDauChimFont.Text = tuyChinh.DauChimFont.ToString();
             tbDauChimRong.Text = tuyChinh.DauChimRong.ToString();
             tbDauChimOpacity.Text = tuyChinh.DauChimOpacity.ToString();
 
             colorPickEditPdf.Color = Color.FromArgb(int.Parse(tuyChinh.DauChimMauPdf.ToString()));
+
             tbVungCkTieuDe.Text = tuyChinh.TieuDe.ToString();
+
+            tbAnhCkCao1.Text = tuyChinh.AnhCkCao1.ToString();
+            tbAnhCkCao2.Text = tuyChinh.AnhCkCao2.ToString();
+            tbAnhCkRong1.Text = tuyChinh.AnhCkRong1.ToString();
+            tbAnhCkRong2.Text = tuyChinh.AnhCkRong2.ToString();
+
+            tbVungCkCao.Text = tuyChinh.VungCkCao.ToString();
+            tbVungCkRong.Text = tuyChinh.VungCkRong.ToString();
+            tbVungCkLeDuoi.Text = tuyChinh.VungCkLeDuoi.ToString();
+
+            cmbCoSo.DataSource = db.CoSoes.ToList();
+            cmbCoSo.DisplayMember = "TenCoSo";
+            cmbCoSo.Invalidate();
+            cmbIn2Mat.DataSource= db.TuyChinhComboboxes.ToList();
+            cmbIn2Mat.DisplayMember = "TrangThaiTuyChinh";
+            cmbIn2Mat.Invalidate();
+            cmbDien.DataSource= db.TuyChinhComboboxes.ToList();
+            cmbDien.DisplayMember = "GiayIn";
+            cmbDien.Invalidate();
+            cmbFax.DataSource= db.TuyChinhComboboxes.ToList();
+            cmbFax.DisplayMember = "GiayIn";
+            cmbFax.Invalidate();
+            cmbKhanGiay.DataSource= db.TuyChinhComboboxes.ToList();
+            cmbKhanGiay.DisplayMember = "TrangThaiTuyChinh";
+            cmbKhanGiay.Invalidate();
+
         }
         private void btnOk_Click(object sender, EventArgs e)
         {
@@ -58,7 +85,13 @@ namespace ProjectBNG
             tuyChinh.DauChimFont = (float)Convert.ToDouble(tbDauChimFont.Text);
             tuyChinh.DauChimRong = (float)Convert.ToDouble(tbDauChimRong.Text);
             tuyChinh.DauChimOpacity = (float)Convert.ToDouble(tbDauChimOpacity.Text);
+
             tuyChinh.TieuDe = tbVungCkTieuDe.Text.ToString().Trim();
+            tuyChinh.VungCkCao = (float)Convert.ToDouble(tbVungCkCao.Text); 
+            tuyChinh.VungCkRong = (float)Convert.ToDouble(tbVungCkRong.Text);
+            tuyChinh.VungCkLeDuoi= (float)Convert.ToDouble(tbVungCkLeDuoi.Text);
+            tuyChinh.AnhCkCao1 = (float)Convert.ToDouble(tbAnhCkCao1.Text);
+            tuyChinh.AnhCkRong1 = (float)Convert.ToDouble(tbAnhCkRong1.Text);
             db.SaveChanges();
             MessageBox.Show("Thông số đã được thay đổi", "Thông báo");
             this.Close();

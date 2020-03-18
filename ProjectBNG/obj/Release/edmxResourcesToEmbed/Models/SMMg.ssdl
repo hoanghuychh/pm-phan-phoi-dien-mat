@@ -34,13 +34,11 @@
     <Property Name="Ngay" Type="datetime2" Precision="7" />
     <Property Name="GhiChu" Type="nvarchar" MaxLength="265" />
     <Property Name="Loai" Type="nvarchar" MaxLength="20" />
-    <Property Name="SoBaoMat" Type="int" Nullable="false" />
     <Property Name="BanIn" Type="int" />
     <Property Name="NgayIn" Type="datetime2" Precision="7" Nullable="false" />
     <Property Name="NguoiDuyet" Type="nvarchar" MaxLength="256" />
     <Property Name="NguoiKy" Type="nvarchar" MaxLength="256" />
     <Property Name="ChucDanh" Type="nvarchar" MaxLength="256" />
-    <Property Name="ChuKy" Type="image" />
     <Property Name="DsNoiNhan" Type="nvarchar" MaxLength="256" />
     <Property Name="Trang" Type="int" />
     <Property Name="idUsername" Type="int" />
@@ -81,6 +79,14 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MaDienMat" Type="int" />
   </EntityType>
+  <EntityType Name="FileDinhKemDienMat">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FileDinhKem" Type="nvarchar" MaxLength="256" />
+    <Property Name="MaDienMat" Type="int" />
+  </EntityType>
   <EntityType Name="KiemChungDien">
     <Key>
       <PropertyRef Name="id" />
@@ -91,6 +97,13 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
     <Property Name="TenNoiNhan" Type="nvarchar" MaxLength="265" />
     <Property Name="SoLuongDien" Type="int" />
     <Property Name="NgayIn" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="Loai">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenLoai" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="NguoiDuyet">
     <Key>
@@ -219,6 +232,14 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
     <Property Name="CoSo" Type="nvarchar" MaxLength="50" />
     <Property Name="LuuFile" Type="nvarchar" MaxLength="256" />
   </EntityType>
+  <EntityType Name="TuyChinhCombobox">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TrangThaiTuyChinh" Type="nvarchar" MaxLength="50" />
+    <Property Name="GiayIn" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="USER">
     <Key>
       <PropertyRef Name="ID" />
@@ -247,7 +268,9 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
     <EntitySet Name="CoSo" EntityType="Self.CoSo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DienMat" EntityType="Self.DienMat" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DienMatTemp" EntityType="Self.DienMatTemp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FileDinhKemDienMat" EntityType="Self.FileDinhKemDienMat" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="KiemChungDien" EntityType="Self.KiemChungDien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Loai" EntityType="Self.Loai" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NguoiDuyet" EntityType="Self.NguoiDuyet" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NguoiKy" EntityType="Self.NguoiKy" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Nhom" EntityType="Self.Nhom" Schema="dbo" store:Type="Tables" />
@@ -259,6 +282,7 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
     <EntitySet Name="PhanLoaiNoiNhan" EntityType="Self.PhanLoaiNoiNhan" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TrangThai" EntityType="Self.TrangThai" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TuyChinh" EntityType="Self.TuyChinh" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TuyChinhCombobox" EntityType="Self.TuyChinhCombobox" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="USER" EntityType="Self.USER" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DienMatDaPhanPhoi" EntityType="Self.DienMatDaPhanPhoi" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 

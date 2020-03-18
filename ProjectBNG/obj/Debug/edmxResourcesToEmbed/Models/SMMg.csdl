@@ -107,7 +107,6 @@
     <Property Name="NguoiDuyet" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
     <Property Name="NguoiKy" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
     <Property Name="ChucDanh" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-    <Property Name="ChuKy" Type="Binary" MaxLength="Max" FixedLength="false" />
     <Property Name="DsNoiNhan" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
     <Property Name="Trang" Type="Int32" />
     <Property Name="idUsername" Type="Int32" />

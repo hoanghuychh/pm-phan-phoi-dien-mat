@@ -29,7 +29,6 @@
           <ScalarProperty Name="idUsername" ColumnName="idUsername" />
           <ScalarProperty Name="Trang" ColumnName="Trang" />
           <ScalarProperty Name="DsNoiNhan" ColumnName="DsNoiNhan" />
-          <ScalarProperty Name="ChuKy" ColumnName="ChuKy" />
           <ScalarProperty Name="ChucDanh" ColumnName="ChucDanh" />
           <ScalarProperty Name="NguoiKy" ColumnName="NguoiKy" />
           <ScalarProperty Name="NguoiDuyet" ColumnName="NguoiDuyet" />

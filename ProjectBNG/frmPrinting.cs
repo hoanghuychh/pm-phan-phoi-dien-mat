@@ -145,7 +145,7 @@ namespace ProjectBNG
             }
             try
             {
-                foreach(var noiBo in noiNhanNoiBo)
+                foreach (var noiBo in noiNhanNoiBo)
                 {
                     PdfDocumentProcessor processor = new PdfDocumentProcessor();
                     y = 250;
@@ -167,9 +167,22 @@ namespace ProjectBNG
 
                             NguoiKy nguoiKy = db.NguoiKies.Single(x => x.TenNguoiKy == cbxNguoiKiMD.Text);
                             MemoryStream anhChuKy = new MemoryStream(nguoiKy.ChuKy);
-                            CommonFunction.InVungChuKy(processor, graphics, 150, 700, new Bitmap(anhChuKy), nguoiKy);
-                            graphics.AddToPageForeground(processor.Document.Pages[0], 72, 72);
+                            //CommonFunction.InVungChuKy(processor, graphics, new Bitmap(anhChuKy), nguoiKy);
+                            //graphics.AddToPageForeground(processor.Document.Pages[0], 72, 72);
+                            if (tbDatChuKyTrang.Text == "0")
+                            {
 
+                            }
+                            else if (pdfViewer1.PageCount >= int.Parse(tbDatChuKyTrang.Text))
+                            {
+                                CommonFunction.InVungChuKy(processor, graphics, new Bitmap(anhChuKy), nguoiKy, int.Parse(tbDatChuKyTrang.Text) - 1);
+                                graphics.AddToPageForeground(processor.Document.Pages[int.Parse(tbDatChuKyTrang.Text) - 1], 72, 72);
+                            }
+                            else
+                            {
+                                MessageBox.Show(string.Format("Trang tối đa hiện có thể là {0}", (pdfViewer1.PageCount).ToString(), "Thông báo"));
+                                return;
+                            }
                         }
 
                     }
@@ -294,7 +307,7 @@ namespace ProjectBNG
                 pbChuKiMD.SizeMode = PictureBoxSizeMode.StretchImage;
             }
             catch { }
-            tbDatChuKyTrang.Text = "1";
+            tbDatChuKyTrang.Text = "0";
 
         }
 
@@ -410,12 +423,48 @@ namespace ProjectBNG
 
         private void btnAddAttachedFile_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog() { Filter = "(PDF file)|*.pdf|(Docx file)|*.docx" };
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            FileDinhKemDienMat fileDinhKemDienMat = new FileDinhKemDienMat();
+            try
             {
-                string[] parts = openFileDialog.FileName.Trim().Split('\\');
-                txtAttachedFileName.Text += parts[parts.Length - 1] + "; ";
+                fileDinhKemDienMat.MaDienMat = Convert.ToInt32(tbMaDienMat.Text);
             }
+            catch
+            {
+                MessageBox.Show("Chưa điền thông tin số mật", "Thông báo");
+                return;
+            }
+            string[] parts = new string[10];
+            if (txtAttachedFileName.Text == "")
+            {
+                OpenFileDialog openFileDialog = new OpenFileDialog() { Filter = "(PDF file)|*.pdf|(Docx file)|*.docx" };
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+
+                    parts = openFileDialog.FileName.Trim().Split('\\');
+                    txtAttachedFileName.Text += parts[parts.Length - 1] + ";";
+                    fileDinhKemDienMat.FileDinhKem = openFileDialog.FileName;
+                    db.FileDinhKemDienMats.Add(fileDinhKemDienMat);
+                    db.SaveChanges();
+                }
+            }
+            else
+            {
+
+                if (!CommonFunction.checkExistForm("frmThemFileDinhKem", this))
+                {
+                    frmThemFileDinhKem frmThemFileDinhKem = new frmThemFileDinhKem(Convert.ToInt32(tbMaDienMat.Text));
+                    frmThemFileDinhKem.MdiParent = this.MdiParent;
+                    frmThemFileDinhKem.Show();
+                }
+                else
+                {
+                    CommonFunction.activateForm("frmThemFileDinhKem", this);
+                }
+                txtAttachedFileName.Text += parts[parts.Length - 1] + ";";
+            }
+
+
         }
 
         private void btnRemoveAttachedFile_Click(object sender, EventArgs e)
@@ -513,14 +562,14 @@ namespace ProjectBNG
                     TuyChinh tuyChinh = new TuyChinh();
                     tuyChinh = db.TuyChinhs.Single(x => x.id == 1);
                     int countPdfSave = 0;
-                    foreach(var pdf in listPdf)
+                    foreach (var pdf in listPdf)
                     {
-                        pdf.SaveDocument(tuyChinh.LuuFile+"\\" + addDienMat.MaDienMat.ToString().Trim() + "_" +countPdfSave.ToString()+"_"+ timeSave + ".pdf");
+                        pdf.SaveDocument(tuyChinh.LuuFile + "\\" + addDienMat.MaDienMat.ToString().Trim() + "_" + countPdfSave.ToString() + "_" + timeSave + ".pdf");
                         countPdfSave++;
                     }
-                    pdfViewer1.SaveDocument(tuyChinh.LuuFile + addDienMat.MaDienMat.ToString().Trim() + "_" + timeSave + ".pdf");
+                    //pdfViewer1.SaveDocument(tuyChinh.LuuFile + addDienMat.MaDienMat.ToString().Trim() + "_" + timeSave + ".pdf");
 
-                    addDienMat.LuuFile = tuyChinh.LuuFile + addDienMat.MaDienMat.ToString().Trim() + "_" + timeSave + ".pdf";
+                    addDienMat.LuuFile = FileNameOpen;
                     //addDienMat.FileDinhKem=
                     addDienMat.NoiGui = cbxNoiGuiMD.Text;
                     addDienMat.TrichYeu = tbTrichYeu.Text;
@@ -532,6 +581,7 @@ namespace ProjectBNG
                     addDienMat.NguoiDuyet = cbxNguoiDuyetMD.Text;
                     addDienMat.NguoiKy = cbxNguoiKiMD.Text;
                     addDienMat.ChucDanh = tbChucDanhMD.Text;
+                    addDienMat.BanIn = noiNhanTemps.Count();
                     //chua xong
                     //var stream = new MemoryStream();
                     //addDienMat.ChuKy = Image.FromStream(stream);
@@ -638,7 +688,7 @@ namespace ProjectBNG
                         }
                     }
                     catch { }
-                    
+
                     // da luu thong tin vao kiem chung dien
                     MessageBox.Show("Đã lưu điện mật", "Thông báo");
                 }
@@ -737,22 +787,34 @@ namespace ProjectBNG
             }
             else
             {
-                PdfDocumentProcessor processor = new PdfDocumentProcessor();
-                y = 250;
-                processor.LoadDocument(FileNameOpen);//lay pdf de xu li
-                
                 { //in vung chu ky
-
+                    PdfDocumentProcessor processor = new PdfDocumentProcessor();
+                    processor.LoadDocument(FileNameOpen);//lay pdf de xu li
                     using (PdfGraphics graphics = processor.CreateGraphics())
                     {
 
                         NguoiKy nguoiKy = db.NguoiKies.Single(x => x.TenNguoiKy == cbxNguoiKiMD.Text);
                         MemoryStream anhChuKy = new MemoryStream(nguoiKy.ChuKy);
-                        CommonFunction.InVungChuKy(processor, graphics, 150, 700, new Bitmap(anhChuKy), nguoiKy);
-                        graphics.AddToPageForeground(processor.Document.Pages[0], 72, 72);
+                        //CommonFunction.InVungChuKy(processor, graphics, new Bitmap(anhChuKy), nguoiKy);
+                        //graphics.AddToPageForeground(processor.Document.Pages[0], 72, 72);
+                        if (tbDatChuKyTrang.Text == "0")
+                        {
 
+                        }
+                        else if (pdfViewer1.PageCount >= int.Parse(tbDatChuKyTrang.Text))
+                        {
+                            MemoryStream ms2 = new MemoryStream();
+                            CommonFunction.InVungChuKy(processor, graphics, new Bitmap(anhChuKy), nguoiKy, int.Parse(tbDatChuKyTrang.Text) - 1);
+                            graphics.AddToPageForeground(processor.Document.Pages[int.Parse(tbDatChuKyTrang.Text) - 1], 72, 72);
+                            processor.SaveDocument(ms2);
+                            pdfViewer1.LoadDocument(ms2);
+                        }
+                        else
+                        {
+                            MessageBox.Show(string.Format("Trang tối đa hiện có thể là {0}", (pdfViewer1.PageCount).ToString(), "Thông báo"));
+                            return;
+                        }
                     }
-                    //chua xong
                 }
             }
 

@@ -44,7 +44,6 @@
           <Property Name="NguoiDuyet" Type="nvarchar" MaxLength="256" />
           <Property Name="NguoiKy" Type="nvarchar" MaxLength="256" />
           <Property Name="ChucDanh" Type="nvarchar" MaxLength="256" />
-          <Property Name="ChuKy" Type="image" />
           <Property Name="DsNoiNhan" Type="nvarchar" MaxLength="256" />
           <Property Name="Trang" Type="int" />
           <Property Name="idUsername" Type="int" />
@@ -428,7 +427,6 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
           <Property Name="NguoiDuyet" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="NguoiKy" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="ChucDanh" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="ChuKy" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="DsNoiNhan" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="Trang" Type="Int32" />
           <Property Name="idUsername" Type="Int32" />
@@ -687,7 +685,6 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
                 <ScalarProperty Name="idUsername" ColumnName="idUsername" />
                 <ScalarProperty Name="Trang" ColumnName="Trang" />
                 <ScalarProperty Name="DsNoiNhan" ColumnName="DsNoiNhan" />
-                <ScalarProperty Name="ChuKy" ColumnName="ChuKy" />
                 <ScalarProperty Name="ChucDanh" ColumnName="ChucDanh" />
                 <ScalarProperty Name="NguoiKy" ColumnName="NguoiKy" />
                 <ScalarProperty Name="NguoiDuyet" ColumnName="NguoiDuyet" />

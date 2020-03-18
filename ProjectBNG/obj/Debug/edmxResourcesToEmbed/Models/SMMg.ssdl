@@ -39,7 +39,6 @@
     <Property Name="NguoiDuyet" Type="nvarchar" MaxLength="256" />
     <Property Name="NguoiKy" Type="nvarchar" MaxLength="256" />
     <Property Name="ChucDanh" Type="nvarchar" MaxLength="256" />
-    <Property Name="ChuKy" Type="image" />
     <Property Name="DsNoiNhan" Type="nvarchar" MaxLength="256" />
     <Property Name="Trang" Type="int" />
     <Property Name="idUsername" Type="int" />

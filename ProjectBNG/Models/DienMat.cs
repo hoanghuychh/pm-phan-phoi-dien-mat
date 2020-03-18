@@ -30,7 +30,6 @@ namespace ProjectBNG.Models
         public string NguoiDuyet { get; set; }
         public string NguoiKy { get; set; }
         public string ChucDanh { get; set; }
-        public byte[] ChuKy { get; set; }
         public string DsNoiNhan { get; set; }
         public Nullable<int> Trang { get; set; }
         public Nullable<int> idUsername { get; set; }

@@ -40,6 +40,8 @@
             this.colSoBiThu1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colKiNhan1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNoiNhan = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnXemChiTiet = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.biThusBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.biThusBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlBiThu0)).BeginInit();
@@ -64,7 +66,7 @@
             this.gridControlBiThu0.Location = new System.Drawing.Point(9, 12);
             this.gridControlBiThu0.MainView = this.gridViewBiThu0;
             this.gridControlBiThu0.Name = "gridControlBiThu0";
-            this.gridControlBiThu0.Size = new System.Drawing.Size(953, 814);
+            this.gridControlBiThu0.Size = new System.Drawing.Size(953, 741);
             this.gridControlBiThu0.TabIndex = 1;
             this.gridControlBiThu0.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewBiThu0});
@@ -151,11 +153,39 @@
             this.colNoiNhan.VisibleIndex = 2;
             this.colNoiNhan.Width = 145;
             // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Location = new System.Drawing.Point(524, 774);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(94, 32);
+            this.button1.TabIndex = 46;
+            this.button1.Text = "Đóng";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnXemChiTiet
+            // 
+            this.btnXemChiTiet.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnXemChiTiet.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnXemChiTiet.Location = new System.Drawing.Point(410, 774);
+            this.btnXemChiTiet.Margin = new System.Windows.Forms.Padding(4);
+            this.btnXemChiTiet.Name = "btnXemChiTiet";
+            this.btnXemChiTiet.Size = new System.Drawing.Size(94, 32);
+            this.btnXemChiTiet.TabIndex = 45;
+            this.btnXemChiTiet.Text = "Xem chi tiết";
+            this.btnXemChiTiet.UseVisualStyleBackColor = true;
+            this.btnXemChiTiet.Click += new System.EventHandler(this.btnXemChiTiet_Click);
+            // 
             // frmBiThu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(971, 829);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnXemChiTiet);
             this.Controls.Add(this.gridControlBiThu0);
             this.Name = "frmBiThu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -181,5 +211,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colSoBiThu1;
         private DevExpress.XtraGrid.Columns.GridColumn colKiNhan1;
         private DevExpress.XtraGrid.Columns.GridColumn colNoiNhan;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnXemChiTiet;
     }
 }

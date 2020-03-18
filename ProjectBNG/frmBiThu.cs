@@ -74,6 +74,24 @@ namespace ProjectBNG
                 }, selectNguoiDuyet);
                 frmSuaNguoiDuyet.ShowDialog(this);*/
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnXemChiTiet_Click(object sender, EventArgs e)
+        {
+            string DanhSachDien = gridViewBiThu0.GetRowCellValue(gridViewBiThu0.FocusedRowHandle, "DanhSachDienMat").ToString();
+            if (!CommonFunction.checkExistForm("frmChiTietBiThu", this))
+            {
+
+                frmChiTietBiThu frmChiTietBiThu = new frmChiTietBiThu(DanhSachDien);
+                frmChiTietBiThu.ShowDialog();
+            }
+            else
+                CommonFunction.activateForm("frmChiTietBiThu", this);
+        }
     }
 
 }

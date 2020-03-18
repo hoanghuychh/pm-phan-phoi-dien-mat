@@ -28,18 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.gridControlDinhKem = new DevExpress.XtraGrid.GridControl();
             this.gridViewDinhKem = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnXoa = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnDong = new System.Windows.Forms.Button();
+            this.fileDinhKemDienMatsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.colFileDinhKem = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlDinhKem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewDinhKem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileDinhKemDienMatsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // gridControlDinhKem
             // 
+            this.gridControlDinhKem.DataSource = this.fileDinhKemDienMatsBindingSource;
             this.gridControlDinhKem.Location = new System.Drawing.Point(12, 12);
             this.gridControlDinhKem.MainView = this.gridViewDinhKem;
             this.gridControlDinhKem.Name = "gridControlDinhKem";
@@ -50,8 +55,11 @@
             // 
             // gridViewDinhKem
             // 
+            this.gridViewDinhKem.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colFileDinhKem});
             this.gridViewDinhKem.GridControl = this.gridControlDinhKem;
             this.gridViewDinhKem.Name = "gridViewDinhKem";
+            this.gridViewDinhKem.OptionsView.ShowGroupPanel = false;
             // 
             // btnThem
             // 
@@ -64,6 +72,7 @@
             this.btnThem.TabIndex = 42;
             this.btnThem.Text = "Thêm";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // btnXoa
             // 
@@ -76,6 +85,7 @@
             this.btnXoa.TabIndex = 42;
             this.btnXoa.Text = "Xóa";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // btnLuu
             // 
@@ -88,6 +98,7 @@
             this.btnLuu.TabIndex = 42;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // btnDong
             // 
@@ -100,6 +111,21 @@
             this.btnDong.TabIndex = 42;
             this.btnDong.Text = "Đóng";
             this.btnDong.UseVisualStyleBackColor = true;
+            this.btnDong.Click += new System.EventHandler(this.btnDong_Click);
+            // 
+            // fileDinhKemDienMatsBindingSource
+            // 
+            this.fileDinhKemDienMatsBindingSource.DataSource = typeof(ProjectBNG.Models.FileDinhKemDienMat);
+            // 
+            // colFileDinhKem
+            // 
+            this.colFileDinhKem.Caption = "Đường dẫn file đính kèm";
+            this.colFileDinhKem.FieldName = "FileDinhKem";
+            this.colFileDinhKem.MinWidth = 25;
+            this.colFileDinhKem.Name = "colFileDinhKem";
+            this.colFileDinhKem.Visible = true;
+            this.colFileDinhKem.VisibleIndex = 0;
+            this.colFileDinhKem.Width = 94;
             // 
             // frmThemFileDinhKem
             // 
@@ -114,8 +140,10 @@
             this.Name = "frmThemFileDinhKem";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đính kèm";
+            this.Load += new System.EventHandler(this.frmThemFileDinhKem_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlDinhKem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewDinhKem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fileDinhKemDienMatsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -128,5 +156,7 @@
         private System.Windows.Forms.Button btnXoa;
         private System.Windows.Forms.Button btnLuu;
         private System.Windows.Forms.Button btnDong;
+        private System.Windows.Forms.BindingSource fileDinhKemDienMatsBindingSource;
+        private DevExpress.XtraGrid.Columns.GridColumn colFileDinhKem;
     }
 }

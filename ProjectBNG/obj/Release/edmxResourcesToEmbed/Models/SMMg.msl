@@ -29,13 +29,11 @@
           <ScalarProperty Name="idUsername" ColumnName="idUsername" />
           <ScalarProperty Name="Trang" ColumnName="Trang" />
           <ScalarProperty Name="DsNoiNhan" ColumnName="DsNoiNhan" />
-          <ScalarProperty Name="ChuKy" ColumnName="ChuKy" />
           <ScalarProperty Name="ChucDanh" ColumnName="ChucDanh" />
           <ScalarProperty Name="NguoiKy" ColumnName="NguoiKy" />
           <ScalarProperty Name="NguoiDuyet" ColumnName="NguoiDuyet" />
           <ScalarProperty Name="NgayIn" ColumnName="NgayIn" />
           <ScalarProperty Name="BanIn" ColumnName="BanIn" />
-          <ScalarProperty Name="SoBaoMat" ColumnName="SoBaoMat" />
           <ScalarProperty Name="Loai" ColumnName="Loai" />
           <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
           <ScalarProperty Name="Ngay" ColumnName="Ngay" />
@@ -58,6 +56,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="FileDinhKemDienMats">
+      <EntityTypeMapping TypeName="SMMgModel.FileDinhKemDienMat">
+        <MappingFragment StoreEntitySet="FileDinhKemDienMat">
+          <ScalarProperty Name="MaDienMat" ColumnName="MaDienMat" />
+          <ScalarProperty Name="FileDinhKem" ColumnName="FileDinhKem" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="KiemChungDiens">
       <EntityTypeMapping TypeName="SMMgModel.KiemChungDien">
         <MappingFragment StoreEntitySet="KiemChungDien">
@@ -66,6 +73,14 @@
           <ScalarProperty Name="TenNoiNhan" ColumnName="TenNoiNhan" />
           <ScalarProperty Name="TongSoTrang" ColumnName="TongSoTrang" />
           <ScalarProperty Name="DanhSachDien" ColumnName="DanhSachDien" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Loais">
+      <EntityTypeMapping TypeName="SMMgModel.Loai">
+        <MappingFragment StoreEntitySet="Loai">
+          <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -204,6 +219,15 @@
           <ScalarProperty Name="DsnLeTrai" ColumnName="DsnLeTrai" />
           <ScalarProperty Name="VanBanLeTren" ColumnName="VanBanLeTren" />
           <ScalarProperty Name="VanBanLeTrai" ColumnName="VanBanLeTrai" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TuyChinhComboboxes">
+      <EntityTypeMapping TypeName="SMMgModel.TuyChinhCombobox">
+        <MappingFragment StoreEntitySet="TuyChinhCombobox">
+          <ScalarProperty Name="GiayIn" ColumnName="GiayIn" />
+          <ScalarProperty Name="TrangThaiTuyChinh" ColumnName="TrangThaiTuyChinh" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -36,6 +36,14 @@ namespace ProjectBNG {
                 newNoiNhan.Loai = cmbLoai.Text;
                 newNoiNhan.Nhom = cmbNhom.Text;
                 newNoiNhan.SoBaoMat = Convert.ToInt32(tbSoBaoMat.Text);
+                try
+                {
+                    NoiNhan noiNhanExist = db.NoiNhans.Single(nn => nn.SoBaoMat == newNoiNhan.SoBaoMat);
+                    MessageBox.Show("Số bảo mật đã được sử dụng !", "Thông báo");
+                    return;
+                }
+                catch { }
+                
                 newNoiNhan.SoThuTu = Convert.ToInt32(tbSoThuTu.Text);
                 newNoiNhan.CoBi = cbCoBi.Checked;
                 newNoiNhan.DangHoatDong = cbHoatDong.Checked;
