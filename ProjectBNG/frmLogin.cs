@@ -68,8 +68,8 @@ namespace ProjectBNG
         private void frmLogin_Load(object sender, EventArgs e)
         {
 #if DEBUG 
-            this.txtUsername.Text = "user2";
-            this.txtPassword.Text = "user2";
+            this.txtUsername.Text = "1";
+            this.txtPassword.Text = "1";
 #endif
         }
     }

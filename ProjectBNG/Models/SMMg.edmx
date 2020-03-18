@@ -39,7 +39,6 @@
           <Property Name="Ngay" Type="datetime2" Precision="7" />
           <Property Name="GhiChu" Type="nvarchar" MaxLength="265" />
           <Property Name="Loai" Type="nvarchar" MaxLength="20" />
-          <Property Name="SoBaoMat" Type="int" Nullable="false" />
           <Property Name="BanIn" Type="int" />
           <Property Name="NgayIn" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="NguoiDuyet" Type="nvarchar" MaxLength="256" />
@@ -86,6 +85,14 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MaDienMat" Type="int" />
         </EntityType>
+        <EntityType Name="FileDinhKemDienMat">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FileDinhKem" Type="nvarchar" MaxLength="256" />
+          <Property Name="MaDienMat" Type="int" />
+        </EntityType>
         <EntityType Name="KiemChungDien">
           <Key>
             <PropertyRef Name="id" />
@@ -96,6 +103,13 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
           <Property Name="TenNoiNhan" Type="nvarchar" MaxLength="265" />
           <Property Name="SoLuongDien" Type="int" />
           <Property Name="NgayIn" Type="datetime2" Precision="7" />
+        </EntityType>
+        <EntityType Name="Loai">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenLoai" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="NguoiDuyet">
           <Key>
@@ -224,6 +238,14 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
           <Property Name="CoSo" Type="nvarchar" MaxLength="50" />
           <Property Name="LuuFile" Type="nvarchar" MaxLength="256" />
         </EntityType>
+        <EntityType Name="TuyChinhCombobox">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TrangThaiTuyChinh" Type="nvarchar" MaxLength="50" />
+          <Property Name="GiayIn" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="USER">
           <Key>
             <PropertyRef Name="ID" />
@@ -252,7 +274,9 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
           <EntitySet Name="CoSo" EntityType="Self.CoSo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DienMat" EntityType="Self.DienMat" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DienMatTemp" EntityType="Self.DienMatTemp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FileDinhKemDienMat" EntityType="Self.FileDinhKemDienMat" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KiemChungDien" EntityType="Self.KiemChungDien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Loai" EntityType="Self.Loai" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NguoiDuyet" EntityType="Self.NguoiDuyet" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NguoiKy" EntityType="Self.NguoiKy" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Nhom" EntityType="Self.Nhom" Schema="dbo" store:Type="Tables" />
@@ -264,6 +288,7 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
           <EntitySet Name="PhanLoaiNoiNhan" EntityType="Self.PhanLoaiNoiNhan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TrangThai" EntityType="Self.TrangThai" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TuyChinh" EntityType="Self.TuyChinh" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TuyChinhCombobox" EntityType="Self.TuyChinhCombobox" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USER" EntityType="Self.USER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DienMatDaPhanPhoi" EntityType="Self.DienMatDaPhanPhoi" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -331,7 +356,9 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
           <EntitySet Name="CoSoes" EntityType="SMMgModel.CoSo" />
           <EntitySet Name="DienMats" EntityType="SMMgModel.DienMat" />
           <EntitySet Name="DienMatTemps" EntityType="SMMgModel.DienMatTemp" />
+          <EntitySet Name="FileDinhKemDienMats" EntityType="SMMgModel.FileDinhKemDienMat" />
           <EntitySet Name="KiemChungDiens" EntityType="SMMgModel.KiemChungDien" />
+          <EntitySet Name="Loais" EntityType="SMMgModel.Loai" />
           <EntitySet Name="NguoiDuyets" EntityType="SMMgModel.NguoiDuyet" />
           <EntitySet Name="NguoiKies" EntityType="SMMgModel.NguoiKy" />
           <EntitySet Name="Nhoms" EntityType="SMMgModel.Nhom" />
@@ -343,6 +370,7 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
           <EntitySet Name="PhanLoaiNoiNhans" EntityType="SMMgModel.PhanLoaiNoiNhan" />
           <EntitySet Name="TrangThais" EntityType="SMMgModel.TrangThai" />
           <EntitySet Name="TuyChinhs" EntityType="SMMgModel.TuyChinh" />
+          <EntitySet Name="TuyChinhComboboxes" EntityType="SMMgModel.TuyChinhCombobox" />
           <EntitySet Name="USERs" EntityType="SMMgModel.USER" />
           <EntitySet Name="DienMatDaPhanPhois" EntityType="SMMgModel.DienMatDaPhanPhoi" />
           <AssociationSet Name="FK_DienMat_USER1" Association="SMMgModel.FK_DienMat_USER1">
@@ -395,7 +423,6 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
           <Property Name="Ngay" Type="DateTime" Precision="7" />
           <Property Name="GhiChu" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
           <Property Name="Loai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="SoBaoMat" Type="Int32" Nullable="false" />
           <Property Name="BanIn" Type="Int32" />
           <Property Name="NgayIn" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="NguoiDuyet" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
@@ -415,6 +442,14 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MaDienMat" Type="Int32" />
         </EntityType>
+        <EntityType Name="FileDinhKemDienMat">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FileDinhKem" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="MaDienMat" Type="Int32" />
+        </EntityType>
         <EntityType Name="KiemChungDien">
           <Key>
             <PropertyRef Name="id" />
@@ -425,6 +460,13 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
           <Property Name="TenNoiNhan" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
           <Property Name="SoLuongDien" Type="Int32" />
           <Property Name="NgayIn" Type="DateTime" Precision="7" />
+        </EntityType>
+        <EntityType Name="Loai">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="NguoiDuyet">
           <Key>
@@ -553,6 +595,14 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
           <Property Name="CoSo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="LuuFile" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="TuyChinhCombobox">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TrangThaiTuyChinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GiayIn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="USER">
           <Key>
             <PropertyRef Name="ID" />
@@ -643,7 +693,6 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
                 <ScalarProperty Name="NguoiDuyet" ColumnName="NguoiDuyet" />
                 <ScalarProperty Name="NgayIn" ColumnName="NgayIn" />
                 <ScalarProperty Name="BanIn" ColumnName="BanIn" />
-                <ScalarProperty Name="SoBaoMat" ColumnName="SoBaoMat" />
                 <ScalarProperty Name="Loai" ColumnName="Loai" />
                 <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
                 <ScalarProperty Name="Ngay" ColumnName="Ngay" />
@@ -666,6 +715,15 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="FileDinhKemDienMats">
+            <EntityTypeMapping TypeName="SMMgModel.FileDinhKemDienMat">
+              <MappingFragment StoreEntitySet="FileDinhKemDienMat">
+                <ScalarProperty Name="MaDienMat" ColumnName="MaDienMat" />
+                <ScalarProperty Name="FileDinhKem" ColumnName="FileDinhKem" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="KiemChungDiens">
             <EntityTypeMapping TypeName="SMMgModel.KiemChungDien">
               <MappingFragment StoreEntitySet="KiemChungDien">
@@ -674,6 +732,14 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
                 <ScalarProperty Name="TenNoiNhan" ColumnName="TenNoiNhan" />
                 <ScalarProperty Name="TongSoTrang" ColumnName="TongSoTrang" />
                 <ScalarProperty Name="DanhSachDien" ColumnName="DanhSachDien" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Loais">
+            <EntityTypeMapping TypeName="SMMgModel.Loai">
+              <MappingFragment StoreEntitySet="Loai">
+                <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -812,6 +878,15 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
                 <ScalarProperty Name="DsnLeTrai" ColumnName="DsnLeTrai" />
                 <ScalarProperty Name="VanBanLeTren" ColumnName="VanBanLeTren" />
                 <ScalarProperty Name="VanBanLeTrai" ColumnName="VanBanLeTrai" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TuyChinhComboboxes">
+            <EntityTypeMapping TypeName="SMMgModel.TuyChinhCombobox">
+              <MappingFragment StoreEntitySet="TuyChinhCombobox">
+                <ScalarProperty Name="GiayIn" ColumnName="GiayIn" />
+                <ScalarProperty Name="TrangThaiTuyChinh" ColumnName="TrangThaiTuyChinh" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -207,6 +207,12 @@
     <Compile Include="frmSuaNguoiKy.Designer.cs">
       <DependentUpon>frmSuaNguoiKy.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmThemFileDinhKem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThemFileDinhKem.Designer.cs">
+      <DependentUpon>frmThemFileDinhKem.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmThemNguoiDung.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -258,7 +264,13 @@
     <Compile Include="Models\DienMatTemp.cs">
       <DependentUpon>SMMg.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\FileDinhKemDienMat.cs">
+      <DependentUpon>SMMg.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\KiemChungDien.cs">
+      <DependentUpon>SMMg.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Loai.cs">
       <DependentUpon>SMMg.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\NguoiDuyet.cs">
@@ -315,6 +327,9 @@
     <Compile Include="Models\TuyChinh.cs">
       <DependentUpon>SMMg.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\TuyChinhCombobox.cs">
+      <DependentUpon>SMMg.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\USER.cs">
       <DependentUpon>SMMg.tt</DependentUpon>
     </Compile>
@@ -336,6 +351,7 @@
     <Compile Include="Validation\RegexModel.cs" />
     <EmbeddedResource Include="frmBiThu.resx">
       <DependentUpon>frmBiThu.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmChiTietBiThu.resx">
       <DependentUpon>frmChiTietBiThu.cs</DependentUpon>
@@ -345,6 +361,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddPrinting.resx">
       <DependentUpon>frmAddPrinting.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDoiMK.resx">
       <DependentUpon>frmDoiMK.cs</DependentUpon>
@@ -385,6 +402,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSuaNguoiKy.resx">
       <DependentUpon>frmSuaNguoiKy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThemFileDinhKem.resx">
+      <DependentUpon>frmThemFileDinhKem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmThemNguoiDung.resx">
       <DependentUpon>frmThemNguoiDung.cs</DependentUpon>

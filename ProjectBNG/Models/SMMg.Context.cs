@@ -31,7 +31,9 @@ namespace ProjectBNG.Models
         public virtual DbSet<CoSo> CoSoes { get; set; }
         public virtual DbSet<DienMat> DienMats { get; set; }
         public virtual DbSet<DienMatTemp> DienMatTemps { get; set; }
+        public virtual DbSet<FileDinhKemDienMat> FileDinhKemDienMats { get; set; }
         public virtual DbSet<KiemChungDien> KiemChungDiens { get; set; }
+        public virtual DbSet<Loai> Loais { get; set; }
         public virtual DbSet<NguoiDuyet> NguoiDuyets { get; set; }
         public virtual DbSet<NguoiKy> NguoiKies { get; set; }
         public virtual DbSet<Nhom> Nhoms { get; set; }
@@ -43,6 +45,7 @@ namespace ProjectBNG.Models
         public virtual DbSet<PhanLoaiNoiNhan> PhanLoaiNoiNhans { get; set; }
         public virtual DbSet<TrangThai> TrangThais { get; set; }
         public virtual DbSet<TuyChinh> TuyChinhs { get; set; }
+        public virtual DbSet<TuyChinhCombobox> TuyChinhComboboxes { get; set; }
         public virtual DbSet<USER> USERs { get; set; }
         public virtual DbSet<DienMatDaPhanPhoi> DienMatDaPhanPhois { get; set; }
     

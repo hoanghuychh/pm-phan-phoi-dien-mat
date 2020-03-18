@@ -50,6 +50,7 @@ namespace ProjectBNG
             tbDauChimOpacity.Text = tuyChinh.DauChimOpacity.ToString();
 
             colorPickEditPdf.Color = Color.FromArgb(int.Parse(tuyChinh.DauChimMauPdf.ToString()));
+            tbVungCkTieuDe.Text = tuyChinh.TieuDe.ToString();
         }
         private void btnOk_Click(object sender, EventArgs e)
         {
@@ -57,6 +58,7 @@ namespace ProjectBNG
             tuyChinh.DauChimFont = (float)Convert.ToDouble(tbDauChimFont.Text);
             tuyChinh.DauChimRong = (float)Convert.ToDouble(tbDauChimRong.Text);
             tuyChinh.DauChimOpacity = (float)Convert.ToDouble(tbDauChimOpacity.Text);
+            tuyChinh.TieuDe = tbVungCkTieuDe.Text.ToString().Trim();
             db.SaveChanges();
             MessageBox.Show("Thông số đã được thay đổi", "Thông báo");
             this.Close();

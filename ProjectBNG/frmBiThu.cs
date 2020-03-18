@@ -39,35 +39,7 @@ namespace ProjectBNG
 
         private void gridViewBiThu0_CustomDrawRowIndicator(object sender, DevExpress.XtraGrid.Views.Grid.RowIndicatorCustomDrawEventArgs e)
         {
-            if (!gridViewBiThu0.IsGroupRow(e.RowHandle)) //Nếu không phải là Group
-            {
-                if (e.Info.IsRowIndicator) //Nếu là dòng Indicator
-                {
-                    if (e.RowHandle < 0)
-                    {
-                        e.Info.ImageIndex = 0;
-                        e.Info.DisplayText = string.Empty;
-                    }
-                    else
-                    {
-                        e.Info.ImageIndex = -1; //Không hiển thị hình
-                        e.Info.DisplayText = (e.RowHandle + 1).ToString(); //Số thứ tự tăng dần
-                    }
-
-                    //hàm này dùng thay đổi độ rộng mặc định của cột số thứ tự
-                    var _Size = e.Graphics.MeasureString(e.Info.DisplayText, e.Appearance.Font);
-                    var _Width = Convert.ToInt32(_Size.Width) + 20;
-                    BeginInvoke(new MethodInvoker(delegate { CommonFunction.cal(_Width, gridViewBiThu0); }));
-                }
-            }
-            else
-            {
-                e.Info.ImageIndex = -1;
-                e.Info.DisplayText = string.Format("[{0}]", e.RowHandle * -1); //Nhân -1 để đánh lại số thứ tự tăng dần
-                var _Size = e.Graphics.MeasureString(e.Info.DisplayText, e.Appearance.Font);
-                var _Width = Convert.ToInt32(_Size.Width) + 20;
-                BeginInvoke(new MethodInvoker(delegate { CommonFunction.cal(_Width, gridViewBiThu0); }));
-            }
+            CommonFunction.gridView_CustomDrawRowIndicator(sender, e, gridViewBiThu0);
         }
 
         private void gridViewBiThu0_RowCellClick(object sender, DevExpress.XtraGrid.Views.Grid.RowCellClickEventArgs e)

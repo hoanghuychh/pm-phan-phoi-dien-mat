@@ -214,6 +214,8 @@
             // 
             // cmbLoai
             // 
+
+            this.cmbLoai.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLoai.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top)));
             this.cmbLoai.FormattingEnabled = true;
             this.cmbLoai.Location = new System.Drawing.Point(443, 2);

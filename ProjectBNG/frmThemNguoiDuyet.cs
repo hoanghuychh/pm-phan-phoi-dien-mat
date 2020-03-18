@@ -41,6 +41,10 @@ namespace ProjectBNG
             catch { }
             nguoiDuyet.ChuKy = fileImageSave.ToArray();
             fileImageSave.Dispose();
+            if (nguoiDuyet.MacDinh == true)
+            {
+                db.Database.ExecuteSqlCommand("update  NguoiDuyet set MacDinh = 0 ");
+            }
             db.NguoiDuyets.Add(nguoiDuyet);
             db.SaveChanges();
             this.onSubmit.Invoke();

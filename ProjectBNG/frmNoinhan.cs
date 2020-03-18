@@ -77,10 +77,13 @@ namespace ProjectBNG
         {
             this.gridView1.OptionsView.ShowGroupedColumns = true;
             publicLoai = new SMMgEntities();
-            cmbLoai.DataSource = publicLoai.PhanLoaiNoiNhans.ToList();
-            cmbLoai.DisplayMember = "PhanLoai";
+
+            cmbLoai.DataSource = publicLoai.Loais.ToList();
+            cmbLoai.ValueMember = "id";
+            cmbLoai.DisplayMember = "TenLoai";
+            
             cmbLoai.Invalidate();
-            gridControl1_Load(sender,e);
+            gridControl1_Load(sender, e);
         }
         public void reloadFormNoiNhan()
         {
@@ -135,7 +138,7 @@ namespace ProjectBNG
             SMMgEntities db = new SMMgEntities();
             try
             {
-                if (tbTenNoiNhanTimKiem.Text == "")
+                if (tbTenNoiNhanTimKiem.Text == "" && cmbLoai.Text=="Nội bộ")
                 {
 
                 gridControl1.DataSource = db.NoiNhans
@@ -149,10 +152,27 @@ namespace ProjectBNG
                         }).ToList();
                 gridControl1.RefreshDataSource();
                 }
-                else
+                else if (tbTenNoiNhanTimKiem.Text == "" && cmbLoai.Text == "Bên ngoài")
+                {
+                    gridControl1_Load(sender, e);
+                }
+                else if (tbTenNoiNhanTimKiem.Text == "" && cmbLoai.Text == "Tất cả")
                 {
                     gridControl1.DataSource = db.NoiNhans
                         .Where(x => x.Loai == cmbLoai.Text && x.TenNoiNhan==tbTenNoiNhanTimKiem.Text)
+                        .Select(x => new
+                        {
+                            MaNoiNhan = x.MaNoiNhan,
+                            TenNoiNhan = x.TenNoiNhan,
+                            SoBaoMat = x.SoBaoMat,
+                            Loai = x.Loai
+                        }).ToList();
+                    gridControl1.RefreshDataSource();
+                }
+                else
+                {
+                    gridControl1.DataSource = db.NoiNhans
+                        .Where(x => x.Loai == cmbLoai.Text && x.TenNoiNhan == tbTenNoiNhanTimKiem.Text)
                         .Select(x => new
                         {
                             MaNoiNhan = x.MaNoiNhan,

@@ -162,7 +162,7 @@
             this.btnBrowseFile.Margin = new System.Windows.Forms.Padding(4);
             this.btnBrowseFile.Name = "btnBrowseFile";
             this.btnBrowseFile.Size = new System.Drawing.Size(115, 28);
-            this.btnBrowseFile.TabIndex = 34;
+            this.btnBrowseFile.TabIndex = 1;
             this.btnBrowseFile.Text = "...";
             this.btnBrowseFile.UseVisualStyleBackColor = true;
             this.btnBrowseFile.Click += new System.EventHandler(this.btnBrowseFile_Click);
@@ -187,9 +187,9 @@
             // 
             // cbxPrivateAttachedFile
             // 
-            this.cbxPrivateAttachedFile.BackColor = System.Drawing.SystemColors.HighlightText;
+            this.cbxPrivateAttachedFile.BackColor = System.Drawing.SystemColors.Window;
             this.cbxPrivateAttachedFile.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxPrivateAttachedFile.ForeColor = System.Drawing.SystemColors.Window;
+            this.cbxPrivateAttachedFile.ForeColor = System.Drawing.SystemColors.WindowText;
             this.cbxPrivateAttachedFile.FormattingEnabled = true;
             this.cbxPrivateAttachedFile.Location = new System.Drawing.Point(603, 53);
             this.cbxPrivateAttachedFile.Margin = new System.Windows.Forms.Padding(4);
@@ -260,6 +260,7 @@
             this.txtAttachedFileName.Location = new System.Drawing.Point(129, 53);
             this.txtAttachedFileName.Margin = new System.Windows.Forms.Padding(4);
             this.txtAttachedFileName.Name = "txtAttachedFileName";
+            this.txtAttachedFileName.ReadOnly = true;
             this.txtAttachedFileName.Size = new System.Drawing.Size(280, 22);
             this.txtAttachedFileName.TabIndex = 24;
             // 
@@ -568,10 +569,10 @@
             // tbChucDanhMD
             // 
             this.tbChucDanhMD.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.tbChucDanhMD.Enabled = false;
             this.tbChucDanhMD.Location = new System.Drawing.Point(97, 132);
             this.tbChucDanhMD.Margin = new System.Windows.Forms.Padding(4);
             this.tbChucDanhMD.Name = "tbChucDanhMD";
+            this.tbChucDanhMD.ReadOnly = true;
             this.tbChucDanhMD.Size = new System.Drawing.Size(257, 22);
             this.tbChucDanhMD.TabIndex = 35;
             // 
