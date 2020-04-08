@@ -30,12 +30,12 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.btnCapNhat = new System.Windows.Forms.Button();
+            this.tbMKMoi2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbMKMoi = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbMKCu = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -43,15 +43,15 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.textBox3);
+            this.panel1.Controls.Add(this.btnCapNhat);
+            this.panel1.Controls.Add(this.tbMKMoi2);
             this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.tbMKMoi);
             this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.tbMKCu);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(16, 15);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(399, 140);
             this.panel1.TabIndex = 0;
@@ -59,7 +59,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(236, 106);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 28);
             this.button2.TabIndex = 7;
@@ -67,24 +67,25 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // btnCapNhat
             // 
-            this.button1.Location = new System.Drawing.Point(88, 106);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 28);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Cập nhật";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCapNhat.Location = new System.Drawing.Point(88, 106);
+            this.btnCapNhat.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCapNhat.Name = "btnCapNhat";
+            this.btnCapNhat.Size = new System.Drawing.Size(100, 28);
+            this.btnCapNhat.TabIndex = 6;
+            this.btnCapNhat.Text = "Cập nhật";
+            this.btnCapNhat.UseVisualStyleBackColor = true;
+            this.btnCapNhat.Click += new System.EventHandler(this.btnCapNhat_Click);
             // 
-            // textBox3
+            // tbMKMoi2
             // 
-            this.textBox3.Location = new System.Drawing.Point(120, 74);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.PasswordChar = '*';
-            this.textBox3.Size = new System.Drawing.Size(260, 22);
-            this.textBox3.TabIndex = 5;
+            this.tbMKMoi2.Location = new System.Drawing.Point(142, 74);
+            this.tbMKMoi2.Margin = new System.Windows.Forms.Padding(4);
+            this.tbMKMoi2.Name = "tbMKMoi2";
+            this.tbMKMoi2.PasswordChar = '*';
+            this.tbMKMoi2.Size = new System.Drawing.Size(238, 22);
+            this.tbMKMoi2.TabIndex = 5;
             // 
             // label3
             // 
@@ -92,18 +93,18 @@
             this.label3.Location = new System.Drawing.Point(4, 79);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(107, 17);
+            this.label3.Size = new System.Drawing.Size(130, 17);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Gõ lại mật khẩu";
+            this.label3.Text = "Xác nhận mật khẩu";
             // 
-            // textBox2
+            // tbMKMoi
             // 
-            this.textBox2.Location = new System.Drawing.Point(120, 38);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(260, 22);
-            this.textBox2.TabIndex = 3;
+            this.tbMKMoi.Location = new System.Drawing.Point(142, 38);
+            this.tbMKMoi.Margin = new System.Windows.Forms.Padding(4);
+            this.tbMKMoi.Name = "tbMKMoi";
+            this.tbMKMoi.PasswordChar = '*';
+            this.tbMKMoi.Size = new System.Drawing.Size(238, 22);
+            this.tbMKMoi.TabIndex = 3;
             // 
             // label2
             // 
@@ -115,14 +116,14 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Mật khẩu mới";
             // 
-            // textBox1
+            // tbMKCu
             // 
-            this.textBox1.Location = new System.Drawing.Point(120, 2);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '*';
-            this.textBox1.Size = new System.Drawing.Size(260, 22);
-            this.textBox1.TabIndex = 1;
+            this.tbMKCu.Location = new System.Drawing.Point(142, 2);
+            this.tbMKCu.Margin = new System.Windows.Forms.Padding(4);
+            this.tbMKCu.Name = "tbMKCu";
+            this.tbMKCu.PasswordChar = '*';
+            this.tbMKCu.Size = new System.Drawing.Size(238, 22);
+            this.tbMKCu.TabIndex = 1;
             // 
             // label1
             // 
@@ -141,7 +142,7 @@
             this.ClientSize = new System.Drawing.Size(431, 170);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmDoiMK";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đổi mật khẩu";
@@ -154,13 +155,13 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbMKCu;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Button btnCapNhat;
+        private System.Windows.Forms.TextBox tbMKMoi2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbMKMoi;
         private System.Windows.Forms.Label label2;
     }
 }

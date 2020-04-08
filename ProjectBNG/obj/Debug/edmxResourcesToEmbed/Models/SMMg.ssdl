@@ -6,7 +6,7 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Ngay" Type="datetime" Nullable="false" />
-    <Property Name="SoPhieu" Type="int" />
+    <Property Name="SoPhieu" Type="nvarchar" MaxLength="265" />
     <Property Name="KiNhan" Type="nvarchar" MaxLength="265" />
     <Property Name="TenNoiNhan" Type="nvarchar" MaxLength="265" />
     <Property Name="TongSo" Type="int" />
@@ -105,32 +105,6 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TenLoai" Type="nvarchar" MaxLength="50" />
   </EntityType>
-  <EntityType Name="NguoiDuyet">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="TenNguoiDuyet" Type="nvarchar" MaxLength="265" />
-    <Property Name="MacDinh" Type="bit" />
-    <Property Name="ChuKy" Type="image" />
-  </EntityType>
-  <EntityType Name="NguoiKy">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="TenNguoiKy" Type="nvarchar" MaxLength="265" />
-    <Property Name="ChucDanh" Type="nvarchar" MaxLength="265" />
-    <Property Name="MacDinh" Type="bit" />
-    <Property Name="ChuKy" Type="image" />
-  </EntityType>
-  <EntityType Name="Nhom">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="TenNhom" Type="nvarchar" MaxLength="50" />
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-  </EntityType>
   <EntityType Name="NoiGui">
     <Key>
       <PropertyRef Name="id" />
@@ -169,6 +143,32 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
     <Property Name="DangHoatDong" Type="bit" />
     <Property Name="CoSo" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="NguoiDuyet">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenNguoiDuyet" Type="nvarchar" MaxLength="265" />
+    <Property Name="MacDinh" Type="bit" />
+    <Property Name="ChuKy" Type="image" />
+  </EntityType>
+  <EntityType Name="NguoiKy">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenNguoiKy" Type="nvarchar" MaxLength="265" />
+    <Property Name="ChucDanh" Type="nvarchar" MaxLength="265" />
+    <Property Name="MacDinh" Type="bit" />
+    <Property Name="ChuKy" Type="image" />
+  </EntityType>
+  <EntityType Name="Nhom">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="TenNhom" Type="nvarchar" MaxLength="50" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
   <EntityType Name="PemisionDetail">
     <Key>
       <PropertyRef Name="id" />
@@ -192,13 +192,6 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
     </Key>
     <Property Name="PhanLoai" Type="nvarchar" MaxLength="50" />
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-  </EntityType>
-  <EntityType Name="TrangThai">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="NameTrangThai" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="TuyChinh">
     <Key>
@@ -240,6 +233,13 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
     <Property Name="TrangThaiTuyChinh" Type="nvarchar" MaxLength="50" />
     <Property Name="GiayIn" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="TrangThai">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameTrangThai" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="USER">
     <Key>
       <PropertyRef Name="ID" />
@@ -271,18 +271,18 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
     <EntitySet Name="FileDinhKemDienMat" EntityType="Self.FileDinhKemDienMat" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="KiemChungDien" EntityType="Self.KiemChungDien" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Loai" EntityType="Self.Loai" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="NguoiDuyet" EntityType="Self.NguoiDuyet" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="NguoiKy" EntityType="Self.NguoiKy" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Nhom" EntityType="Self.Nhom" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NoiGui" EntityType="Self.NoiGui" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NoiNhan" EntityType="Self.NoiNhan" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NoiNhanTemp" EntityType="Self.NoiNhanTemp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NguoiDuyet" EntityType="Self.NguoiDuyet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NguoiKy" EntityType="Self.NguoiKy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Nhom" EntityType="Self.Nhom" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PemisionDetail" EntityType="Self.PemisionDetail" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Permision" EntityType="Self.Permision" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PhanLoaiNoiNhan" EntityType="Self.PhanLoaiNoiNhan" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="TrangThai" EntityType="Self.TrangThai" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TuyChinh" EntityType="Self.TuyChinh" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TuyChinhCombobox" EntityType="Self.TuyChinhCombobox" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TrangThai" EntityType="Self.TrangThai" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="USER" EntityType="Self.USER" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="DienMatDaPhanPhoi" EntityType="Self.DienMatDaPhanPhoi" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 

@@ -943,27 +943,27 @@
       </summary>
       <param name="command">A <see cref="T:System.String"/> specifying the command to execute.</param>
       <param name="args">An object specifying the command&#39;s parameters.</param>
-      <returns>An <see cref="T:DevExpress.Xpo.DB.OperationResult`1"/>&lt;<see cref="T:System.Object"/>,&gt; denoting the operation result.</returns>
+      <returns>An OperationResult&lt;<see cref="T:System.Object"/>&gt; denoting the operation result.</returns>
     </member>
     <member name="M:DevExpress.Xpo.DB.DataStoreService.GetAutoCreateOption">
       <summary>
         <para>Returns which operations are performed when a data store is accessed for the first time. This method delegates its call to get the corresponding option value of a data store passed as provider to the constructor.</para>
       </summary>
-      <returns>An <see cref="T:DevExpress.Xpo.DB.OperationResult`1"/>&lt;<see cref="T:DevExpress.Xpo.DB.AutoCreateOption"/>,&gt; denoting the operation result.</returns>
+      <returns>An OperationResult&lt;<see cref="T:DevExpress.Xpo.DB.AutoCreateOption"/>&gt; denoting the operation result.</returns>
     </member>
     <member name="M:DevExpress.Xpo.DB.DataStoreService.ModifyData(DevExpress.Xpo.DB.ModificationStatement[])">
       <summary>
         <para>Updates data in a data store using specified modification statements and returns the operation result. This method delegates its call to the corresponding method of a data store passed as provider to the constructor.</para>
       </summary>
       <param name="dmlStatements">An array of data modification statements.</param>
-      <returns>An <see cref="T:DevExpress.Xpo.DB.OperationResult`1"/>&lt;<see cref="T:DevExpress.Xpo.DB.ModificationResult"/>,&gt; denoting the result of the data modifications.</returns>
+      <returns>An OperationResult&lt;<see cref="T:DevExpress.Xpo.DB.ModificationResult"/>&gt; denoting the result of the data modifications.</returns>
     </member>
     <member name="M:DevExpress.Xpo.DB.DataStoreService.SelectData(DevExpress.Xpo.DB.SelectStatement[])">
       <summary>
         <para>Fetches data from a data store using specified query statements and returns the operation result. This method delegates its call to the corresponding method of a data store passed as provider to the constructor.</para>
       </summary>
       <param name="selects">An array of query statements.</param>
-      <returns>An <see cref="T:DevExpress.Xpo.DB.OperationResult`1"/>&lt;<see cref="T:DevExpress.Xpo.DB.SelectedData"/>,&gt; denoting the result of the data fetch.</returns>
+      <returns>An OperationResult&lt;<see cref="T:DevExpress.Xpo.DB.SelectedData"/>&gt; denoting the result of the data fetch.</returns>
     </member>
     <member name="M:DevExpress.Xpo.DB.DataStoreService.UpdateSchema(System.Boolean,DevExpress.Xpo.DB.DBTable[])">
       <summary>
@@ -971,7 +971,7 @@
       </summary>
       <param name="doNotCreateIfFirstTableNotExist">true if the schema should not be created when the table that corresponds to the first item in the tables array doesn&#39;t exist in the data store; otherwise, false.</param>
       <param name="tables">An array of tables whose structure should be saved in the data store.</param>
-      <returns>An <see cref="T:DevExpress.Xpo.DB.OperationResult`1"/>&lt;<see cref="T:DevExpress.Xpo.DB.UpdateSchemaResult"/>,&gt; denoting the result of the update operation.</returns>
+      <returns>An OperationResult&lt;<see cref="T:DevExpress.Xpo.DB.UpdateSchemaResult"/>&gt; denoting the result of the update operation.</returns>
     </member>
     <member name="M:DevExpress.Xpo.DB.DataStoreService.WarpSelectData(DevExpress.Xpo.DB.SelectStatement[])">
       <summary>
@@ -1662,7 +1662,7 @@
       </summary>
       <param name="cookie">A Root element&#39;s state stored by a specific cache Node.</param>
       <param name="dmlStatements">An array of data modification statements.</param>
-      <returns>An <see cref="T:DevExpress.Xpo.DB.OperationResult`1"/>&lt;<see cref="T:DevExpress.Xpo.DB.Helpers.DataCacheModificationResult"/>,&gt; denoting the result of the data modifications.</returns>
+      <returns>An OperationResult&lt;<see cref="T:DevExpress.Xpo.DB.Helpers.DataCacheModificationResult"/>&gt; denoting the result of the data modifications.</returns>
     </member>
     <member name="M:DevExpress.Xpo.DB.ICachedDataStoreService.NotifyDirtyTables(DevExpress.Xpo.DB.Helpers.DataCacheCookie,System.String[])">
       <summary>
@@ -1670,14 +1670,14 @@
       </summary>
       <param name="cookie">A Root element&#39;s state stored by a specific cache Node.</param>
       <param name="dirtyTablesNames">An array of table names specifying modified tables.</param>
-      <returns>An <see cref="T:DevExpress.Xpo.DB.OperationResult`1"/>&lt;<see cref="T:DevExpress.Xpo.DB.Helpers.DataCacheResult"/>,&gt; object denoting the operation result.</returns>
+      <returns>An OperationResult&lt;<see cref="T:DevExpress.Xpo.DB.Helpers.DataCacheResult"/>&gt; object denoting the operation result.</returns>
     </member>
     <member name="M:DevExpress.Xpo.DB.ICachedDataStoreService.ProcessCookie(DevExpress.Xpo.DB.Helpers.DataCacheCookie)">
       <summary>
         <para>Defines a service operation that, when implemented by a class, synchronizes table update information with a cached data store&#39;s Root element (<see cref="T:DevExpress.Xpo.DB.DataCacheRoot"/> or <see cref="T:DevExpress.Xpo.DB.Helpers.MSSql2005SqlDependencyCacheRoot"/>).</para>
       </summary>
       <param name="cookie">A Root element&#39;s state stored by a specific cache Node.</param>
-      <returns>An <see cref="T:DevExpress.Xpo.DB.OperationResult`1"/>&lt;<see cref="T:DevExpress.Xpo.DB.Helpers.DataCacheResult"/>,&gt; object denoting the operation result.</returns>
+      <returns>An OperationResult&lt;<see cref="T:DevExpress.Xpo.DB.Helpers.DataCacheResult"/>&gt; object denoting the operation result.</returns>
     </member>
     <member name="M:DevExpress.Xpo.DB.ICachedDataStoreService.SelectDataCached(DevExpress.Xpo.DB.Helpers.DataCacheCookie,DevExpress.Xpo.DB.SelectStatement[])">
       <summary>
@@ -1685,7 +1685,7 @@
       </summary>
       <param name="cookie">A Root element&#39;s state stored by a specific cache Node.</param>
       <param name="selects">An array of query statements.</param>
-      <returns>An <see cref="T:DevExpress.Xpo.DB.OperationResult`1"/>&lt;<see cref="T:DevExpress.Xpo.DB.Helpers.DataCacheSelectDataResult"/>,&gt; object denoting the result of the data fetch.</returns>
+      <returns>An OperationResult&lt;<see cref="T:DevExpress.Xpo.DB.Helpers.DataCacheSelectDataResult"/>&gt; object denoting the result of the data fetch.</returns>
     </member>
     <member name="M:DevExpress.Xpo.DB.ICachedDataStoreService.UpdateSchemaCached(DevExpress.Xpo.DB.Helpers.DataCacheCookie,DevExpress.Xpo.DB.DBTable[],System.Boolean)">
       <summary>
@@ -1694,7 +1694,7 @@
       <param name="cookie">A Root element&#39;s state stored by a specific cache Node.</param>
       <param name="tables">An array of tables whose structure should be saved in a cached data store.</param>
       <param name="doNotCreateIfFirstTableNotExist">true if the schema should not be created if the table that corresponds to the first item in the tables array doesn&#39;t exist in the cached data store; otherwise, false.</param>
-      <returns>An <see cref="T:DevExpress.Xpo.DB.OperationResult`1"/>&lt;<see cref="T:DevExpress.Xpo.DB.Helpers.DataCacheUpdateSchemaResult"/>,&gt; denoting the result of the update operation.</returns>
+      <returns>An OperationResult&lt;<see cref="T:DevExpress.Xpo.DB.Helpers.DataCacheUpdateSchemaResult"/>&gt; denoting the result of the update operation.</returns>
     </member>
     <member name="T:DevExpress.Xpo.DB.ICachedDataStoreServiceAsync">
       <summary>
@@ -1778,27 +1778,27 @@
       </summary>
       <param name="command">A <see cref="T:System.String"/> specifying the command to execute.</param>
       <param name="args">An object specifying the command&#39;s parameters.</param>
-      <returns>An <see cref="T:DevExpress.Xpo.DB.OperationResult`1"/>&lt;<see cref="T:System.Object"/>,&gt; denoting the operation result.</returns>
+      <returns>An OperationResult&lt;<see cref="T:System.Object"/>&gt; denoting the operation result.</returns>
     </member>
     <member name="M:DevExpress.Xpo.DB.IDataStoreService.GetAutoCreateOption">
       <summary>
         <para>Defines a service operation that, when implemented by a class, returns which operations are performed when a data store is accessed for the first time.</para>
       </summary>
-      <returns>An <see cref="T:DevExpress.Xpo.DB.OperationResult`1"/>&lt;<see cref="T:DevExpress.Xpo.DB.AutoCreateOption"/>,&gt; denoting the operation result.</returns>
+      <returns>An OperationResult&lt;<see cref="T:DevExpress.Xpo.DB.AutoCreateOption"/>&gt; denoting the operation result.</returns>
     </member>
     <member name="M:DevExpress.Xpo.DB.IDataStoreService.ModifyData(DevExpress.Xpo.DB.ModificationStatement[])">
       <summary>
         <para>Defines a service operation that, when implemented by a class, updates data in a data store using specified modification statements and returns the operation result.</para>
       </summary>
       <param name="dmlStatements">An array of data modification statements.</param>
-      <returns>An <see cref="T:DevExpress.Xpo.DB.OperationResult`1"/>&lt;<see cref="T:DevExpress.Xpo.DB.ModificationResult"/>,&gt; denoting the result of the data modifications.</returns>
+      <returns>An OperationResult&lt;<see cref="T:DevExpress.Xpo.DB.ModificationResult"/>&gt; denoting the result of the data modifications.</returns>
     </member>
     <member name="M:DevExpress.Xpo.DB.IDataStoreService.SelectData(DevExpress.Xpo.DB.SelectStatement[])">
       <summary>
         <para>Defines a service operation that, when implemented by a class, fetches data from a data store using specified query statements and returns the operation result.</para>
       </summary>
       <param name="selects">An array of query statements.</param>
-      <returns>An <see cref="T:DevExpress.Xpo.DB.OperationResult`1"/>&lt;<see cref="T:DevExpress.Xpo.DB.SelectedData"/>,&gt; denoting the result of the data fetch.</returns>
+      <returns>An OperationResult&lt;<see cref="T:DevExpress.Xpo.DB.SelectedData"/>&gt; denoting the result of the data fetch.</returns>
     </member>
     <member name="M:DevExpress.Xpo.DB.IDataStoreService.UpdateSchema(System.Boolean,DevExpress.Xpo.DB.DBTable[])">
       <summary>
@@ -1806,7 +1806,7 @@
       </summary>
       <param name="doNotCreateIfFirstTableNotExist">true if the schema should not be created when the table that corresponds to the first item in the tables array doesn&#39;t exist in the data store; otherwise, false.</param>
       <param name="tables">An array of tables whose structure should be saved in the data store.</param>
-      <returns>An <see cref="T:DevExpress.Xpo.DB.OperationResult`1"/>&lt;<see cref="T:DevExpress.Xpo.DB.UpdateSchemaResult"/>,&gt; denoting the result of the update operation.</returns>
+      <returns>An OperationResult&lt;<see cref="T:DevExpress.Xpo.DB.UpdateSchemaResult"/>&gt; denoting the result of the update operation.</returns>
     </member>
     <member name="T:DevExpress.Xpo.DB.IDataStoreServiceAsync">
       <summary>
@@ -2039,7 +2039,7 @@
       <summary>
         <para>Registers custom function operators.</para>
       </summary>
-      <param name="customFunctions">An <see cref="T:System.Collections.Generic.ICollection`1"/>&lt;<see cref="T:DevExpress.Data.Filtering.ICustomFunctionOperator"/>,&gt; object which specifies the custom function operators to be registered.</param>
+      <param name="customFunctions">An ICollection&lt;<see cref="T:DevExpress.Data.Filtering.ICustomFunctionOperator"/>&gt; object which specifies the custom function operators to be registered.</param>
     </member>
     <member name="P:DevExpress.Xpo.DB.InMemoryDataStore.SyncRoot">
       <summary>
@@ -2078,7 +2078,7 @@
       <param name="objectsForDelete">An <see cref="T:DevExpress.Xpo.XPObjectStubCollection"/> object which contains information on objects marked for deletion.</param>
       <param name="objectsForSave">An <see cref="T:DevExpress.Xpo.XPObjectStubCollection"/> object which contains information on objects marked for saving.</param>
       <param name="lockingOption">A <see cref="T:DevExpress.Xpo.LockingOption"/> enumeration value specifying whether check for optimistic locking is made.</param>
-      <returns>An <see cref="T:DevExpress.Xpo.DB.OperationResult`1"/>&lt;<see cref="T:DevExpress.Xpo.CommitObjectStubsResult"/>,&gt; object denoting the operation result.</returns>
+      <returns>An OperationResult&lt;<see cref="T:DevExpress.Xpo.CommitObjectStubsResult"/>&gt; object denoting the operation result.</returns>
     </member>
     <member name="M:DevExpress.Xpo.DB.ISerializableObjectLayerService.CreateObjectType(System.String,System.String)">
       <summary>
@@ -2086,13 +2086,13 @@
       </summary>
       <param name="assemblyName">A <see cref="T:System.String"/> value which specifies the assembly name to be assigned to the <see cref="P:DevExpress.Xpo.XPObjectType.AssemblyName"/> property.</param>
       <param name="typeName">A <see cref="T:System.String"/> value which specifies the type name to be assigned to the <see cref="P:DevExpress.Xpo.XPObjectType.TypeName"/> property.</param>
-      <returns>An <see cref="T:DevExpress.Xpo.DB.OperationResult`1"/>&lt;<see cref="T:System.Object"/>,&gt; object denoting the operation result.</returns>
+      <returns>An OperationResult&lt;<see cref="T:System.Object"/>&gt; object denoting the operation result.</returns>
     </member>
     <member name="M:DevExpress.Xpo.DB.ISerializableObjectLayerService.GetCanLoadCollectionObjects">
       <summary>
         <para>When implemented by a class, obtains the value from an object layer&#39;s <see cref="P:DevExpress.Xpo.ISerializableObjectLayer.CanLoadCollectionObjects"/> property implementation and returns the operation result.</para>
       </summary>
-      <returns>An <see cref="T:DevExpress.Xpo.DB.OperationResult`1"/>&lt;<see cref="T:System.Boolean"/>,&gt; object denoting the operation result.</returns>
+      <returns>An OperationResult&lt;<see cref="T:System.Boolean"/>&gt; object denoting the operation result.</returns>
     </member>
     <member name="M:DevExpress.Xpo.DB.ISerializableObjectLayerService.GetObjectsByKey(DevExpress.Xpo.XPDictionaryStub,DevExpress.Xpo.GetObjectStubsByKeyQuery[])">
       <summary>
@@ -2100,25 +2100,25 @@
       </summary>
       <param name="dictionary">An <see cref="T:DevExpress.Xpo.XPDictionaryStub"/> object that is a metadata information provider.</param>
       <param name="queries">An array of <see cref="T:DevExpress.Xpo.GetObjectStubsByKeyQuery"/> objects, containing data for queries that retrieve persistent objects by specified object types and key values.</param>
-      <returns>An <see cref="T:DevExpress.Xpo.DB.OperationResult`1"/>&lt;DevExpress.Xpo.SerializableObjectLayerResult`1[[DevExpress.Xpo.XPObjectStubCollection,&gt; object denoting the operation result.</returns>
+      <returns>An OperationResult&lt;DevExpress.Xpo.SerializableObjectLayerResult`1[[DevExpress.Xpo.XPObjectStubCollection&gt; object denoting the operation result.</returns>
     </member>
     <member name="M:DevExpress.Xpo.DB.ISerializableObjectLayerService.GetParentObjectsToDelete">
       <summary>
         <para>When implemented by a class, executes an object layer&#39;s <see cref="M:DevExpress.Xpo.ISerializableObjectLayerEx.GetParentObjectsToDelete"/> method implementation and returns the operation result.</para>
       </summary>
-      <returns>An <see cref="T:DevExpress.Xpo.DB.OperationResult`1"/>&lt;DevExpress.Xpo.SerializableObjectLayerResult`1[[DevExpress.Xpo.XPObjectStubCollection,&gt; object denoting the operation result.</returns>
+      <returns>An OperationResult&lt;DevExpress.Xpo.SerializableObjectLayerResult`1[[DevExpress.Xpo.XPObjectStubCollection&gt; object denoting the operation result.</returns>
     </member>
     <member name="M:DevExpress.Xpo.DB.ISerializableObjectLayerService.GetParentObjectsToSave">
       <summary>
         <para>When implemented by a class, executes an object layer&#39;s <see cref="M:DevExpress.Xpo.ISerializableObjectLayerEx.GetParentObjectsToSave"/> method implementation and returns the operation result.</para>
       </summary>
-      <returns>An <see cref="T:DevExpress.Xpo.DB.OperationResult`1"/>&lt;DevExpress.Xpo.SerializableObjectLayerResult`1[[DevExpress.Xpo.XPObjectStubCollection,&gt; object denoting the operation result.</returns>
+      <returns>An OperationResult&lt;DevExpress.Xpo.SerializableObjectLayerResult`1[[DevExpress.Xpo.XPObjectStubCollection&gt; object denoting the operation result.</returns>
     </member>
     <member name="M:DevExpress.Xpo.DB.ISerializableObjectLayerService.GetParentTouchedClassInfos">
       <summary>
         <para>When implemented by a class, executes an object layer&#39;s <see cref="M:DevExpress.Xpo.ISerializableObjectLayerEx.GetParentTouchedClassInfos"/> method implementation and returns the operation result.</para>
       </summary>
-      <returns>An <see cref="T:DevExpress.Xpo.DB.OperationResult`1"/>&lt;<see cref="T:System.String"/>,&gt; object denoting the operation result.</returns>
+      <returns>An OperationResult&lt;<see cref="T:System.String"/>&gt; object denoting the operation result.</returns>
     </member>
     <member name="M:DevExpress.Xpo.DB.ISerializableObjectLayerService.IsParentObjectToDelete(DevExpress.Xpo.XPDictionaryStub,DevExpress.Xpo.XPObjectStub)">
       <summary>
@@ -2126,7 +2126,7 @@
       </summary>
       <param name="dictionary">An <see cref="T:DevExpress.Xpo.XPDictionaryStub"/> object that is a metadata information provider.</param>
       <param name="theObject">An <see cref="T:DevExpress.Xpo.XPObjectStub"/> instance identifying an object layer session&#39;s object to test.</param>
-      <returns>An <see cref="T:DevExpress.Xpo.DB.OperationResult`1"/>&lt;<see cref="T:System.Boolean"/>,&gt; object denoting the operation result.</returns>
+      <returns>An OperationResult&lt;<see cref="T:System.Boolean"/>&gt; object denoting the operation result.</returns>
     </member>
     <member name="M:DevExpress.Xpo.DB.ISerializableObjectLayerService.IsParentObjectToSave(DevExpress.Xpo.XPDictionaryStub,DevExpress.Xpo.XPObjectStub)">
       <summary>
@@ -2134,7 +2134,7 @@
       </summary>
       <param name="dictionary">An <see cref="T:DevExpress.Xpo.XPDictionaryStub"/> object that is a metadata information provider.</param>
       <param name="theObject">An <see cref="T:DevExpress.Xpo.XPObjectStub"/> instance identifying an object layer session&#39;s object to test.</param>
-      <returns>An <see cref="T:DevExpress.Xpo.DB.OperationResult`1"/>&lt;<see cref="T:System.Boolean"/>,&gt; object denoting the operation result.</returns>
+      <returns>An OperationResult&lt;<see cref="T:System.Boolean"/>&gt; object denoting the operation result.</returns>
     </member>
     <member name="M:DevExpress.Xpo.DB.ISerializableObjectLayerService.LoadCollectionObjects(DevExpress.Xpo.XPDictionaryStub,System.String,DevExpress.Xpo.XPObjectStub)">
       <summary>
@@ -2143,7 +2143,7 @@
       <param name="dictionary">An <see cref="T:DevExpress.Xpo.XPDictionaryStub"/> object that is a metadata information provider.</param>
       <param name="refPropertyName">A <see cref="T:System.String"/> value specifying the ownerObject&#39;s property that references a collection property.</param>
       <param name="ownerObject">An <see cref="T:DevExpress.Xpo.XPObjectStub"/> specifying the object that owns the collection property.</param>
-      <returns>An <see cref="T:DevExpress.Xpo.DB.OperationResult`1"/>&lt;DevExpress.Xpo.SerializableObjectLayerResult`1[[DevExpress.Xpo.XPObjectStubCollection,&gt; object denoting the operation result.</returns>
+      <returns>An OperationResult&lt;DevExpress.Xpo.SerializableObjectLayerResult`1[[DevExpress.Xpo.XPObjectStubCollection&gt; object denoting the operation result.</returns>
     </member>
     <member name="M:DevExpress.Xpo.DB.ISerializableObjectLayerService.LoadDelayedProperties(DevExpress.Xpo.XPDictionaryStub,DevExpress.Xpo.XPObjectStub,System.String[])">
       <summary>
@@ -2152,7 +2152,7 @@
       <param name="dictionary">An <see cref="T:DevExpress.Xpo.XPDictionaryStub"/> object that is a metadata information provider.</param>
       <param name="theObject">A persistent object containing delayed properties specified by the props.</param>
       <param name="props">An array of strings specifying delayed the theObject&#39;s properties whose values are loaded.</param>
-      <returns>An <see cref="T:DevExpress.Xpo.DB.OperationResult`1"/>&lt;DevExpress.Xpo.SerializableObjectLayerResult`1[[System.Object,&gt; object denoting the operation result.</returns>
+      <returns>An OperationResult&lt;DevExpress.Xpo.SerializableObjectLayerResult`1[[System.Object&gt; object denoting the operation result.</returns>
     </member>
     <member name="M:DevExpress.Xpo.DB.ISerializableObjectLayerService.LoadDelayedProperty(DevExpress.Xpo.XPDictionaryStub,DevExpress.Xpo.XPObjectStubCollection,System.String)">
       <summary>
@@ -2161,7 +2161,7 @@
       <param name="dictionary">An <see cref="T:DevExpress.Xpo.XPDictionaryStub"/> object that is a metadata information provider.</param>
       <param name="objects">An <see cref="T:DevExpress.Xpo.XPObjectStubCollection"/> object which contains information on persistent objects containing the delayed property specified by the property.</param>
       <param name="property">A <see cref="T:System.String"/> value specifying a delayed property whose values are loaded.</param>
-      <returns>An <see cref="T:DevExpress.Xpo.DB.OperationResult`1"/>&lt;DevExpress.Xpo.SerializableObjectLayerResult`1[[System.Object,&gt; object denoting the operation result.</returns>
+      <returns>An OperationResult&lt;DevExpress.Xpo.SerializableObjectLayerResult`1[[System.Object&gt; object denoting the operation result.</returns>
     </member>
     <member name="M:DevExpress.Xpo.DB.ISerializableObjectLayerService.LoadObjects(DevExpress.Xpo.XPDictionaryStub,DevExpress.Xpo.ObjectStubsQuery[])">
       <summary>
@@ -2169,13 +2169,13 @@
       </summary>
       <param name="dictionary">An <see cref="T:DevExpress.Xpo.XPDictionaryStub"/> object that is a metadata information provider.</param>
       <param name="queries">An array of <see cref="T:DevExpress.Xpo.ObjectStubsQuery"/> objects specifying queries that are executed to retrieve persistent objects.</param>
-      <returns>An <see cref="T:DevExpress.Xpo.DB.OperationResult`1"/>&lt;DevExpress.Xpo.SerializableObjectLayerResult`1[[DevExpress.Xpo.XPObjectStubCollection,&gt; object denoting the operation result.</returns>
+      <returns>An OperationResult&lt;DevExpress.Xpo.SerializableObjectLayerResult`1[[DevExpress.Xpo.XPObjectStubCollection&gt; object denoting the operation result.</returns>
     </member>
     <member name="M:DevExpress.Xpo.DB.ISerializableObjectLayerService.Purge">
       <summary>
         <para>When implemented by a class, executes an object layer&#39;s <see cref="M:DevExpress.Xpo.ISerializableObjectLayer.Purge"/> method implementation and returns the operation result.</para>
       </summary>
-      <returns>An <see cref="T:DevExpress.Xpo.DB.OperationResult`1"/>&lt;DevExpress.Xpo.Helpers.PurgeResult,&gt; object denoting the operation result.</returns>
+      <returns>An OperationResult&lt;DevExpress.Xpo.Helpers.PurgeResult&gt; object denoting the operation result.</returns>
     </member>
     <member name="M:DevExpress.Xpo.DB.ISerializableObjectLayerService.SelectData(DevExpress.Xpo.XPDictionaryStub,DevExpress.Xpo.ObjectStubsQuery,DevExpress.Data.Filtering.CriteriaOperatorCollection,DevExpress.Data.Filtering.CriteriaOperatorCollection,DevExpress.Data.Filtering.CriteriaOperator)">
       <summary>
@@ -2186,7 +2186,7 @@
       <param name="properties">A <see cref="T:DevExpress.Data.Filtering.CriteriaOperatorCollection"/> object which specifies object properties to be retrieved.</param>
       <param name="groupProperties">A <see cref="T:DevExpress.Data.Filtering.CriteriaOperatorCollection"/> object which specifies the grouping properties.</param>
       <param name="groupCriteria">A <see cref="T:DevExpress.Data.Filtering.CriteriaOperator"/> descendant which specifies the grouping criteria for the retrieved objects.</param>
-      <returns>An <see cref="T:DevExpress.Xpo.DB.OperationResult`1"/>&lt;<see cref="T:System.Object"/>,&gt; object denoting the operation result.</returns>
+      <returns>An OperationResult&lt;<see cref="T:System.Object"/>&gt; object denoting the operation result.</returns>
     </member>
     <member name="T:DevExpress.Xpo.DB.MSSqlConnectionProvider">
       <summary>
@@ -4340,9 +4340,9 @@
     </member>
     <member name="M:DevExpress.Xpo.IObjectLayer.GetObjectLayerWideObjectTypes">
       <summary>
-        <para>When implemented by a class, returns a <see cref="T:System.Collections.Generic.Dictionary`2"/>&lt;<see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/>,<see cref="T:DevExpress.Xpo.XPObjectType"/>,&gt; specifying the correspondence of <see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/> objects to <see cref="T:DevExpress.Xpo.XPObjectType"/> records.</para>
+        <para>When implemented by a class, returns a Dictionary&lt;<see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/>,<see cref="T:DevExpress.Xpo.XPObjectType"/>&gt; specifying the correspondence of <see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/> objects to <see cref="T:DevExpress.Xpo.XPObjectType"/> records.</para>
       </summary>
-      <returns>A <see cref="T:System.Collections.Generic.Dictionary`2"/>&lt;<see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/>,<see cref="T:DevExpress.Xpo.XPObjectType"/>,&gt;, providing a collection of complementary <see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/>-<see cref="T:DevExpress.Xpo.XPObjectType"/> pairs.</returns>
+      <returns>A Dictionary&lt;<see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/>,<see cref="T:DevExpress.Xpo.XPObjectType"/>&gt;, providing a collection of complementary <see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/>-<see cref="T:DevExpress.Xpo.XPObjectType"/> pairs.</returns>
     </member>
     <member name="M:DevExpress.Xpo.IObjectLayer.GetObjectsByKey(DevExpress.Xpo.Session,DevExpress.Xpo.ObjectsByKeyQuery[])">
       <summary>
@@ -4429,9 +4429,9 @@
     </member>
     <member name="M:DevExpress.Xpo.IObjectLayer.SetObjectLayerWideObjectTypes(System.Collections.Generic.Dictionary{DevExpress.Xpo.Metadata.XPClassInfo,DevExpress.Xpo.XPObjectType})">
       <summary>
-        <para>When implemented by a class, designates a <see cref="T:System.Collections.Generic.Dictionary`2"/>&lt;<see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/>,<see cref="T:DevExpress.Xpo.XPObjectType"/>,&gt; specifying the correspondence of <see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/> objects to <see cref="T:DevExpress.Xpo.XPObjectType"/> records.</para>
+        <para>When implemented by a class, designates a Dictionary&lt;<see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/>,<see cref="T:DevExpress.Xpo.XPObjectType"/>&gt; specifying the correspondence of <see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/> objects to <see cref="T:DevExpress.Xpo.XPObjectType"/> records.</para>
       </summary>
-      <param name="loadedTypes">A <see cref="T:System.Collections.Generic.Dictionary`2"/>&lt;<see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/>,<see cref="T:DevExpress.Xpo.XPObjectType"/>,&gt;, providing a collection of complementary <see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/>-<see cref="T:DevExpress.Xpo.XPObjectType"/> pairs.</param>
+      <param name="loadedTypes">A Dictionary&lt;<see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/>,<see cref="T:DevExpress.Xpo.XPObjectType"/>&gt;, providing a collection of complementary <see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/>-<see cref="T:DevExpress.Xpo.XPObjectType"/> pairs.</param>
     </member>
     <member name="T:DevExpress.Xpo.IObjectLayerAsync">
       <summary>
@@ -4890,23 +4890,6 @@
       <summary>
         <para>The persistent properties and the fields of a class are stored in the same table as the properties of its parent class.</para>
       </summary>
-    </member>
-    <member name="T:DevExpress.Xpo.MapToAttribute">
-      <summary>
-        <para>Specifies the name of the database object where the class will be mapped.</para>
-      </summary>
-    </member>
-    <member name="M:DevExpress.Xpo.MapToAttribute.#ctor(System.String)">
-      <summary>
-        <para>Initializes a new instance of the <see cref="T:DevExpress.Xpo.MapToAttribute"/> class.</para>
-      </summary>
-      <param name="mappingName">A string which holds the name of the database table to map a class to. This value is used to initialize the <see cref="P:DevExpress.Xpo.MapToAttribute.MappingName"/> property.</param>
-    </member>
-    <member name="P:DevExpress.Xpo.MapToAttribute.MappingName">
-      <summary>
-        <para>Gets the name of the database table to map a class to.</para>
-      </summary>
-      <value>The name of the database table to map a class to.</value>
     </member>
     <member name="T:DevExpress.Xpo.MemberDesignTimeVisibilityAttribute">
       <summary>
@@ -6116,7 +6099,7 @@
     </member>
     <member name="P:DevExpress.Xpo.Metadata.XPDictionary.CustomAggregates">
       <summary>
-        <para>Gets a collection of custom aggregate functions supplied by the current metadata provider.</para>
+        <para>Gets a collection of custom aggregate function supplied by the current metadata provider.</para>
       </summary>
       <value>A collection of custom aggregate functions.</value>
     </member>
@@ -9416,7 +9399,7 @@
       </summary>
       <param name="classInfo">An <see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/> object which contains the metadata information of the class.</param>
       <param name="id">An object which represents the key property&#39;s value of the persistent object.</param>
-      <returns>An object which represents the persistent object with the specified value of the key property.</returns>
+      <returns>An object which represents the persistent object with the specified value of the key property. Null if no objects are found.</returns>
     </member>
     <member name="M:DevExpress.Xpo.Session.GetObjectByKey(DevExpress.Xpo.Metadata.XPClassInfo,System.Object,System.Boolean)">
       <summary>
@@ -9424,8 +9407,8 @@
       </summary>
       <param name="classInfo">An <see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/> object which contains the metadata information of the class.</param>
       <param name="id">An object which represents the key property&#39;s value of the persistent object.</param>
-      <param name="alwaysGetFromDataStore">true to reload the persistent object from storage if it is found in memory; otherwise, false.</param>
-      <returns>An object which represents the persistent object with the specified value of the key property.</returns>
+      <param name="alwaysGetFromDataStore">true, to reload the persistent object from storage if it is found in memory; otherwise, false.</param>
+      <returns>An object which represents the persistent object with the specified value of the key property. Null if no objects are found.</returns>
     </member>
     <member name="M:DevExpress.Xpo.Session.GetObjectByKey(System.Type,System.Object)">
       <summary>
@@ -9433,7 +9416,7 @@
       </summary>
       <param name="classType">A <see cref="T:System.Type"/> object which represents the type of objects to search for.</param>
       <param name="id">An object that represents the persistent object&#39;s key property value.</param>
-      <returns>An object which represents the persistent object with the specified value for its key property.</returns>
+      <returns>An object which represents the persistent object with the specified value for its key property. Null if no objects are found.</returns>
     </member>
     <member name="M:DevExpress.Xpo.Session.GetObjectByKey(System.Type,System.Object,System.Boolean)">
       <summary>
@@ -9441,23 +9424,23 @@
       </summary>
       <param name="classType">A <see cref="T:System.Type"/> object which represents the type of objects to search for.</param>
       <param name="id">An object which represents the key property&#39;s value of the persistent object.</param>
-      <param name="alwaysGetFromDataStore">true to reload the persistent object from storage if it is found in memory; otherwise, false.</param>
-      <returns>An object which represents the persistent object with the specified value of the key property.</returns>
+      <param name="alwaysGetFromDataStore">true, to reload the persistent object from storage if it is found in memory; otherwise, false.</param>
+      <returns>An object which represents the persistent object with the specified value of the key property. Null if no objects are found.</returns>
     </member>
     <member name="M:DevExpress.Xpo.Session.GetObjectByKey``1(System.Object)">
       <summary>
         <para>Returns a persistent object of the type designated by the specified generic type parameter, with the specified value for its key property.</para>
       </summary>
       <param name="id">An object that represents the persistent object&#39;s key property value.</param>
-      <returns>An object which represents a persistent object with the specified value for its key property.</returns>
+      <returns>An object which represents a persistent object with the specified value for its key property. Null if no objects are found.</returns>
     </member>
     <member name="M:DevExpress.Xpo.Session.GetObjectByKey``1(System.Object,System.Boolean)">
       <summary>
         <para>Returns a persistent object of the type designated by the specified generic type parameter, with the specified value for its key property.</para>
       </summary>
       <param name="id">An object that represents the persistent object&#39;s key property value.</param>
-      <param name="alwaysGetFromDataStore">true to reload the persistent object from storage if it is found in memory; otherwise, false.</param>
-      <returns>An object which represents a persistent object with the specified value for its key property.</returns>
+      <param name="alwaysGetFromDataStore">true, to reload the persistent object from storage if it is found in memory; otherwise, false.</param>
+      <returns>An object which represents a persistent object with the specified value for its key property. Null if no objects are found.</returns>
     </member>
     <member name="M:DevExpress.Xpo.Session.GetObjectByKeyAsync(DevExpress.Xpo.Metadata.XPClassInfo,System.Object,System.Boolean,System.Threading.CancellationToken)">
       <summary>
@@ -9467,7 +9450,7 @@
       <param name="id">An object which represents the key property&#39;s value of the persistent object.</param>
       <param name="alwaysGetFromDataStore">true, to always reload the persistent object from storage even if it is found in memory; otherwise, false.</param>
       <param name="cancellationToken">A CancellationToken object that delivers a cancellation notice to the running operation.</param>
-      <returns>A Task that returns a persistent object from a data store. This persistent object has the specified key property value.</returns>
+      <returns>A Task that returns a persistent object from a data store. This persistent object has the specified key property value. The task returns null if no objects are found.</returns>
     </member>
     <member name="M:DevExpress.Xpo.Session.GetObjectByKeyAsync(DevExpress.Xpo.Metadata.XPClassInfo,System.Object,System.Threading.CancellationToken)">
       <summary>
@@ -9476,7 +9459,7 @@
       <param name="classInfo">An <see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/> object which contains the metadata information of the class.</param>
       <param name="id">An object which represents the key property&#39;s value of the persistent object.</param>
       <param name="cancellationToken">A CancellationToken object that delivers a cancellation notice to the running operation.</param>
-      <returns>A Task that returns a persistent object. This persistent object has the specified key property value.</returns>
+      <returns>A Task that returns a persistent object. This persistent object has the specified key property value. The task returns null if no objects are found.</returns>
     </member>
     <member name="M:DevExpress.Xpo.Session.GetObjectByKeyAsync(System.Type,System.Object,System.Boolean,System.Threading.CancellationToken)">
       <summary>
@@ -9486,7 +9469,7 @@
       <param name="id">An object which represents the persistent object&#39;s key property value.</param>
       <param name="alwaysGetFromDataStore">true, to always reload the persistent object from storage even if it is found in memory; otherwise, false.</param>
       <param name="cancellationToken">A CancellationToken object that delivers a cancellation notice to the running operation.</param>
-      <returns>A Task that returns a persistent object from a data store. This persistent object has the specified key property value.</returns>
+      <returns>A Task that returns a persistent object from a data store. This persistent object has the specified key property value. The task returns null if no objects are found.</returns>
     </member>
     <member name="M:DevExpress.Xpo.Session.GetObjectByKeyAsync(System.Type,System.Object,System.Threading.CancellationToken)">
       <summary>
@@ -9495,7 +9478,7 @@
       <param name="classType">A <see cref="T:System.Type"/> object which represents the type of objects to search for.</param>
       <param name="id">An object that represents the persistent object&#39;s key property value.</param>
       <param name="cancellationToken">A CancellationToken object that delivers a cancellation notice to the running operation.</param>
-      <returns>A Task that returns a persistent object. This persistent object has the specified key property value.</returns>
+      <returns>A Task that returns a persistent object. This persistent object has the specified key property value. The task returns null if no objects are found.</returns>
     </member>
     <member name="M:DevExpress.Xpo.Session.GetObjectByKeyAsync``1(System.Object,System.Boolean,System.Threading.CancellationToken)">
       <summary>
@@ -9504,7 +9487,7 @@
       <param name="id">An object that represents the persistent object&#39;s key property value.</param>
       <param name="alwaysGetFromDataStore">true, to always reload the persistent object from storage even if it is found in memory; otherwise, false.</param>
       <param name="cancellationToken">A CancellationToken object that delivers a cancellation notice to the running operation.</param>
-      <returns>A Task that returns a persistent object from a data store. This persistent object has the specified key property value and a type specified by the generic type parameter.</returns>
+      <returns>A Task that returns a persistent object from a data store. This persistent object has the specified key property value and a type specified by the generic type parameter. The task returns null if no objects are found.</returns>
     </member>
     <member name="M:DevExpress.Xpo.Session.GetObjectByKeyAsync``1(System.Object,System.Threading.CancellationToken)">
       <summary>
@@ -9512,7 +9495,7 @@
       </summary>
       <param name="id">An object that represents the persistent object&#39;s key property value.</param>
       <param name="cancellationToken">A CancellationToken object that delivers a cancellation notice to the running operation.</param>
-      <returns>A Task that returns a persistent object. This persistent object has the specified key property value and a type specified by the generic type parameter.</returns>
+      <returns>A Task that returns a persistent object. This persistent object has the specified key property value and a type specified by the generic type parameter. The task returns null if no objects are found.</returns>
     </member>
     <member name="M:DevExpress.Xpo.Session.GetObjects(DevExpress.Xpo.Metadata.XPClassInfo,DevExpress.Data.Filtering.CriteriaOperator,DevExpress.Xpo.SortingCollection,System.Int32,DevExpress.Xpo.Generators.CollectionCriteriaPatcher,System.Boolean)">
       <summary>
@@ -10965,9 +10948,9 @@ The class must be decorated with <see cref="T:DevExpress.Xpo.NonPersistentAttrib
     </member>
     <member name="M:DevExpress.Xpo.SessionObjectLayer.GetObjectLayerWideObjectTypes">
       <summary>
-        <para>Returns a <see cref="T:System.Collections.Generic.Dictionary`2"/>&lt;<see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/>,<see cref="T:DevExpress.Xpo.XPObjectType"/>,&gt; specifying the correspondence of <see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/> objects to <see cref="T:DevExpress.Xpo.XPObjectType"/> records.</para>
+        <para>Returns a Dictionary&lt;<see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/>,<see cref="T:DevExpress.Xpo.XPObjectType"/>&gt; specifying the correspondence of <see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/> objects to <see cref="T:DevExpress.Xpo.XPObjectType"/> records.</para>
       </summary>
-      <returns>A <see cref="T:System.Collections.Generic.Dictionary`2"/>&lt;<see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/>,<see cref="T:DevExpress.Xpo.XPObjectType"/>,&gt;, providing a collection of complementary <see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/>-<see cref="T:DevExpress.Xpo.XPObjectType"/> pairs.</returns>
+      <returns>A Dictionary&lt;<see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/>,<see cref="T:DevExpress.Xpo.XPObjectType"/>&gt;, providing a collection of complementary <see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/>-<see cref="T:DevExpress.Xpo.XPObjectType"/> pairs.</returns>
     </member>
     <member name="M:DevExpress.Xpo.SessionObjectLayer.GetObjectsByKey(DevExpress.Xpo.Session,DevExpress.Xpo.ObjectsByKeyQuery[])">
       <summary>
@@ -11181,9 +11164,9 @@ The class must be decorated with <see cref="T:DevExpress.Xpo.NonPersistentAttrib
     </member>
     <member name="M:DevExpress.Xpo.SessionObjectLayer.SetObjectLayerWideObjectTypes(System.Collections.Generic.Dictionary{DevExpress.Xpo.Metadata.XPClassInfo,DevExpress.Xpo.XPObjectType})">
       <summary>
-        <para>Designates a <see cref="T:System.Collections.Generic.Dictionary`2"/>&lt;<see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/>,<see cref="T:DevExpress.Xpo.XPObjectType"/>,&gt; specifying the correspondence of <see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/> objects to <see cref="T:DevExpress.Xpo.XPObjectType"/> records.</para>
+        <para>Designates a Dictionary&lt;<see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/>,<see cref="T:DevExpress.Xpo.XPObjectType"/>&gt; specifying the correspondence of <see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/> objects to <see cref="T:DevExpress.Xpo.XPObjectType"/> records.</para>
       </summary>
-      <param name="loadedTypes">A <see cref="T:System.Collections.Generic.Dictionary`2"/>&lt;<see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/>,<see cref="T:DevExpress.Xpo.XPObjectType"/>,&gt;, providing a collection of complementary <see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/>-<see cref="T:DevExpress.Xpo.XPObjectType"/> pairs.</param>
+      <param name="loadedTypes">A Dictionary&lt;<see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/>,<see cref="T:DevExpress.Xpo.XPObjectType"/>&gt;, providing a collection of complementary <see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/>-<see cref="T:DevExpress.Xpo.XPObjectType"/> pairs.</param>
     </member>
     <member name="F:DevExpress.Xpo.SessionObjectLayer.ThroughCommitMode">
       <summary>
@@ -11397,9 +11380,9 @@ The class must be decorated with <see cref="T:DevExpress.Xpo.NonPersistentAttrib
     </member>
     <member name="M:DevExpress.Xpo.SimpleObjectLayer.GetObjectLayerWideObjectTypes">
       <summary>
-        <para>Returns a <see cref="T:System.Collections.Generic.Dictionary`2"/>&lt;<see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/>,<see cref="T:DevExpress.Xpo.XPObjectType"/>,&gt; specifying the correspondence of <see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/> objects to <see cref="T:DevExpress.Xpo.XPObjectType"/> records.</para>
+        <para>Returns a Dictionary&lt;<see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/>,<see cref="T:DevExpress.Xpo.XPObjectType"/>&gt; specifying the correspondence of <see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/> objects to <see cref="T:DevExpress.Xpo.XPObjectType"/> records.</para>
       </summary>
-      <returns>A <see cref="T:System.Collections.Generic.Dictionary`2"/>&lt;<see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/>,<see cref="T:DevExpress.Xpo.XPObjectType"/>,&gt;, providing a collection of complementary <see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/>-<see cref="T:DevExpress.Xpo.XPObjectType"/> pairs.</returns>
+      <returns>A Dictionary&lt;<see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/>,<see cref="T:DevExpress.Xpo.XPObjectType"/>&gt;, providing a collection of complementary <see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/>-<see cref="T:DevExpress.Xpo.XPObjectType"/> pairs.</returns>
     </member>
     <member name="M:DevExpress.Xpo.SimpleObjectLayer.GetObjectsByKey(DevExpress.Xpo.Session,DevExpress.Xpo.ObjectsByKeyQuery[])">
       <summary>
@@ -11565,9 +11548,9 @@ The class must be decorated with <see cref="T:DevExpress.Xpo.NonPersistentAttrib
     </member>
     <member name="M:DevExpress.Xpo.SimpleObjectLayer.SetObjectLayerWideObjectTypes(System.Collections.Generic.Dictionary{DevExpress.Xpo.Metadata.XPClassInfo,DevExpress.Xpo.XPObjectType})">
       <summary>
-        <para>Designates a <see cref="T:System.Collections.Generic.Dictionary`2"/>&lt;<see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/>,<see cref="T:DevExpress.Xpo.XPObjectType"/>,&gt; specifying the correspondence of <see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/> objects to <see cref="T:DevExpress.Xpo.XPObjectType"/> records.</para>
+        <para>Designates a Dictionary&lt;<see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/>,<see cref="T:DevExpress.Xpo.XPObjectType"/>&gt; specifying the correspondence of <see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/> objects to <see cref="T:DevExpress.Xpo.XPObjectType"/> records.</para>
       </summary>
-      <param name="loadedTypes">A <see cref="T:System.Collections.Generic.Dictionary`2"/>&lt;<see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/>,<see cref="T:DevExpress.Xpo.XPObjectType"/>,&gt;, providing a collection of complementary <see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/>-<see cref="T:DevExpress.Xpo.XPObjectType"/> pairs.</param>
+      <param name="loadedTypes">A Dictionary&lt;<see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/>,<see cref="T:DevExpress.Xpo.XPObjectType"/>&gt;, providing a collection of complementary <see cref="T:DevExpress.Xpo.Metadata.XPClassInfo"/>-<see cref="T:DevExpress.Xpo.XPObjectType"/> pairs.</param>
     </member>
     <member name="M:DevExpress.Xpo.SimpleObjectLayer.UpdateSchema(System.Boolean,DevExpress.Xpo.Metadata.XPClassInfo[])">
       <summary>

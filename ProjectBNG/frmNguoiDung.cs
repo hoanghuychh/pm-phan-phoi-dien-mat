@@ -34,8 +34,7 @@ namespace ProjectBNG
                 // Bind data to control when loading complete
                 uSERsBindingSource.DataSource = dbContext.USERs.Local.ToBindingList();
             }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
-            cmbTrangThai.DataSource = dbContext.TrangThais.ToList();
-            cmbTrangThai.DisplayMember = "NameTrangThai";
+            
         }
 
         private bool CheckExistForm(string name)
@@ -69,12 +68,18 @@ namespace ProjectBNG
             this.Close();
         }
 
+        SMMgEntities db = new SMMgEntities();
         private void button2_Click(object sender, EventArgs e)
         {
             if (!CheckExistForm("frmThemNguoiDung"))
             {
-                frmThemNguoiDung fthemngdung = new frmThemNguoiDung();
-                fthemngdung.MdiParent = this.MdiParent;
+                frmThemNguoiDung fthemngdung = new frmThemNguoiDung(() =>
+                {
+                    gridControl1.DataSource = db.USERs.ToList();
+                    gridControl1.RefreshDataSource();
+                    return false;
+                });
+                //fthemngdung.MdiParent = this.MdiParent;
                 fthemngdung.ShowDialog(this);
             }
             else
@@ -83,7 +88,6 @@ namespace ProjectBNG
             }
 
         }
-
         private void btnXoa_Click(object sender, KeyEventArgs e)
         {
             //// gridControl1.ProcessGridKey += GridControl1_ProcessGridKey;
@@ -136,6 +140,10 @@ namespace ProjectBNG
             SMMgEntities db = new SMMgEntities();
             gridControl1.DataSource = db.USERs.ToList();
             gridControl1.RefreshDataSource();
+            cmbTrangThai.DataSource = db.TrangThais.ToList();
+            cmbTrangThai.ValueMember = "id";
+
+            cmbTrangThai.DisplayMember = "NameTrangThai";
         }
 
         private void frmNguoiDung_Activated(object sender, EventArgs e)

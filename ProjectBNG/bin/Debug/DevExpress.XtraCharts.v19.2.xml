@@ -1349,9 +1349,9 @@
     </member>
     <member name="P:DevExpress.XtraCharts.AxisLabel.Formatter">
       <summary>
-        <para></para>
+        <para>Gets or sets an object that formats axis labels.</para>
       </summary>
-      <value></value>
+      <value>An object of a class that implements the <see cref="T:DevExpress.XtraCharts.IAxisLabelFormatter"/> interface.</value>
     </member>
     <member name="P:DevExpress.XtraCharts.AxisLabel.MaxLineCount">
       <summary>
@@ -1799,25 +1799,25 @@
       <summary>
         <para>Gets the axis maximum value when the axis range (the whole range and visual range) has been changed.</para>
       </summary>
-      <value>An instance of <see cref="T:DevExpress.XtraCharts.ValueChangeInfo`1"/>&lt;<see cref="T:System.Object"/>,&gt;</value>
+      <value>An instance of ValueChangeInfo&lt;<see cref="T:System.Object"/>&gt;</value>
     </member>
     <member name="P:DevExpress.XtraCharts.AxisRangeChangedEventArgs.MaxInternalChange">
       <summary>
         <para>Gets the internal float representation of the range maximum value when the axis range (the whole range and visual range) has been changed.</para>
       </summary>
-      <value>An instance of <see cref="T:DevExpress.XtraCharts.ValueChangeInfo`1"/>&lt;<see cref="T:System.Double"/>,&gt;.</value>
+      <value>An instance of ValueChangeInfo&lt;<see cref="T:System.Double"/>&gt;.</value>
     </member>
     <member name="P:DevExpress.XtraCharts.AxisRangeChangedEventArgs.MinChange">
       <summary>
         <para>Gets the axis minimum value when the axis range (the whole range and visual range) has been changed.</para>
       </summary>
-      <value>An instance of <see cref="T:DevExpress.XtraCharts.ValueChangeInfo`1"/>&lt;<see cref="T:System.Object"/>,&gt;.</value>
+      <value>An instance of ValueChangeInfo&lt;<see cref="T:System.Object"/>&gt;.</value>
     </member>
     <member name="P:DevExpress.XtraCharts.AxisRangeChangedEventArgs.MinInternalChange">
       <summary>
         <para>Gets the internal float representation of the range minimum value when the axis range (the whole range and visual range) has been changed.</para>
       </summary>
-      <value>An instance of <see cref="T:DevExpress.XtraCharts.ValueChangeInfo`1"/>&lt;<see cref="T:System.Double"/>,&gt;.</value>
+      <value>An instance of ValueChangeInfo&lt;<see cref="T:System.Double"/>&gt;.</value>
     </member>
     <member name="T:DevExpress.XtraCharts.AxisRangeChangedEventHandler">
       <summary>
@@ -3304,6 +3304,36 @@ If null (Nothing in Visual Basic), then a <see cref="T:System.ArgumentNullExcept
       </summary>
       <returns>The textual representation of the <see cref="T:DevExpress.XtraCharts.ChartAppearance"/>.</returns>
     </member>
+    <member name="T:DevExpress.XtraCharts.ChartBeforeScrollEventArgs">
+      <summary>
+        <para>Provides data for the <see cref="E:DevExpress.XtraCharts.ChartControl.BeforeScroll"/> event.</para>
+      </summary>
+    </member>
+    <member name="P:DevExpress.XtraCharts.ChartBeforeScrollEventArgs.Axis">
+      <summary>
+        <para>Returns the axis whose visual range is changed when a user scrolls the chart.</para>
+      </summary>
+      <value>The axis whose visual range is changed when scrolling the chart.</value>
+    </member>
+    <member name="P:DevExpress.XtraCharts.ChartBeforeScrollEventArgs.Cancel">
+      <summary>
+        <para>Gets or sets the value that identifies whether the scrolling operation should be canceled.</para>
+      </summary>
+      <value>true if the scrolling is canceled; otherwise false.</value>
+    </member>
+    <member name="P:DevExpress.XtraCharts.ChartBeforeScrollEventArgs.NewRange">
+      <summary>
+        <para>Returns a new visual range for the axis.</para>
+      </summary>
+      <value>The visual range that the axis will display after a user scrolls the chart.</value>
+    </member>
+    <member name="T:DevExpress.XtraCharts.ChartBeforeScrollEventHandler">
+      <summary>
+        <para>A method that handles the <see cref="E:DevExpress.XtraCharts.ChartControl.BeforeScroll"/> event.</para>
+      </summary>
+      <param name="sender">The event source.</param>
+      <param name="e">The event data.</param>
+    </member>
     <member name="T:DevExpress.XtraCharts.ChartBeforeZoomEventArgs">
       <summary>
         <para>Provides data for the <see cref="E:DevExpress.XtraCharts.ChartControl.BeforeZoom"/> event.</para>
@@ -3329,7 +3359,7 @@ If null (Nothing in Visual Basic), then a <see cref="T:System.ArgumentNullExcept
     </member>
     <member name="T:DevExpress.XtraCharts.ChartBeforeZoomEventHandler">
       <summary>
-        <para>A method that handles the <see cref="E:DevExpress.XtraCharts.ChartControl.PrintInitialize"/> event.</para>
+        <para>A method that handles the <see cref="E:DevExpress.XtraCharts.ChartControl.BeforeZoom"/> event.</para>
       </summary>
       <param name="sender">The event source.</param>
       <param name="e">The event data.</param>
@@ -6589,6 +6619,42 @@ If null (Nothing in Visual Basic), then a <see cref="T:System.ArgumentNullExcept
       <param name="sender">The event source. This parameter identifies the <see cref="T:DevExpress.XtraCharts.ChartControl"/>, <see cref="T:DevExpress.XtraCharts.Web.WebChartControl"/> or <see cref="T:DevExpress.XtraReports.UI.XRChart"/> which raised the event.</param>
       <param name="e">A <see cref="T:DevExpress.XtraCharts.CustomizeLegendEventArgs"/> object that contains data related to the event.</param>
     </member>
+    <member name="T:DevExpress.XtraCharts.CustomizePieTotalLabelEventArgs">
+      <summary>
+        <para>Provides data for the <see cref="E:DevExpress.XtraCharts.ChartControl.CustomizePieTotalLabel"/> event.</para>
+      </summary>
+    </member>
+    <member name="P:DevExpress.XtraCharts.CustomizePieTotalLabelEventArgs.Series">
+      <summary>
+        <para>Returns a pie series whose total label is customized.</para>
+      </summary>
+      <value>A series whose total label is customized.</value>
+    </member>
+    <member name="P:DevExpress.XtraCharts.CustomizePieTotalLabelEventArgs.Text">
+      <summary>
+        <para>Gets or sets the total label text.</para>
+      </summary>
+      <value>A string that represents the total label&#39;s text content.</value>
+    </member>
+    <member name="P:DevExpress.XtraCharts.CustomizePieTotalLabelEventArgs.TextColor">
+      <summary>
+        <para>Gets or sets the total label&#39;s text color.</para>
+      </summary>
+      <value>A color used to paint the total label text.</value>
+    </member>
+    <member name="P:DevExpress.XtraCharts.CustomizePieTotalLabelEventArgs.TotalValue">
+      <summary>
+        <para>Returns the total label value.</para>
+      </summary>
+      <value>A floating-point number that specifies the total value of pie series point values.</value>
+    </member>
+    <member name="T:DevExpress.XtraCharts.CustomizePieTotalLabelEventHandler">
+      <summary>
+        <para>A method that handles the <see cref="E:DevExpress.XtraCharts.ChartControl.CustomizePieTotalLabel"/> event.</para>
+      </summary>
+      <param name="sender">The event source.</param>
+      <param name="e">The event data.</param>
+    </member>
     <member name="T:DevExpress.XtraCharts.CustomizeResolveOverlappingModeEventArgs">
       <summary>
         <para>Provides data for the <see cref="E:DevExpress.XtraCharts.ChartControl.CustomizeResolveOverlappingMode"/> (<see cref="E:DevExpress.XtraCharts.Web.WebChartControl.CustomizeResolveOverlappingMode"/>) event.</para>
@@ -6630,6 +6696,36 @@ If null (Nothing in Visual Basic), then a <see cref="T:System.ArgumentNullExcept
       </summary>
       <param name="sender">The event source. This parameter identifies the <see cref="T:DevExpress.XtraCharts.ChartControl"/> which raised the event.</param>
       <param name="e">A <see cref="T:DevExpress.XtraCharts.CustomizeSimpleDiagramLayoutEventArgs"/> object that contains data related to the event.</param>
+    </member>
+    <member name="T:DevExpress.XtraCharts.CustomizeStackedBarTotalLabelEventArgs">
+      <summary>
+        <para>Provides data for the <see cref="E:DevExpress.XtraCharts.ChartControl.CustomizeStackedBarTotalLabel"/> event.</para>
+      </summary>
+    </member>
+    <member name="P:DevExpress.XtraCharts.CustomizeStackedBarTotalLabelEventArgs.Text">
+      <summary>
+        <para>Gets or sets the total label text.</para>
+      </summary>
+      <value>A string that represents the total label&#39;s text content.</value>
+    </member>
+    <member name="P:DevExpress.XtraCharts.CustomizeStackedBarTotalLabelEventArgs.TextColor">
+      <summary>
+        <para>Gets or sets the total label&#39;s text color.</para>
+      </summary>
+      <value>A color used to paint the total label text.</value>
+    </member>
+    <member name="P:DevExpress.XtraCharts.CustomizeStackedBarTotalLabelEventArgs.TotalValue">
+      <summary>
+        <para>Returns the total label value.</para>
+      </summary>
+      <value>A floating-point number that specifies the total value of stacked bar series point values.</value>
+    </member>
+    <member name="T:DevExpress.XtraCharts.CustomizeStackedBarTotalLabelEventHandler">
+      <summary>
+        <para>A method that handles the <see cref="E:DevExpress.XtraCharts.ChartControl.CustomizeStackedBarTotalLabel"/> event.</para>
+      </summary>
+      <param name="sender">The event source.</param>
+      <param name="e">The event data.</param>
     </member>
     <member name="T:DevExpress.XtraCharts.CustomizeXAxisLabelsEventArgs">
       <summary>
@@ -10301,6 +10397,11 @@ If null (Nothing in Visual Basic), then a <see cref="T:System.ArgumentNullExcept
       <param name="maxScaleBreaksCount">The maximum possible number of scale breaks.</param>
       <returns>The list of automatic scale breaks.</returns>
     </member>
+    <member name="T:DevExpress.XtraCharts.IAxisLabelFormatter">
+      <summary>
+        <para>If implemented by a class, provides a method required for a chart control to format axis labels.</para>
+      </summary>
+    </member>
     <member name="T:DevExpress.XtraCharts.IColorizer">
       <summary>
         <para>An interface that should be implemented by any class that can be used as colorizer for the chart&#39;s series.</para>
@@ -11422,7 +11523,7 @@ If null (Nothing in Visual Basic), then a <see cref="T:System.ArgumentNullExcept
     </member>
     <member name="P:DevExpress.XtraCharts.Legend.DockTarget">
       <summary>
-        <para>Specifies the element (chart or pane), to which the legend is docked.</para>
+        <para>Specifies the element (chart or pane) to which the legend is docked.</para>
       </summary>
       <value>A <see cref="T:DevExpress.XtraCharts.ChartElement"/> class descendant representing the dock target for the legend.</value>
     </member>
@@ -17042,6 +17143,12 @@ If null (Nothing in Visual Basic), then a <see cref="T:System.ArgumentNullExcept
       </summary>
       <value>A <see cref="T:DevExpress.XtraCharts.LineStyle"/> object.</value>
     </member>
+    <member name="P:DevExpress.XtraCharts.RangeBarSeriesLabel.LineVisibility">
+      <summary>
+        <para>Overrides the <see cref="P:DevExpress.XtraCharts.SeriesLabelBase.LineVisibility"/> property to hide it.</para>
+      </summary>
+      <value>Always false.</value>
+    </member>
     <member name="P:DevExpress.XtraCharts.RangeBarSeriesLabel.LineVisible">
       <summary>
         <para>Overrides the <see cref="P:DevExpress.XtraCharts.SeriesLabelBase.LineVisible"/> property to hide it.</para>
@@ -18177,12 +18284,12 @@ If null (Nothing in Visual Basic), then a <see cref="T:System.ArgumentNullExcept
     </member>
     <member name="F:DevExpress.XtraCharts.ScaleMode.Automatic">
       <summary>
-        <para>Identifies the automatic date-time scale mode, meaning that data is automatically aggregated according to the chosen <see cref="P:DevExpress.XtraCharts.ScaleGridOptionsBase.AggregateFunction"/>.</para>
+        <para>Identifies the automatic scale mode, meaning that data is automatically aggregated according to the chosen <see cref="P:DevExpress.XtraCharts.ScaleGridOptionsBase.AggregateFunction"/>.</para>
       </summary>
     </member>
     <member name="F:DevExpress.XtraCharts.ScaleMode.Continuous">
       <summary>
-        <para>Identifies the continuous date-time scale mode, meaning data aggregation is disabled and you can only change the grid alignment using the <see cref="P:DevExpress.XtraCharts.DateTimeScaleOptions.GridAlignment"/> property.</para>
+        <para>Identifies the continuous scale mode, meaning data aggregation is disabled and you can only change the grid alignment using the GridAlignment (<see cref="P:DevExpress.XtraCharts.DateTimeScaleOptions.GridAlignment"/>, <see cref="P:DevExpress.XtraCharts.NumericScaleOptions.GridAlignment"/> or <see cref="P:DevExpress.XtraCharts.TimeSpanScaleOptions.GridAlignment"/>) property.</para>
       </summary>
     </member>
     <member name="F:DevExpress.XtraCharts.ScaleMode.Interval">
@@ -18192,7 +18299,7 @@ If null (Nothing in Visual Basic), then a <see cref="T:System.ArgumentNullExcept
     </member>
     <member name="F:DevExpress.XtraCharts.ScaleMode.Manual">
       <summary>
-        <para>Identifies the manual date-time scale mode, meaning that the <see cref="P:DevExpress.XtraCharts.DateTimeScaleOptions.GridAlignment"/> and <see cref="P:DevExpress.XtraCharts.DateTimeScaleOptions.MeasureUnit"/> properties are in effect, and they should be manually defined. Also, you can choose the aggregate function using the <see cref="P:DevExpress.XtraCharts.ScaleGridOptionsBase.AggregateFunction"/> property.</para>
+        <para>Identifies the manual scale mode, meaning that the GridAlignment (<see cref="P:DevExpress.XtraCharts.DateTimeScaleOptions.GridAlignment"/>, <see cref="P:DevExpress.XtraCharts.NumericScaleOptions.GridAlignment"/> or <see cref="P:DevExpress.XtraCharts.TimeSpanScaleOptions.GridAlignment"/>) and MeasureUnit (<see cref="P:DevExpress.XtraCharts.DateTimeScaleOptions.MeasureUnit"/>, <see cref="P:DevExpress.XtraCharts.NumericScaleOptions.MeasureUnit"/> or <see cref="P:DevExpress.XtraCharts.TimeSpanScaleOptions.MeasureUnit"/>) properties are in effect, and they should be manually defined. Also, you can use the <see cref="P:DevExpress.XtraCharts.ScaleGridOptionsBase.AggregateFunction"/> property to choose the aggregate function.</para>
       </summary>
     </member>
     <member name="T:DevExpress.XtraCharts.ScaleOptionsBase">
@@ -20388,7 +20495,7 @@ If null (Nothing in Visual Basic), then a <see cref="T:System.ArgumentNullExcept
     </member>
     <member name="P:DevExpress.XtraCharts.SeriesPoint.Color">
       <summary>
-        <para>Gets or sets the color used to draw this point</para>
+        <para>Gets or sets the color used to draw this point.</para>
       </summary>
       <value>A <see cref="T:System.Drawing.Color"/> object.</value>
     </member>
@@ -25883,7 +25990,7 @@ If null (Nothing in Visual Basic), then a <see cref="T:System.ArgumentNullExcept
     </member>
     <member name="F:DevExpress.XtraCharts.WaterfallSeriesLabelPosition.Auto">
       <summary>
-        <para>Enables the algorithm which determines the optimal position for waterfall bar labels based on the chart size.</para>
+        <para>The label position is defined based on the series count. Labels are outside waterfall bars if the chart shows a single waterfall series. Labels are positioned in the bar center if the chart shows multiple waterfall series.</para>
       </summary>
     </member>
     <member name="F:DevExpress.XtraCharts.WaterfallSeriesLabelPosition.Center">
@@ -25899,11 +26006,6 @@ If null (Nothing in Visual Basic), then a <see cref="T:System.ArgumentNullExcept
     <member name="F:DevExpress.XtraCharts.WaterfallSeriesLabelPosition.InsideStart">
       <summary>
         <para>Labels are displayed inside waterfall bars, at the bottom of rising bars and at the top of falling bars.</para>
-      </summary>
-    </member>
-    <member name="F:DevExpress.XtraCharts.WaterfallSeriesLabelPosition.OutsideEnd">
-      <summary>
-        <para>Labels are displayed outside waterfall bars, at the bottom of falling bars and at the top of rising bars.</para>
       </summary>
     </member>
     <member name="T:DevExpress.XtraCharts.WaterfallSeriesView">
@@ -26843,6 +26945,14 @@ If null (Nothing in Visual Basic), then a <see cref="T:System.ArgumentNullExcept
       </summary>
       <param name="horizontalDirection">The horizontal scroll direction. If vertical scroll is required, set this parameter to None.</param>
       <param name="verticalDirection">The vertical scroll direction. If horizontal scroll is required, set this parameter to None.</param>
+      <param name="pane">Optional. The pane whose viewport should be scrolled. If the pane is not specified, the default pane viewport will be scrolled.</param>
+    </member>
+    <member name="M:DevExpress.XtraCharts.XYDiagram2D.Scroll(System.Int32,System.Int32,DevExpress.XtraCharts.XYDiagramPaneBase)">
+      <summary>
+        <para>Scrolls the chart viewport to the specified direction within the specified pane.</para>
+      </summary>
+      <param name="horizontalOffset">A horizontal offset in pixels.</param>
+      <param name="verticalOffset">A vertical offset in pixels.</param>
       <param name="pane">Optional. The pane whose viewport should be scrolled. If the pane is not specified, the default pane viewport will be scrolled.</param>
     </member>
     <member name="P:DevExpress.XtraCharts.XYDiagram2D.ScrollingOptions">

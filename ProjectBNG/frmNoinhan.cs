@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Entity;
-using ProjectBNG.Models; 
+using ProjectBNG.Models;
 
 namespace ProjectBNG
 {
@@ -23,8 +23,8 @@ namespace ProjectBNG
             // Call the LoadAsync method to asynchronously get the data for the given DbSet from the database.
             dbContext.NoiNhans.LoadAsync().ContinueWith(loadTask =>
             {
-    // Bind data to control when loading complete
-    noiNhansBindingSource.DataSource = dbContext.NoiNhans.Local.ToBindingList();
+                // Bind data to control when loading complete
+                noiNhansBindingSource.DataSource = dbContext.NoiNhans.Local.ToBindingList();
             }, System.Threading.Tasks.TaskScheduler.FromCurrentSynchronizationContext());
         }
         private bool CheckExistForm(string name)
@@ -57,8 +57,9 @@ namespace ProjectBNG
         {
             if (!CheckExistForm("frmThongTinNoiNhan"))
             {
-                frmThongTinNoiNhan fthongtinnoinhan = new frmThongTinNoiNhan(()=> {
-                    
+                frmThongTinNoiNhan fthongtinnoinhan = new frmThongTinNoiNhan(() =>
+                {
+
                     gridControl1.DataSource = db.NoiNhans.ToList();
                     gridControl1.RefreshDataSource();
                     return false;
@@ -81,25 +82,25 @@ namespace ProjectBNG
             cmbLoai.DataSource = publicLoai.Loais.ToList();
             cmbLoai.ValueMember = "id";
             cmbLoai.DisplayMember = "TenLoai";
-            
+
             cmbLoai.Invalidate();
             gridControl1_Load(sender, e);
         }
         public void reloadFormNoiNhan()
         {
-            
+
         }
 
         public void gridControl1_Load(object sender, EventArgs e)
         {
-            
+
             gridControl1.DataSource = db.NoiNhans.ToList();
             gridControl1.RefreshDataSource();
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            
+
             DialogResult wr = MessageBox.Show("Xóa nơi nhận này ?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (wr == DialogResult.Yes)
             {
@@ -108,13 +109,13 @@ namespace ProjectBNG
                 {
 
                     delNoiNhan.id = int.Parse(gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "id").ToString());
+                    deleteNoiNhan(delNoiNhan);
+                    MessageBox.Show("Xóa thành công ", "Thông báo");
                 }
                 catch
-                {   
+                {
                 }
-                deleteNoiNhan(delNoiNhan);
                 gridControl1_Load(sender, e);
-                MessageBox.Show("Xóa thành công ", "Thông báo");
             }
             void deleteNoiNhan(NoiNhan noiNhan)
             {
@@ -131,48 +132,48 @@ namespace ProjectBNG
 
         private void frmNoinhan_Activated(object sender, EventArgs e)
         {
-            gridControl1_Load(sender,e);
+            gridControl1_Load(sender, e);
         }
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             SMMgEntities db = new SMMgEntities();
             try
             {
-                if (tbTenNoiNhanTimKiem.Text == "" && cmbLoai.Text=="Nội bộ")
+                if (tbTenNoiNhanTimKiem.Text == "" && (cmbLoai.Text == "Nội bộ" || cmbLoai.Text == "Bên ngoài"))
                 {
-
-                gridControl1.DataSource = db.NoiNhans
-                        .Where(x =>x.Loai==cmbLoai.Text)
-                        .Select(x => new
-                        {
-                            MaNoiNhan=x.MaNoiNhan,
-                            TenNoiNhan=x.TenNoiNhan,
-                            SoBaoMat=x.SoBaoMat,
-                            Loai=x.Loai
-                        }).ToList();
-                gridControl1.RefreshDataSource();
-                }
-                else if (tbTenNoiNhanTimKiem.Text == "" && cmbLoai.Text == "Bên ngoài")
-                {
-                    gridControl1_Load(sender, e);
+                    gridControl1.DataSource = db.NoiNhans
+                            .Where(x => x.Loai == cmbLoai.Text)
+                            .Select(x => new
+                            {
+                                MaNoiNhan = x.MaNoiNhan,
+                                TenNoiNhan = x.TenNoiNhan,
+                                SoBaoMat = x.SoBaoMat,
+                                Loai = x.Loai
+                            }).ToList();
+                    gridControl1.RefreshDataSource();
                 }
                 else if (tbTenNoiNhanTimKiem.Text == "" && cmbLoai.Text == "Tất cả")
                 {
-                    gridControl1.DataSource = db.NoiNhans
-                        .Where(x => x.Loai == cmbLoai.Text && x.TenNoiNhan==tbTenNoiNhanTimKiem.Text)
-                        .Select(x => new
-                        {
-                            MaNoiNhan = x.MaNoiNhan,
-                            TenNoiNhan = x.TenNoiNhan,
-                            SoBaoMat = x.SoBaoMat,
-                            Loai = x.Loai
-                        }).ToList();
+                    gridControl1.DataSource = db.NoiNhans.ToList();
                     gridControl1.RefreshDataSource();
                 }
-                else
+                else if (tbTenNoiNhanTimKiem.Text != "" && (cmbLoai.Text == "Nội bộ" || cmbLoai.Text == "Bên ngoài"))
                 {
                     gridControl1.DataSource = db.NoiNhans
-                        .Where(x => x.Loai == cmbLoai.Text && x.TenNoiNhan == tbTenNoiNhanTimKiem.Text)
+                                .Where(x => x.TenNoiNhan == tbTenNoiNhanTimKiem.Text && x.Loai == cmbLoai.Text)
+                                .Select(x => new
+                                {
+                                    MaNoiNhan = x.MaNoiNhan,
+                                    TenNoiNhan = x.TenNoiNhan,
+                                    SoBaoMat = x.SoBaoMat,
+                                    Loai = x.Loai
+                                }).ToList();
+                    gridControl1.RefreshDataSource();
+                }
+                else if (tbTenNoiNhanTimKiem.Text != "" && cmbLoai.Text == "Tất cả")
+                {
+                    gridControl1.DataSource = db.NoiNhans
+                        .Where(x => x.TenNoiNhan == tbTenNoiNhanTimKiem.Text)
                         .Select(x => new
                         {
                             MaNoiNhan = x.MaNoiNhan,

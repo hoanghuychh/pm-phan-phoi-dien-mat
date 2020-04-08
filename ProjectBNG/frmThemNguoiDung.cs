@@ -16,13 +16,12 @@ namespace ProjectBNG
     {
         private SMMgEntities publishQuyen;
 
-        public frmThemNguoiDung()
+        Func<bool> onSubmit;
+        public frmThemNguoiDung(Func<bool> onSub)
         {
             InitializeComponent();
-            publishQuyen = new SMMgEntities();
-            cmbQuyen.DataSource = publishQuyen.Permisions.ToList();
-            cmbQuyen.DisplayMember = "NamePer";
-            cmbQuyen.Invalidate();
+
+            this.onSubmit = onSub;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -39,10 +38,13 @@ namespace ProjectBNG
                 newUser.Password = tbPassword.Text;
                 newUser.PerUser = cmbQuyen.Text;
                 newUser.NameUser = tbNameUser.Text;
+                newUser.TrangThai = "Đang hoạt động";
                 var db = new SMMgEntities();
                 db.USERs.Add(newUser);
                 db.SaveChanges();
                 frmThemNguoiDung_Load(sender, e);
+
+                this.onSubmit.Invoke();
                 MessageBox.Show("Thêm người sử dụng thành công");
                 this.Close();
             }
@@ -61,6 +63,14 @@ namespace ProjectBNG
         {
             frmNguoiDung frmNguoiDung = new frmNguoiDung();
             frmNguoiDung.gridControl1_Load(sender, e);
+        }
+
+        private void frmThemNguoiDung_Load_1(object sender, EventArgs e)
+        {
+            publishQuyen = new SMMgEntities();
+            cmbQuyen.DataSource = publishQuyen.Permisions.ToList();
+            cmbQuyen.DisplayMember = "NamePer";
+            cmbQuyen.Invalidate();
         }
     }
 }

@@ -60,7 +60,7 @@ namespace ProjectBNG
             try
             {
                 OpenFileDialog openFileDialog = new OpenFileDialog();
-                openFileDialog.Filter = "jpg files(*.jpg)|*.jpg| PNG files(*.png)|*.png| All files(*.*)|*.*";
+                openFileDialog.Filter = "PNG files(*.png)|*.png| jpg files(*.jpg)|*.jpg|  All files(*.*)|*.*";
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     tbChuKy.Text = openFileDialog.FileName;

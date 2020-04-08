@@ -16,7 +16,7 @@ namespace ProjectBNG.Models
     {
         public int id { get; set; }
         public System.DateTime Ngay { get; set; }
-        public Nullable<int> SoPhieu { get; set; }
+        public string SoPhieu { get; set; }
         public string KiNhan { get; set; }
         public string TenNoiNhan { get; set; }
         public Nullable<int> TongSo { get; set; }

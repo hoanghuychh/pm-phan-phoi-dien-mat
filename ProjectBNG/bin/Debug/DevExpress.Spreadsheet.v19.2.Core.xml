@@ -4,6 +4,11 @@
     <name>DevExpress.Spreadsheet.v19.2.Core</name>
   </assembly>
   <members>
+    <member name="N:DevExpress.Spreadsheet">
+      <summary>
+        <para>Contains classes and interfaces that implement basic spreadsheet functionality.</para>
+      </summary>
+    </member>
     <member name="T:DevExpress.Spreadsheet.ActiveSheetChangedEventArgs">
       <summary>
         <para>Provides data for the SpreadsheetControl.ActiveSheetChanged event.</para>
@@ -1569,10 +1574,10 @@
     </member>
     <member name="M:DevExpress.Spreadsheet.CellRange.Contains(DevExpress.Spreadsheet.CellRange)">
       <summary>
-        <para></para>
+        <para>Determines whether the current cell range contains the specified range.</para>
       </summary>
-      <param name="other"></param>
-      <returns></returns>
+      <param name="other">A cell range to be checked.</param>
+      <returns>true, if the specified cell range is a part of the current range; otherwise, false.</returns>
     </member>
     <member name="M:DevExpress.Spreadsheet.CellRange.CopyFrom(DevExpress.Spreadsheet.CellRange)">
       <summary>
@@ -1748,9 +1753,9 @@
     </member>
     <member name="P:DevExpress.Spreadsheet.CellRange.HasData">
       <summary>
-        <para></para>
+        <para>Checks whether the current cell range contains data.</para>
       </summary>
-      <value></value>
+      <value>true, if any cell in the current range contains a value or formula; otherwise, false.</value>
     </member>
     <member name="P:DevExpress.Spreadsheet.CellRange.HasFormula">
       <summary>
@@ -1768,14 +1773,14 @@
       <summary>
         <para>Returns the cell range that is the intersection of the current and specified ranges.</para>
       </summary>
-      <param name="other">A <see cref="T:DevExpress.Spreadsheet.CellRange"/> object that specifies the cell range to be intersected.</param>
-      <returns>A <see cref="T:DevExpress.Spreadsheet.CellRange"/> object that is an intersection of two ranges. If ranges do not intersect, null (Nothing in Visual Basic) is returned.</returns>
+      <param name="other">A cell range to be checked for intersection with current range.</param>
+      <returns>A cell range that is the intersection of the specified ranges. If ranges do not intersect, null (Nothing in Visual Basic) is returned.</returns>
     </member>
     <member name="M:DevExpress.Spreadsheet.CellRange.IsIntersecting(DevExpress.Spreadsheet.CellRange)">
       <summary>
-        <para>Indicates whether the current range intersects with the specified range.</para>
+        <para>Determines whether the current range intersects with the specified range.</para>
       </summary>
-      <param name="other">A <see cref="T:DevExpress.Spreadsheet.CellRange"/> object that specifies the range to be checked.</param>
+      <param name="other">A cell range to be checked.</param>
       <returns>true if ranges intersect; otherwise, false.</returns>
     </member>
     <member name="P:DevExpress.Spreadsheet.CellRange.IsMerged">
@@ -1833,11 +1838,11 @@
     </member>
     <member name="M:DevExpress.Spreadsheet.CellRange.Resize(System.Int32,System.Int32)">
       <summary>
-        <para></para>
+        <para>Resizes the current cell range.</para>
       </summary>
-      <param name="rowCount"></param>
-      <param name="columnCount"></param>
-      <returns></returns>
+      <param name="rowCount">The number of rows in the new range.</param>
+      <param name="columnCount">The number of columns in the new range.</param>
+      <returns>The resized cell range.</returns>
     </member>
     <member name="P:DevExpress.Spreadsheet.CellRange.RightColumnIndex">
       <summary>
@@ -6917,10 +6922,10 @@
     </member>
     <member name="M:DevExpress.Spreadsheet.ConditionalFormattingCollection.GetConditionalFormattings(DevExpress.Spreadsheet.CellRange)">
       <summary>
-        <para></para>
+        <para>Obtains conditional formatting rules applied to the specified cell range.</para>
       </summary>
-      <param name="range"></param>
-      <returns></returns>
+      <param name="range">A cell range for which conditional formatting rules are obtained.</param>
+      <returns>A collection of conditional formats applied to the cell range.</returns>
     </member>
     <member name="M:DevExpress.Spreadsheet.ConditionalFormattingCollection.IndexOf(DevExpress.Spreadsheet.ConditionalFormatting)">
       <summary>
@@ -8284,7 +8289,7 @@
       </summary>
       <param name="cell">A <see cref="T:DevExpress.Spreadsheet.Cell"/> object that is a cell with the data validation applied.</param>
       <param name="newValue">A <see cref="T:DevExpress.Spreadsheet.CellValue"/> object that is a value to be validated.</param>
-      <returns>true, if the specified value meets the data validation criteria applied to the speciified cell; otherwise, false.</returns>
+      <returns>true, if the specified value meets the data validation criteria applied to the specified cell; otherwise, false.</returns>
     </member>
     <member name="T:DevExpress.Spreadsheet.DataValidationErrorStyle">
       <summary>
@@ -8881,7 +8886,7 @@
     </member>
     <member name="F:DevExpress.Spreadsheet.DocumentFormat.Xls">
       <summary>
-        <para>The Microsoft Excel 97-2003 binary file format.</para>
+        <para>The Microsoft Excel 97-2003 binary file format (import/export), or Microsoft Excel 5.0/95 binary file format (import only).</para>
       </summary>
       <value>A document format.</value>
     </member>
@@ -8996,6 +9001,12 @@
         <para>Provides access to options used to import workbooks in different formats.</para>
       </summary>
       <value>A <see cref="T:DevExpress.XtraSpreadsheet.Import.WorkbookImportOptions"/> object containing various import options.</value>
+    </member>
+    <member name="P:DevExpress.Spreadsheet.DocumentOptions.Print">
+      <summary>
+        <para>Provides access to print options for a workbook.</para>
+      </summary>
+      <value>An object that contains print options.</value>
     </member>
     <member name="P:DevExpress.Spreadsheet.DocumentOptions.Protection">
       <summary>
@@ -10709,6 +10720,11 @@
         <para>Gets the type of the error that occurred in the cell.</para>
       </summary>
       <value>An <see cref="T:DevExpress.Spreadsheet.ErrorType"/> enumeration member that specifies the error type.</value>
+    </member>
+    <member name="N:DevExpress.Spreadsheet.Export">
+      <summary>
+        <para>Contains base interfaces and classes required for data export from the cells of the spreadsheet to a data table.</para>
+      </summary>
     </member>
     <member name="T:DevExpress.Spreadsheet.Export.CellValueConversionErrorEventArgs">
       <summary>
@@ -15300,17 +15316,17 @@ A <see cref="T:DevExpress.Spreadsheet.Formulas.ConstantExpression"/> class insta
     </member>
     <member name="M:DevExpress.Spreadsheet.IRangeProvider.GetColumnIndexByName(System.String)">
       <summary>
-        <para></para>
+        <para>Returns the index of the column with the specified heading in the A1 reference style.</para>
       </summary>
-      <param name="columnHeading"></param>
-      <returns></returns>
+      <param name="columnHeading">The heading of the column whose index should be returned.</param>
+      <returns>The column&#39;s index. -1, if an invalid columnHeading is specified.</returns>
     </member>
     <member name="M:DevExpress.Spreadsheet.IRangeProvider.GetColumnNameByIndex(System.Int32)">
       <summary>
-        <para></para>
+        <para>Returns the heading of the column with the specified index.</para>
       </summary>
-      <param name="index"></param>
-      <returns></returns>
+      <param name="index">The zero-based index of the column whose heading should be returned.</param>
+      <returns>The column&#39;s heading in the A1 reference style. Null (Nothing in Visual Basic), if the specified index is negative or exceeds the last available index (a worksheet limits the number of columns to 16384).</returns>
     </member>
     <member name="P:DevExpress.Spreadsheet.IRangeProvider.Item(System.String)">
       <summary>
@@ -15350,18 +15366,18 @@ A <see cref="T:DevExpress.Spreadsheet.Formulas.ConstantExpression"/> class insta
     </member>
     <member name="M:DevExpress.Spreadsheet.IRangeProvider.ValidateReference(System.String)">
       <summary>
-        <para></para>
+        <para>Validates the cell reference in accordance with the cell reference style used in the workbook.</para>
       </summary>
-      <param name="reference"></param>
-      <returns></returns>
+      <param name="reference">A cell reference to be validated.</param>
+      <returns>true, if the specified cell reference is valid; otherwise, false.</returns>
     </member>
     <member name="M:DevExpress.Spreadsheet.IRangeProvider.ValidateReference(System.String,DevExpress.Spreadsheet.ReferenceStyle)">
       <summary>
-        <para></para>
+        <para>Validates the cell reference in accordance with the specified cell reference style.</para>
       </summary>
-      <param name="reference"></param>
-      <param name="style"></param>
-      <returns></returns>
+      <param name="reference">A cell reference to be validated.</param>
+      <param name="style">An enumeration member that specifies the cell reference style.</param>
+      <returns>true, if the specified cell reference is valid; otherwise, false.</returns>
     </member>
     <member name="T:DevExpress.Spreadsheet.ISpreadsheetComponent">
       <summary>
@@ -17915,9 +17931,9 @@ to group by in date range grouping.</param>
     </member>
     <member name="P:DevExpress.Spreadsheet.PivotFilter.UseWholeDay">
       <summary>
-        <para></para>
+        <para>Gets or sets whether the date filter should use whole days in its filtering criteria.</para>
       </summary>
-      <value></value>
+      <value>true, to use whole days in the date filter; otherwise,false.</value>
     </member>
     <member name="P:DevExpress.Spreadsheet.PivotFilter.Value">
       <summary>
@@ -24940,7 +24956,7 @@ The default is Clip.</value>
       <summary>
         <para>Provides access to an object that contains options to filter data in a worksheet.</para>
       </summary>
-      <value>A <see cref="T:DevExpress.Spreadsheet.SheetAutoFilter"/> object that implements the filtering functionality for a cell range in a worksheet.</value>
+      <value>An object that implements filtering for cell ranges in a worksheet.</value>
     </member>
     <member name="M:DevExpress.Spreadsheet.Worksheet.AutoOutline">
       <summary>
@@ -25193,9 +25209,9 @@ The default is Clip.</value>
     </member>
     <member name="P:DevExpress.Spreadsheet.Worksheet.HasData">
       <summary>
-        <para></para>
+        <para>Checks whether the current worksheet contains data.</para>
       </summary>
-      <value></value>
+      <value>true, if any cell in the current worksheet contains a value or formula; otherwise, false.</value>
     </member>
     <member name="P:DevExpress.Spreadsheet.Worksheet.HeaderFooterOptions">
       <summary>
@@ -26706,57 +26722,57 @@ The default is Clip.</value>
     </member>
     <member name="T:DevExpress.XtraSpreadsheet.ClipboardPasteFormat">
       <summary>
-        <para></para>
+        <para>Lists clipboard formats the Spreadsheet control supports.</para>
       </summary>
     </member>
     <member name="F:DevExpress.XtraSpreadsheet.ClipboardPasteFormat.Biff12">
       <summary>
-        <para></para>
+        <para>Microsoft Excel 2007 - 2010 binary file format (BIFF12).</para>
       </summary>
     </member>
     <member name="F:DevExpress.XtraSpreadsheet.ClipboardPasteFormat.Biff5">
       <summary>
-        <para></para>
+        <para>Microsoft Excel 5.0/95 binary file format (BIFF5).</para>
       </summary>
     </member>
     <member name="F:DevExpress.XtraSpreadsheet.ClipboardPasteFormat.Biff8">
       <summary>
-        <para></para>
+        <para>Microsoft Excel 97 - 2003 binary file format (BIFF8).</para>
       </summary>
     </member>
     <member name="F:DevExpress.XtraSpreadsheet.ClipboardPasteFormat.Csv">
       <summary>
-        <para></para>
+        <para>Comma-delimited text.</para>
       </summary>
     </member>
     <member name="F:DevExpress.XtraSpreadsheet.ClipboardPasteFormat.Default">
       <summary>
-        <para></para>
+        <para>The Spreadsheet detects the appropriate format to paste clipboard data.</para>
       </summary>
     </member>
     <member name="F:DevExpress.XtraSpreadsheet.ClipboardPasteFormat.DrawingObject">
       <summary>
-        <para></para>
+        <para>A drawing object (shape or chart).</para>
       </summary>
     </member>
     <member name="F:DevExpress.XtraSpreadsheet.ClipboardPasteFormat.Image">
       <summary>
-        <para></para>
+        <para>A raster image.</para>
       </summary>
     </member>
     <member name="F:DevExpress.XtraSpreadsheet.ClipboardPasteFormat.ImagesFromFiles">
       <summary>
-        <para></para>
+        <para>A list of file paths to inserted images.</para>
       </summary>
     </member>
     <member name="F:DevExpress.XtraSpreadsheet.ClipboardPasteFormat.Metafile">
       <summary>
-        <para></para>
+        <para>An image in Windows Metafile Format (WMF) or Windows Enhanced Metafile Format (EMF).</para>
       </summary>
     </member>
     <member name="F:DevExpress.XtraSpreadsheet.ClipboardPasteFormat.TabDelimited">
       <summary>
-        <para></para>
+        <para>Tab-delimited text.</para>
       </summary>
     </member>
     <member name="T:DevExpress.XtraSpreadsheet.DataBindingWarningEventArgs">
@@ -29474,15 +29490,15 @@ The default is Clip.</value>
     </member>
     <member name="P:DevExpress.XtraSpreadsheet.SpreadsheetClipboardOptions.PasteChartAsPicture">
       <summary>
-        <para></para>
+        <para>Gets or sets whether to paste a chart from the clipboard onto the Spreadsheet control as an image.</para>
       </summary>
-      <value></value>
+      <value>true, to paste a chart as an image; otherwise, false.</value>
     </member>
     <member name="P:DevExpress.XtraSpreadsheet.SpreadsheetClipboardOptions.PasteFormat">
       <summary>
-        <para></para>
+        <para>Gets or sets the format to use when pasting data from the clipboard onto the Spreadsheet control.</para>
       </summary>
-      <value></value>
+      <value>An enumeration member that specifies the clipboard format.</value>
     </member>
     <member name="T:DevExpress.XtraSpreadsheet.SpreadsheetColumnBehaviorOptions">
       <summary>
@@ -30112,39 +30128,15 @@ The default is Clip.</value>
         <para>Initializes a new instance of the <see cref="T:DevExpress.XtraSpreadsheet.SpreadsheetPrintOptions"/> class with the default settings.</para>
       </summary>
     </member>
-    <member name="P:DevExpress.XtraSpreadsheet.SpreadsheetPrintOptions.PrintPlaceholders">
-      <summary>
-        <para>Gets or sets whether to print placeholders for charts or slicers which are not supported.</para>
-      </summary>
-      <value>True, to include placeholders in the printout; otherwise, false.</value>
-    </member>
-    <member name="P:DevExpress.XtraSpreadsheet.SpreadsheetPrintOptions.PrintSheetVisibility">
-      <summary>
-        <para>Gets or sets the worksheet visibility type which the worksheet should have in order to be printed.</para>
-      </summary>
-      <value>A <see cref="T:DevExpress.Spreadsheet.WorksheetVisibilityType"/> enumeration member indicating the worksheet visibility.</value>
-    </member>
-    <member name="P:DevExpress.XtraSpreadsheet.SpreadsheetPrintOptions.RenderMode">
-      <summary>
-        <para>Gets or sets a value that specifies the render mode of the printed document in the SpreadsheetControl.</para>
-      </summary>
-      <value>One of the <see cref="T:DevExpress.XtraSpreadsheet.SpreadsheetPrintRenderMode"/> enumeration values.</value>
-    </member>
     <member name="P:DevExpress.XtraSpreadsheet.SpreadsheetPrintOptions.RibbonPreview">
       <summary>
         <para>Gets or sets a value that specifies whether the Ribbon Print Preview window should be displayed instead of the standard Print Preview form with a Bar UI.</para>
       </summary>
       <value>true, to display the Print Preview window with a Ribbon UI; otherwise, false.</value>
     </member>
-    <member name="P:DevExpress.XtraSpreadsheet.SpreadsheetPrintOptions.ShowMarginsWarning">
-      <summary>
-        <para>Gets or sets a value indicating whether an error message is shown when the page margins are set outside the printable area.</para>
-      </summary>
-      <value>true, to show the margins warning dialog; otherwise false.</value>
-    </member>
     <member name="T:DevExpress.XtraSpreadsheet.SpreadsheetPrintRenderMode">
       <summary>
-        <para>Lists values used to specify the render mode of the printed document in the SpreadsheetControl.</para>
+        <para>Lists values used to specify the render mode for the printed document.</para>
       </summary>
     </member>
     <member name="F:DevExpress.XtraSpreadsheet.SpreadsheetPrintRenderMode.Gdi">
@@ -30466,9 +30458,9 @@ The default is Clip.</value>
     </member>
     <member name="P:DevExpress.XtraSpreadsheet.SpreadsheetViewOptions.ShowPlaceholders">
       <summary>
-        <para>Gets or sets whether to display placeholders for charts or slicers which are not supported.</para>
+        <para>Gets or sets whether to display placeholders for unsupported document elements (charts, slicers, form controls, and SmartArt graphics).</para>
       </summary>
-      <value>True, if placeholders are displayed; otherwise, false.</value>
+      <value>true, to display placeholders; otherwise, false.</value>
     </member>
     <member name="P:DevExpress.XtraSpreadsheet.SpreadsheetViewOptions.ShowPrintArea">
       <summary>
@@ -30583,6 +30575,30 @@ The default is Clip.</value>
       <param name="sender">The event sender (typically a <see cref="T:DevExpress.XtraSpreadsheet.SpreadsheetControl"/>).</param>
       <param name="e">A <see cref="T:DevExpress.XtraSpreadsheet.SpreadsheetUnhandledExceptionEventArgs"/> object that contains event data.</param>
     </member>
+    <member name="T:DevExpress.XtraSpreadsheet.VisibleRangeChangedEventArgs">
+      <summary>
+        <para>Provides data for the SpreadsheetControl.VisibleRangeChanged event.</para>
+      </summary>
+    </member>
+    <member name="P:DevExpress.XtraSpreadsheet.VisibleRangeChangedEventArgs.Range">
+      <summary>
+        <para>Gets the cell range that is currently visible in the Spreadsheet control.</para>
+      </summary>
+      <value>The currently visible cell range.</value>
+    </member>
+    <member name="P:DevExpress.XtraSpreadsheet.VisibleRangeChangedEventArgs.UnfrozenRange">
+      <summary>
+        <para>Gets the visible cell range of the scrollable area when there are frozen rows and columns in the worksheet.</para>
+      </summary>
+      <value>The currently visible cell range of the scrollable area.</value>
+    </member>
+    <member name="T:DevExpress.XtraSpreadsheet.VisibleRangeChangedEventHandler">
+      <summary>
+        <para>A method that handles the <see cref="E:DevExpress.XtraSpreadsheet.SpreadsheetControl.VisibleRangeChanged"/> event.</para>
+      </summary>
+      <param name="sender">The event source. This parameter identifies the SpreadsheetControl that raised the event.</param>
+      <param name="e">An object that contains event data.</param>
+    </member>
     <member name="T:DevExpress.XtraSpreadsheet.WorkbookCapabilitiesOptions">
       <summary>
         <para>Provides various options which can be specified for the document loaded in the SpreadsheetControl.</para>
@@ -30686,6 +30702,40 @@ The default is Clip.</value>
         <para>Gets or sets whether to raise certain events when changes are made via an API. Normally, these events are fired only when the document is modified by using the control UI.</para>
       </summary>
       <value>true, to raise events for changes made via API; otherwise, false.</value>
+    </member>
+    <member name="T:DevExpress.XtraSpreadsheet.WorkbookPrintOptions">
+      <summary>
+        <para>Provides access to options that control how a printed document is generated and previewed.</para>
+      </summary>
+    </member>
+    <member name="M:DevExpress.XtraSpreadsheet.WorkbookPrintOptions.#ctor">
+      <summary>
+        <para>Initializes a new instance of the <see cref="T:DevExpress.XtraSpreadsheet.WorkbookPrintOptions"/> class.</para>
+      </summary>
+    </member>
+    <member name="P:DevExpress.XtraSpreadsheet.WorkbookPrintOptions.PrintPlaceholders">
+      <summary>
+        <para>Gets or sets whether to print placeholders for unsupported document elements (charts, slicers, form controls, and SmartArt graphics).</para>
+      </summary>
+      <value>true, to include placeholders in the printout; otherwise, false.</value>
+    </member>
+    <member name="P:DevExpress.XtraSpreadsheet.WorkbookPrintOptions.PrintSheetVisibility">
+      <summary>
+        <para>Gets or sets the visibility of worksheets to be printed.</para>
+      </summary>
+      <value>An enumeration member that indicates the worksheet visibility.</value>
+    </member>
+    <member name="P:DevExpress.XtraSpreadsheet.WorkbookPrintOptions.RenderMode">
+      <summary>
+        <para>Gets or sets the render mode for the printed document.</para>
+      </summary>
+      <value>An enumeration value that specifies the render mode.</value>
+    </member>
+    <member name="P:DevExpress.XtraSpreadsheet.WorkbookPrintOptions.ShowMarginsWarning">
+      <summary>
+        <para>Gets or sets whether to show an error message when page margins are set outside the printable area.</para>
+      </summary>
+      <value>true, to show the margins warning dialog; otherwise false.</value>
     </member>
     <member name="T:DevExpress.XtraSpreadsheet.WorkbookSaveOptions">
       <summary>

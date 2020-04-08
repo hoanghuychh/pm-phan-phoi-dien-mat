@@ -34,6 +34,11 @@ namespace ProjectBNG
             var noiGui = new NoiGui();
             noiGui.Ma = tbMaNguoiGui.Text;
             noiGui.Ten = tbTenNguoiGui.Text;
+            if (noiGui.Ma == "" || noiGui.Ten == "")
+            {
+                MessageBox.Show("Thông tin chưa được điền", "Thông báo");
+                return;
+            }
             db.NoiGuis.Add(noiGui);
             db.SaveChanges();
             gridControl1_Load(sender, e);

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.421
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29911.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectBNG", "ProjectBNG\ProjectBNG.csproj", "{97FC297E-807D-4590-8FB4-149382EAE11D}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "Setup1\Setup1.vdproj", "{8617C21A-E307-419A-91D0-320800D1F1CB}"
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupSMMg", "SetupSMMg\SetupSMMg.vdproj", "{372716F0-FA3E-48CB-A4A7-86DA784B1633}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupSMMG02", "SetupSMMG02\SetupSMMG02.vdproj", "{E603E9A6-C76E-4324-ADCD-13382B0F29EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{372716F0-FA3E-48CB-A4A7-86DA784B1633}.Debug|x86.ActiveCfg = Debug
 		{372716F0-FA3E-48CB-A4A7-86DA784B1633}.Release|Any CPU.ActiveCfg = Release
 		{372716F0-FA3E-48CB-A4A7-86DA784B1633}.Release|x86.ActiveCfg = Release
+		{E603E9A6-C76E-4324-ADCD-13382B0F29EB}.Debug|Any CPU.ActiveCfg = Debug
+		{E603E9A6-C76E-4324-ADCD-13382B0F29EB}.Debug|x86.ActiveCfg = Debug
+		{E603E9A6-C76E-4324-ADCD-13382B0F29EB}.Release|Any CPU.ActiveCfg = Release
+		{E603E9A6-C76E-4324-ADCD-13382B0F29EB}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -11,7 +11,7 @@
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Ngay" Type="datetime" Nullable="false" />
-          <Property Name="SoPhieu" Type="int" />
+          <Property Name="SoPhieu" Type="nvarchar" MaxLength="265" />
           <Property Name="KiNhan" Type="nvarchar" MaxLength="265" />
           <Property Name="TenNoiNhan" Type="nvarchar" MaxLength="265" />
           <Property Name="TongSo" Type="int" />
@@ -110,32 +110,6 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenLoai" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <EntityType Name="NguoiDuyet">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TenNguoiDuyet" Type="nvarchar" MaxLength="265" />
-          <Property Name="MacDinh" Type="bit" />
-          <Property Name="ChuKy" Type="image" />
-        </EntityType>
-        <EntityType Name="NguoiKy">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TenNguoiKy" Type="nvarchar" MaxLength="265" />
-          <Property Name="ChucDanh" Type="nvarchar" MaxLength="265" />
-          <Property Name="MacDinh" Type="bit" />
-          <Property Name="ChuKy" Type="image" />
-        </EntityType>
-        <EntityType Name="Nhom">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="TenNhom" Type="nvarchar" MaxLength="50" />
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-        </EntityType>
         <EntityType Name="NoiGui">
           <Key>
             <PropertyRef Name="id" />
@@ -174,6 +148,32 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
           <Property Name="DangHoatDong" Type="bit" />
           <Property Name="CoSo" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="NguoiDuyet">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenNguoiDuyet" Type="nvarchar" MaxLength="265" />
+          <Property Name="MacDinh" Type="bit" />
+          <Property Name="ChuKy" Type="image" />
+        </EntityType>
+        <EntityType Name="NguoiKy">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenNguoiKy" Type="nvarchar" MaxLength="265" />
+          <Property Name="ChucDanh" Type="nvarchar" MaxLength="265" />
+          <Property Name="MacDinh" Type="bit" />
+          <Property Name="ChuKy" Type="image" />
+        </EntityType>
+        <EntityType Name="Nhom">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="TenNhom" Type="nvarchar" MaxLength="50" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
         <EntityType Name="PemisionDetail">
           <Key>
             <PropertyRef Name="id" />
@@ -197,13 +197,6 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
           </Key>
           <Property Name="PhanLoai" Type="nvarchar" MaxLength="50" />
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-        </EntityType>
-        <EntityType Name="TrangThai">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NameTrangThai" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="TuyChinh">
           <Key>
@@ -245,6 +238,13 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
           <Property Name="TrangThaiTuyChinh" Type="nvarchar" MaxLength="50" />
           <Property Name="GiayIn" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="TrangThai">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameTrangThai" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="USER">
           <Key>
             <PropertyRef Name="ID" />
@@ -276,18 +276,18 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
           <EntitySet Name="FileDinhKemDienMat" EntityType="Self.FileDinhKemDienMat" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="KiemChungDien" EntityType="Self.KiemChungDien" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Loai" EntityType="Self.Loai" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="NguoiDuyet" EntityType="Self.NguoiDuyet" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="NguoiKy" EntityType="Self.NguoiKy" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Nhom" EntityType="Self.Nhom" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NoiGui" EntityType="Self.NoiGui" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NoiNhan" EntityType="Self.NoiNhan" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="NoiNhanTemp" EntityType="Self.NoiNhanTemp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NguoiDuyet" EntityType="Self.NguoiDuyet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NguoiKy" EntityType="Self.NguoiKy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Nhom" EntityType="Self.Nhom" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PemisionDetail" EntityType="Self.PemisionDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Permision" EntityType="Self.Permision" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PhanLoaiNoiNhan" EntityType="Self.PhanLoaiNoiNhan" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TrangThai" EntityType="Self.TrangThai" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TuyChinh" EntityType="Self.TuyChinh" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TuyChinhCombobox" EntityType="Self.TuyChinhCombobox" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TrangThai" EntityType="Self.TrangThai" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USER" EntityType="Self.USER" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DienMatDaPhanPhoi" EntityType="Self.DienMatDaPhanPhoi" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -358,18 +358,18 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
           <EntitySet Name="FileDinhKemDienMats" EntityType="SMMgModel.FileDinhKemDienMat" />
           <EntitySet Name="KiemChungDiens" EntityType="SMMgModel.KiemChungDien" />
           <EntitySet Name="Loais" EntityType="SMMgModel.Loai" />
-          <EntitySet Name="NguoiDuyets" EntityType="SMMgModel.NguoiDuyet" />
-          <EntitySet Name="NguoiKies" EntityType="SMMgModel.NguoiKy" />
-          <EntitySet Name="Nhoms" EntityType="SMMgModel.Nhom" />
           <EntitySet Name="NoiGuis" EntityType="SMMgModel.NoiGui" />
           <EntitySet Name="NoiNhans" EntityType="SMMgModel.NoiNhan" />
           <EntitySet Name="NoiNhanTemps" EntityType="SMMgModel.NoiNhanTemp" />
+          <EntitySet Name="NguoiDuyets" EntityType="SMMgModel.NguoiDuyet" />
+          <EntitySet Name="NguoiKies" EntityType="SMMgModel.NguoiKy" />
+          <EntitySet Name="Nhoms" EntityType="SMMgModel.Nhom" />
           <EntitySet Name="PemisionDetails" EntityType="SMMgModel.PemisionDetail" />
           <EntitySet Name="Permisions" EntityType="SMMgModel.Permision" />
           <EntitySet Name="PhanLoaiNoiNhans" EntityType="SMMgModel.PhanLoaiNoiNhan" />
-          <EntitySet Name="TrangThais" EntityType="SMMgModel.TrangThai" />
           <EntitySet Name="TuyChinhs" EntityType="SMMgModel.TuyChinh" />
           <EntitySet Name="TuyChinhComboboxes" EntityType="SMMgModel.TuyChinhCombobox" />
+          <EntitySet Name="TrangThais" EntityType="SMMgModel.TrangThai" />
           <EntitySet Name="USERs" EntityType="SMMgModel.USER" />
           <EntitySet Name="DienMatDaPhanPhois" EntityType="SMMgModel.DienMatDaPhanPhoi" />
           <AssociationSet Name="FK_DienMat_USER1" Association="SMMgModel.FK_DienMat_USER1">
@@ -394,7 +394,7 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Ngay" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="SoPhieu" Type="Int32" />
+          <Property Name="SoPhieu" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
           <Property Name="KiNhan" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
           <Property Name="TenNoiNhan" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
           <Property Name="TongSo" Type="Int32" />
@@ -466,32 +466,6 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="NguoiDuyet">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenNguoiDuyet" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
-          <Property Name="MacDinh" Type="Boolean" />
-          <Property Name="ChuKy" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="NguoiKy">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenNguoiKy" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
-          <Property Name="ChucDanh" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
-          <Property Name="MacDinh" Type="Boolean" />
-          <Property Name="ChuKy" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="Nhom">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="TenNhom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-        </EntityType>
         <EntityType Name="NoiGui">
           <Key>
             <PropertyRef Name="id" />
@@ -530,6 +504,32 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
           <Property Name="DangHoatDong" Type="Boolean" />
           <Property Name="CoSo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="NguoiDuyet">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenNguoiDuyet" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
+          <Property Name="MacDinh" Type="Boolean" />
+          <Property Name="ChuKy" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="NguoiKy">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenNguoiKy" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
+          <Property Name="ChucDanh" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
+          <Property Name="MacDinh" Type="Boolean" />
+          <Property Name="ChuKy" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Nhom">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="TenNhom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
         <EntityType Name="PemisionDetail">
           <Key>
             <PropertyRef Name="id" />
@@ -553,13 +553,6 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
           </Key>
           <Property Name="PhanLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-        </EntityType>
-        <EntityType Name="TrangThai">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NameTrangThai" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="TuyChinh">
           <Key>
@@ -600,6 +593,13 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TrangThaiTuyChinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GiayIn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TrangThai">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameTrangThai" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="USER">
           <Key>
@@ -741,35 +741,6 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="NguoiDuyets">
-            <EntityTypeMapping TypeName="SMMgModel.NguoiDuyet">
-              <MappingFragment StoreEntitySet="NguoiDuyet">
-                <ScalarProperty Name="ChuKy" ColumnName="ChuKy" />
-                <ScalarProperty Name="MacDinh" ColumnName="MacDinh" />
-                <ScalarProperty Name="TenNguoiDuyet" ColumnName="TenNguoiDuyet" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="NguoiKies">
-            <EntityTypeMapping TypeName="SMMgModel.NguoiKy">
-              <MappingFragment StoreEntitySet="NguoiKy">
-                <ScalarProperty Name="ChuKy" ColumnName="ChuKy" />
-                <ScalarProperty Name="MacDinh" ColumnName="MacDinh" />
-                <ScalarProperty Name="ChucDanh" ColumnName="ChucDanh" />
-                <ScalarProperty Name="TenNguoiKy" ColumnName="TenNguoiKy" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Nhoms">
-            <EntityTypeMapping TypeName="SMMgModel.Nhom">
-              <MappingFragment StoreEntitySet="Nhom">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="TenNhom" ColumnName="TenNhom" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="NoiGuis">
             <EntityTypeMapping TypeName="SMMgModel.NoiGui">
               <MappingFragment StoreEntitySet="NoiGui">
@@ -811,6 +782,35 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="NguoiDuyets">
+            <EntityTypeMapping TypeName="SMMgModel.NguoiDuyet">
+              <MappingFragment StoreEntitySet="NguoiDuyet">
+                <ScalarProperty Name="ChuKy" ColumnName="ChuKy" />
+                <ScalarProperty Name="MacDinh" ColumnName="MacDinh" />
+                <ScalarProperty Name="TenNguoiDuyet" ColumnName="TenNguoiDuyet" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NguoiKies">
+            <EntityTypeMapping TypeName="SMMgModel.NguoiKy">
+              <MappingFragment StoreEntitySet="NguoiKy">
+                <ScalarProperty Name="ChuKy" ColumnName="ChuKy" />
+                <ScalarProperty Name="MacDinh" ColumnName="MacDinh" />
+                <ScalarProperty Name="ChucDanh" ColumnName="ChucDanh" />
+                <ScalarProperty Name="TenNguoiKy" ColumnName="TenNguoiKy" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Nhoms">
+            <EntityTypeMapping TypeName="SMMgModel.Nhom">
+              <MappingFragment StoreEntitySet="Nhom">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="TenNhom" ColumnName="TenNhom" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="PemisionDetails">
             <EntityTypeMapping TypeName="SMMgModel.PemisionDetail">
               <MappingFragment StoreEntitySet="PemisionDetail">
@@ -835,14 +835,6 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
               <MappingFragment StoreEntitySet="PhanLoaiNoiNhan">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="PhanLoai" ColumnName="PhanLoai" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TrangThais">
-            <EntityTypeMapping TypeName="SMMgModel.TrangThai">
-              <MappingFragment StoreEntitySet="TrangThai">
-                <ScalarProperty Name="NameTrangThai" ColumnName="NameTrangThai" />
-                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -884,6 +876,14 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
               <MappingFragment StoreEntitySet="TuyChinhCombobox">
                 <ScalarProperty Name="GiayIn" ColumnName="GiayIn" />
                 <ScalarProperty Name="TrangThaiTuyChinh" ColumnName="TrangThaiTuyChinh" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrangThais">
+            <EntityTypeMapping TypeName="SMMgModel.TrangThai">
+              <MappingFragment StoreEntitySet="TrangThai">
+                <ScalarProperty Name="NameTrangThai" ColumnName="NameTrangThai" />
                 <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>

@@ -2966,6 +2966,14 @@
       </summary>
       <returns>A <see cref="T:DevExpress.Pdf.PdfGraphics"/> object used as a drawing context.</returns>
     </member>
+    <member name="M:DevExpress.Pdf.PdfDocumentProcessor.CreateTiff(System.IO.Stream,System.Collections.Generic.IEnumerable{System.Int32},System.Single)">
+      <summary>
+        <para>Exports a PDF document to a TIFF image using a stream, page numbers and predefined resolution.</para>
+      </summary>
+      <param name="stream">A <see cref="T:System.IO.Stream"/> object that is a stream to which a TIFF image should be written.</param>
+      <param name="pageNumbers">A list of page numbers which implement the <see cref="T:System.Collections.Generic.IEnumerable`1"/> interface.</param>
+      <param name="imageDpi">A <see cref="T:System.Single"/> value that is the image&#39;s DPI.</param>
+    </member>
     <member name="M:DevExpress.Pdf.PdfDocumentProcessor.CreateTiff(System.IO.Stream,System.Int32)">
       <summary>
         <para>Exports a PDF document to a TIFF image using a stream, and the image&#39;s largest edge length.</para>
@@ -2980,6 +2988,14 @@
       <param name="stream">A <see cref="T:System.IO.Stream"/> object that is a stream to which the TIFF image should be written.</param>
       <param name="largestEdgeLength">An integer value, specifying the length of the image&#39;s largest dimension, in pixels.</param>
       <param name="pageNumbers">A list of page numbers which implement the <see cref="T:System.Collections.Generic.IEnumerable`1"/>&lt;<see cref="T:System.Int32"/>,&gt; interface.</param>
+    </member>
+    <member name="M:DevExpress.Pdf.PdfDocumentProcessor.CreateTiff(System.String,System.Collections.Generic.IEnumerable{System.Int32},System.Single)">
+      <summary>
+        <para>Exports a PDF document to a TIFF image using the image&#39;s file path, page numbers and predefined resolution.</para>
+      </summary>
+      <param name="fileName">A <see cref="T:System.String"/> which specifies the file name (including the full path) for the created Tiff image.</param>
+      <param name="pageNumbers">A list of page numbers which implement the <see cref="T:System.Collections.Generic.IEnumerable`1"/> interface.</param>
+      <param name="imageDpi">A <see cref="T:System.Single"/> value that is the image&#39;s DPI.</param>
     </member>
     <member name="M:DevExpress.Pdf.PdfDocumentProcessor.CreateTiff(System.String,System.Int32)">
       <summary>
@@ -3124,7 +3140,7 @@
       <summary>
         <para>Obtains text from the specified page.</para>
       </summary>
-      <param name="pageNumber">An integer value that specifies the page number.</param>
+      <param name="pageNumber">An integer value that specifies the page number. The minimum value is 1.</param>
       <returns>A <see cref="T:System.String"/> value that represents text obtained from the specified page.</returns>
     </member>
     <member name="M:DevExpress.Pdf.PdfDocumentProcessor.GetText(DevExpress.Pdf.PdfDocumentArea)">

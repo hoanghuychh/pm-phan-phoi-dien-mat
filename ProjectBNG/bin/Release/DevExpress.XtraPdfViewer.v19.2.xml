@@ -4166,6 +4166,14 @@ This option is not supported for the <see cref="P:DevExpress.XtraPdfViewer.PdfVi
       </summary>
       <param name="flags">The <see cref="T:DevExpress.XtraPdfViewer.PdfViewerToolbarKind"/> enumeration value specifying a set of ribbon tabs that should be created.</param>
     </member>
+    <member name="M:DevExpress.XtraPdfViewer.PdfViewer.CreateTiff(System.IO.Stream,System.Collections.Generic.IEnumerable{System.Int32},System.Single)">
+      <summary>
+        <para></para>
+      </summary>
+      <param name="stream"></param>
+      <param name="pageNumbers"></param>
+      <param name="imageDpi"></param>
+    </member>
     <member name="M:DevExpress.XtraPdfViewer.PdfViewer.CreateTiff(System.IO.Stream,System.Int32)">
       <summary>
         <para>Exports a PDF document to a TIFF image using the document&#39;s stream and the image&#39;s largest edge length.</para>
@@ -4180,6 +4188,14 @@ This option is not supported for the <see cref="P:DevExpress.XtraPdfViewer.PdfVi
       <param name="stream">A <see cref="T:System.IO.Stream"/> object that is the stream containing a PDF document.</param>
       <param name="largestEdgeLength">An integer value, specifying the length of the image&#39;s largest dimension.</param>
       <param name="pageNumbers">A list of page numbers which implements the <see cref="T:System.Collections.Generic.IEnumerable`1"/>&lt;<see cref="T:System.Int32"/>,&gt; interface.</param>
+    </member>
+    <member name="M:DevExpress.XtraPdfViewer.PdfViewer.CreateTiff(System.String,System.Collections.Generic.IEnumerable{System.Int32},System.Single)">
+      <summary>
+        <para></para>
+      </summary>
+      <param name="fileName"></param>
+      <param name="pageNumbers"></param>
+      <param name="imageDpi"></param>
     </member>
     <member name="M:DevExpress.XtraPdfViewer.PdfViewer.CreateTiff(System.String,System.Int32)">
       <summary>
@@ -4787,6 +4803,12 @@ This option is not supported for the <see cref="P:DevExpress.XtraPdfViewer.PdfVi
       </summary>
       <value>true, to show a print status dialog; otherwise false.</value>
     </member>
+    <member name="P:DevExpress.XtraPdfViewer.PdfViewer.ShowSavingProgressDialog">
+      <summary>
+        <para>Specifies whether or not to show the Saving a file... dialog.</para>
+      </summary>
+      <value>true, to display the dialog; otherwise, false.</value>
+    </member>
     <member name="M:DevExpress.XtraPdfViewer.PdfViewer.StrikethroughSelectedText">
       <summary>
         <para>Strikethroughs a selected text.</para>
@@ -4949,12 +4971,12 @@ This option is not supported for the <see cref="P:DevExpress.XtraPdfViewer.PdfVi
     </member>
     <member name="F:DevExpress.XtraPdfViewer.PdfZoomMode.FitToVisible">
       <summary>
-        <para>The document zoom factor is calculated to fit to the width of the visible content of a page. The region of the visible page content is defined by the bleed box (see section 14.11.2 of the PDF 32000-1:2008 standard). If the bleed box is not defined, the FitToVisible mode operates the same as FitToWidth mode.</para>
+        <para>The document zoom factor is calculated to fit to the width of the visible content of a page. The region of the visible page content is defined by the bleed box (see section 14.11.2 of the PDF 32000-1:2008 standard). If the bleed box is smaller than the crop box, the FitToWidth and FitToVisible modes provide different results.</para>
       </summary>
     </member>
     <member name="F:DevExpress.XtraPdfViewer.PdfZoomMode.FitToWidth">
       <summary>
-        <para>Sets the document zoom factor value to fit to the width of the widest page in a document.</para>
+        <para>Sets the document zoom factor value to fit to the width of the widest page in a document. If the bleed box is smaller than the crop box, the FitToWidth provides different result from the FitToVisible mode.</para>
       </summary>
     </member>
     <member name="F:DevExpress.XtraPdfViewer.PdfZoomMode.PageLevel">

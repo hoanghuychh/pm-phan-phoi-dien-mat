@@ -710,7 +710,7 @@
     </member>
     <member name="F:DevExpress.Snap.Core.API.GroupInterval.Smart">
       <summary>
-        <para></para>
+        <para>An interval relative with today&#39;s date: &quot;Next Week&quot;,&quot;Today&quot;,&quot;Tomorrow&quot;, etc.</para>
       </summary>
     </member>
     <member name="F:DevExpress.Snap.Core.API.GroupInterval.Year">
@@ -1279,6 +1279,11 @@
         <para>Applies the specified theme to the current document.</para>
       </summary>
       <param name="themeName">A <see cref="T:System.String"/> value, specifying the theme name.</param>
+    </member>
+    <member name="E:DevExpress.Snap.Core.API.SnapDocument.BeforeFillExcelDataSource">
+      <summary>
+        <para>Occurs before data is extracted from the Microsoft Excel workbooks (XLS, XLSX or XLSM files) or CSV files.</para>
+      </summary>
     </member>
     <member name="E:DevExpress.Snap.Core.API.SnapDocument.BeforeInsertSnList">
       <summary>

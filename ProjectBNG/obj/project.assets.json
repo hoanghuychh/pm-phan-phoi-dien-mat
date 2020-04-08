@@ -25,8 +25,8 @@
           "lib/net45/EntityFramework.dll": {}
         },
         "build": {
-          "build/EntityFramework.props": {},
-          "build/EntityFramework.targets": {}
+          "buildTransitive/EntityFramework.props": {},
+          "buildTransitive/EntityFramework.targets": {}
         }
       }
     },
@@ -54,8 +54,8 @@
           "lib/net45/EntityFramework.dll": {}
         },
         "build": {
-          "build/EntityFramework.props": {},
-          "build/EntityFramework.targets": {}
+          "buildTransitive/EntityFramework.props": {},
+          "buildTransitive/EntityFramework.targets": {}
         }
       }
     },
@@ -83,8 +83,8 @@
           "lib/net45/EntityFramework.dll": {}
         },
         "build": {
-          "build/EntityFramework.props": {},
-          "build/EntityFramework.targets": {}
+          "buildTransitive/EntityFramework.props": {},
+          "buildTransitive/EntityFramework.targets": {}
         }
       }
     },
@@ -112,15 +112,15 @@
           "lib/net45/EntityFramework.dll": {}
         },
         "build": {
-          "build/EntityFramework.props": {},
-          "build/EntityFramework.targets": {}
+          "buildTransitive/EntityFramework.props": {},
+          "buildTransitive/EntityFramework.targets": {}
         }
       }
     }
   },
   "libraries": {
     "DevExpress.Data/19.2.6": {
-      "sha512": "uZx5cOb4B2L4+xJpj46SlKPMLZYLcUlMEoQCROc6wxjjWdDv8FC8DR00hnseC2dbZJdTyrR80WBLS7izWnm6ag==",
+      "sha512": "vXP6wzNUpnBBxsMKDTs4drcZY9KtOD7nKDrGmc+qGT/E1IgXCTiC+UV+ixOXIMIMRmkHYPPzIb/MHth15zipgQ==",
       "type": "package",
       "path": "devexpress.data/19.2.6",
       "files": [
@@ -198,7 +198,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Dell\\.nuget\\packages\\": {}
+    "C:\\Users\\hoang\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -206,12 +206,12 @@
       "projectUniqueName": "D:\\Github\\winform_mail_manager\\ProjectBNG\\ProjectBNG.csproj",
       "projectName": "ProjectBNG",
       "projectPath": "D:\\Github\\winform_mail_manager\\ProjectBNG\\ProjectBNG.csproj",
-      "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\hoang\\.nuget\\packages\\",
       "outputPath": "D:\\Github\\winform_mail_manager\\ProjectBNG\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\Dell\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\hoang\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 19.2.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
