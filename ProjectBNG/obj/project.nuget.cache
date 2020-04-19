@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "JCX4Sv1MKKS63hInWzOMlqvqEZ8e0d0P6E8ZmF98eWF4LVOzH4hVcr11BOHJJtC2E6NYrTLaq6bi1hvHHDIe+A==",
+  "dgSpecHash": "xEfIb7igkTBHm1eVIr67nqHQJ8pEWILntcOHL++Yr7THcia16sVNYauWUsHA5xa6xlRLdlRvS9PY85vZeOCQQA==",
   "success": true,
   "projectFilePath": "D:\\Github\\winform_mail_manager\\ProjectBNG\\ProjectBNG.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\hoang\\.nuget\\packages\\devexpress.data\\19.2.6\\devexpress.data.19.2.6.nupkg.sha512",
     "C:\\Users\\hoang\\.nuget\\packages\\entityframework\\6.4.0\\entityframework.6.4.0.nupkg.sha512"
   ],
   "logs": []

@@ -36,10 +36,6 @@
       "frameworks": {
         "net461": {
           "dependencies": {
-            "DevExpress.Data": {
-              "target": "Package",
-              "version": "[19.2.6, )"
-            },
             "EntityFramework": {
               "target": "Package",
               "version": "[6.4.0, )"

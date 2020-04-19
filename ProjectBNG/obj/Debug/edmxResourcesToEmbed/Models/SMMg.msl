@@ -25,6 +25,8 @@
     <EntitySetMapping Name="DienMats">
       <EntityTypeMapping TypeName="SMMgModel.DienMat">
         <MappingFragment StoreEntitySet="DienMat">
+          <ScalarProperty Name="SoBiThu" ColumnName="SoBiThu" />
+          <ScalarProperty Name="TinhSoDien" ColumnName="TinhSoDien" />
           <ScalarProperty Name="NguoiIn" ColumnName="NguoiIn" />
           <ScalarProperty Name="idUsername" ColumnName="idUsername" />
           <ScalarProperty Name="Trang" ColumnName="Trang" />

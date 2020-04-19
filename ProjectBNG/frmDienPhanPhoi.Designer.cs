@@ -388,6 +388,7 @@
             this.btnInLai.TabIndex = 16;
             this.btnInLai.Text = "In lại";
             this.btnInLai.UseVisualStyleBackColor = true;
+            this.btnInLai.Click += new System.EventHandler(this.btnInLai_Click);
             // 
             // btnIn
             // 
@@ -399,6 +400,7 @@
             this.btnIn.TabIndex = 17;
             this.btnIn.Text = "In báo cáo";
             this.btnIn.UseVisualStyleBackColor = true;
+            this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
             // 
             // btnThongKe
             // 
@@ -410,6 +412,7 @@
             this.btnThongKe.TabIndex = 18;
             this.btnThongKe.Text = "Thống kê";
             this.btnThongKe.UseVisualStyleBackColor = true;
+            this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
             // 
             // btnDong
             // 
