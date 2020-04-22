@@ -451,24 +451,5 @@ namespace ProjectBNG
             }
             catch { }
         }
-
-        private void btnThongKe_Click(object sender, EventArgs e)
-        {
-            //SMMgEntities db = new SMMgEntities();
-            //using(frmPrint print=new frmPrint())
-            //{
-            //    print.PrintClick(db.)
-            //}
-        }
-
-        private void btnIn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnInLai_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

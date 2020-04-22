@@ -111,8 +111,6 @@
     <Property Name="Trang" Type="Int32" />
     <Property Name="idUsername" Type="Int32" />
     <Property Name="NguoiIn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="TinhSoDien" Type="Int32" />
-    <Property Name="SoBiThu" Type="Int32" />
     <NavigationProperty Name="USER" Relationship="SMMgModel.FK_DienMat_USER1" FromRole="DienMat" ToRole="USER" />
   </EntityType>
   <EntityType Name="DienMatTemp">

@@ -72,10 +72,6 @@ namespace ProjectBNG
         {
             if (!CheckExistForm("frmLogin"))
             {
-                if (frmLogin.logined == true)
-                {
-                    Application.Restart(); 
-                }
                 frmLogin flogin = new frmLogin();
                 flogin.MdiParent = this;
                 flogin.Show();
@@ -223,11 +219,6 @@ namespace ProjectBNG
             }
             else
                 CommonFunction.activateForm("frmTuyChinh", this);
-        }
-
-        private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Application.Exit();
         }
     }
 }

@@ -17,7 +17,6 @@ using System.Diagnostics;
 using ProjectBNG.Class;
 using ProjectBNG.Exten;
 using DevExpress.XtraPdfViewer;
-using DevExpress.XtraRichEdit;
 
 namespace ProjectBNG
 {
@@ -35,7 +34,6 @@ namespace ProjectBNG
         static public bool checkOpenpdf = false;
         static public float dpiDefault = 0;
         static public string FileNameOpen;
-        static public MemoryStream FileStreamOpen = new MemoryStream();
         float x = 0;
         float y = 250;
         //public void DrawingNoiNhanTemp(List<NoiNhanTemp> n)
@@ -151,15 +149,7 @@ namespace ProjectBNG
                 {
                     PdfDocumentProcessor processor = new PdfDocumentProcessor();
                     y = 250;
-                    
-                    try
-                    {
-                        processor.LoadDocument(FileNameOpen);//lay pdf de xu li
-                    }
-                    catch
-                    {
-                        processor.LoadDocument(FileStreamOpen);
-                    }
+                    processor.LoadDocument(FileNameOpen);//lay pdf de xu li
                     { //In Ten noi nhan noi bo len pdf
                         foreach (var a in noiNhanNoiBo)
                         {
@@ -316,7 +306,7 @@ namespace ProjectBNG
                 pbChuKiMD.Image = Image.FromStream(stream);
                 pbChuKiMD.SizeMode = PictureBoxSizeMode.StretchImage;
             }
-            catch
+            catch 
             { }
             tbDatChuKyTrang.Text = "0";
 
@@ -333,23 +323,12 @@ namespace ProjectBNG
         private void btnBrowseFile_Click(object sender, EventArgs e)
         {
             MemoryStream PDFstream = new MemoryStream();
-            using (OpenFileDialog ofd = new OpenFileDialog() { ValidateNames = true, Multiselect = false, Filter = "PDF Files(*.PDF)|*.PDF|DOC Files(*.DOC)|*.DOC|All Files(*.*)|*.*" })
+            using (OpenFileDialog ofd = new OpenFileDialog() { ValidateNames = true, Multiselect = false, Filter = "PDF Files(*.PDF)|*.PDF|All Files(*.*)|*.*" })
             {
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
-                    try
-                    {
-                        pdfViewer1.LoadDocument(ofd.FileName);
-                    }
-                    catch
-                    {
-                        RichEditDocumentServer server = new RichEditDocumentServer();
-                        server.LoadDocument(ofd.FileName);
-                        server.ExportToPdf(PDFstream);
-                        pdfViewer1.LoadDocument(PDFstream);
-                        FileStreamOpen = PDFstream;
-                    }
-                    
+
+                    pdfViewer1.LoadDocument(ofd.FileName);
                     SizeF currentPageSize = pdfViewer1.GetPageSize(pdfViewer1.CurrentPageNumber);
                     float dpi = 110f;
                     float pageHeightPixel = currentPageSize.Height * dpi;
@@ -386,33 +365,9 @@ namespace ProjectBNG
             //    listDrewNoiNhanTemp.Clear();
         }
 
-        //static void AddGraphics(PdfDocumentProcessor processor, string text, SolidBrush textBrush, float x, float y)
-        //{
-        //    IList<PdfPage> pages = processor.Document.Pages;
-        //    for (int i = 0; i < pages.Count; i++)
-        //    {
-        //        PdfPage page = pages[i];
-        //        using (PdfGraphics graphics = processor.CreateGraphics())
-        //        {
-        //            SizeF actualPageSize = PrepareGraphics(page, graphics);
-        //            using (Font font = new Font("Times New Roman", 12, FontStyle.Regular))
-        //            {
-        //                SizeF textSize = graphics.MeasureString(text, font, PdfStringFormat.GenericDefault);
-        //                PointF topLeft = new PointF(x, y);
-        //                //PointF bottomRight = new PointF(actualPageSize.Width - textSize.Width, actualPageSize.Height - textSize.Height);
-        //                graphics.DrawString(text, font, textBrush, topLeft);
-        //                //graphics.DrawString(text, font, textBrush, bottomRight);
-        //                graphics.AddToPageForeground(page, DrawingDpi, DrawingDpi);
-        //            }
-        //        }
-        //    }
-        //}//update in khi xuong dong(prevous version)
         static void AddGraphics(PdfDocumentProcessor processor, string text, SolidBrush textBrush, float x, float y)
         {
             IList<PdfPage> pages = processor.Document.Pages;
-            PdfStringFormat stringFormat = PdfStringFormat.GenericTypographic;
-            stringFormat.Alignment = PdfStringAlignment.Center;
-            stringFormat.LineAlignment = PdfStringAlignment.Center;
             for (int i = 0; i < pages.Count; i++)
             {
                 PdfPage page = pages[i];
@@ -422,8 +377,9 @@ namespace ProjectBNG
                     using (Font font = new Font("Times New Roman", 12, FontStyle.Regular))
                     {
                         SizeF textSize = graphics.MeasureString(text, font, PdfStringFormat.GenericDefault);
-                        RectangleF rect = new RectangleF(x, y, 50, 20);
-                        graphics.DrawString(text, font, textBrush, rect, stringFormat);
+                        PointF topLeft = new PointF(x, y);
+                        //PointF bottomRight = new PointF(actualPageSize.Width - textSize.Width, actualPageSize.Height - textSize.Height);
+                        graphics.DrawString(text, font, textBrush, topLeft);
                         //graphics.DrawString(text, font, textBrush, bottomRight);
                         graphics.AddToPageForeground(page, DrawingDpi, DrawingDpi);
                     }
@@ -607,9 +563,9 @@ namespace ProjectBNG
                     if (DienMatSelected != null)
                     {
 
-                        MessageBox.Show("Mã điện mật đã được sử dụng ", "Thông báo");
+                    MessageBox.Show("Mã điện mật đã được sử dụng ", "Thông báo");
                         return;
-                        goto het;
+                    goto het;
                     }
                 }
                 catch
@@ -617,167 +573,167 @@ namespace ProjectBNG
 
                 }
 
-                // luu thong tin vao dien mat da phan phoi(Table Dien Mat)
+                // luu dien mat vao dien mat da phan phoi
                 if (isMaDiemMat)
-                {
-                    string timeSave = DateTime.Now.ToString("ddMMyyyyHHmm");
-                    TuyChinh tuyChinh = new TuyChinh();
-                    tuyChinh = db.TuyChinhs.Single(x => x.id == 1);
-                    int countPdfSave = 0;
-                    try
                     {
-                        foreach (var pdf in listPdf)
+                        string timeSave = DateTime.Now.ToString("ddMMyyyyHHmm");
+                        TuyChinh tuyChinh = new TuyChinh();
+                        tuyChinh = db.TuyChinhs.Single(x => x.id == 1);
+                        int countPdfSave = 0;
+                        try
                         {
-                            pdf.SaveDocument(tuyChinh.LuuFile + "\\" + addDienMat.MaDienMat.ToString().Trim() + "_" + countPdfSave.ToString() + "_" + timeSave + ".pdf");
-                            countPdfSave++;
-                        }
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Chọn đường dẫn lưu file trong tùy chỉnh", "Thông báo");
-                        return;
-                    }
-                    //pdfViewer1.SaveDocument(tuyChinh.LuuFile + addDienMat.MaDienMat.ToString().Trim() + "_" + timeSave + ".pdf");
-
-                    addDienMat.LuuFile = FileNameOpen;
-                    //addDienMat.FileDinhKem=
-                    addDienMat.NoiGui = cbxNoiGuiMD.Text;
-                    addDienMat.TrichYeu = tbTrichYeu.Text;
-                    addDienMat.DoMat = cbxPrivateFile.Text;
-                    //addDienMat.DoMatFile= 
-                    //addDienMat.SoBiThu=
-                    addDienMat.Ngay = datetimeNgayLuu.Value;
-                    addDienMat.GhiChu = tbGhiChu.Text;
-                    addDienMat.NguoiDuyet = cbxNguoiDuyetMD.Text;
-                    addDienMat.NguoiKy = cbxNguoiKiMD.Text;
-                    addDienMat.ChucDanh = tbChucDanhMD.Text;
-                    try
-                    {
-                        addDienMat.BanIn = noiNhanTemps.Count();
-                    }
-                    catch
-                    {
-                        addDienMat.BanIn = 0;
-                    }
-
-                    //chua xong
-                    //var stream = new MemoryStream();
-                    //addDienMat.ChuKy = Image.FromStream(stream);
-                    try
-                    {
-
-                        var arrTenNoiNhanNoiBo = noiNhanNoiBo.Select(m => m.TenNoiNhan).ToArray();
-                        addDienMat.DsNoiNhan = string.Join(",", arrTenNoiNhanNoiBo);
-
-                    }
-                    catch { }
-                    addDienMat.NguoiIn = frmLogin.Username;
-                    addDienMat.Trang = pdfViewer1.PageCount;
-                    db.DienMats.Add(addDienMat);
-                    db.SaveChanges();
-                    //luu xong vao dien mat da phan phoi
-
-                    //Luu thong tin vao bi thu
-
-                    var biThu = new BiThu();
-                    biThu.Ngay = datetimeNgayLuu.Value;
-                    biThu.DanhSachDienMat = addDienMat.MaDienMat.ToString().Trim();
-                    biThu.KiNhan = addDienMat.NguoiKy;
-                    try
-                    {
-                        var NoiGuiSelect = db.NoiGuis.Single(x => x.Ten == cbxNoiGuiMD.Text);
-                        biThu.SoPhieu = NoiGuiSelect.id.ToString();
-                    }
-                    catch
-                    {
-
-                        MessageBox.Show("Nơi gửi chưa được chọn", "Thông báo");
-                        return;
-                    }
-                    try
-                    {
-
-                        var arrTenNoiNhanNgoaiBo = noiNhanNgoaiBo.Select(m => m.TenNoiNhan).ToArray();
-                        int soBiThu = arrTenNoiNhanNgoaiBo.Count();
-                        string themMaDienMat = "";
-
-                        BiThu xetBiThu = new BiThu();
-                        foreach (var noiNhan in arrTenNoiNhanNgoaiBo)
-                        {
-                            /*"Model.Where(a => a.ReviewID == item.Key).Single().Review.PersonID"*/
-                            //BiThu xetBiThu = db.BiThus.SingleOrDefault(x => x.TenNoiNhan == noiNhan);
-                            try
+                            foreach (var pdf in listPdf)
                             {
-                                xetBiThu = db.BiThus.Single(x => x.TenNoiNhan == noiNhan);
-                            }
-                            catch
-                            {
-                            }
-                            if (xetBiThu.id == 0)
-                            {
-                                biThu.TenNoiNhan = noiNhan;
-                                biThu.TongSo = 1;
-
-                                db.BiThus.Add(biThu);
-                                db.SaveChanges();
-                            }
-                            else
-                            {
-                                themMaDienMat = xetBiThu.DanhSachDienMat + ',' + addDienMat.MaDienMat.ToString().Trim();
-                                db.Database.ExecuteSqlCommand(" update BiThu set DanhSachDienMat={0} where TenNoiNhan={1}", themMaDienMat, noiNhan);
-
-                                db.Database.ExecuteSqlCommand(" update BiThu set TongSo={0} where TenNoiNhan={1}", xetBiThu.TongSo + 1, noiNhan);
-                                db.SaveChanges();
+                                pdf.SaveDocument(tuyChinh.LuuFile + "\\" + addDienMat.MaDienMat.ToString().Trim() + "_" + countPdfSave.ToString() + "_" + timeSave + ".pdf");
+                                countPdfSave++;
                             }
                         }
-                    }
-                    catch { }
-
-                    //luu thong tin bi thu xong :>
-
-                    //luu thong tin vao kiem chung dien
-                    KiemChungDien kiemChungDien = new KiemChungDien();
-                    try
-                    {
-                        foreach (var item in noiNhanTemps)
+                        catch
                         {
-                            try
-                            {
-                                kiemChungDien = db.KiemChungDiens.Single(x => x.TenNoiNhan == item.TenNoiNhan);
-                            }
-                            catch
-                            {
+                            MessageBox.Show("Chọn đường dẫn lưu file trong tùy chỉnh", "Thông báo");
+                            return;
+                        }
+                        //pdfViewer1.SaveDocument(tuyChinh.LuuFile + addDienMat.MaDienMat.ToString().Trim() + "_" + timeSave + ".pdf");
 
-                            }
-                            if (kiemChungDien.id == 0)
-                            {
+                        addDienMat.LuuFile = FileNameOpen;
+                        //addDienMat.FileDinhKem=
+                        addDienMat.NoiGui = cbxNoiGuiMD.Text;
+                        addDienMat.TrichYeu = tbTrichYeu.Text;
+                        addDienMat.DoMat = cbxPrivateFile.Text;
+                        //addDienMat.DoMatFile=
 
-                                kiemChungDien.TenNoiNhan = item.TenNoiNhan;
-                                kiemChungDien.DanhSachDien = Convert.ToInt32(tbMaDienMat.Text).ToString().Trim();
-                                kiemChungDien.TongSoTrang = pdfViewer1.PageCount;
-                                kiemChungDien.SoLuongDien = 1;
-                                kiemChungDien.NgayIn = datetimeNgayLuu.Value;
-                                db.KiemChungDiens.Add(kiemChungDien);
-                                db.SaveChanges();
-                            }
-                            else
-                            {
-                                var themDanhSachDien = kiemChungDien.DanhSachDien + ',' + Convert.ToInt32(tbMaDienMat.Text).ToString().Trim();
-                                db.Database.ExecuteSqlCommand("update KiemChungDien set DanhSachDien={0} where TenNoiNhan={1}", themDanhSachDien, item.TenNoiNhan);
-                                db.Database.ExecuteSqlCommand("update KiemChungDien set TongSoTrang={0} where TenNoiNhan={1}", kiemChungDien.TongSoTrang + pdfViewer1.PageCount, item.TenNoiNhan);
-                                db.Database.ExecuteSqlCommand("update KiemChungDien set SoLuongDien={0} where TenNoiNhan={1}", kiemChungDien.SoLuongDien + 1, item.TenNoiNhan);
-                                //if(DateTime.Compare(DateTime.Parse(kiemChungDien.NgayIn.ToString()), datetimeNgayLuu.Value) < 0)
-                                //{
-                                //    db.Database.ExecuteSqlCommand("update KiemChungDien set SoLuongDien={0} where TenNoiNhan={1}", kiemChungDien.SoLuongDien + 1, item.TenNoiNhan);
-                                //}
-                                db.SaveChanges();
+                        addDienMat.Ngay = datetimeNgayLuu.Value;
+                        addDienMat.GhiChu = tbGhiChu.Text;
+                        addDienMat.NguoiDuyet = cbxNguoiDuyetMD.Text;
+                        addDienMat.NguoiKy = cbxNguoiKiMD.Text;
+                        addDienMat.ChucDanh = tbChucDanhMD.Text;
+                        try
+                        {
+                            addDienMat.BanIn = noiNhanTemps.Count();
+                        }
+                        catch
+                        {
+                            addDienMat.BanIn = 0;
+                        }
 
+                        //chua xong
+                        //var stream = new MemoryStream();
+                        //addDienMat.ChuKy = Image.FromStream(stream);
+                        try
+                        {
+
+                            var arrTenNoiNhanNoiBo = noiNhanNoiBo.Select(m => m.TenNoiNhan).ToArray();
+                            addDienMat.DsNoiNhan = string.Join(",", arrTenNoiNhanNoiBo);
+
+                        }
+                        catch { }
+                        addDienMat.NguoiIn = frmLogin.Username;
+                        addDienMat.Trang = pdfViewer1.PageCount;
+                        db.DienMats.Add(addDienMat);
+                        db.SaveChanges();
+                        //luu xong vao dien mat da phan phoi
+
+                        //Luu thong tin vao bi thu
+
+                        var biThu = new BiThu();
+                        biThu.Ngay = datetimeNgayLuu.Value;
+                        biThu.DanhSachDienMat = addDienMat.MaDienMat.ToString().Trim();
+                        biThu.KiNhan = addDienMat.NguoiKy;
+                        try
+                        {
+                            var NoiGuiSelect = db.NoiGuis.Single(x => x.Ten == cbxNoiGuiMD.Text);
+                            biThu.SoPhieu = NoiGuiSelect.id.ToString();
+                        }
+                        catch
+                        {
+
+                            MessageBox.Show("Nơi gửi chưa được chọn", "Thông báo");
+                            return;
+                        }
+                        try
+                        {
+
+                            var arrTenNoiNhanNgoaiBo = noiNhanNgoaiBo.Select(m => m.TenNoiNhan).ToArray();
+                            int soBiThu = arrTenNoiNhanNgoaiBo.Count();
+                            string themMaDienMat = "";
+
+                            BiThu xetBiThu = new BiThu();
+                            foreach (var noiNhan in arrTenNoiNhanNgoaiBo)
+                            {
+                                /*"Model.Where(a => a.ReviewID == item.Key).Single().Review.PersonID"*/
+                                //BiThu xetBiThu = db.BiThus.SingleOrDefault(x => x.TenNoiNhan == noiNhan);
+                                try
+                                {
+                                    xetBiThu = db.BiThus.Single(x => x.TenNoiNhan == noiNhan);
+                                }
+                                catch
+                                {
+                                }
+                                if (xetBiThu.id == 0)
+                                {
+                                    biThu.TenNoiNhan = noiNhan;
+                                    biThu.TongSo = 1;
+
+                                    db.BiThus.Add(biThu);
+                                    db.SaveChanges();
+                                }
+                                else
+                                {
+                                    themMaDienMat = xetBiThu.DanhSachDienMat + ',' + addDienMat.MaDienMat.ToString().Trim();
+                                    db.Database.ExecuteSqlCommand(" update BiThu set DanhSachDienMat={0} where TenNoiNhan={1}", themMaDienMat, noiNhan);
+
+                                    db.Database.ExecuteSqlCommand(" update BiThu set TongSo={0} where TenNoiNhan={1}", xetBiThu.TongSo + 1, noiNhan);
+                                    db.SaveChanges();
+                                }
                             }
                         }
-                    }
-                    catch { }
+                        catch { }
 
-                }
+                        //luu thong tin bi thu xong :>
+
+                        //luu thong tin vao kiem chung dien
+                        KiemChungDien kiemChungDien = new KiemChungDien();
+                        try
+                        {
+                            foreach (var item in noiNhanTemps)
+                            {
+                                try
+                                {
+                                    kiemChungDien = db.KiemChungDiens.Single(x => x.TenNoiNhan == item.TenNoiNhan);
+                                }
+                                catch
+                                {
+
+                                }
+                                if (kiemChungDien.id == 0)
+                                {
+
+                                    kiemChungDien.TenNoiNhan = item.TenNoiNhan;
+                                    kiemChungDien.DanhSachDien = Convert.ToInt32(tbMaDienMat.Text).ToString().Trim();
+                                    kiemChungDien.TongSoTrang = pdfViewer1.PageCount;
+                                    kiemChungDien.SoLuongDien = 1;
+                                    kiemChungDien.NgayIn = datetimeNgayLuu.Value;
+                                    db.KiemChungDiens.Add(kiemChungDien);
+                                    db.SaveChanges();
+                                }
+                                else
+                                {
+                                    var themDanhSachDien = kiemChungDien.DanhSachDien + ',' + Convert.ToInt32(tbMaDienMat.Text).ToString().Trim();
+                                    db.Database.ExecuteSqlCommand("update KiemChungDien set DanhSachDien={0} where TenNoiNhan={1}", themDanhSachDien, item.TenNoiNhan);
+                                    db.Database.ExecuteSqlCommand("update KiemChungDien set TongSoTrang={0} where TenNoiNhan={1}", kiemChungDien.TongSoTrang + pdfViewer1.PageCount, item.TenNoiNhan);
+                                    db.Database.ExecuteSqlCommand("update KiemChungDien set SoLuongDien={0} where TenNoiNhan={1}", kiemChungDien.SoLuongDien + 1, item.TenNoiNhan);
+                                    //if(DateTime.Compare(DateTime.Parse(kiemChungDien.NgayIn.ToString()), datetimeNgayLuu.Value) < 0)
+                                    //{
+                                    //    db.Database.ExecuteSqlCommand("update KiemChungDien set SoLuongDien={0} where TenNoiNhan={1}", kiemChungDien.SoLuongDien + 1, item.TenNoiNhan);
+                                    //}
+                                    db.SaveChanges();
+
+                                }
+                            }
+                        }
+                        catch { }
+
+                    }
             }
             else
             {
@@ -880,15 +836,7 @@ namespace ProjectBNG
             {
                 { //in vung chu ky
                     PdfDocumentProcessor processor = new PdfDocumentProcessor();
-                   
-                    try
-                    {
-                        processor.LoadDocument(FileNameOpen);//lay pdf de xu li
-                    }
-                    catch
-                    { 
-                        processor.LoadDocument(FileStreamOpen);
-                    }
+                    processor.LoadDocument(FileNameOpen);//lay pdf de xu li
                     using (PdfGraphics graphics = processor.CreateGraphics())
                     {
 

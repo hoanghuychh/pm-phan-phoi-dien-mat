@@ -48,8 +48,6 @@
           <Property Name="Trang" Type="int" />
           <Property Name="idUsername" Type="int" />
           <Property Name="NguoiIn" Type="varchar" MaxLength="50" />
-          <Property Name="TinhSoDien" Type="int" />
-          <Property Name="SoBiThu" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -258,15 +256,6 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TrangThai" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'SMMg.dbo.ViewsThongKeDien' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="ViewsThongKeDien">
-          <Property Name="Trang" Type="int" />
-          <Property Name="SoBiThu" Type="int" />
-          <Property Name="TinhSoDien" Type="int" />
-          <Property Name="BanIn" Type="int" />
-          <Property Name="NoiGui" Type="nvarchar" MaxLength="265" />
-        </EntityType>-->
         <Association Name="FK_DienMat_USER1">
           <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
           <End Role="DienMat" Type="Self.DienMat" Multiplicity="*" />
@@ -442,8 +431,6 @@ warning 6013: The table/view 'SMMg.dbo.ViewsThongKeDien' does not have a primary
           <Property Name="Trang" Type="Int32" />
           <Property Name="idUsername" Type="Int32" />
           <Property Name="NguoiIn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="TinhSoDien" Type="Int32" />
-          <Property Name="SoBiThu" Type="Int32" />
           <NavigationProperty Name="USER" Relationship="SMMgModel.FK_DienMat_USER1" FromRole="DienMat" ToRole="USER" />
         </EntityType>
         <EntityType Name="DienMatTemp">
@@ -694,8 +681,6 @@ warning 6013: The table/view 'SMMg.dbo.ViewsThongKeDien' does not have a primary
           <EntitySetMapping Name="DienMats">
             <EntityTypeMapping TypeName="SMMgModel.DienMat">
               <MappingFragment StoreEntitySet="DienMat">
-                <ScalarProperty Name="SoBiThu" ColumnName="SoBiThu" />
-                <ScalarProperty Name="TinhSoDien" ColumnName="TinhSoDien" />
                 <ScalarProperty Name="NguoiIn" ColumnName="NguoiIn" />
                 <ScalarProperty Name="idUsername" ColumnName="idUsername" />
                 <ScalarProperty Name="Trang" ColumnName="Trang" />

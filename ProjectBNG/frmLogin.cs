@@ -10,9 +10,8 @@ namespace ProjectBNG
 {
     public partial class frmLogin : Form
     {
-        public static bool logined = false;
         public frmLogin()
-        { 
+        {
             InitializeComponent();
         }
 
@@ -22,7 +21,6 @@ namespace ProjectBNG
         }
         public static string userID = "";
         public static string Username = "";
-
         public void CheckLogin( string username , string password)
         {
             DbContext dbContext;
@@ -47,9 +45,7 @@ namespace ProjectBNG
                 {
                     this.Hide();
                     frmMain main = new frmMain();
-                    logined = true;
                     main.Show();
-                    
                 }
                 else
                 {

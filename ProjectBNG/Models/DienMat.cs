@@ -34,8 +34,6 @@ namespace ProjectBNG.Models
         public Nullable<int> Trang { get; set; }
         public Nullable<int> idUsername { get; set; }
         public string NguoiIn { get; set; }
-        public Nullable<int> TinhSoDien { get; set; }
-        public Nullable<int> SoBiThu { get; set; }
     
         public virtual USER USER { get; set; }
     }
