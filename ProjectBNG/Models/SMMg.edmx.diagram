@@ -4,29 +4,29 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3703f66548064ac6ba1739f6705b44c9" Name="Diagram1" ZoomLevel="85">
-        <EntityTypeShape EntityType="SMMgModel.BiThu" Width="1.5" PointX="5.75" PointY="0.75" />
-        <EntityTypeShape EntityType="SMMgModel.CoSo" Width="1.5" PointX="5.75" PointY="4.75" />
-        <EntityTypeShape EntityType="SMMgModel.DienMat" Width="1.5" PointX="3" PointY="1.125" />
-        <EntityTypeShape EntityType="SMMgModel.DienMatTemp" Width="1.5" PointX="7.75" PointY="0.75" />
-        <EntityTypeShape EntityType="SMMgModel.FileDinhKemDienMat" Width="1.5" PointX="0.75" PointY="7.75" />
-        <EntityTypeShape EntityType="SMMgModel.KiemChungDien" Width="1.5" PointX="2.75" PointY="7.75" />
-        <EntityTypeShape EntityType="SMMgModel.Loai" Width="1.5" PointX="7.75" PointY="3.75" />
-        <EntityTypeShape EntityType="SMMgModel.NoiGui" Width="1.5" PointX="4.75" PointY="7.75" />
-        <EntityTypeShape EntityType="SMMgModel.NoiNhan" Width="1.5" PointX="7.75" PointY="6.75" />
-        <EntityTypeShape EntityType="SMMgModel.NoiNhanTemp" Width="1.5" PointX="9.75" PointY="0.75" />
-        <EntityTypeShape EntityType="SMMgModel.NguoiDuyet" Width="1.5" PointX="9.75" PointY="4.75" />
-        <EntityTypeShape EntityType="SMMgModel.NguoiKy" Width="1.5" PointX="9.75" PointY="7.75" />
-        <EntityTypeShape EntityType="SMMgModel.Nhom" Width="1.5" PointX="0.75" PointY="10.75" />
-        <EntityTypeShape EntityType="SMMgModel.PemisionDetail" Width="1.5" PointX="2.75" PointY="10.75" />
-        <EntityTypeShape EntityType="SMMgModel.Permision" Width="1.5" PointX="4.75" PointY="10.75" />
-        <EntityTypeShape EntityType="SMMgModel.PhanLoaiNoiNhan" Width="1.5" PointX="6.75" PointY="10.75" />
-        <EntityTypeShape EntityType="SMMgModel.TuyChinh" Width="1.5" PointX="8.75" PointY="10.75" />
-        <EntityTypeShape EntityType="SMMgModel.TuyChinhCombobox" Width="1.5" PointX="10.75" PointY="10.75" />
-        <EntityTypeShape EntityType="SMMgModel.TrangThai" Width="1.5" PointX="11.75" PointY="0.75" />
-        <EntityTypeShape EntityType="SMMgModel.USER" Width="1.5" PointX="0.75" PointY="2.375" />
-        <EntityTypeShape EntityType="SMMgModel.DienMatDaPhanPhoi" Width="1.5" PointX="11.75" PointY="3.75" />
-        <AssociationConnector Association="SMMgModel.FK_DienMat_USER1" />
+      <Diagram DiagramId="27e96fef0791407cb0cae23ede59445f" Name="Diagram1">
+        <EntityTypeShape EntityType="SMMg.BiThu" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMMg.CoSo" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMMg.DienMat" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMMg.DienMatTemp" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMMg.FileDinhKemDienMat" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMMg.KiemChungDien" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMMg.Loai" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMMg.NoiGui" Width="1.5" PointX="4.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMMg.NoiNhan" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMMg.NoiNhanTemp" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMMg.NguoiDuyet" Width="1.5" PointX="9.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMMg.NguoiKy" Width="1.5" PointX="9.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMMg.Nhom" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMMg.PemisionDetail" Width="1.5" PointX="2.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMMg.Permision" Width="1.5" PointX="4.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMMg.PhanLoaiNoiNhan" Width="1.5" PointX="6.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMMg.TuyChinh" Width="1.5" PointX="8.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMMg.TuyChinhCombobox" Width="1.5" PointX="10.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMMg.TrangThai" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMMg.USER" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SMMg.DienMatDaPhanPhoi" Width="1.5" PointX="11.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="SMMg.FK_DienMat_USER1" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

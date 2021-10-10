@@ -122,7 +122,7 @@ namespace ProjectBNG.Class
                 }
             }
         }
-        public static void InVungChuKy(PdfDocumentProcessor processor, PdfGraphics graphics, Bitmap bitmap, NguoiKy nguoiKy,int inTrang)
+        public static void InVungChuKy(PdfDocumentProcessor processor, PdfGraphics graphics, float x, float y, Bitmap bitmap, NguoiKy nguoiKy, int inTrang)
         {
             SMMgEntities db = new SMMgEntities();
 
@@ -144,18 +144,36 @@ namespace ProjectBNG.Class
             float dong3rong = (float)(tuyChinh.VungCkRong * 28.34645669291339) + 10;
             float dong3cao = (float)(tuyChinh.VungCkCao * 28.34645669291339) + 60 + (float)(tuyChinh.AnhCkCao1 * 28.34645669291339);
 
-            using (SolidBrush textBrush = new SolidBrush(Color.FromArgb(0, 0, 0)))
-            {
-                AddGraphics(processor, tieuDe, 10, textBrush, dong1rong, dong1cao,inTrang);
-                AddGraphics(processor, nguoiKy.ChucDanh, 10, textBrush, dong2rong, dong2cao, inTrang);
-            }
+            //using (SolidBrush textBrush = new SolidBrush(Color.FromArgb(0, 0, 0)))
+            //{
+            //    AddGraphics(processor, tieuDe, 10, textBrush, dong1rong, dong1cao, inTrang);
+            //    AddGraphics(processor, nguoiKy.ChucDanh, 10, textBrush, dong2rong, dong2cao, inTrang);
+            //}
+            //using (Bitmap image = bitmap)
+            //{
+            //    graphics.DrawImage(image, new RectangleF(vitriChukyRong, vitriChukyCao, ChuKyRong, ChuKyCao));
+            //}
+            //using (SolidBrush textBrush = new SolidBrush(Color.FromArgb(0, 0, 0)))
+            //{
+            //    AddGraphics(processor, nguoiKy.TenNguoiKy, 10, textBrush, dong3rong, dong3cao, inTrang);
+            //}
+            int[] arrLineWidth = new int[3];
+            arrLineWidth[0] = getTextWidth(graphics, tieuDe);
+            arrLineWidth[1] = getTextWidth(graphics, nguoiKy.ChucDanh);
+            arrLineWidth[2] = getTextWidth(graphics, nguoiKy.TenNguoiKy);
+            int lineWidth = arrLineWidth.Max();
+            int lineHeight = getTextHeight(graphics, tieuDe);
             using (Bitmap image = bitmap)
             {
-                graphics.DrawImage(image, new RectangleF(vitriChukyRong, vitriChukyCao, ChuKyRong, ChuKyCao));
-            }
-            using (SolidBrush textBrush = new SolidBrush(Color.FromArgb(0, 0, 0)))
-            {
-                AddGraphics(processor, nguoiKy.TenNguoiKy, 10, textBrush, dong3rong, dong3cao, inTrang);
+                float imageWidth = image.Width / 5;
+                float imageHeight = image.Height / 5;
+                using (SolidBrush textBrush = new SolidBrush(Color.FromArgb(0, 0, 0)))
+                {
+                    AddGraphics(processor, tieuDe, textBrush, x, y, lineWidth, lineHeight, inTrang);
+                    AddGraphics(processor, nguoiKy.ChucDanh, textBrush, x, y + lineHeight, lineWidth, lineHeight, inTrang);
+                    graphics.DrawImage(image, new RectangleF(x + lineWidth / 2 - imageWidth / 2, y + lineHeight * 2, imageWidth, imageHeight));
+                    AddGraphics(processor, nguoiKy.TenNguoiKy, textBrush, x, y + imageHeight + lineHeight * 2, lineWidth, lineHeight, inTrang);
+                }
             }
             Debug.WriteLine("Dong 1 rong " + dong1rong);
             Debug.WriteLine("Dong 1 cao " + dong1cao);
@@ -169,23 +187,38 @@ namespace ProjectBNG.Class
             Debug.WriteLine("Dong 3 cao " + dong3cao);
         }
 
-        public static void AddGraphics(PdfDocumentProcessor processor, string text, int fontSize, SolidBrush textBrush, float x, float y,int InTrang)
+        static int getTextWidth(PdfGraphics graphics, string text)
+        {
+            Font font = new Font("Times New Roman", 12, FontStyle.Regular);
+            int Width = (int)graphics.MeasureString(text, font).Width;
+            return Width;
+        }
+
+        static int getTextHeight(PdfGraphics graphics, string text)
+        {
+            Font font = new Font("Times New Roman", 12, FontStyle.Regular);
+            int Height = (int)graphics.MeasureString(text, font).Height;
+            return Height;
+        }
+
+        public static void AddGraphics(PdfDocumentProcessor processor, string text, SolidBrush textBrush, float x, float y, float width, float height, int InTrang)
         {
             IList<PdfPage> pages = processor.Document.Pages;
-                PdfPage page = pages[InTrang];
-                using (PdfGraphics graphics = processor.CreateGraphics())
+            PdfPage page = pages[InTrang];
+            PdfStringFormat stringFormat = PdfStringFormat.GenericTypographic;
+            stringFormat.Alignment = PdfStringAlignment.Center;
+            stringFormat.LineAlignment = PdfStringAlignment.Center;
+            using (PdfGraphics graphics = processor.CreateGraphics())
+            {
+                SizeF actualPageSize = PrepareGraphics(page, graphics);
+                using (Font font = new Font("Times New Roman", 12, FontStyle.Regular))
                 {
-                    SizeF actualPageSize = PrepareGraphics(page, graphics);
-                    using (Font font = new Font("Times New Roman", 12, FontStyle.Regular))
-                    {
-                        SizeF textSize = graphics.MeasureString(text, font, PdfStringFormat.GenericDefault);
-                        PointF topLeft = new PointF(x, y);
-                        //PointF bottomRight = new PointF(actualPageSize.Width - textSize.Width, actualPageSize.Height - textSize.Height);
-                        graphics.DrawString(text, font, textBrush, topLeft);
-                        //graphics.DrawString(text, font, textBrush, bottomRight);
-                        graphics.AddToPageForeground(page, DrawingDpi, DrawingDpi);
-                    }
+                    SizeF textSize = graphics.MeasureString(text, font, PdfStringFormat.GenericDefault);
+                    RectangleF rect = new RectangleF(x, y, width, height);
+                    graphics.DrawString(text, font, textBrush, rect, stringFormat);
+                    graphics.AddToPageForeground(page, DrawingDpi, DrawingDpi);
                 }
+            }
         }
         public static SizeF PrepareGraphics(PdfPage page, PdfGraphics graphics)
         {

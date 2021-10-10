@@ -155,9 +155,9 @@ namespace ProjectBNG
                         {
                             using (SolidBrush textBrush = new SolidBrush(Color.FromArgb(0, 0, 0)))
                             {
-                                AddGraphics(processor, "- " + a.TenNoiNhan, textBrush, x, y);
+                                AddGraphics(processor, "- " + a.TenNoiNhan, textBrush, x, y, 100, 34);
                             }
-                            y += 20;
+                            y += 34;
                         }
                     }
                     { //in vung chu ky
@@ -175,7 +175,7 @@ namespace ProjectBNG
                             }
                             else if (pdfViewer1.PageCount >= int.Parse(tbDatChuKyTrang.Text))
                             {
-                                CommonFunction.InVungChuKy(processor, graphics, new Bitmap(anhChuKy), nguoiKy, int.Parse(tbDatChuKyTrang.Text) - 1);
+                                CommonFunction.InVungChuKy(processor, graphics, 100, 600, new Bitmap(anhChuKy), nguoiKy, int.Parse(tbDatChuKyTrang.Text) - 1);
                                 graphics.AddToPageForeground(processor.Document.Pages[int.Parse(tbDatChuKyTrang.Text) - 1], 72, 72);
                             }
                             else
@@ -365,9 +365,12 @@ namespace ProjectBNG
             //    listDrewNoiNhanTemp.Clear();
         }
 
-        static void AddGraphics(PdfDocumentProcessor processor, string text, SolidBrush textBrush, float x, float y)
+        static void AddGraphics(PdfDocumentProcessor processor, string text, SolidBrush textBrush, float x, float y, float width, float height)
         {
             IList<PdfPage> pages = processor.Document.Pages;
+            PdfStringFormat stringFormat = PdfStringFormat.GenericTypographic;
+            stringFormat.Alignment = PdfStringAlignment.Center;
+            stringFormat.LineAlignment = PdfStringAlignment.Center;
             for (int i = 0; i < pages.Count; i++)
             {
                 PdfPage page = pages[i];
@@ -377,10 +380,8 @@ namespace ProjectBNG
                     using (Font font = new Font("Times New Roman", 12, FontStyle.Regular))
                     {
                         SizeF textSize = graphics.MeasureString(text, font, PdfStringFormat.GenericDefault);
-                        PointF topLeft = new PointF(x, y);
-                        //PointF bottomRight = new PointF(actualPageSize.Width - textSize.Width, actualPageSize.Height - textSize.Height);
-                        graphics.DrawString(text, font, textBrush, topLeft);
-                        //graphics.DrawString(text, font, textBrush, bottomRight);
+                        RectangleF rect = new RectangleF(x, y, width, height);
+                        graphics.DrawString(text, font, textBrush, rect, stringFormat);
                         graphics.AddToPageForeground(page, DrawingDpi, DrawingDpi);
                     }
                 }
@@ -851,7 +852,7 @@ namespace ProjectBNG
                         else if (pdfViewer1.PageCount >= int.Parse(tbDatChuKyTrang.Text))
                         {
                             MemoryStream ms2 = new MemoryStream();
-                            CommonFunction.InVungChuKy(processor, graphics, new Bitmap(anhChuKy), nguoiKy, int.Parse(tbDatChuKyTrang.Text) - 1);
+                            CommonFunction.InVungChuKy(processor, graphics, 100, 600, new Bitmap(anhChuKy), nguoiKy, int.Parse(tbDatChuKyTrang.Text) - 1);
                             graphics.AddToPageForeground(processor.Document.Pages[int.Parse(tbDatChuKyTrang.Text) - 1], 72, 72);
                             processor.SaveDocument(ms2);
                             pdfViewer1.LoadDocument(ms2);

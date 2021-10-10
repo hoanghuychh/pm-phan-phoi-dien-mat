@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="SMMgModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="SMMg.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="BiThu">
           <Key>
             <PropertyRef Name="id" />
@@ -268,7 +268,7 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="SMMgModelStoreContainer">
+        <EntityContainer Name="SMMgStoreContainer">
           <EntitySet Name="BiThu" EntityType="Self.BiThu" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CoSo" EntityType="Self.CoSo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DienMat" EntityType="Self.DienMat" Schema="dbo" store:Type="Tables" />
@@ -316,78 +316,11 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
             <End Role="DienMat" EntitySet="DienMat" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="SMMgModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="SMMgEntities" annotation:LazyLoadingEnabled="true">
-          <FunctionImport Name="sp_alterdiagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="version" Mode="In" Type="Int32" />
-            <Parameter Name="definition" Mode="In" Type="Binary" />
-          </FunctionImport>
-          <FunctionImport Name="sp_creatediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="version" Mode="In" Type="Int32" />
-            <Parameter Name="definition" Mode="In" Type="Binary" />
-          </FunctionImport>
-          <FunctionImport Name="sp_dropdiagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(SMMgModel.sp_helpdiagramdefinition_Result)">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(SMMgModel.sp_helpdiagrams_Result)">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_renamediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="new_diagramname" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_upgraddiagrams" />
-          <EntitySet Name="BiThus" EntityType="SMMgModel.BiThu" />
-          <EntitySet Name="CoSoes" EntityType="SMMgModel.CoSo" />
-          <EntitySet Name="DienMats" EntityType="SMMgModel.DienMat" />
-          <EntitySet Name="DienMatTemps" EntityType="SMMgModel.DienMatTemp" />
-          <EntitySet Name="FileDinhKemDienMats" EntityType="SMMgModel.FileDinhKemDienMat" />
-          <EntitySet Name="KiemChungDiens" EntityType="SMMgModel.KiemChungDien" />
-          <EntitySet Name="Loais" EntityType="SMMgModel.Loai" />
-          <EntitySet Name="NoiGuis" EntityType="SMMgModel.NoiGui" />
-          <EntitySet Name="NoiNhans" EntityType="SMMgModel.NoiNhan" />
-          <EntitySet Name="NoiNhanTemps" EntityType="SMMgModel.NoiNhanTemp" />
-          <EntitySet Name="NguoiDuyets" EntityType="SMMgModel.NguoiDuyet" />
-          <EntitySet Name="NguoiKies" EntityType="SMMgModel.NguoiKy" />
-          <EntitySet Name="Nhoms" EntityType="SMMgModel.Nhom" />
-          <EntitySet Name="PemisionDetails" EntityType="SMMgModel.PemisionDetail" />
-          <EntitySet Name="Permisions" EntityType="SMMgModel.Permision" />
-          <EntitySet Name="PhanLoaiNoiNhans" EntityType="SMMgModel.PhanLoaiNoiNhan" />
-          <EntitySet Name="TuyChinhs" EntityType="SMMgModel.TuyChinh" />
-          <EntitySet Name="TuyChinhComboboxes" EntityType="SMMgModel.TuyChinhCombobox" />
-          <EntitySet Name="TrangThais" EntityType="SMMgModel.TrangThai" />
-          <EntitySet Name="USERs" EntityType="SMMgModel.USER" />
-          <EntitySet Name="DienMatDaPhanPhois" EntityType="SMMgModel.DienMatDaPhanPhoi" />
-          <AssociationSet Name="FK_DienMat_USER1" Association="SMMgModel.FK_DienMat_USER1">
-            <End Role="USER" EntitySet="USERs" />
-            <End Role="DienMat" EntitySet="DienMats" />
-          </AssociationSet>
-          </EntityContainer>
-        <ComplexType Name="sp_helpdiagramdefinition_Result">
-          <Property Type="Int32" Name="version" Nullable="true" />
-          <Property Type="Binary" Name="definition" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="sp_helpdiagrams_Result">
-          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
-          <Property Type="Int32" Name="ID" Nullable="false" />
-          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
-          <Property Type="Int32" Name="OwnerID" Nullable="false" />
-        </ComplexType>
+      <Schema Namespace="SMMg" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="BiThu">
           <Key>
             <PropertyRef Name="id" />
@@ -431,7 +364,7 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
           <Property Name="Trang" Type="Int32" />
           <Property Name="idUsername" Type="Int32" />
           <Property Name="NguoiIn" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="USER" Relationship="SMMgModel.FK_DienMat_USER1" FromRole="DienMat" ToRole="USER" />
+          <NavigationProperty Name="USER" Relationship="Self.FK_DienMat_USER1" FromRole="DienMat" ToRole="USER" />
         </EntityType>
         <EntityType Name="DienMatTemp">
           <Key>
@@ -479,9 +412,9 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MaNoiNhan" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="TenNoiNhan" Type="String" Nullable="false" MaxLength="265" FixedLength="false" Unicode="true" />
-          <Property Name="Loai" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MaNoiNhan" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TenNoiNhan" Type="String" MaxLength="265" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Loai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="SoBaoMat" Type="Int32" Nullable="false" />
           <Property Name="Nhom" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
           <Property Name="SoThuTu" Type="Int32" />
@@ -494,9 +427,9 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="MaNoiNhan" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="TenNoiNhan" Type="String" Nullable="false" MaxLength="265" FixedLength="false" Unicode="true" />
-          <Property Name="Loai" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MaNoiNhan" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TenNoiNhan" Type="String" MaxLength="265" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Loai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="SoBaoMat" Type="Int32" Nullable="false" />
           <Property Name="Nhom" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
           <Property Name="SoThuTu" Type="Int32" />
@@ -536,7 +469,7 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PerDetail" Type="Int32" Nullable="false" />
-          <Property Name="Per_Action" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Per_Action" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Per" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
         </EntityType>
         <EntityType Name="Permision">
@@ -544,7 +477,7 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NamePer" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NamePer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DescriptionPer" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="PhanLoaiNoiNhan">
@@ -599,19 +532,19 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NameTrangThai" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NameTrangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="USER">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="NameUser" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="PerUser" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NameUser" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PerUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TrangThai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="DienMats" Relationship="SMMgModel.FK_DienMat_USER1" FromRole="USER" ToRole="DienMat" />
+          <NavigationProperty Name="DienMats" Relationship="Self.FK_DienMat_USER1" FromRole="USER" ToRole="DienMat" />
         </EntityType>
         <EntityType Name="DienMatDaPhanPhoi">
           <Key>
@@ -630,7 +563,7 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
           <Property Name="MaDienMat" Type="Int32" />
           <Property Name="Ngay" Type="DateTime" Precision="3" />
           <Property Name="GhiChu" Type="String" MaxLength="265" FixedLength="false" Unicode="true" />
-          <Property Name="Loai" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Loai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="SoBaoMat" Type="Int32" Nullable="false" />
           <Property Name="BanIn" Type="Int32" />
           <Property Name="NgayIn" Type="DateTime" Nullable="false" Precision="3" />
@@ -640,8 +573,8 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
           <Property Name="ChuKy" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <Association Name="FK_DienMat_USER1">
-          <End Type="SMMgModel.USER" Role="USER" Multiplicity="0..1" />
-          <End Type="SMMgModel.DienMat" Role="DienMat" Multiplicity="*" />
+          <End Role="USER" Type="Self.USER" Multiplicity="0..1" />
+          <End Role="DienMat" Type="Self.DienMat" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="USER">
               <PropertyRef Name="ID" />
@@ -651,276 +584,303 @@ warning 6002: The table/view 'SMMg.dbo.DienMatDaPhanPhoi' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        </Schema>
+        <EntityContainer Name="SMMgEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BiThus" EntityType="Self.BiThu" />
+          <EntitySet Name="CoSoes" EntityType="Self.CoSo" />
+          <EntitySet Name="DienMats" EntityType="Self.DienMat" />
+          <EntitySet Name="DienMatTemps" EntityType="Self.DienMatTemp" />
+          <EntitySet Name="FileDinhKemDienMats" EntityType="Self.FileDinhKemDienMat" />
+          <EntitySet Name="KiemChungDiens" EntityType="Self.KiemChungDien" />
+          <EntitySet Name="Loais" EntityType="Self.Loai" />
+          <EntitySet Name="NoiGuis" EntityType="Self.NoiGui" />
+          <EntitySet Name="NoiNhans" EntityType="Self.NoiNhan" />
+          <EntitySet Name="NoiNhanTemps" EntityType="Self.NoiNhanTemp" />
+          <EntitySet Name="NguoiDuyets" EntityType="Self.NguoiDuyet" />
+          <EntitySet Name="NguoiKies" EntityType="Self.NguoiKy" />
+          <EntitySet Name="Nhoms" EntityType="Self.Nhom" />
+          <EntitySet Name="PemisionDetails" EntityType="Self.PemisionDetail" />
+          <EntitySet Name="Permisions" EntityType="Self.Permision" />
+          <EntitySet Name="PhanLoaiNoiNhans" EntityType="Self.PhanLoaiNoiNhan" />
+          <EntitySet Name="TuyChinhs" EntityType="Self.TuyChinh" />
+          <EntitySet Name="TuyChinhComboboxes" EntityType="Self.TuyChinhCombobox" />
+          <EntitySet Name="TrangThais" EntityType="Self.TrangThai" />
+          <EntitySet Name="USERs" EntityType="Self.USER" />
+          <EntitySet Name="DienMatDaPhanPhois" EntityType="Self.DienMatDaPhanPhoi" />
+          <AssociationSet Name="FK_DienMat_USER1" Association="Self.FK_DienMat_USER1">
+            <End Role="USER" EntitySet="USERs" />
+            <End Role="DienMat" EntitySet="DienMats" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="SMMgModelStoreContainer" CdmEntityContainer="SMMgEntities">
+        <EntityContainerMapping StorageEntityContainer="SMMgStoreContainer" CdmEntityContainer="SMMgEntities">
           <EntitySetMapping Name="BiThus">
-            <EntityTypeMapping TypeName="SMMgModel.BiThu">
+            <EntityTypeMapping TypeName="SMMg.BiThu">
               <MappingFragment StoreEntitySet="BiThu">
-                <ScalarProperty Name="DanhSachDienMat" ColumnName="DanhSachDienMat" />
-                <ScalarProperty Name="TongSo" ColumnName="TongSo" />
-                <ScalarProperty Name="TenNoiNhan" ColumnName="TenNoiNhan" />
-                <ScalarProperty Name="KiNhan" ColumnName="KiNhan" />
-                <ScalarProperty Name="SoPhieu" ColumnName="SoPhieu" />
-                <ScalarProperty Name="Ngay" ColumnName="Ngay" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+                <ScalarProperty Name="SoPhieu" ColumnName="SoPhieu" />
+                <ScalarProperty Name="KiNhan" ColumnName="KiNhan" />
+                <ScalarProperty Name="TenNoiNhan" ColumnName="TenNoiNhan" />
+                <ScalarProperty Name="TongSo" ColumnName="TongSo" />
+                <ScalarProperty Name="DanhSachDienMat" ColumnName="DanhSachDienMat" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CoSoes">
-            <EntityTypeMapping TypeName="SMMgModel.CoSo">
+            <EntityTypeMapping TypeName="SMMg.CoSo">
               <MappingFragment StoreEntitySet="CoSo">
-                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="TenCoSo" ColumnName="TenCoSo" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DienMats">
-            <EntityTypeMapping TypeName="SMMgModel.DienMat">
+            <EntityTypeMapping TypeName="SMMg.DienMat">
               <MappingFragment StoreEntitySet="DienMat">
-                <ScalarProperty Name="NguoiIn" ColumnName="NguoiIn" />
-                <ScalarProperty Name="idUsername" ColumnName="idUsername" />
-                <ScalarProperty Name="Trang" ColumnName="Trang" />
-                <ScalarProperty Name="DsNoiNhan" ColumnName="DsNoiNhan" />
-                <ScalarProperty Name="ChucDanh" ColumnName="ChucDanh" />
-                <ScalarProperty Name="NguoiKy" ColumnName="NguoiKy" />
-                <ScalarProperty Name="NguoiDuyet" ColumnName="NguoiDuyet" />
-                <ScalarProperty Name="NgayIn" ColumnName="NgayIn" />
-                <ScalarProperty Name="BanIn" ColumnName="BanIn" />
-                <ScalarProperty Name="Loai" ColumnName="Loai" />
-                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
-                <ScalarProperty Name="Ngay" ColumnName="Ngay" />
-                <ScalarProperty Name="MaDienMat" ColumnName="MaDienMat" />
-                <ScalarProperty Name="DoMatFile" ColumnName="DoMatFile" />
-                <ScalarProperty Name="DoMat" ColumnName="DoMat" />
-                <ScalarProperty Name="TrichYeu" ColumnName="TrichYeu" />
-                <ScalarProperty Name="NoiGui" ColumnName="NoiGui" />
-                <ScalarProperty Name="FileDinhKem" ColumnName="FileDinhKem" />
-                <ScalarProperty Name="LuuFile" ColumnName="LuuFile" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LuuFile" ColumnName="LuuFile" />
+                <ScalarProperty Name="FileDinhKem" ColumnName="FileDinhKem" />
+                <ScalarProperty Name="NoiGui" ColumnName="NoiGui" />
+                <ScalarProperty Name="TrichYeu" ColumnName="TrichYeu" />
+                <ScalarProperty Name="DoMat" ColumnName="DoMat" />
+                <ScalarProperty Name="DoMatFile" ColumnName="DoMatFile" />
+                <ScalarProperty Name="MaDienMat" ColumnName="MaDienMat" />
+                <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+                <ScalarProperty Name="Loai" ColumnName="Loai" />
+                <ScalarProperty Name="BanIn" ColumnName="BanIn" />
+                <ScalarProperty Name="NgayIn" ColumnName="NgayIn" />
+                <ScalarProperty Name="NguoiDuyet" ColumnName="NguoiDuyet" />
+                <ScalarProperty Name="NguoiKy" ColumnName="NguoiKy" />
+                <ScalarProperty Name="ChucDanh" ColumnName="ChucDanh" />
+                <ScalarProperty Name="DsNoiNhan" ColumnName="DsNoiNhan" />
+                <ScalarProperty Name="Trang" ColumnName="Trang" />
+                <ScalarProperty Name="idUsername" ColumnName="idUsername" />
+                <ScalarProperty Name="NguoiIn" ColumnName="NguoiIn" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DienMatTemps">
-            <EntityTypeMapping TypeName="SMMgModel.DienMatTemp">
+            <EntityTypeMapping TypeName="SMMg.DienMatTemp">
               <MappingFragment StoreEntitySet="DienMatTemp">
-                <ScalarProperty Name="MaDienMat" ColumnName="MaDienMat" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="MaDienMat" ColumnName="MaDienMat" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="FileDinhKemDienMats">
-            <EntityTypeMapping TypeName="SMMgModel.FileDinhKemDienMat">
+            <EntityTypeMapping TypeName="SMMg.FileDinhKemDienMat">
               <MappingFragment StoreEntitySet="FileDinhKemDienMat">
-                <ScalarProperty Name="MaDienMat" ColumnName="MaDienMat" />
-                <ScalarProperty Name="FileDinhKem" ColumnName="FileDinhKem" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="FileDinhKem" ColumnName="FileDinhKem" />
+                <ScalarProperty Name="MaDienMat" ColumnName="MaDienMat" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="KiemChungDiens">
-            <EntityTypeMapping TypeName="SMMgModel.KiemChungDien">
+            <EntityTypeMapping TypeName="SMMg.KiemChungDien">
               <MappingFragment StoreEntitySet="KiemChungDien">
-                <ScalarProperty Name="NgayIn" ColumnName="NgayIn" />
-                <ScalarProperty Name="SoLuongDien" ColumnName="SoLuongDien" />
-                <ScalarProperty Name="TenNoiNhan" ColumnName="TenNoiNhan" />
-                <ScalarProperty Name="TongSoTrang" ColumnName="TongSoTrang" />
-                <ScalarProperty Name="DanhSachDien" ColumnName="DanhSachDien" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="DanhSachDien" ColumnName="DanhSachDien" />
+                <ScalarProperty Name="TongSoTrang" ColumnName="TongSoTrang" />
+                <ScalarProperty Name="TenNoiNhan" ColumnName="TenNoiNhan" />
+                <ScalarProperty Name="SoLuongDien" ColumnName="SoLuongDien" />
+                <ScalarProperty Name="NgayIn" ColumnName="NgayIn" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Loais">
-            <EntityTypeMapping TypeName="SMMgModel.Loai">
+            <EntityTypeMapping TypeName="SMMg.Loai">
               <MappingFragment StoreEntitySet="Loai">
-                <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NoiGuis">
-            <EntityTypeMapping TypeName="SMMgModel.NoiGui">
+            <EntityTypeMapping TypeName="SMMg.NoiGui">
               <MappingFragment StoreEntitySet="NoiGui">
-                <ScalarProperty Name="Ten" ColumnName="Ten" />
-                <ScalarProperty Name="Ma" ColumnName="Ma" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Ma" ColumnName="Ma" />
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NoiNhans">
-            <EntityTypeMapping TypeName="SMMgModel.NoiNhan">
+            <EntityTypeMapping TypeName="SMMg.NoiNhan">
               <MappingFragment StoreEntitySet="NoiNhan">
-                <ScalarProperty Name="CoSo" ColumnName="CoSo" />
-                <ScalarProperty Name="DangHoatDong" ColumnName="DangHoatDong" />
-                <ScalarProperty Name="CoBi" ColumnName="CoBi" />
-                <ScalarProperty Name="SoThuTu" ColumnName="SoThuTu" />
-                <ScalarProperty Name="Nhom" ColumnName="Nhom" />
-                <ScalarProperty Name="SoBaoMat" ColumnName="SoBaoMat" />
-                <ScalarProperty Name="Loai" ColumnName="Loai" />
-                <ScalarProperty Name="TenNoiNhan" ColumnName="TenNoiNhan" />
-                <ScalarProperty Name="MaNoiNhan" ColumnName="MaNoiNhan" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="MaNoiNhan" ColumnName="MaNoiNhan" />
+                <ScalarProperty Name="TenNoiNhan" ColumnName="TenNoiNhan" />
+                <ScalarProperty Name="Loai" ColumnName="Loai" />
+                <ScalarProperty Name="SoBaoMat" ColumnName="SoBaoMat" />
+                <ScalarProperty Name="Nhom" ColumnName="Nhom" />
+                <ScalarProperty Name="SoThuTu" ColumnName="SoThuTu" />
+                <ScalarProperty Name="CoBi" ColumnName="CoBi" />
+                <ScalarProperty Name="DangHoatDong" ColumnName="DangHoatDong" />
+                <ScalarProperty Name="CoSo" ColumnName="CoSo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NoiNhanTemps">
-            <EntityTypeMapping TypeName="SMMgModel.NoiNhanTemp">
+            <EntityTypeMapping TypeName="SMMg.NoiNhanTemp">
               <MappingFragment StoreEntitySet="NoiNhanTemp">
-                <ScalarProperty Name="CoSo" ColumnName="CoSo" />
-                <ScalarProperty Name="DangHoatDong" ColumnName="DangHoatDong" />
-                <ScalarProperty Name="CoBi" ColumnName="CoBi" />
-                <ScalarProperty Name="SoThuTu" ColumnName="SoThuTu" />
-                <ScalarProperty Name="Nhom" ColumnName="Nhom" />
-                <ScalarProperty Name="SoBaoMat" ColumnName="SoBaoMat" />
-                <ScalarProperty Name="Loai" ColumnName="Loai" />
-                <ScalarProperty Name="TenNoiNhan" ColumnName="TenNoiNhan" />
-                <ScalarProperty Name="MaNoiNhan" ColumnName="MaNoiNhan" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="MaNoiNhan" ColumnName="MaNoiNhan" />
+                <ScalarProperty Name="TenNoiNhan" ColumnName="TenNoiNhan" />
+                <ScalarProperty Name="Loai" ColumnName="Loai" />
+                <ScalarProperty Name="SoBaoMat" ColumnName="SoBaoMat" />
+                <ScalarProperty Name="Nhom" ColumnName="Nhom" />
+                <ScalarProperty Name="SoThuTu" ColumnName="SoThuTu" />
+                <ScalarProperty Name="CoBi" ColumnName="CoBi" />
+                <ScalarProperty Name="DangHoatDong" ColumnName="DangHoatDong" />
+                <ScalarProperty Name="CoSo" ColumnName="CoSo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NguoiDuyets">
-            <EntityTypeMapping TypeName="SMMgModel.NguoiDuyet">
+            <EntityTypeMapping TypeName="SMMg.NguoiDuyet">
               <MappingFragment StoreEntitySet="NguoiDuyet">
-                <ScalarProperty Name="ChuKy" ColumnName="ChuKy" />
-                <ScalarProperty Name="MacDinh" ColumnName="MacDinh" />
-                <ScalarProperty Name="TenNguoiDuyet" ColumnName="TenNguoiDuyet" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="TenNguoiDuyet" ColumnName="TenNguoiDuyet" />
+                <ScalarProperty Name="MacDinh" ColumnName="MacDinh" />
+                <ScalarProperty Name="ChuKy" ColumnName="ChuKy" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="NguoiKies">
-            <EntityTypeMapping TypeName="SMMgModel.NguoiKy">
+            <EntityTypeMapping TypeName="SMMg.NguoiKy">
               <MappingFragment StoreEntitySet="NguoiKy">
-                <ScalarProperty Name="ChuKy" ColumnName="ChuKy" />
-                <ScalarProperty Name="MacDinh" ColumnName="MacDinh" />
-                <ScalarProperty Name="ChucDanh" ColumnName="ChucDanh" />
-                <ScalarProperty Name="TenNguoiKy" ColumnName="TenNguoiKy" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="TenNguoiKy" ColumnName="TenNguoiKy" />
+                <ScalarProperty Name="ChucDanh" ColumnName="ChucDanh" />
+                <ScalarProperty Name="MacDinh" ColumnName="MacDinh" />
+                <ScalarProperty Name="ChuKy" ColumnName="ChuKy" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Nhoms">
-            <EntityTypeMapping TypeName="SMMgModel.Nhom">
+            <EntityTypeMapping TypeName="SMMg.Nhom">
               <MappingFragment StoreEntitySet="Nhom">
-                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="TenNhom" ColumnName="TenNhom" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PemisionDetails">
-            <EntityTypeMapping TypeName="SMMgModel.PemisionDetail">
+            <EntityTypeMapping TypeName="SMMg.PemisionDetail">
               <MappingFragment StoreEntitySet="PemisionDetail">
-                <ScalarProperty Name="Per" ColumnName="Per" />
-                <ScalarProperty Name="Per_Action" ColumnName="Per_Action" />
-                <ScalarProperty Name="PerDetail" ColumnName="PerDetail" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="PerDetail" ColumnName="PerDetail" />
+                <ScalarProperty Name="Per_Action" ColumnName="Per_Action" />
+                <ScalarProperty Name="Per" ColumnName="Per" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Permisions">
-            <EntityTypeMapping TypeName="SMMgModel.Permision">
+            <EntityTypeMapping TypeName="SMMg.Permision">
               <MappingFragment StoreEntitySet="Permision">
-                <ScalarProperty Name="DescriptionPer" ColumnName="DescriptionPer" />
-                <ScalarProperty Name="NamePer" ColumnName="NamePer" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="NamePer" ColumnName="NamePer" />
+                <ScalarProperty Name="DescriptionPer" ColumnName="DescriptionPer" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PhanLoaiNoiNhans">
-            <EntityTypeMapping TypeName="SMMgModel.PhanLoaiNoiNhan">
+            <EntityTypeMapping TypeName="SMMg.PhanLoaiNoiNhan">
               <MappingFragment StoreEntitySet="PhanLoaiNoiNhan">
-                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="PhanLoai" ColumnName="PhanLoai" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TuyChinhs">
-            <EntityTypeMapping TypeName="SMMgModel.TuyChinh">
+            <EntityTypeMapping TypeName="SMMg.TuyChinh">
               <MappingFragment StoreEntitySet="TuyChinh">
-                <ScalarProperty Name="LuuFile" ColumnName="LuuFile" />
-                <ScalarProperty Name="CoSo" ColumnName="CoSo" />
-                <ScalarProperty Name="InDauMatLenDien" ColumnName="InDauMatLenDien" />
-                <ScalarProperty Name="Fax" ColumnName="Fax" />
-                <ScalarProperty Name="Dien" ColumnName="Dien" />
-                <ScalarProperty Name="KhayGiay" ColumnName="KhayGiay" />
-                <ScalarProperty Name="In2Mat" ColumnName="In2Mat" />
-                <ScalarProperty Name="TieuDe" ColumnName="TieuDe" />
-                <ScalarProperty Name="AnhCkRong2" ColumnName="AnhCkRong2" />
-                <ScalarProperty Name="AnhCkCao2" ColumnName="AnhCkCao2" />
-                <ScalarProperty Name="AnhCkCao1" ColumnName="AnhCkCao1" />
-                <ScalarProperty Name="AnhCkRong1" ColumnName="AnhCkRong1" />
-                <ScalarProperty Name="VungCkLeDuoi" ColumnName="VungCkLeDuoi" />
-                <ScalarProperty Name="VungCkCao" ColumnName="VungCkCao" />
-                <ScalarProperty Name="VungCkRong" ColumnName="VungCkRong" />
-                <ScalarProperty Name="DauChimMauPdf" ColumnName="DauChimMauPdf" />
-                <ScalarProperty Name="DauChimMauDoc" ColumnName="DauChimMauDoc" />
-                <ScalarProperty Name="DauChimOpacity" ColumnName="DauChimOpacity" />
-                <ScalarProperty Name="DauChimFont" ColumnName="DauChimFont" />
-                <ScalarProperty Name="DauChimCao" ColumnName="DauChimCao" />
-                <ScalarProperty Name="DauChimRong" ColumnName="DauChimRong" />
-                <ScalarProperty Name="DsnDanDong" ColumnName="DsnDanDong" />
-                <ScalarProperty Name="DsnLeTren" ColumnName="DsnLeTren" />
-                <ScalarProperty Name="DsnLeTrai" ColumnName="DsnLeTrai" />
-                <ScalarProperty Name="VanBanLeTren" ColumnName="VanBanLeTren" />
-                <ScalarProperty Name="VanBanLeTrai" ColumnName="VanBanLeTrai" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="VanBanLeTrai" ColumnName="VanBanLeTrai" />
+                <ScalarProperty Name="VanBanLeTren" ColumnName="VanBanLeTren" />
+                <ScalarProperty Name="DsnLeTrai" ColumnName="DsnLeTrai" />
+                <ScalarProperty Name="DsnLeTren" ColumnName="DsnLeTren" />
+                <ScalarProperty Name="DsnDanDong" ColumnName="DsnDanDong" />
+                <ScalarProperty Name="DauChimRong" ColumnName="DauChimRong" />
+                <ScalarProperty Name="DauChimCao" ColumnName="DauChimCao" />
+                <ScalarProperty Name="DauChimFont" ColumnName="DauChimFont" />
+                <ScalarProperty Name="DauChimOpacity" ColumnName="DauChimOpacity" />
+                <ScalarProperty Name="DauChimMauDoc" ColumnName="DauChimMauDoc" />
+                <ScalarProperty Name="DauChimMauPdf" ColumnName="DauChimMauPdf" />
+                <ScalarProperty Name="VungCkRong" ColumnName="VungCkRong" />
+                <ScalarProperty Name="VungCkCao" ColumnName="VungCkCao" />
+                <ScalarProperty Name="VungCkLeDuoi" ColumnName="VungCkLeDuoi" />
+                <ScalarProperty Name="AnhCkRong1" ColumnName="AnhCkRong1" />
+                <ScalarProperty Name="AnhCkCao1" ColumnName="AnhCkCao1" />
+                <ScalarProperty Name="AnhCkCao2" ColumnName="AnhCkCao2" />
+                <ScalarProperty Name="AnhCkRong2" ColumnName="AnhCkRong2" />
+                <ScalarProperty Name="TieuDe" ColumnName="TieuDe" />
+                <ScalarProperty Name="In2Mat" ColumnName="In2Mat" />
+                <ScalarProperty Name="KhayGiay" ColumnName="KhayGiay" />
+                <ScalarProperty Name="Dien" ColumnName="Dien" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="InDauMatLenDien" ColumnName="InDauMatLenDien" />
+                <ScalarProperty Name="CoSo" ColumnName="CoSo" />
+                <ScalarProperty Name="LuuFile" ColumnName="LuuFile" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TuyChinhComboboxes">
-            <EntityTypeMapping TypeName="SMMgModel.TuyChinhCombobox">
+            <EntityTypeMapping TypeName="SMMg.TuyChinhCombobox">
               <MappingFragment StoreEntitySet="TuyChinhCombobox">
-                <ScalarProperty Name="GiayIn" ColumnName="GiayIn" />
-                <ScalarProperty Name="TrangThaiTuyChinh" ColumnName="TrangThaiTuyChinh" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="TrangThaiTuyChinh" ColumnName="TrangThaiTuyChinh" />
+                <ScalarProperty Name="GiayIn" ColumnName="GiayIn" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TrangThais">
-            <EntityTypeMapping TypeName="SMMgModel.TrangThai">
+            <EntityTypeMapping TypeName="SMMg.TrangThai">
               <MappingFragment StoreEntitySet="TrangThai">
-                <ScalarProperty Name="NameTrangThai" ColumnName="NameTrangThai" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="NameTrangThai" ColumnName="NameTrangThai" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="USERs">
-            <EntityTypeMapping TypeName="SMMgModel.USER">
+            <EntityTypeMapping TypeName="SMMg.USER">
               <MappingFragment StoreEntitySet="USER">
-                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="PerUser" ColumnName="PerUser" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="NameUser" ColumnName="NameUser" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PerUser" ColumnName="PerUser" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DienMatDaPhanPhois">
-            <EntityTypeMapping TypeName="SMMgModel.DienMatDaPhanPhoi">
+            <EntityTypeMapping TypeName="SMMg.DienMatDaPhanPhoi">
               <MappingFragment StoreEntitySet="DienMatDaPhanPhoi">
-                <ScalarProperty Name="ChuKy" ColumnName="ChuKy" />
-                <ScalarProperty Name="ChucDanh" ColumnName="ChucDanh" />
-                <ScalarProperty Name="NguoiKy" ColumnName="NguoiKy" />
-                <ScalarProperty Name="NguoiDuyet" ColumnName="NguoiDuyet" />
-                <ScalarProperty Name="NgayIn" ColumnName="NgayIn" />
-                <ScalarProperty Name="BanIn" ColumnName="BanIn" />
-                <ScalarProperty Name="SoBaoMat" ColumnName="SoBaoMat" />
-                <ScalarProperty Name="Loai" ColumnName="Loai" />
-                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
-                <ScalarProperty Name="Ngay" ColumnName="Ngay" />
-                <ScalarProperty Name="MaDienMat" ColumnName="MaDienMat" />
-                <ScalarProperty Name="DoMatFile" ColumnName="DoMatFile" />
-                <ScalarProperty Name="DoMat" ColumnName="DoMat" />
-                <ScalarProperty Name="TrichYeu" ColumnName="TrichYeu" />
-                <ScalarProperty Name="NoiGui" ColumnName="NoiGui" />
-                <ScalarProperty Name="FileDinhKem" ColumnName="FileDinhKem" />
-                <ScalarProperty Name="LuuFile" ColumnName="LuuFile" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="LuuFile" ColumnName="LuuFile" />
+                <ScalarProperty Name="FileDinhKem" ColumnName="FileDinhKem" />
+                <ScalarProperty Name="NoiGui" ColumnName="NoiGui" />
+                <ScalarProperty Name="TrichYeu" ColumnName="TrichYeu" />
+                <ScalarProperty Name="DoMat" ColumnName="DoMat" />
+                <ScalarProperty Name="DoMatFile" ColumnName="DoMatFile" />
+                <ScalarProperty Name="MaDienMat" ColumnName="MaDienMat" />
+                <ScalarProperty Name="Ngay" ColumnName="Ngay" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+                <ScalarProperty Name="Loai" ColumnName="Loai" />
+                <ScalarProperty Name="SoBaoMat" ColumnName="SoBaoMat" />
+                <ScalarProperty Name="BanIn" ColumnName="BanIn" />
+                <ScalarProperty Name="NgayIn" ColumnName="NgayIn" />
+                <ScalarProperty Name="NguoiDuyet" ColumnName="NguoiDuyet" />
+                <ScalarProperty Name="NguoiKy" ColumnName="NguoiKy" />
+                <ScalarProperty Name="ChucDanh" ColumnName="ChucDanh" />
+                <ScalarProperty Name="ChuKy" ColumnName="ChuKy" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
